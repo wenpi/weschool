@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+    <head>
+    <meta charset='utf-8'>
+    <title>统一打印离校二维码</title>
+        </head>
+    <body>
+        <ul>
+            {loop $list $row}
+            <li>
+            
+                姓名：{$row['student_name']}<br>
+                <img src="{php echo $this->createWebUrl('qrcode', array('id' => $row['student_id'], 'op' => 'student_live_student' ,'print_code'=>1))}" wdith='200'>
+              </li>
+            {/loop}
+            </ul>
+    </body>
+    </html>

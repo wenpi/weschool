@@ -1,0 +1,8 @@
+<ul class="nav nav-tabs">
+    <li {if $_GPC['do']=="paylog"}class="active"{/if}>
+        <a href="{php echo $this->createWebUrl('paylog')}">支付记录</a>
+    </li>
+    <li {if $_GPC['do']=="finish_paylog"}class="active"{/if}>
+        <a href="{php echo $this->createWebUrl('finish_paylog')}">打款操作</a>
+    </li>
+</ul>

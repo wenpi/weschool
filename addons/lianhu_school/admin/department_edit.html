@@ -1,0 +1,135 @@
+                     <div class="row">
+                        <div class="col-md-12">
+                             <div class="portlet light ">
+                                <div class="portlet-title">
+                                    <div class="caption font-green-haze">
+                                        <i class="icon-settings font-green-haze"></i>
+                                        <span class="caption-subject bold uppercase"> {if $ac=='new'}新增{else}修改{/if} </span>
+                                    </div>
+                                    <div class="actions">
+                                        <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="javascript:;" data-original-title="" title=""> </a>
+                                    </div>
+                                </div>
+                                  <div class="portlet-body form">
+                                    <form action="" method="post" class="form-horizontal form" enctype="multipart/form-data" id="form1"  >
+                                        <div class='form-group  form-md-line-input'>
+                                            <label class="  col-md-2 control-label"><span class="required" aria-required="true"> * </span>部门名</label>
+                                            <div class="col-sm-10">
+                                                    <input type="text" name="department_name" id="department_name" class="form-control" value='{$result['department_name']}' required {if $op=='add_admin'} readonly {/if} />
+                                                    <div class="form-control-focus"> </div>
+                                            </div>
+                                        </div>
+                                         {if $op!='add_admin'} 
+                                            <div class="form-group form-md-radios form-md-line-input  ">
+                                                <label class="col-md-2 control-label"  >是否是主管维修</label>
+                                                <div class="md-radio-inline">
+                                                    <div class="md-radio">
+                                                        <input type="radio"  id="radiol" class="md-radiobtn"  name="repair_fix"   value='1' {if $result['repair_fix']==1} checked {/if}  />
+                                                        <label for="radiol">
+                                                            <span></span>
+                                                            <span class="check"></span>
+                                                            <span class="box"></span>主管</label>
+                                                    </div>
+                                                    <div class="md-radio">
+                                                    <input type="radio"   id='radiol1' class="md-radiobtn" name="repair_fix"   value='0' {if $result['repair_fix']==0} checked {/if} />
+                                                        <label for="radiol1">
+                                                            <span></span>
+                                                            <span class="check"></span>
+                                                            <span class="box"></span>不主管</label>
+                                                    </div>
+                                                </div>
+                                            </div>   
+                                        {else}
+                                        {if $ac=='new'}
+                                            <div class="form-group  form-md-line-input">
+                                                <label class="control-label col-md-2">选择雇员</label>
+                                                    <div class="col-md-10">
+                                                        <select name="db_admin_id[]" id='pre-selected-options'  multiple="multiple" class="multi-select"  >
+                                                                {loop $school_all_list $row}
+                                                                {if !in_array($row['admin_id'],$depart_admin_id_arr) }
+                                                                    <option value='{$row['admin_id']}'  >{$row['admin_name']}【账号:{$row['passport']}】</option>
+                                                                {/if}
+                                                                {/loop}
+                                                        </select>
+                                                </div>
+                                            </div>  
+                                        {else}
+                                            <div class='form-group  form-md-line-input'>
+                                                <label class="  col-md-2 control-label"><span class="required" aria-required="true"> * </span>姓名</label>
+                                                <div class="col-sm-10">
+                                                        <input type="text" class="form-control" readonly value="{$admin_re['admin_name']}"/>
+                                                        <div class="form-control-focus"> </div>
+                                                </div>
+                                            </div>
+                                        {/if}
+                                        <div class="form-group  form-md-line-input">
+                                            <label class="control-label col-md-2">选择角色</label>
+                                                <div class="col-md-10">
+                                                       <select name="level" class="form-control"  >
+                                                            {loop $class_department->level $key $row}
+                                                             <option value='{$key}' {if $ad_re['level'] ==$key} selected {/if}>{$row}</option>
+                                                            {/loop}
+                                                      </select>
+                                               </div>
+                                        </div>
+                                     {/if}                     
+                                        <div class="form-actions">
+                                                <div class="row">
+                                                    <div class="col-md-offset-2 col-md-10">
+                                                        <input type="submit" name="submit" class="btn blue" value="确认">
+                                                    </div>
+                                                </div>
+                                         </div>                                                                                
+                                    </form>
+                                  </div>    
+                             </div>            
+                      </div>                 
+                     </div>
+                    </div>
+                </div>
+                {template '../admin/footer'}
+                <link href="{MODULE_URL}assets/global/plugins/jquery-multi-select/css/multi-select.css" rel="stylesheet" type="text/css" />
+                <style> .ms-container{  width:700px; }  </style>
+                <script src="{MODULE_URL}assets/global/plugins/jquery-multi-select/js/jquery.multi-select.js" ></script>
+                <script src="{MODULE_URL}/style/js/jquery.quicksearch.js" ></script>
+                <script>
+                    $('#pre-selected-options').multiSelect({
+                        selectableHeader: "<input type='text' class='search-input form-control' autocomplete='off' placeholder='try \"张三\"'>",
+                        selectionHeader: "<input type='text' class='search-input  form-control' autocomplete='off' placeholder='try \"李四\"'>",
+                        afterInit: function(ms){
+                            var that = this,
+                                $selectableSearch = that.$selectableUl.prev(),
+                                $selectionSearch = that.$selectionUl.prev(),
+                                selectableSearchString = '#'+that.$container.attr('id')+' .ms-elem-selectable:not(.ms-selected)',
+                                selectionSearchString = '#'+that.$container.attr('id')+' .ms-elem-selection.ms-selected';
+                            that.qs1 = $selectableSearch.quicksearch(selectableSearchString)
+                            .on('keydown', function(e){
+                            if (e.which === 40){
+                                that.$selectableUl.focus();
+                                return false;
+                            }
+                            });
+
+                            that.qs2 = $selectionSearch.quicksearch(selectionSearchString)
+                            .on('keydown', function(e){
+                            if (e.which == 40){
+                                that.$selectionUl.focus();
+                                return false;
+                            }
+                            });
+                        },
+                        afterSelect: function(){
+                            this.qs1.cache();
+                            this.qs2.cache();
+                        },
+                        afterDeselect: function(){
+                            this.qs1.cache();
+                            this.qs2.cache();
+                        }
+                    });
+
+                </script>
+         {template '../admin/right'}
+        </div>
+         </body>
+    </html>

@@ -1,0 +1,50 @@
+{template '../xiaoye/newHead'}
+<div class="z_main">
+    <div class="head">
+        {php $width = 100/count($line_types);}
+        {loop $line_types $row}
+                <a href="{php echo $this->createMobileUrl('classMsg',array('op'=>$row));}" style="width:{$width}% !important" {if $op == $row}class="pp"{/if}  ><p> {$row}</p></a>
+        {/loop}
+    </div>
+    <div class="MD" id='list'>
+        {template '../xiaoye/ClassMsg_content'}
+    </div>
+    {if $list}
+          <h1 id='add_msg' style="text-align:center;color:#333;font-size:1em;margin-top:10px;">...</h1>  
+    {else}
+          <h1 id='add_msg' style="text-align:center;color:#333;font-size:1em;margin-top:10px;">暂无信息</h1>  
+    {/if}
+</div>
+   <script>
+        var pager    = 1;
+        var send_id  = '';
+        var content  = '';    
+        $(function(){
+            $(window).scroll(function(){
+                if ($(document).height() - $(this).scrollTop() - $(this).height() < 100){
+                    if(pager==0){
+                        return false;
+                    }
+                    pager++;       
+                    $.ajax({
+                        url:'{php echo $this->createMobileUrl('classMsg')}',
+                        type:'post',
+                        data:{page:pager,op:'{$op}',ac:'ajax'},
+                        dataType:'text',
+                        async:'false',
+                        success:function(html){
+                                if(html =='all' ){
+                                    $("#add_msg").html("已经全部查看！");
+                                    pager = 0;
+                                }else{
+                                    $('#list').append(html);   
+                                }
+                            }
+                    });
+                }
+            });
+        });
+    </script>
+{template '../xiaoye/newStudentFooter'}
+</body>
+</html>

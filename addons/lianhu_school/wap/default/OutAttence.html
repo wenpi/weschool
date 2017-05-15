@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width; initial-scale=1; minimum-scale=1; maximum-scale=1"/>
+<meta name="MobileOptimized" content="320"/>
+<title>打卡记录</title>
+</head>
+<body>
+    <table class="table">
+        <thead>
+            <th>年级</th>
+            <th>班级</th>
+            <th>学生</th>
+            <th>打卡时间</th>
+            <th>打卡机</th>
+            <th>卡片</th>
+        </thead>
+        <tbody>
+            {loop $list $item}
+                <tr>
+                    <td>{if $item['student_id']}{php echo $this->gradeName($item['grade_id']);}{/if}</td>
+                    <td>{if $item['student_id']}{php echo $this->className($item['class_id']);}{/if}</td>
+                    <td>{if $item['student_id']}
+                            {php echo $this->studentName($item['student_id']);}
+                        {else}
+                            {php echo D("teacher")->teacherName($item['teacher_id']);}
+                        {/if}
+                    </td>
+                    <td>{if $item['play_card_time'] }{php echo date("Y-m-d H:i:s",$item['play_card_time']);}{else}{php echo date("Y-m-d H:i:s",$item['add_time']);}{/if}</td>
+                        {php $device_info = $class_card->deviceInfo($item['device_id']); }
+                    <td>{$device_info['device_name']}</td>
+                    <td>{$item['rfid_value']}</td>
+                </tr>
+            {/loop}
+        </tbody>
+    </table>
+</body>
+<style>
+    .table{
+        	font-family: verdana,arial,sans-serif;
+            font-size:11px;
+            color:#333333;
+            border-width: 1px;
+            border-color: #666666;
+            border-collapse: collapse;
+    }
+    .table td {
+        border-width: 1px;
+        padding: 8px;
+        border-style: solid;
+        border-color: #666666;
+        background-color: #ffffff;
+    }   
+</style>
+	{php $not_hidden='yes';}
+	{template 'jsweixin'}
+	<script>
+		wx.ready(function () {
+			wx.onMenuShareTimeline({
+				title: '{$school_info['school_name']}微官网', // 分享标题
+				link: '{if $school_info['host_url'] }{php echo $school_info['host_url'];}{else}{$_W['siteroot']}app/{php echo $this->createMobileUrl('wapHome',array('school_id'=>$school_info['school_id']))}{/if}', // 分享链接
+				imgUrl: '{$_W['attachurl']}{$img_list[0]['content']}', // 分享图标
+				success: function () { 
+					// 用户确认分享后执行的回调函数
+				},
+				cancel: function () { 
+					// 用户取消分享后执行的回调函数
+				}
+			});
+			wx.onMenuShareAppMessage({
+				title: '{$school_info['school_name']}微官网', // 分享标题
+				desc: '{php echo S("system",'getSetContent',array('school_info_intro',$this->school_info['school_id']) )}', // 分享描述
+				link: '{if $school_info['host_url'] }{php echo $school_info['host_url'];}{else}{$_W['siteroot']}app/{php echo $this->createMobileUrl('wapHome',array('school_id'=>$school_info['school_id']))}{/if}', // 分享链接
+				imgUrl: '{$_W['attachurl']}{$img_list[0]['content']}', // 分享图标
+				type: 'link', // 分享类型,music、video或link，不填默认为link
+				dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+				success: function () { 
+					// 用户确认分享后执行的回调函数
+				},
+				cancel: function () { 
+					// 用户取消分享后执行的回调函数
+                    
+				}
+			});			
+		});
+		wx.error(function(res){
+			// config信息验证失败会执行error函数，如签名过期导致验证失败，具体错误信息可以打开config的debug模式查看，也可以在返回的res参数中查看，对于SPA可以在这里更新签名。
+			// alert("js权限获取错误，请设置，或者刷新页面重试");    
+		});
+	</script>
+</html>

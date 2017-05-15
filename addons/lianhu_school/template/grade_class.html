@@ -1,0 +1,41 @@
+			<select name='grade_id' class='col-xs-6 col-sm-9 col-lg-3 form-control' id='grade_id' style="height:30px;">
+				{loop $grades $row}
+				{if !$frist_id }
+					{php $frist_id=$row;}
+				{/if}
+				{if $result['grade_id']==$row['grade_id']}
+					{php $frist_id=$row}
+				{/if}
+					<option value='{$row['grade_id']}' {if $result['grade_id'] == $row['grade_id'] } selected {/if}>{$row['grade_name']}</option>
+				{/loop}
+			</select>
+			<select name='class_id'  class='col-xs-6 col-sm-9 col-lg-3 form-control' style='height:30px' id='class_id'>
+				{loop $frist_id['second'] $row}
+					<option value='{$row['class_id']}' {if $result['class_id'] == $row['class_id'] } selected {/if}>{$row['class_name']}</option>
+				{/loop}
+			</select>			
+<script>
+$(function(){
+	$('#grade_id').change(function(){
+		var arr=new Array();
+		{loop $grades $re}
+			arr[{$re['grade_id']}]=new Array();
+			{php $i=0;}
+			{if $re['second']}
+			{loop $re['second'] $row}
+				arr[{$re['grade_id']}][{$i}]=new Array();
+				arr[{$re['grade_id']}][{$i}]['id']='{$row['class_id']}';
+				arr[{$re['grade_id']}][{$i}]['name']='{$row['class_name']}';
+				{php $i++}
+			{/loop}
+			{/if}
+		{/loop}
+		var val=$(this).val();
+		$('#class_id').html(" ");
+		var long_a=arr[val].length;
+		for(var i=0;i<long_a;i++){
+			$('#class_id').append("<option value='"+arr[val][i]['id']+"'>"+arr[val][i]['name']+"</option>");
+		}
+	});
+});
+</script>

@@ -1,0 +1,8 @@
+<ul class="nav nav-tabs">
+    <li {if $_GPC['do']=="category"}class="active"{/if}>
+        <a href="{php echo $this->createWebUrl('category')}">分类设置</a>
+    </li>
+    <li {if $_GPC['do']=="quickmenu"}class="active"{/if}>
+        <a href="{php echo $this->createWebUrl('quickmenu')}">底部菜单设置</a>
+    </li>
+</ul>

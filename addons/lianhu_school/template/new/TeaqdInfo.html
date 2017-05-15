@@ -1,0 +1,61 @@
+{php $page_title = '签到活动详情';}
+{template '../new/head'}
+  <link rel="stylesheet"        type="text/css"     href="{MODULE_URL}/style/app/css/framework.css">
+  <link rel="stylesheet"        type="text/css"     href="{MODULE_URL}/style/app/css/styles.css?{php echo time()}">
+  <script type='text/javascript' src='{MODULE_URL}/style/js/jquery.min.js'></script>
+  <script type="text/javascript" src="{MODULE_URL}/style/app/js/framework.js"></script>
+<body>
+  <div class="body" style="padding-top:0px;padding-bottom:60px;background-color:#fff;">
+        <div class="w-tabs" data-duration-in="400" data-duration-out="400" data-easing="ease-out-quint">
+            <div class="teaqd_head">
+                <span>{$result['activity_name']}</span>
+                <a href="{php echo $this->createMobileUrl("TeaqdInfo",array("id"=>$result['activity_id']))}" style='color:#18b4ed'> <i class=" fa fa-refresh"></i>刷新</a>
+            </div>
+
+            <div class="w-tab-content tabs-content" style="background-color:#fff;">
+                <div class="w-tab-pane  w--tab-active tab-pane" data-w-tab="Tab 1">
+                        <div class="weui_panel weui_panel_access" >
+                            <div>
+                                <div class="shintext">
+                                     应到：{$allcount}人
+                                </div>
+                                {php $re =$scan_re['count']/$allcount*100}
+                                <span class="shin"></span>
+                                <span class="hain" style="width: {$re}%;"></span>
+                                <div class="haintext" style="margin-left: {if $re>90}90{else}{$re}{/if}%;">
+                                    签到：{$scan_re['count']}人
+                                </div>
+                            </div>
+                        </div>
+                        {loop $class_ids $row}
+                                    <div class="weui_panel weui_panel_access"  style="border-top: 0px;">
+                                            班级：{$class_listre[$row]['info']['class_name']}
+                                            <div>
+                                                <div class="shintext">
+                                                    应到：{$class_listre[$row]['all']}人
+                                                </div>
+                                                {php $re =$class_listre[$row]['scan']/$class_listre[$row]['all']*100}
+                                                <span class="shin"></span>
+                                                <span class="hain" style="top:50px;width: {$re}%;"></span>
+                                                <div class="haintext" style="margin-left: {if $re>90}90{else}{$re}{/if}%;">
+                                                    签到：{$class_listre[$row]['scan']}人
+                                                </div>
+                                            </div>
+                                            <ul>
+                                                {loop $class_listre[$row]['student']  $val}
+                                                    {php $re= D("qdPerson")->edit(array("class_id"=>$row,'student_id'=>$val['student_id'])); }
+                                                    <li {if $re } class='studenthavein' {/if}>{$val['student_name']}</li>
+                                                {/loop}
+                                                <div style="clear:both"></div>
+                                            </ul>   
+                                        </div>
+                     
+                        {/loop}
+                </div>
+		    </div>
+	    </div>
+        <div class='end_text' id='end_text'></div>
+</div>
+
+{template 'jsweixin'}
+{template '../new/tea_footer'}

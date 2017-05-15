@@ -1,0 +1,11 @@
+              {php $class_course=D('course');}
+              {loop $list $row}
+                  <li class="list-message">
+                      <a class="w-clearfix w-inline-block" href="{php echo $this->createMobileUrl('tea_homework_content',array('hid'=>$row['homework_id']))}" data-load="1">
+                      <div class="column-right">
+                          <div class="message-title">【{php echo date("Y-m-d",$row['add_time']);}】{php echo $this->className($row['class_id']);}的{php echo $class_course->courseName($row['course_id']);}作业</div>
+                          <div class="message-text"> {$row['content']}</div>
+                      </div>
+                      </a>
+                  </li>
+              {/loop}

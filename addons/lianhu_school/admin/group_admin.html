@@ -1,0 +1,51 @@
+   {template '../admin/head'}
+        {template '../admin/header'}
+        <div class="page-container">
+        {template '../admin/left'}
+            <div class="page-content-wrapper">
+                <div class="page-content">
+                {template '../admin/sidebar'}
+                    <h1 class="page-title"> 
+                            <small> {$title} </small>
+                    </h1>
+                 <div class="row">
+                        <div class="col-md-12">
+                            <!-- BEGIN SAMPLE TABLE PORTLET-->
+                            <div class="portlet box green-turquoise">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <i class="fa fa-cogs"></i>列表 </div>
+                                    <div class="tools">
+                                        <a href="javascript:;" class="collapse"> </a>
+                                    </div>
+                                </div>
+                                <div class="portlet-body flip-scroll">
+                                    <table class="table table-bordered table-striped table-condensed flip-content">
+                                        <thead class="flip-content">
+                                            <tr>
+                                                <th>id</th>
+                                                <th>分组名</th>
+                                                <th>用户数</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                         {loop $list $item}
+                                            <tr >
+                                                <td>{$item['id']}</td>
+                                                <td>{$item['name']}</td>
+                                                <td>{$item['count']}</td>
+                                            </tr>
+                                        {/loop}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        </div>
+        </div>
+         {template '../admin/right'}
+        </div>
+     {template '../admin/footer'}
+         </body>
+    </html>

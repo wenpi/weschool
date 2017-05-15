@@ -1,0 +1,580 @@
+2016-05-23 07:20:05 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvrpzdE_H4JSsPQJQsYNA12Y]]></FromUserName>
+<CreateTime>1463959205</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://official.weixiao100.cn/custom/v3/index.html?schoolCode=zscy001&cropId=wx29a48dfc48fb3877&t=1461379426737]]></EventKey>
+<MenuId>404202786</MenuId>
+</xml>
+
+2016-05-23 07:20:05 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 13 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-05-23 07:20:05 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvrpzdE_H4JSsPQJQsYNA12Y ;
+MsgType : text ;
+Content : 等你好久了，智慧微校欢迎您。如果您是来逛逛的，请点开微官网查看我们学校的介绍信息。如果您是家长，请点开学生中心，用您家孩子姓名与学号绑定，就可尽情使用微校功能。如果您是老师，请点开微办公，用系统分配的账号与密码完成绑定，使用微校完成家校互动。 ;
+
+2016-05-23 07:20:34 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvrpzdE_H4JSsPQJQsYNA12Y]]></FromUserName>
+<CreateTime>1463959234</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=4&c=entry&eid=1]]></EventKey>
+<MenuId>404202786</MenuId>
+</xml>
+
+2016-05-23 07:20:34 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 13 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-05-23 07:20:34 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvrpzdE_H4JSsPQJQsYNA12Y ;
+MsgType : text ;
+Content : 等你好久了，智慧微校欢迎您。如果您是来逛逛的，请点开微官网查看我们学校的介绍信息。如果您是家长，请点开学生中心，用您家孩子姓名与学号绑定，就可尽情使用微校功能。如果您是老师，请点开微办公，用系统分配的账号与密码完成绑定，使用微校完成家校互动。 ;
+
+2016-05-23 07:20:43 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvrpzdE_H4JSsPQJQsYNA12Y]]></FromUserName>
+<CreateTime>1463959243</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=4&c=entry&eid=2]]></EventKey>
+<MenuId>404202786</MenuId>
+</xml>
+
+2016-05-23 07:20:43 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 13 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-05-23 07:20:43 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvrpzdE_H4JSsPQJQsYNA12Y ;
+MsgType : text ;
+Content : 等你好久了，智慧微校欢迎您。如果您是来逛逛的，请点开微官网查看我们学校的介绍信息。如果您是家长，请点开学生中心，用您家孩子姓名与学号绑定，就可尽情使用微校功能。如果您是老师，请点开微办公，用系统分配的账号与密码完成绑定，使用微校完成家校互动。 ;
+
+2016-05-23 09:51:21 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvrpzdE_H4JSsPQJQsYNA12Y]]></FromUserName>
+<CreateTime>1463968281</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=4&c=entry&eid=2]]></EventKey>
+<MenuId>404202786</MenuId>
+</xml>
+
+2016-05-23 09:51:21 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 13 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-05-23 09:51:21 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvrpzdE_H4JSsPQJQsYNA12Y ;
+MsgType : text ;
+Content : 等你好久了，智慧微校欢迎您。如果您是来逛逛的，请点开微官网查看我们学校的介绍信息。如果您是家长，请点开学生中心，用您家孩子姓名与学号绑定，就可尽情使用微校功能。如果您是老师，请点开微办公，用系统分配的账号与密码完成绑定，使用微校完成家校互动。 ;
+
+2016-05-23 11:33:27 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvrpzdE_H4JSsPQJQsYNA12Y]]></FromUserName>
+<CreateTime>1463974407</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=4&c=entry&eid=2]]></EventKey>
+<MenuId>404202786</MenuId>
+</xml>
+
+2016-05-23 11:33:27 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 13 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-05-23 11:33:27 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvrpzdE_H4JSsPQJQsYNA12Y ;
+MsgType : text ;
+Content : 等你好久了，智慧微校欢迎您。如果您是来逛逛的，请点开微官网查看我们学校的介绍信息。如果您是家长，请点开学生中心，用您家孩子姓名与学号绑定，就可尽情使用微校功能。如果您是老师，请点开微办公，用系统分配的账号与密码完成绑定，使用微校完成家校互动。 ;
+
+2016-05-23 12:43:07 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvrpzdE_H4JSsPQJQsYNA12Y]]></FromUserName>
+<CreateTime>1463978586</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=4&c=entry&eid=2]]></EventKey>
+<MenuId>404202786</MenuId>
+</xml>
+
+2016-05-23 12:43:07 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 13 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-05-23 12:43:07 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvrpzdE_H4JSsPQJQsYNA12Y ;
+MsgType : text ;
+Content : 等你好久了，智慧微校欢迎您。如果您是来逛逛的，请点开微官网查看我们学校的介绍信息。如果您是家长，请点开学生中心，用您家孩子姓名与学号绑定，就可尽情使用微校功能。如果您是老师，请点开微办公，用系统分配的账号与密码完成绑定，使用微校完成家校互动。 ;
+
+2016-05-23 12:44:31 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvrpzdE_H4JSsPQJQsYNA12Y]]></FromUserName>
+<CreateTime>1463978670</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=4&c=entry&eid=1]]></EventKey>
+<MenuId>404202786</MenuId>
+</xml>
+
+2016-05-23 12:44:31 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 13 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-05-23 12:44:31 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvrpzdE_H4JSsPQJQsYNA12Y ;
+MsgType : text ;
+Content : 等你好久了，智慧微校欢迎您。如果您是来逛逛的，请点开微官网查看我们学校的介绍信息。如果您是家长，请点开学生中心，用您家孩子姓名与学号绑定，就可尽情使用微校功能。如果您是老师，请点开微办公，用系统分配的账号与密码完成绑定，使用微校完成家校互动。 ;
+
+2016-05-23 12:44:38 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvrpzdE_H4JSsPQJQsYNA12Y]]></FromUserName>
+<CreateTime>1463978678</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=4&c=entry&eid=1]]></EventKey>
+<MenuId>404202786</MenuId>
+</xml>
+
+2016-05-23 12:44:38 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 13 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-05-23 12:44:38 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvrpzdE_H4JSsPQJQsYNA12Y ;
+MsgType : text ;
+Content : 等你好久了，智慧微校欢迎您。如果您是来逛逛的，请点开微官网查看我们学校的介绍信息。如果您是家长，请点开学生中心，用您家孩子姓名与学号绑定，就可尽情使用微校功能。如果您是老师，请点开微办公，用系统分配的账号与密码完成绑定，使用微校完成家校互动。 ;
+
+2016-05-23 14:00:38 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvrpzdE_H4JSsPQJQsYNA12Y]]></FromUserName>
+<CreateTime>1463983238</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=4&c=entry&eid=2]]></EventKey>
+<MenuId>404202786</MenuId>
+</xml>
+
+2016-05-23 14:00:38 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 13 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-05-23 14:00:38 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvrpzdE_H4JSsPQJQsYNA12Y ;
+MsgType : text ;
+Content : 等你好久了，智慧微校欢迎您。如果您是来逛逛的，请点开微官网查看我们学校的介绍信息。如果您是家长，请点开学生中心，用您家孩子姓名与学号绑定，就可尽情使用微校功能。如果您是老师，请点开微办公，用系统分配的账号与密码完成绑定，使用微校完成家校互动。 ;
+
+2016-05-23 14:01:29 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvrpzdE_H4JSsPQJQsYNA12Y]]></FromUserName>
+<CreateTime>1463983289</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=4&c=entry&eid=2]]></EventKey>
+<MenuId>404202786</MenuId>
+</xml>
+
+2016-05-23 14:01:29 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 13 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-05-23 14:01:29 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvrpzdE_H4JSsPQJQsYNA12Y ;
+MsgType : text ;
+Content : 等你好久了，智慧微校欢迎您。如果您是来逛逛的，请点开微官网查看我们学校的介绍信息。如果您是家长，请点开学生中心，用您家孩子姓名与学号绑定，就可尽情使用微校功能。如果您是老师，请点开微办公，用系统分配的账号与密码完成绑定，使用微校完成家校互动。 ;
+
+2016-05-23 14:06:23 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvrpzdE_H4JSsPQJQsYNA12Y]]></FromUserName>
+<CreateTime>1463983583</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://official.weixiao100.cn/custom/v3/index.html?schoolCode=zscy001&cropId=wx29a48dfc48fb3877&t=1461379426737]]></EventKey>
+<MenuId>404202786</MenuId>
+</xml>
+
+2016-05-23 14:06:23 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 13 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-05-23 14:06:23 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvrpzdE_H4JSsPQJQsYNA12Y ;
+MsgType : text ;
+Content : 等你好久了，智慧微校欢迎您。如果您是来逛逛的，请点开微官网查看我们学校的介绍信息。如果您是家长，请点开学生中心，用您家孩子姓名与学号绑定，就可尽情使用微校功能。如果您是老师，请点开微办公，用系统分配的账号与密码完成绑定，使用微校完成家校互动。 ;
+
+2016-05-23 14:06:29 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvrpzdE_H4JSsPQJQsYNA12Y]]></FromUserName>
+<CreateTime>1463983589</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=4&c=entry&eid=2]]></EventKey>
+<MenuId>404202786</MenuId>
+</xml>
+
+2016-05-23 14:06:29 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 13 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-05-23 14:06:29 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvrpzdE_H4JSsPQJQsYNA12Y ;
+MsgType : text ;
+Content : 等你好久了，智慧微校欢迎您。如果您是来逛逛的，请点开微官网查看我们学校的介绍信息。如果您是家长，请点开学生中心，用您家孩子姓名与学号绑定，就可尽情使用微校功能。如果您是老师，请点开微办公，用系统分配的账号与密码完成绑定，使用微校完成家校互动。 ;
+
+2016-05-23 15:40:18 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvrpzdE_H4JSsPQJQsYNA12Y]]></FromUserName>
+<CreateTime>1463989218</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=4&c=entry&eid=2]]></EventKey>
+<MenuId>404202786</MenuId>
+</xml>
+
+2016-05-23 15:40:18 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 13 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-05-23 15:40:18 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvrpzdE_H4JSsPQJQsYNA12Y ;
+MsgType : text ;
+Content : 等你好久了，智慧微校欢迎您。如果您是来逛逛的，请点开微官网查看我们学校的介绍信息。如果您是家长，请点开学生中心，用您家孩子姓名与学号绑定，就可尽情使用微校功能。如果您是老师，请点开微办公，用系统分配的账号与密码完成绑定，使用微校完成家校互动。 ;
+
+2016-05-23 16:35:45 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvodQbJscFvVHtC4xh757R2Y]]></FromUserName>
+<CreateTime>1463992545</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=4&c=entry&eid=1]]></EventKey>
+<MenuId>404202786</MenuId>
+</xml>
+
+2016-05-23 16:35:45 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 13 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-05-23 16:35:45 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvodQbJscFvVHtC4xh757R2Y ;
+MsgType : text ;
+Content : 等你好久了，智慧微校欢迎您。如果您是来逛逛的，请点开微官网查看我们学校的介绍信息。如果您是家长，请点开学生中心，用您家孩子姓名与学号绑定，就可尽情使用微校功能。如果您是老师，请点开微办公，用系统分配的账号与密码完成绑定，使用微校完成家校互动。 ;
+
+2016-05-23 17:48:02 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvrpzdE_H4JSsPQJQsYNA12Y]]></FromUserName>
+<CreateTime>1463996882</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=4&c=entry&eid=2]]></EventKey>
+<MenuId>404202786</MenuId>
+</xml>
+
+2016-05-23 17:48:02 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 13 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-05-23 17:48:02 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvrpzdE_H4JSsPQJQsYNA12Y ;
+MsgType : text ;
+Content : 等你好久了，智慧微校欢迎您。如果您是来逛逛的，请点开微官网查看我们学校的介绍信息。如果您是家长，请点开学生中心，用您家孩子姓名与学号绑定，就可尽情使用微校功能。如果您是老师，请点开微办公，用系统分配的账号与密码完成绑定，使用微校完成家校互动。 ;
+
+2016-05-23 17:49:04 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvrpzdE_H4JSsPQJQsYNA12Y]]></FromUserName>
+<CreateTime>1463996944</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://official.weixiao100.cn/custom/v3/index.html?schoolCode=zscy001&cropId=wx29a48dfc48fb3877&t=1461379426737]]></EventKey>
+<MenuId>404202786</MenuId>
+</xml>
+
+2016-05-23 17:49:04 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 13 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-05-23 17:49:04 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvrpzdE_H4JSsPQJQsYNA12Y ;
+MsgType : text ;
+Content : 等你好久了，智慧微校欢迎您。如果您是来逛逛的，请点开微官网查看我们学校的介绍信息。如果您是家长，请点开学生中心，用您家孩子姓名与学号绑定，就可尽情使用微校功能。如果您是老师，请点开微办公，用系统分配的账号与密码完成绑定，使用微校完成家校互动。 ;
+
+2016-05-23 17:49:15 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvrpzdE_H4JSsPQJQsYNA12Y]]></FromUserName>
+<CreateTime>1463996955</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=4&c=entry&eid=2]]></EventKey>
+<MenuId>404202786</MenuId>
+</xml>
+
+2016-05-23 17:49:15 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 13 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-05-23 17:49:15 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvrpzdE_H4JSsPQJQsYNA12Y ;
+MsgType : text ;
+Content : 等你好久了，智慧微校欢迎您。如果您是来逛逛的，请点开微官网查看我们学校的介绍信息。如果您是家长，请点开学生中心，用您家孩子姓名与学号绑定，就可尽情使用微校功能。如果您是老师，请点开微办公，用系统分配的账号与密码完成绑定，使用微校完成家校互动。 ;
+
+2016-05-23 18:40:36 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvv1t-_a65jcwSqD5QvOtTHM]]></FromUserName>
+<CreateTime>1464000036</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://official.weixiao100.cn/custom/v3/index.html?schoolCode=zscy001&cropId=wx29a48dfc48fb3877&t=1461379426737]]></EventKey>
+<MenuId>404202786</MenuId>
+</xml>
+
+2016-05-23 18:40:36 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 13 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-05-23 18:40:36 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvv1t-_a65jcwSqD5QvOtTHM ;
+MsgType : text ;
+Content : 等你好久了，智慧微校欢迎您。如果您是来逛逛的，请点开微官网查看我们学校的介绍信息。如果您是家长，请点开学生中心，用您家孩子姓名与学号绑定，就可尽情使用微校功能。如果您是老师，请点开微办公，用系统分配的账号与密码完成绑定，使用微校完成家校互动。 ;
+
+2016-05-23 18:41:21 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvv1t-_a65jcwSqD5QvOtTHM]]></FromUserName>
+<CreateTime>1464000081</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://official.weixiao100.cn/custom/v3/index.html?schoolCode=zscy001&cropId=wx29a48dfc48fb3877&t=1461379426737]]></EventKey>
+<MenuId>404202786</MenuId>
+</xml>
+
+2016-05-23 18:41:21 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 13 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-05-23 18:41:21 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvv1t-_a65jcwSqD5QvOtTHM ;
+MsgType : text ;
+Content : 等你好久了，智慧微校欢迎您。如果您是来逛逛的，请点开微官网查看我们学校的介绍信息。如果您是家长，请点开学生中心，用您家孩子姓名与学号绑定，就可尽情使用微校功能。如果您是老师，请点开微办公，用系统分配的账号与密码完成绑定，使用微校完成家校互动。 ;
+
+2016-05-23 18:42:42 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvv1t-_a65jcwSqD5QvOtTHM]]></FromUserName>
+<CreateTime>1464000162</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=4&c=entry&eid=1]]></EventKey>
+<MenuId>404202786</MenuId>
+</xml>
+
+2016-05-23 18:42:42 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 13 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-05-23 18:42:42 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvv1t-_a65jcwSqD5QvOtTHM ;
+MsgType : text ;
+Content : 等你好久了，智慧微校欢迎您。如果您是来逛逛的，请点开微官网查看我们学校的介绍信息。如果您是家长，请点开学生中心，用您家孩子姓名与学号绑定，就可尽情使用微校功能。如果您是老师，请点开微办公，用系统分配的账号与密码完成绑定，使用微校完成家校互动。 ;
+

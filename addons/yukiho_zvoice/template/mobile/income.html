@@ -1,0 +1,75 @@
+{php $g_title='我的收入'}
+{php $menu='4'}
+{template 'common/header1'}
+{template 'common/menu'}
+		<div id="content" class="snap-content">
+			<div class="content half-bottom half-top">
+				<div class="home-tabs">
+					<a style="width:33%;" class="activate-tab-1 active-home-tab" href="{php echo $this->createMobileUrl('income')}">我的收入</a>
+					<a style="width:33%;" class="activate-tab-1">收入记录</a>
+					<a style="width:33%;" class="activate-tab-2">提现记录</a>
+					<div class="clear"></div>
+				</div>
+			</div>
+			<div class="container no-bottom">
+			<!--
+					<h4 class="no-bottom"><i class="fa fa-dollar"></i>  我的账户余额：<z style='color:#27ae60'>{$member['credit2']}元</z></h4>
+					<p></p>
+				<div class="decoration"></div>-->
+				<div class="sidebar-left-small" style='margin-top:15px;'>
+					<h4 class="no-bottom"><i class="fa fa-dollar"></i> 累计总收入：<z style='color:#27ae60'>{$credit[0]}元</z></h4><p></p>
+					<ul class="font-icon-list" style='padding-left:0px;margin-bottom:10px;'>
+						<li><a href="#">回答题目收入（比例：80%）：<z style='padding-left:10px;'>{$credit[1]}元</z></a></li>
+						<li><a href="#">回答打赏收入（比例：100%）：<z style='padding-left:10px;'>{$credit[4]}元</z></a></li>
+						<li><a href="#">学习分成收入（比例：20%）：<z style='padding-left:10px;'>{$credit[2]}元</z></a></li>
+						<li><a href="#">提问分成收入（比例：50%）：<z style='padding-left:10px;'>{$credit[3]}元</z></a></li>
+					</ul>
+				</div>
+				
+				<div class="decoration"></div>
+				<div class="sidebar-left-small">
+					<h4 class="no-bottom"><i class="fa fa-dollar"></i>  已提现金额：<z style='color:#27ae60'>{$credit['ytx']}元</z></h4>
+					<p></p><p>请到微信钱包查看具体收益记录</p>
+				<div class="decoration"></div>
+				<div class="sidebar-right-big">
+					<h4 class="no-bottom"><i class="fa fa-dollar"></i>  可提现金额：
+					<z style='color:#27ae60'>{$credit['ktx']}元
+					<!--<a style="height:20px;padding-bottom:20px;line-height:20px;margin-left:10px;width:105px" href="#" class="button button-blue button-round">我要提现</a>--></z></h4>
+					<p>满10元即可提现，微信官方会扣除2%手续费，旁听收益回答者和提问者分成比例为10%</p>
+				</div>
+				<!--
+				<table cellspacing="0" class="table">
+					<tbody><tr>
+					<th>日期</th>
+					<th>金额</th>
+					<th>状态</th>
+					</tr>
+					<tr>
+						<td> 2016-10-21</td>
+						<td>30元</td>
+						<td>完成</td>
+					</tr>
+					<tr>
+						<td> 2016-10-21</td>
+						<td>30元</td>
+						<td>完成</td>
+					</tr>
+					<tr>
+						<td> 2016-10-21</td>
+						<td>30元</td>
+						<td>完成</td>
+					</tr>
+					</tbody>
+				</table>-->
+			</div>
+		</div>
+	</div>
+	<script src="{MODULE_URL}public/js/loadmore.js"></script>
+	<script>
+	function callback(html){
+		$('#append').append(html);
+	}
+	initload("{php echo $this->createMobileUrl('visited',array('cid'=>$cid))}",callback);
+	loadmore("{php echo $this->createMobileUrl('visited',array('cid'=>$cid))}",callback);
+	</script>
+</body>

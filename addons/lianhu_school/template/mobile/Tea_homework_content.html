@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>作业详情-{$_SESSION['school_name']}</title>
+    {template 'common'}
+    <link rel="stylesheet" href="{MODULE_URL}style/css/buttons.css">
+    <link href="{MODULE_URL}assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">    
+</head>
+
+<body>
+<div class="wrap" style="margin-bottom:60px;width:100%;over-flow:hidden">
+    <div class="neirong">
+        <h1>{php echo date("m-d",$result['add_time']);}日{$result['course_name']}作业</h1>
+        <div class="other"><u>发布人：{if $result['teacher_name']}{$result['teacher_name']}{else}管理员{/if}</u></div>
+                <br>
+                {php $imgs = unserialize($result['img']);}
+                {if $imgs}
+                     {php $img_list =S("fun",'decodeImgs',array($imgs ,$this->module['config']['qiniu_url'] )); }
+                     {loop $img_list $row}
+                        <img src='{$row}' style="width:90%;margin-left:5%;margin-top:10px;">
+                     {/loop}
+                {/if}
+                {if $result['voice']}
+                        <br>
+                        <div style="width:100%;text-align:center">
+                            {php echo  $this->echoVoiceUrl($result['voice']);}
+                        </div>    
+                {/if}   
+               {php echo htmlspecialchars_decode($result['content'])}  
+    </div>
+</div>
+<script type="text/javascript">
+  function displayImage(obj){
+      var img_urls=[];
+      var img_current='';
+        if($(obj).find('.lazy').length>0){
+             img_current=$(obj).find('.lazy').attr('src');
+             img_urls=[img_current];
+        }
+        if($(obj).find('div').length>0){
+                img_current=$(obj).find('div').eq(0).attr('data-img');
+                $.each($(obj).find('div'),function(i,e){
+                    img_urls.push($(this).attr('data-img'));
+                });
+        }
+        img_urls.pop()
+        wx.previewImage({
+        current: img_current,
+        urls: img_urls
+        });
+  }
+  </script>
+ {template 'jsweixin'}
+ {template 'footer_tea'}

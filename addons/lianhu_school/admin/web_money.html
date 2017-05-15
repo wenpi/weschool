@@ -1,0 +1,230 @@
+   {template '../admin/head'}
+        {template '../admin/header'}
+        <div class="page-container">
+        {template '../admin/left'}
+            <div class="page-content-wrapper">
+                <div class="page-content">
+                {template '../admin/sidebar'}
+                    <h1 class="page-title"> {$_SESSION['school_name']}
+                            <small> {$title} </small>
+                    </h1>
+                {if $ac =='edit'|| $ac=='new' }
+                     <div class="row">
+                    <div class="col-md-12">
+                             <div class="portlet light ">
+                                <div class="portlet-title">
+                                    <div class="caption font-green-haze">
+                                        <i class="icon-settings font-green-haze"></i>
+                                        <span class="caption-subject bold uppercase">{if $ac=='new'}新增收费{else}修改{/if} </span>
+                                    </div>
+                                    <div class="actions">
+                                        <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="javascript:;" data-original-title="" title=""> </a>
+                                    </div>
+                                </div>
+                                  <div class="portlet-body form">
+                                    <form action="" method="post" class="form-horizontal form" enctype="multipart/form-data" id="form1"  >
+                                        <div class='form-group'>
+                                            <label class=" col-md-2 control-label"><span style='color:red'>*</span>限制类型</label>
+                                            <div class="col-sm-10">
+                                                <select name='school_limit_type' id="limit_type" class="form-control" >
+                                                    {loop $appointment_limit $key $row}
+                                                        <option value='{$key}' {if $result['school_limit_type'] == $key} selected {/if}>{$row}</option>
+                                                    {/loop}
+                                                </select>
+                                            </div>	
+                                        </div>	
+                                        <div class="form-group">
+                                            <label class=" col-md-2 control-label"><span style='color:red'>*</span>限制具体</label>
+                                            <div class="col-sm-10" id='limit_content' data-type='{$limit_type}'>
+                                                {if $result['school_limit_type']==0}无{/if}
+                                                {if $result['school_limit_type']==1}
+                                                    {loop $grade_list $row}
+                                                        <input  name='grades[]' type='checkbox' value='{$row['grade_id']}' {if in_array($row['grade_id'],$result['grade_ids'])} checked {/if}>{$row['grade_name']}&nbsp;&nbsp;
+                                                    {/loop}
+                                                {/if}
+                                                {if $result['school_limit_type']==2}
+                                                    {loop $class_list $row}
+                                                        {php $grade_info = D('grade')->getGradeInfo($row['grade_id']);}
+                                                        <input name='class[]' type='checkbox' value='{$row['class_id']}' {if in_array($row['class_id'],$result['class_ids'])} checked {/if}>{$grade_info['grade_name']}~{$row['class_name']}&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    {/loop}							
+                                                {/if}
+                                            </div>
+                                        </div>
+                                        <div class='form-group form-md-line-input'>
+                                            <label class="   col-md-2 control-label"><span style='color:red'>*</span>付费时间限制</label>
+                                            <div class="col-sm-10">
+                                                <select name='limit_type' id="limit_type" class="form-control" >
+                                                        {loop $limit_type_arr $key $row}
+                                                            <option value='{$key}' {if $result['limit_type']==$key} selected {/if}>{$row}</option>
+                                                        {/loop}
+                                                </select>
+                                            </div>	
+                                        </div>	
+
+                                        <div class='form-group form-md-line-input'>
+                                            <label class="   col-md-2 control-label"><span style='color:red'>*</span>标题</label>
+                                            <div class="col-sm-10">
+                                                <input type='text' value='{$result['limit_name']}' name='limit_name' class='form-control' >
+                                                {if $ac=='edit'}
+                                                <input type='hidden' value='{$result['limit_id']}' name='limit_id'>
+                                                {/if}
+                                            </div>	
+                                        </div>
+                                        <div class='form-group form-md-line-input'>
+                                            <label class="   col-md-2 control-label"><span style='color:red'>*</span>金额</label>
+                                            <div class="col-sm-10">
+                                                <input type='text' value='{$result['limit_much']}' name='limit_much' class='form-control' >
+                                            </div>	
+                                        </div>
+                                        
+                                        <div class='form-group form-md-line-input'>
+                                            <label class="   col-md-2 control-label"><span style='color:red'>*</span>限制模块[可同时限制多个]</label>
+                                            <div class="col-sm-10 mt-checkbox-inline ">
+                                                {loop $student_fun_list $row}
+                                                {if $row['key']!='give_money'}
+                                                    <label class="mt-checkbox">
+                                                    <input type='checkbox' value='{$row['key']}' name='limit_module[]' {if $result['limit_module']}   {if in_array($row['key'],$result['limit_module'])} checked {/if} {/if} >{$row['name']}
+                                                    <span></span>
+                                                    </label>
+                                                    {/if}
+                                                {/loop}
+                                            </div>	
+                                        </div>
+                                        <div class='form-group form-md-line-input'>
+                                            <label class="   col-md-2 control-label">收费组</label>
+                                            <div class="col-sm-10">
+                                                <select name='group_id' class="form-control">
+                                                    <option value='0' >未有</option>
+                                                    {loop $money_group_list $row}
+                                                        <option value='{$row['group_id']}' {if $result['group_id'] == $row['group_id']} selected {/if}>{$row['group_name']}</option>
+                                                    {/loop}
+                                                </select>
+                                            </div>							
+                                        </div>  
+
+                                        <div class='form-group form-md-line-input'>
+                                            <label class="   col-md-2 control-label"><span style='color:red'>*</span>状态</label>
+                                            <div class="col-sm-10">
+                                                <select name='status' class="form-control">
+                                                    <option value='1' {if $result['status']==1} selected {/if}>生效</option>
+                                                    <option value='0' {if $result['status']==0} selected {/if}>关闭</option>
+                                                </select>
+                                            </div>							
+                                        </div>     
+                                        <div class="form-actions">
+                                                <div class="row">
+                                                    <div class="col-md-offset-2 col-md-10">
+                                                        <input type="submit" name="submit" class="btn blue" value="确认">
+                                                    </div>
+                                                </div>
+                                            </div>                                                                                
+                                    </form>
+                                  </div>    
+                             </div>            
+                      </div>                 
+                     </div>
+                {/if}
+                {if $ac=='list'}
+                 <div class="row">
+                        <div class="col-md-12">
+                            <div class="note note-success">
+                                <p>  收费管理列表 </p>
+                            </div>
+                            <!-- BEGIN SAMPLE TABLE PORTLET-->
+                            <div class="portlet box green-turquoise">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <i class="fa fa-cogs"></i> 收费管理列表 </div>
+                                    <div class="tools">
+                                        <a href="javascript:;" class="collapse"> </a>
+                                    </div>
+                                </div>
+                                <div class="portlet-body flip-scroll">
+                                    <table class="table table-bordered table-striped table-condensed flip-content">
+                                        <thead class="flip-content">
+                                            <tr>
+                                                <th> 名称</th>
+                                                <th> 收费组</th>
+                                                <th> 金额</th>
+                                                <th> 发布时间</th>
+                                                <th> 收费机制</th>
+                                                <th> 参与人数</th>
+                                                <th> 目前总额</th>
+                                                <th> 状态</th>
+                                                <th> 操作</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {loop $list $row}
+                                                <tr>
+                                                    <td>{$row['limit_name']}</td>
+                                                    <td>{if $row['group_id']} {php echo D("moneyGroup")->groupName($row['group_id']);}{else}未有{/if}</td>
+                                                    <td>{$row['limit_much']}</td>
+                                                    <td>{if $row['addtime']}{php echo date("Y-m-d H:i:s",$row['addtime'])} {else}{php echo date("Y-m-d H:i:s",$row['add_time'])}{/if}</td>
+                                                    <td>{php echo $limit_type_arr[$row['limit_type']]}</td>
+                                                    <td>{php echo $this->money_people_num($row['limit_id']);}</td>
+                                                    <td>{php echo $this->money_much($row['limit_id']);}</td>
+                                                    <td> {if $row['status']==1}生效{else}<span class="font-red">关闭</span>{/if}</td>
+                                                    <td style="text-align: center">
+                                                        <a href="{php echo $this->createWebUrl('money',array('id'=>$row['limit_id'],'ac'=>'edit','aw'=>1) )}" class="btn blue"> <i class="fa fa-edit"></i>编辑</a>
+                                                        <a href="{php echo $this->createWebUrl('moneylist',array('limit_id'=>$row['limit_id'],'ac'=>'list','aw'=>1) )}" class="btn yellow"> <i class="fa fa-eye"></i>查看缴费</a>
+                                                        <a href="{php echo $this->createWebUrl('moneyReduce',array('limit_id'=>$row['limit_id']))}" class="btn green"> <i class="fa fa-hand-peace-o"></i>减免</a>
+                                                        <a href="{php echo $this->createWebUrl('money',array('id'=>$row['limit_id'],'ac'=>'delete') )}" class="btn red" 
+                                                            onclick=" if(!confirm('您确定删除吗')){return false;}"   > <i class="fa fa-close"></i>删除</a>
+                                                        </td>
+                                                </tr>
+                                            {/loop}                                           
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {/if}
+        </div>
+        </div>
+         {template '../admin/right'}
+        </div>
+                    <script>
+                        $(function(){
+                            var grade_html='';
+                                {loop  $grade_list $key $row}
+                                    grade_html +="<input value='{$row['grade_id']}' type='checkbox' onclick='checkbox(this)' name='grades[]'>{$row['grade_name']}&nbsp;&nbsp;";
+                                {/loop}
+                            var class_html='';
+                            {loop $class_list $key $row}
+                                {php $grade_info = D('grade')->getGradeInfo($row['grade_id']);}
+                                class_html +="<input value='{$row['class_id']}' type='checkbox' onclick='checkbox(this)'name='class[]'>{$grade_info['grade_name']}~{$row['class_name']}&nbsp;&nbsp;&nbsp;&nbsp;";
+                            {/loop}
+                                var data_type=new Array();
+                            $('#limit_type').change(function(){
+                                var val=$(this).val();
+                                    var limit_type=$('#limit_content').attr('data-type');
+                                    limit_type=limit_type ? limit_type :0;
+                                    data_type[limit_type]=$('#limit_content').html();
+                                    $('#limit_content').attr('data-type',val);
+                                    if(!data_type[val]){
+                                        if(val==1){
+                                            var content=grade_html;
+                                        }else if(val==2){
+                                            var content=class_html;
+                                        }else if(val==0){
+                                            var content='无';
+                                        }
+                                        $('#limit_content').html(content);
+                                    }else{
+                                        $('#limit_content').html(data_type[val]);
+                                    }
+                            });
+                        });
+                    function checkbox(obj){
+                            if($(obj).is(":checked")){
+                                $(obj).attr('checked','checked');
+                            }else{
+                                $(obj).attr('checked',false);
+                            }
+                        }
+                    </script>
+     {template '../admin/footer'}
+         </body>
+    </html>

@@ -1,0 +1,26 @@
+{template '../xiaoye/newHead'}
+<div class="z_main">
+<div class="b3-t">
+    <div class="kzk"></div>
+	        <li style="background-image:url({$my_info['avatar']});" ></li>
+	</div>
+      <form class="form-signin" action=" " method="POST">
+        <div class="sq" style="margin-top:10px;margin-bottom:40px;">
+            <div class="sq-t">
+                <p class="sq-11">手机</p>
+                <input class="sq-t2" name='mobile' placeholder="手机号码" value='{$my_info['mobile']}' required autofocus>
+            </div>
+            <div class="sq-t">
+                <p class="sq-11">昵称</p>
+                <input class="sq-t2" name='nickname' class="weui_input" placeholder="昵称"  value='{$my_info['nickname']}' required>
+            </div>
+        </div>
+	    <div class="z_dpt5">
+            <input type='hidden' value='1' name='submit' >
+			<input type="submit"  value="提交">
+		</div>
+    </form>
+ </div>
+  {template '../xiaoye/newStudentFooter'}
+</body>
+</html>

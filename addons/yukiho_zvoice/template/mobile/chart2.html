@@ -1,0 +1,30 @@
+{php $menu='1'}
+{template 'common/header1'}
+{template 'common/menu'}
+			<div id="content" class="snap-content">
+				<div class="content half-bottom half-top">
+					<div class="home-tabs">
+						<a class="activate-tab-1" href="{php echo $this->createMobileUrl('chart')}">本期讨论</a>
+						<a class="activate-tab-2 {if $g_title=='往期讨论'}active-home-tab{/if}" href="{php echo $this->createMobileUrl('chart2')}">往期讨论</a>
+						<a class="activate-tab-3 {if $g_title=='我参与的'}active-home-tab{/if}" href="{php echo $this->createMobileUrl('chart3')}">我参与的</a>
+						<div class="clear"></div>
+					</div>
+				</div>
+				{if !empty($charts['list'])}
+				<div class="content-fullscreen" style="display: block;margin-top:-10px;">
+					{loop $charts['list'] $li}
+					<a href="{php echo $this->createMobileUrl('chart2_detail',array('id'=>$li['id']))}" class="card-small-layout">
+						<img class="responsive-image preload-image" data-original="http://www.enableds.com/products/materialise/light/images/pictures/1.jpg" alt="img" src="http://www.enableds.com/products/materialise/light/images/pictures/1.jpg" style="display: block;">
+						<strong>{$li['title']}</strong>
+						<em>42天前 <i class="ion-ios-heart-outline"></i> {$li['follow']}人赞同 <i class="ion-ios-chatboxes-outline"></i> {$li['follow']}讨论</em>
+					</a>
+					{/loop}
+					<div class="content">
+						<div class="decoration"></div>
+					</div>
+				</div>
+				{/if}		
+			</div>
+		</div>
+	</div>
+</body>

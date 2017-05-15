@@ -1,0 +1,127 @@
+   {template '../admin/head'}
+        {template '../admin/header'}
+        <div class="page-container">
+        {template '../admin/left'}
+            <div class="page-content-wrapper">
+                <div class="page-content">
+                    {template '../admin/sidebar'}
+                    <h1 class="page-title"> {php echo $this->wisold_info['wisold_name']}</h1>
+                 <div class="row">
+                        <div class="col-md-12">
+                            <div class="note note-success">
+                                <p>  {$title}  </p>
+                            </div>
+                            {if $ac=='new' || $ac=='edit'}
+                              <div class="portlet light ">
+                                <div class="portlet-title">
+                                    <div class="caption font-green-haze">
+                                        <i class="icon-settings font-green-haze"></i>
+                                        <span class="caption-subject bold uppercase">{if $ac=='new'}新增{else}修改{/if} </span>
+                                    </div>
+                                    <div class="actions">
+                                        <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="javascript:;" data-original-title="" title=""> </a>
+                                    </div>
+                                </div>
+                                  <div class="portlet-body form">
+                                    <form action="" method="post" class="form-horizontal form" enctype="multipart/form-data" id="form1"  >
+                                             <div class = "form-group">
+                                                     <label class="col-md-2 control-label"><span class="required" aria-required="true"> * </span>楼栋</label>
+                                                     <div class="col-sm-10">
+                                                         <select name="tea_building_id" class="form-control">
+                                                             {loop $building_list $row}
+                                                                <option value="{$row['building_id']}" {if $row['building_id']==$result['building_id']} selected {/if}>{$row['building_name']}</option>                                                             
+                                                             {/loop}
+                                                         </select>
+                                                      </div>
+                                              </div>
+
+                                             <div class = "form-group">
+                                                     <label class="col-md-2 control-label"><span class="required" aria-required="true"> * </span>教室号【一次性添加多个，英文逗号分隔开不同的房间号】</label>
+                                                     <div class="col-sm-10">
+                                                                 <input name='room_num' class='form-control ' value='{$result['room_num']}'>
+                                                      </div>
+                                                      {if $ac=='edit'}
+                                                        <input type="hidden" name="room_id" value="{$_GPC['room_id']}">
+                                                      {/if}
+                                              </div>  
+
+                                              <div class="form-group">
+                                                <label class="col-md-2 control-label"  >状态</label>
+                                                <div class="md-radio-inline">
+                                                    <div class="md-radio">
+                                                        <input type="radio" name="status" id="radio6" class="md-radiobtn"  value='1' {if $ac=='new'} checked {else} {if $result['status']==1} checked {/if} {/if} />
+                                                        <label for="radio6">
+                                                            <span></span>
+                                                            <span class="check"></span>
+                                                            <span class="box"></span>正常</label>
+                                                    </div>
+                                                    <div class="md-radio">
+                                                    <input type="radio"   name="status" id='radio7'   class="md-radiobtn" value='0' {if $ac=='edit'} {if $result['status']==0} checked {/if}  {/if}/>
+                                                        <label for="radio7">
+                                                            <span></span>
+                                                            <span class="check"></span>
+                                                            <span class="box"></span>注销</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-actions">
+                                                <div class="row">
+                                                    <div class="col-md-offset-2 col-md-10">
+                                                        <input type="submit" name="submit" class="btn blue" value="提交">
+                                                    </div>
+                                                </div>
+                                            </div>                                                                                
+                                    </form>
+                                  </div>    
+                             </div>  
+                            {else}
+                            <div class="portlet box green-turquoise">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <i class="fa fa-cogs"></i>{$title}列表 </div>
+                                </div>
+                                <div class="portlet-body">
+                                    <table  class="table table-striped table-bordered table-hover table-checkable order-column"   id="sample_3">
+                                        <thead class="flip-content">
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>楼栋号</th>
+                                            <th>状态</th>
+                                            <th>编号</th>
+                                            <th>添加时间</th>
+                                            <th></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                            {loop $list $item}
+                                                    <tr>
+                                                        <td>{$item['room_id']}</td>
+                                                        <td>{$item['building_name']}</td>
+
+                                                        <td>{php echo statusTable($item['status'])}</td>
+                                                        <td>{$item['room_num']}</td>
+                                                        <td>{php echo timeToStr($item['add_time'])}</td>
+                                                        <td style="text-align: center">
+                                                                <a  href="{php echo $this->createWebUrl('teaRoom',array("room_id"=>$item['room_id'],'ac'=>'edit' ) );} " class="btn blue">
+                                                                <i class="fa fa-edit"></i> 编辑 </a>
+                                                                <a  href="{php echo $this->createWebUrl('teaRoom',array("room_id"=>$item['room_id'],'ac'=>'delete' ) );} " class="btn red">
+                                                                <i class="fa fa-close"></i> 删除 </a>
+                                                        </td>
+                                                    </tr>
+                                            {/loop}                                    
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            {/if}
+                        </div>
+                    </div>
+        </div>
+        </div>
+         {template '../admin/right'}
+        </div>
+        {template '../admin/footer'}
+        {template '../admin/table_script'}         
+         </body>
+    </html>

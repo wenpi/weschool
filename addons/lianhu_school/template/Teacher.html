@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="target-densitydpi=286, width=640, user-scalable=no" />
+<title>家校通</title>
+<link href="{MODULE_URL}template/mobile/css/css.css" rel="stylesheet" />
+</head>
+
+<body>
+<style>
+body{ background:url({MODULE_URL}template/mobile/images/teacher.jpg) center 0 no-repeat;}
+</style>
+<div class="tcher1 mgz cen"><img align="absmiddle" src="{MODULE_URL}template/mobile/images/teacher_02.png" />
+</div>
+<div class="tcher2 mgz xi34 bai cen">绑定教师帐号<span class="xi24">通过系统帐号绑定</span>
+</div>
+<form class="form-horizontal" method="post" action="{php echo $this->createMobileUrl('teacher')}">
+	<div class="tcher3 mgz bai">系统帐号：
+    </div>
+	<div class="tcher4 mgz">
+		<input type="text" class="bd1 f bai form-control" name='passport' id='passport'>
+		<input type="hidden" class="form-control" name='submit' value='1'>
+	</div>
+	<div class="tcher3 mgz bai">系统密码：
+    </div>
+	<div class="tcher4 mgz">
+    <input type="password" class="bd1 f bai form-control" name='password' id='password'>
+    </div>
+	<div class="tcher5 mgz">
+    <button class="an1 bai f xi28 button button-raised button-caution" type="submit" >保存&nbsp;&nbsp;SIGN IN</button>
+    </div>
+</form>
+</body>
+</html>

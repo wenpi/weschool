@@ -1,0 +1,612 @@
+2016-08-05 09:17:27 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a16c32dff4b]]></ToUserName>
+<FromUserName><![CDATA[oZF73wAKimMU1XufzSoWnPXuf02w]]></FromUserName>
+<CreateTime>1470359847</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=26&c=entry&eid=1]]></EventKey>
+<MenuId>442859793</MenuId>
+</xml>
+
+2016-08-05 09:17:27 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-08-05 09:17:27 response :
+------------
+
+2016-08-05 09:26:55 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a16c32dff4b]]></ToUserName>
+<FromUserName><![CDATA[oZF73wAKimMU1XufzSoWnPXuf02w]]></FromUserName>
+<CreateTime>1470360414</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=26&c=entry&eid=1]]></EventKey>
+<MenuId>442859793</MenuId>
+</xml>
+
+2016-08-05 09:26:55 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-08-05 09:26:55 response :
+------------
+
+2016-08-05 10:02:27 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a16c32dff4b]]></ToUserName>
+<FromUserName><![CDATA[oZF73wLmRr-_4TMLspUahen040y8]]></FromUserName>
+<CreateTime>1470362547</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[subscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+
+2016-08-05 10:02:27 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2016-08-05 10:02:27 response :
+------------
+Array:
+params : Array ;
+
+2016-08-05 10:02:28 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a16c32dff4b]]></ToUserName>
+<FromUserName><![CDATA[oZF73wCnUBWgP5tdbX2l5PbgteYY]]></FromUserName>
+<CreateTime>1470362547</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[subscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+
+2016-08-05 10:02:28 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2016-08-05 10:02:28 response :
+------------
+Array:
+params : Array ;
+
+2016-08-05 10:02:43 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a16c32dff4b]]></ToUserName>
+<FromUserName><![CDATA[oZF73wCnUBWgP5tdbX2l5PbgteYY]]></FromUserName>
+<CreateTime>1470362563</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[1]]></Content>
+<MsgId>6315159121790627951</MsgId>
+</xml>
+
+2016-08-05 10:02:43 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2016-08-05 10:02:43 response :
+------------
+Array:
+params : Array ;
+
+2016-08-05 10:03:59 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a16c32dff4b]]></ToUserName>
+<FromUserName><![CDATA[oZF73wCnUBWgP5tdbX2l5PbgteYY]]></FromUserName>
+<CreateTime>1470362639</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[1]]></Content>
+<MsgId>6315159448208142510</MsgId>
+</xml>
+
+2016-08-05 10:03:59 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 55 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-08-05 10:03:59 response :
+------------
+Array:
+FromUserName : gh_2a16c32dff4b ;
+ToUserName : oZF73wCnUBWgP5tdbX2l5PbgteYY ;
+MsgType : text ;
+Content : 欢迎 ;
+
+2016-08-05 10:04:26 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a16c32dff4b]]></ToUserName>
+<FromUserName><![CDATA[oZF73wCnUBWgP5tdbX2l5PbgteYY]]></FromUserName>
+<CreateTime>1470362666</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[unsubscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+
+2016-08-05 10:04:39 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a16c32dff4b]]></ToUserName>
+<FromUserName><![CDATA[oZF73wCnUBWgP5tdbX2l5PbgteYY]]></FromUserName>
+<CreateTime>1470362679</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[subscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+
+2016-08-05 10:04:39 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 55 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-08-05 10:04:39 response :
+------------
+Array:
+FromUserName : gh_2a16c32dff4b ;
+ToUserName : oZF73wCnUBWgP5tdbX2l5PbgteYY ;
+MsgType : text ;
+Content : 欢迎 ;
+
+2016-08-05 10:06:23 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a16c32dff4b]]></ToUserName>
+<FromUserName><![CDATA[oZF73wCnUBWgP5tdbX2l5PbgteYY]]></FromUserName>
+<CreateTime>1470362783</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[unsubscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+
+2016-08-05 10:09:32 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a16c32dff4b]]></ToUserName>
+<FromUserName><![CDATA[oZF73wKIOw7Q2yNOlaR2c9bmH--A]]></FromUserName>
+<CreateTime>1470362971</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[subscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+
+2016-08-05 10:09:32 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 55 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-08-05 10:09:32 response :
+------------
+Array:
+FromUserName : gh_2a16c32dff4b ;
+ToUserName : oZF73wKIOw7Q2yNOlaR2c9bmH--A ;
+MsgType : text ;
+Content : 欢迎 ;
+
+2016-08-05 10:09:35 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a16c32dff4b]]></ToUserName>
+<FromUserName><![CDATA[oZF73wKIOw7Q2yNOlaR2c9bmH--A]]></FromUserName>
+<CreateTime>1470362975</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=26&c=entry&do=teaIn&m=lianhu_school]]></EventKey>
+<MenuId>442859793</MenuId>
+</xml>
+
+2016-08-05 10:09:35 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 55 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-08-05 10:09:35 response :
+------------
+Array:
+FromUserName : gh_2a16c32dff4b ;
+ToUserName : oZF73wKIOw7Q2yNOlaR2c9bmH--A ;
+MsgType : text ;
+Content : 欢迎 ;
+
+2016-08-05 10:09:48 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a16c32dff4b]]></ToUserName>
+<FromUserName><![CDATA[oZF73wKIOw7Q2yNOlaR2c9bmH--A]]></FromUserName>
+<CreateTime>1470362988</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=26&c=entry&do=teaIn&m=lianhu_school]]></EventKey>
+<MenuId>442859793</MenuId>
+</xml>
+
+2016-08-05 10:09:48 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 55 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-08-05 10:09:48 response :
+------------
+Array:
+FromUserName : gh_2a16c32dff4b ;
+ToUserName : oZF73wKIOw7Q2yNOlaR2c9bmH--A ;
+MsgType : text ;
+Content : 欢迎 ;
+
+2016-08-05 10:10:19 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a16c32dff4b]]></ToUserName>
+<FromUserName><![CDATA[oZF73wKIOw7Q2yNOlaR2c9bmH--A]]></FromUserName>
+<CreateTime>1470363019</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=26&c=entry&do=teaIn&m=lianhu_school]]></EventKey>
+<MenuId>442859793</MenuId>
+</xml>
+
+2016-08-05 10:10:19 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 55 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-08-05 10:10:19 response :
+------------
+Array:
+FromUserName : gh_2a16c32dff4b ;
+ToUserName : oZF73wKIOw7Q2yNOlaR2c9bmH--A ;
+MsgType : text ;
+Content : 欢迎 ;
+
+2016-08-05 10:13:27 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a16c32dff4b]]></ToUserName>
+<FromUserName><![CDATA[oZF73wLmRr-_4TMLspUahen040y8]]></FromUserName>
+<CreateTime>1470363207</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[1]]></Content>
+<MsgId>6315161887749566881</MsgId>
+</xml>
+
+2016-08-05 10:13:27 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 56 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-08-05 10:13:27 response :
+------------
+Array:
+FromUserName : gh_2a16c32dff4b ;
+ToUserName : oZF73wLmRr-_4TMLspUahen040y8 ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2016-08-05 10:13:55 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a16c32dff4b]]></ToUserName>
+<FromUserName><![CDATA[oZF73wLmRr-_4TMLspUahen040y8]]></FromUserName>
+<CreateTime>1470363235</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[unsubscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+
+2016-08-05 10:14:05 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a16c32dff4b]]></ToUserName>
+<FromUserName><![CDATA[oZF73wLmRr-_4TMLspUahen040y8]]></FromUserName>
+<CreateTime>1470363245</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[subscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+
+2016-08-05 10:14:05 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 56 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-08-05 10:14:05 response :
+------------
+Array:
+FromUserName : gh_2a16c32dff4b ;
+ToUserName : oZF73wLmRr-_4TMLspUahen040y8 ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2016-08-05 10:14:38 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a16c32dff4b]]></ToUserName>
+<FromUserName><![CDATA[oZF73wAKimMU1XufzSoWnPXuf02w]]></FromUserName>
+<CreateTime>1470363278</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[unsubscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+
+2016-08-05 10:15:39 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a16c32dff4b]]></ToUserName>
+<FromUserName><![CDATA[oZF73wAKimMU1XufzSoWnPXuf02w]]></FromUserName>
+<CreateTime>1470363339</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[subscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+
+2016-08-05 10:15:39 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 56 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-08-05 10:15:39 response :
+------------
+Array:
+FromUserName : gh_2a16c32dff4b ;
+ToUserName : oZF73wAKimMU1XufzSoWnPXuf02w ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2016-08-05 14:51:48 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_0eab716966d4]]></ToUserName>
+<FromUserName><![CDATA[oSoVuwP2VnKGyDQpyIRtJ5MMXq4M]]></FromUserName>
+<CreateTime>1470379908</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[subscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+
+2016-08-05 14:51:48 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-08-05 14:51:48 response :
+------------
+
+2016-08-05 14:51:51 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_0eab716966d4]]></ToUserName>
+<FromUserName><![CDATA[oSoVuwP2VnKGyDQpyIRtJ5MMXq4M]]></FromUserName>
+<CreateTime>1470379911</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=28&c=home&]]></EventKey>
+<MenuId>414492131</MenuId>
+</xml>
+
+2016-08-05 14:51:51 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-08-05 14:51:51 response :
+------------
+
+2016-08-05 14:59:14 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_0eab716966d4]]></ToUserName>
+<FromUserName><![CDATA[oSoVuwP2VnKGyDQpyIRtJ5MMXq4M]]></FromUserName>
+<CreateTime>1470380354</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=28&c=home&]]></EventKey>
+<MenuId>414492131</MenuId>
+</xml>
+
+2016-08-05 14:59:14 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-08-05 14:59:14 response :
+------------
+
+2016-08-05 14:59:55 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_0eab716966d4]]></ToUserName>
+<FromUserName><![CDATA[oSoVuwP2VnKGyDQpyIRtJ5MMXq4M]]></FromUserName>
+<CreateTime>1470380395</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=28&c=entry&eid=1]]></EventKey>
+<MenuId>414492131</MenuId>
+</xml>
+
+2016-08-05 14:59:55 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-08-05 14:59:55 response :
+------------
+
+2016-08-05 15:00:10 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_0eab716966d4]]></ToUserName>
+<FromUserName><![CDATA[oSoVuwP2VnKGyDQpyIRtJ5MMXq4M]]></FromUserName>
+<CreateTime>1470380409</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=28&c=entry&eid=2]]></EventKey>
+<MenuId>414492131</MenuId>
+</xml>
+
+2016-08-05 15:00:10 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-08-05 15:00:10 response :
+------------
+
+2016-08-05 16:50:51 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_0eab716966d4]]></ToUserName>
+<FromUserName><![CDATA[oSoVuwCl6GTkc3wWE2vWRg18Vdig]]></FromUserName>
+<CreateTime>1470387051</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=28&c=entry&eid=2]]></EventKey>
+<MenuId>414492131</MenuId>
+</xml>
+
+2016-08-05 16:50:51 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-08-05 16:50:51 response :
+------------
+
+2016-08-05 16:51:01 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_0eab716966d4]]></ToUserName>
+<FromUserName><![CDATA[oSoVuwCl6GTkc3wWE2vWRg18Vdig]]></FromUserName>
+<CreateTime>1470387061</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=28&c=entry&eid=1]]></EventKey>
+<MenuId>414492131</MenuId>
+</xml>
+
+2016-08-05 16:51:01 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-08-05 16:51:01 response :
+------------
+
+2016-08-05 16:51:03 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_0eab716966d4]]></ToUserName>
+<FromUserName><![CDATA[oSoVuwCl6GTkc3wWE2vWRg18Vdig]]></FromUserName>
+<CreateTime>1470387063</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=28&c=home&]]></EventKey>
+<MenuId>414492131</MenuId>
+</xml>
+
+2016-08-05 16:51:03 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-08-05 16:51:03 response :
+------------
+
+2016-08-05 21:16:49 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_0eab716966d4]]></ToUserName>
+<FromUserName><![CDATA[oSoVuwP2VnKGyDQpyIRtJ5MMXq4M]]></FromUserName>
+<CreateTime>1470403009</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=28&c=home&]]></EventKey>
+<MenuId>414492131</MenuId>
+</xml>
+
+2016-08-05 21:16:49 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-08-05 21:16:49 response :
+------------
+

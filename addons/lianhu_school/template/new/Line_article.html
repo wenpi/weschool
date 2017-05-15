@@ -1,0 +1,89 @@
+{php $student_name = $student_info['student_name'] }
+{php $page_title   = $intro.$class_name}
+{template '../new/head'}
+<script type='text/javascript' src='{MODULE_URL}/style/js/jquery.min.js'></script>
+<body ontouchstart >
+<div class="container" id="container">
+    <div class="article">
+    <div class="bd">
+        <article class="weui_article">
+            <h1 class="article_title">
+                {if $home_work==1}
+                {php echo date("m-d",$result['add_time']);}日{$result['course_name']}作业
+                {php $imgs = unserialize($result['img']);}
+                {elseif $record==1}
+                    {$result['word']}
+                    {php $imgs[] = $result['img']}
+                {else}
+                    {$result['line_title']}
+                    {php $imgs = json_decode($result['imgs'],1);}
+                {/if}
+            </h1>
+            <section>
+                <h1 class="line_title">
+                    发布:{if $result['teacher_name']}{$result['teacher_name']}{else}管理员{/if}
+                    &nbsp;&nbsp;发布时间:{if $result['add_time']}{php echo date("m-d H:i:s",$result['add_time'])}{else}{php echo date("m-d H:i:s",$result['addtime'])}{/if}
+                </h1>
+            </section>
+            {if $imgs}
+            <div onclick='displayImage(this)' >
+                {php $img_list = S("fun",'decodeImgs',array($imgs ,$this->module['config']['qiniu_url'] )); }
+                      {loop $img_list $row}
+                            <img src='{$row}' style="width:60%;margin-left:20%;margin-top:10px;"  >
+                     {/loop}
+            </div>
+            {/if}
+            {if $result['voice']}
+            <div class="voice_class">
+                {php echo  $this->echoVoiceUrl($result['voice']);}
+            </div>    
+            {/if}   
+            <section>
+                {if $home_work==1}<span class="home_work_title">作业内容：</span>{/if}
+                  {php echo htmlspecialchars_decode($result['content']);}
+                  {php echo htmlspecialchars_decode($result['line_content']);}
+            </section>
+        </article>
+    </div>
+    </div>
+    </div>
+    <style>
+        .home_work_title{
+            font-weight:700;
+        }
+        .weui_article h1{
+            font-weight:700;
+        }
+        .article_title{
+            text-align:center;
+        }
+        .voice_class{
+            width:100%;
+            text-align:center;
+            margin-top:20px;
+            margin-bottom:10px
+        }
+        .line_title{
+            font-size:0.7em !important;
+            color:#7093DB;
+        }
+    </style>
+    <script>
+    function displayImage(obj){
+        var img_urls=[];
+        var img_current='';
+            if($(obj).find('img').length>0){
+                    img_current = $(obj).find('img').eq(0).attr('src');
+                    $.each($(obj).find('img'),function(i,e){
+                        img_urls.push($(this).attr('src'));
+                    });
+            }
+            img_urls.pop()
+            wx.previewImage({
+            current: img_current,
+            urls: img_urls
+            });
+    }
+    </script>
+  {template 'jsweixin'}
+  {template '../new/footer'}

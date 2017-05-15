@@ -1,0 +1,24 @@
+{php $page_title = '星星评价';}
+{template '../new/head'}
+  <link rel="apple-touch-icon"  href="{MODULE_URL}/style/app/images/logo.ico">
+  <link rel="stylesheet" href="{MODULE_URL}template/mobile/style/style_nav.css">
+  <script type='text/javascript' src='{MODULE_URL}/style/js/jquery.min.js'></script>
+<body>
+      <div class="weui_panel_bd" >
+          {loop $list $row}
+          <a href="#" class="weui_media_box weui_media_appmsg">
+                <div class="weui_media_hd">
+                    <img class="weui_media_appmsg_thumb" src="{php echo D('teacher')->teacherImg($row['teacher_id']);}" >
+                </div>
+                <div class="weui_media_bd">
+                    <h4 class="weui_media_title">{if $row['teacher_id']}{php echo $this->teacherName($row['teacher_id'])}{else}管理员{/if}</h4>
+                    <p class="weui_media_desc" style="color:#ff0033">星星数：{$row['star_num']}</p>
+                    <p class="weui_media_desc">{php echo $this->clear_html_short($row['star_title']);}</p>
+                </div>
+            </a>
+            {/loop}    
+            </div>
+
+{template 'jsweixin'}
+{template 'school/app_footer'}
+{template '../new/footer'}

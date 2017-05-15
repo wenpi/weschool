@@ -1,0 +1,58 @@
+2016-05-01 09:10:43 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvjnNs-wlmta5xYTj5zZfmSc]]></FromUserName>
+<CreateTime>1462065043</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=4&c=entry&eid=1]]></EventKey>
+<MenuId>404202786</MenuId>
+</xml>
+
+2016-05-01 09:10:43 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 14 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-05-01 09:10:43 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvjnNs-wlmta5xYTj5zZfmSc ;
+MsgType : text ;
+Content : 欢迎关注杭州师范大学附属仓前实验中学，请点击菜单使用。 ;
+
+2016-05-01 20:38:13 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvgMjW0LoLIxvQ0Y02KC9Bnw]]></FromUserName>
+<CreateTime>1462106293</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=4&c=entry&eid=2]]></EventKey>
+<MenuId>404202786</MenuId>
+</xml>
+
+2016-05-01 20:38:13 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 14 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-05-01 20:38:13 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvgMjW0LoLIxvQ0Y02KC9Bnw ;
+MsgType : text ;
+Content : 欢迎关注杭州师范大学附属仓前实验中学，请点击菜单使用。 ;
+

@@ -1,0 +1,224 @@
+2016-08-04 10:17:08 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_4e0c181b7380]]></ToUserName>
+<FromUserName><![CDATA[oxtWnv_JzX5JoIWZWoO_kSjS75Lg]]></FromUserName>
+<CreateTime>1470277028</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[subscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+
+2016-08-04 10:17:08 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2016-08-04 10:17:08 response :
+------------
+Array:
+params : Array ;
+
+2016-08-04 10:17:50 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_e7a0c8306261]]></ToUserName>
+<FromUserName><![CDATA[oRj-Fs4KVCW7NffCHNOWH-s4TUeU]]></FromUserName>
+<CreateTime>1470277070</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=13&c=entry&eid=2]]></EventKey>
+<MenuId>409075692</MenuId>
+</xml>
+
+2016-08-04 10:17:50 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 22 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-08-04 10:17:50 response :
+------------
+Array:
+FromUserName : gh_e7a0c8306261 ;
+ToUserName : oRj-Fs4KVCW7NffCHNOWH-s4TUeU ;
+MsgType : text ;
+Content : 欢迎关注同城学堂，点击微官网查看本学校介绍信息，家长点击学生天地绑定自己小孩信息使用，老师点击教师信息绑定自己账号使用 ;
+
+2016-08-04 10:17:56 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_e7a0c8306261]]></ToUserName>
+<FromUserName><![CDATA[oRj-Fs4KVCW7NffCHNOWH-s4TUeU]]></FromUserName>
+<CreateTime>1470277076</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=13&c=entry&eid=1]]></EventKey>
+<MenuId>409075692</MenuId>
+</xml>
+
+2016-08-04 10:17:56 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 22 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-08-04 10:17:56 response :
+------------
+Array:
+FromUserName : gh_e7a0c8306261 ;
+ToUserName : oRj-Fs4KVCW7NffCHNOWH-s4TUeU ;
+MsgType : text ;
+Content : 欢迎关注同城学堂，点击微官网查看本学校介绍信息，家长点击学生天地绑定自己小孩信息使用，老师点击教师信息绑定自己账号使用 ;
+
+2016-08-04 15:26:22 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_4e0c181b7380]]></ToUserName>
+<FromUserName><![CDATA[oxtWnv5ZT8r1HFtI21mtgqpIrOR0]]></FromUserName>
+<CreateTime>1470295582</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[subscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+
+2016-08-04 15:26:22 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2016-08-04 15:26:22 response :
+------------
+Array:
+params : Array ;
+
+2016-08-04 15:26:25 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_4e0c181b7380]]></ToUserName>
+<FromUserName><![CDATA[oxtWnv5ZT8r1HFtI21mtgqpIrOR0]]></FromUserName>
+<CreateTime>1470295585</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=27&c=home&]]></EventKey>
+<MenuId>431335658</MenuId>
+</xml>
+
+2016-08-04 15:26:25 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2016-08-04 15:26:25 response :
+------------
+Array:
+params : Array ;
+
+2016-08-04 15:26:30 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_4e0c181b7380]]></ToUserName>
+<FromUserName><![CDATA[oxtWnv5ZT8r1HFtI21mtgqpIrOR0]]></FromUserName>
+<CreateTime>1470295590</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=27&c=home&]]></EventKey>
+<MenuId>431335658</MenuId>
+</xml>
+
+2016-08-04 15:26:30 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2016-08-04 15:26:30 response :
+------------
+Array:
+params : Array ;
+
+2016-08-04 15:27:02 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_4e0c181b7380]]></ToUserName>
+<FromUserName><![CDATA[oxtWnv5ZT8r1HFtI21mtgqpIrOR0]]></FromUserName>
+<CreateTime>1470295622</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=27&c=home&]]></EventKey>
+<MenuId>431335658</MenuId>
+</xml>
+
+2016-08-04 15:27:02 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2016-08-04 15:27:02 response :
+------------
+Array:
+params : Array ;
+
+2016-08-04 15:28:55 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_4e0c181b7380]]></ToUserName>
+<FromUserName><![CDATA[oxtWnv5ZT8r1HFtI21mtgqpIrOR0]]></FromUserName>
+<CreateTime>1470295735</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=27&c=home&]]></EventKey>
+<MenuId>431335658</MenuId>
+</xml>
+
+2016-08-04 15:28:55 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2016-08-04 15:28:55 response :
+------------
+Array:
+params : Array ;
+
+2016-08-04 15:29:04 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_4e0c181b7380]]></ToUserName>
+<FromUserName><![CDATA[oxtWnv5ZT8r1HFtI21mtgqpIrOR0]]></FromUserName>
+<CreateTime>1470295744</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=27&c=home&]]></EventKey>
+<MenuId>431335658</MenuId>
+</xml>
+
+2016-08-04 15:29:04 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2016-08-04 15:29:04 response :
+------------
+Array:
+params : Array ;
+

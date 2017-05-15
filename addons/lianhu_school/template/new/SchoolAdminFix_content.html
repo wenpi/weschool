@@ -1,0 +1,20 @@
+        {loop $list $row}
+            <li class="list-message" data-ix="list-item">
+                <a class="w-clearfix w-inline-block" href="{php echo $this->createMobileUrl('SchoolAdminFixInfo',array("id"=>$row['repair_id']) )}" data-load="1">
+                    <div class="w-clearfix column-left">
+                        <div class="image-message" style="background-image: url({if $row['teacher_id']}
+                            {php echo D('teacher')->teacherImg($row['teacher_id']);}
+                        {else}
+                            {php echo C('student')->studentImg($row['student_id']);}
+                        {/if})" >
+                        </div>
+                    </div>
+                    <div class="column-right">
+                        <div class="message-title">{$row['repair_title']}</div>
+                        <div class="message-text"> {$row['repair_content']}</div>
+                        <div class="message-text " style="text-align: right;font-size: 0.6rem;"> {php echo date("Y-m-d H:i:s",$row['add_time'])}</div>
+                        <div class="message-text" style="color:#ff0033;{if  $row['repair_content']}float: left;margin-left: 75px;{/if}">{if $row['do_status']}{$row['do_status']}{else}暂无回复{/if}</div>
+                    </div>
+                </a>
+            </li>
+        {/loop}

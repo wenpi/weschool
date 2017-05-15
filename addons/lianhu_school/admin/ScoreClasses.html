@@ -1,0 +1,95 @@
+   {template '../admin/head'}
+        {template '../admin/header'}
+        <div class="page-container">
+        {template '../admin/left'}
+            <div class="page-content-wrapper">
+                <div class="page-content">
+                {template '../admin/sidebar'}
+                    <h1 class="page-title"> {$_SESSION['school_name']}
+                            <small> {$title} </small>
+                    </h1>
+                <div class='row'>
+                    {if $ac=='list'}
+                            <div class="col-md-12 col-sm-12">
+                                    <div class="panel panel-info">
+                                    <div class="panel-heading">筛选</div>
+                                    <div class="panel-body">
+                                        <form action="./index.php" method="get" class="form-horizontal" role="form">
+                                            <input type="hidden" name="c" value="site" />
+                                            <input type="hidden" name="a" value="entry" />
+                                            <input type="hidden" name="m" value="lianhu_school" />
+                                            <input type="hidden" name="do" value="ScoreClasses" />
+                                                <div class="form-group">
+                                                    <label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span>选择年级</label>
+                                                    <div class="col-sm-9 col-xs-8">
+                                                        <select name='gid' id="grade_id" class='form-control'>
+                                                            {loop $grade $row}
+                                                                    <option value='{$row['grade_id']}' {if $row['grade_id']==$gid } selected {/if}>{$row['grade_name']}</option>
+                                                            {/loop}
+                                                        </select>
+                                                    </div>
+                                                </div>			
+                                                <div class="form-group">
+                                                    <label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span>选择考试</label>
+                                                    <div class="col-sm-9 col-xs-8">
+                                                        <select name='jilv_id' id="jilv_id" class='form-control'>
+                                                            {loop $score_jilv_list $row}
+                                                                    <option value='{$row['scorejilv_id']}'  {if $row['scorejilv_id']==$ji_lv_id } selected {/if}>{$row['scorejilv_name']}</option>
+                                                            {/loop}
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            <div class="form-group">
+                                                <div class="col-sm-5 col-xs-5"></div>
+                                                    <button class="btn btn-default"><i class="fa fa-search"></i> 搜索</button>
+                                                    <button class="btn btn-default" type="button">总记录数：{$total}</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="portlet box green">
+                                            <div class="portlet-title">
+                                                <div class="caption">
+                                                    <i class="fa fa-navicon"></i>成绩统计 </div>
+                                            </div> 
+                                </div> 
+                                    <div class="portlet-body">
+                                        <table class="table table-striped table-bordered table-hover table-checkable order-column table-light"  id="sample_3" >
+                                            <thead class="navbar-inner">
+                                                <tr>
+                                                    <th>班级</th>
+                                                    {loop $course_list $row}
+                                                        <th item-width="100px; ">{$row['course_name']}</th>
+                                                    {/loop}
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {loop $out_list $key  $item}
+                                                    <tr>
+                                                        <td>{php echo $this->className($key)}</td>
+
+
+                                                        {loop $course_list $row}
+                                                                <td>
+                                                                    平均分：{$score_list[$key][$row['course_id']]} <br>
+                                                                    <!--总分：{if $item[$row['course_id']]>0 } {$item[$row['course_id']]} {else} 0 {/if}<br>-->
+                                                                
+                                                                </td>
+                                                         {/loop}
+                                                    </tr>
+                                                {/loop}
+                                            </tbody>
+                                        </table>
+                                    </div>                               
+                            </div>   
+                        {/if}
+                    </div>
+                </div>
+              </div>
+            </div>
+     {template '../admin/right'}
+     </div>
+     {template '../admin/footer'}
+     {template '../admin/table_script'}         
+    </body>
+    </html>

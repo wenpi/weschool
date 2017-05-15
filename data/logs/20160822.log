@@ -1,0 +1,1184 @@
+2016-08-22 00:18:50 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a16c32dff4b]]></ToUserName>
+<FromUserName><![CDATA[oZF73wBVTPDC8FNt_8FsODv4L7T0]]></FromUserName>
+<CreateTime>1471796330</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=26&c=entry&eid=1]]></EventKey>
+<MenuId>443004588</MenuId>
+</xml>
+
+2016-08-22 00:18:50 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 56 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-08-22 00:18:50 response :
+------------
+Array:
+FromUserName : gh_2a16c32dff4b ;
+ToUserName : oZF73wBVTPDC8FNt_8FsODv4L7T0 ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2016-08-22 00:18:59 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a16c32dff4b]]></ToUserName>
+<FromUserName><![CDATA[oZF73wBVTPDC8FNt_8FsODv4L7T0]]></FromUserName>
+<CreateTime>1471796339</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=26&c=entry&do=teaIn&m=lianhu_school]]></EventKey>
+<MenuId>443004588</MenuId>
+</xml>
+
+2016-08-22 00:18:59 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 56 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-08-22 00:18:59 response :
+------------
+Array:
+FromUserName : gh_2a16c32dff4b ;
+ToUserName : oZF73wBVTPDC8FNt_8FsODv4L7T0 ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2016-08-22 00:19:02 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a16c32dff4b]]></ToUserName>
+<FromUserName><![CDATA[oZF73wBVTPDC8FNt_8FsODv4L7T0]]></FromUserName>
+<CreateTime>1471796342</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=26&c=entry&eid=1]]></EventKey>
+<MenuId>443004588</MenuId>
+</xml>
+
+2016-08-22 00:19:02 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 56 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-08-22 00:19:02 response :
+------------
+Array:
+FromUserName : gh_2a16c32dff4b ;
+ToUserName : oZF73wBVTPDC8FNt_8FsODv4L7T0 ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2016-08-22 07:49:23 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_0eab716966d4]]></ToUserName>
+<FromUserName><![CDATA[oSoVuwL-KU04wnisg91ynGo2rsLw]]></FromUserName>
+<CreateTime>1471823363</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=28&c=home&]]></EventKey>
+<MenuId>414492131</MenuId>
+</xml>
+
+2016-08-22 07:49:23 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-08-22 07:49:23 response :
+------------
+
+2016-08-22 08:11:16 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_0eab716966d4]]></ToUserName>
+<FromUserName><![CDATA[oSoVuwL-KU04wnisg91ynGo2rsLw]]></FromUserName>
+<CreateTime>1471824676</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[分班考试什么时候]]></Content>
+<MsgId>6321438849283655305</MsgId>
+</xml>
+
+2016-08-22 08:11:16 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-08-22 08:11:16 response :
+------------
+
+2016-08-22 10:47:23 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_e7a0c8306261]]></ToUserName>
+<FromUserName><![CDATA[oRj-Fs0-58f1Xolgz7rNR5ZNmCik]]></FromUserName>
+<CreateTime>1471834043</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=13&c=entry&eid=1]]></EventKey>
+<MenuId>409075692</MenuId>
+</xml>
+
+2016-08-22 10:47:23 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 22 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-08-22 10:47:23 response :
+------------
+Array:
+FromUserName : gh_e7a0c8306261 ;
+ToUserName : oRj-Fs0-58f1Xolgz7rNR5ZNmCik ;
+MsgType : text ;
+Content : 欢迎关注同城学堂，点击微官网查看本学校介绍信息，家长点击学生天地绑定自己小孩信息使用，老师点击教师信息绑定自己账号使用 ;
+
+2016-08-22 10:48:21 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_e7a0c8306261]]></ToUserName>
+<FromUserName><![CDATA[oRj-Fs0-58f1Xolgz7rNR5ZNmCik]]></FromUserName>
+<CreateTime>1471834101</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=13&c=entry&eid=1]]></EventKey>
+<MenuId>409075692</MenuId>
+</xml>
+
+2016-08-22 10:48:21 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 22 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-08-22 10:48:21 response :
+------------
+Array:
+FromUserName : gh_e7a0c8306261 ;
+ToUserName : oRj-Fs0-58f1Xolgz7rNR5ZNmCik ;
+MsgType : text ;
+Content : 欢迎关注同城学堂，点击微官网查看本学校介绍信息，家长点击学生天地绑定自己小孩信息使用，老师点击教师信息绑定自己账号使用 ;
+
+2016-08-22 11:53:50 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_0eab716966d4]]></ToUserName>
+<FromUserName><![CDATA[oSoVuwP2VnKGyDQpyIRtJ5MMXq4M]]></FromUserName>
+<CreateTime>1471838030</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=28&c=home&]]></EventKey>
+<MenuId>414492131</MenuId>
+</xml>
+
+2016-08-22 11:53:50 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-08-22 11:53:50 response :
+------------
+
+2016-08-22 13:29:33 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_c8e42a22d2ba]]></ToUserName>
+<FromUserName><![CDATA[o7oRnw2x9zRjxnSw6FqMW903J8yg]]></FromUserName>
+<CreateTime>1471843773</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=25&c=home&]]></EventKey>
+<MenuId>410687554</MenuId>
+</xml>
+
+2016-08-22 13:29:33 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 53 ;
+priority : 3 ;
+keyword : Array ;
+
+2016-08-22 13:29:33 response :
+------------
+Array:
+FromUserName : gh_c8e42a22d2ba ;
+ToUserName : o7oRnw2x9zRjxnSw6FqMW903J8yg ;
+MsgType : news ;
+ArticleCount : 2 ;
+Articles : Array ;
+
+2016-08-22 13:29:57 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_c8e42a22d2ba]]></ToUserName>
+<FromUserName><![CDATA[o7oRnwzQRQ9XY6SbwM4LNZj3taCo]]></FromUserName>
+<CreateTime>1471843797</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=25&c=entry&do=bangding&m=lianhu_school]]></EventKey>
+<MenuId>410687554</MenuId>
+</xml>
+
+2016-08-22 13:29:57 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 53 ;
+priority : 3 ;
+keyword : Array ;
+
+2016-08-22 13:29:57 response :
+------------
+Array:
+FromUserName : gh_c8e42a22d2ba ;
+ToUserName : o7oRnwzQRQ9XY6SbwM4LNZj3taCo ;
+MsgType : news ;
+ArticleCount : 2 ;
+Articles : Array ;
+
+2016-08-22 13:38:53 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_c8e42a22d2ba]]></ToUserName>
+<FromUserName><![CDATA[o7oRnwzQRQ9XY6SbwM4LNZj3taCo]]></FromUserName>
+<CreateTime>1471844333</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=25&c=home&]]></EventKey>
+<MenuId>410687554</MenuId>
+</xml>
+
+2016-08-22 13:38:53 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 53 ;
+priority : 3 ;
+keyword : Array ;
+
+2016-08-22 13:38:53 response :
+------------
+Array:
+FromUserName : gh_c8e42a22d2ba ;
+ToUserName : o7oRnwzQRQ9XY6SbwM4LNZj3taCo ;
+MsgType : news ;
+ArticleCount : 2 ;
+Articles : Array ;
+
+2016-08-22 13:39:05 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_c8e42a22d2ba]]></ToUserName>
+<FromUserName><![CDATA[o7oRnwzQRQ9XY6SbwM4LNZj3taCo]]></FromUserName>
+<CreateTime>1471844345</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=25&c=entry&do=bangding&m=lianhu_school]]></EventKey>
+<MenuId>411650003</MenuId>
+</xml>
+
+2016-08-22 13:39:05 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 53 ;
+priority : 3 ;
+keyword : Array ;
+
+2016-08-22 13:39:05 response :
+------------
+Array:
+FromUserName : gh_c8e42a22d2ba ;
+ToUserName : o7oRnwzQRQ9XY6SbwM4LNZj3taCo ;
+MsgType : news ;
+ArticleCount : 2 ;
+Articles : Array ;
+
+2016-08-22 13:39:15 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_c8e42a22d2ba]]></ToUserName>
+<FromUserName><![CDATA[o7oRnwzQRQ9XY6SbwM4LNZj3taCo]]></FromUserName>
+<CreateTime>1471844355</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=25&c=home&t=48]]></EventKey>
+<MenuId>411650003</MenuId>
+</xml>
+
+2016-08-22 13:39:16 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 53 ;
+priority : 3 ;
+keyword : Array ;
+
+2016-08-22 13:39:16 response :
+------------
+Array:
+FromUserName : gh_c8e42a22d2ba ;
+ToUserName : o7oRnwzQRQ9XY6SbwM4LNZj3taCo ;
+MsgType : news ;
+ArticleCount : 2 ;
+Articles : Array ;
+
+2016-08-22 13:39:22 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_c8e42a22d2ba]]></ToUserName>
+<FromUserName><![CDATA[o7oRnwzQRQ9XY6SbwM4LNZj3taCo]]></FromUserName>
+<CreateTime>1471844362</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=25&c=home&t=48]]></EventKey>
+<MenuId>411650003</MenuId>
+</xml>
+
+2016-08-22 13:39:22 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 53 ;
+priority : 3 ;
+keyword : Array ;
+
+2016-08-22 13:39:22 response :
+------------
+Array:
+FromUserName : gh_c8e42a22d2ba ;
+ToUserName : o7oRnwzQRQ9XY6SbwM4LNZj3taCo ;
+MsgType : news ;
+ArticleCount : 2 ;
+Articles : Array ;
+
+2016-08-22 13:39:28 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_c8e42a22d2ba]]></ToUserName>
+<FromUserName><![CDATA[o7oRnwzQRQ9XY6SbwM4LNZj3taCo]]></FromUserName>
+<CreateTime>1471844368</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=25&c=home&t=48]]></EventKey>
+<MenuId>411650003</MenuId>
+</xml>
+
+2016-08-22 13:39:28 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 53 ;
+priority : 3 ;
+keyword : Array ;
+
+2016-08-22 13:39:28 response :
+------------
+Array:
+FromUserName : gh_c8e42a22d2ba ;
+ToUserName : o7oRnwzQRQ9XY6SbwM4LNZj3taCo ;
+MsgType : news ;
+ArticleCount : 2 ;
+Articles : Array ;
+
+2016-08-22 13:40:02 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_c8e42a22d2ba]]></ToUserName>
+<FromUserName><![CDATA[o7oRnwzQRQ9XY6SbwM4LNZj3taCo]]></FromUserName>
+<CreateTime>1471844402</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=25&c=home&t=48]]></EventKey>
+<MenuId>411650003</MenuId>
+</xml>
+
+2016-08-22 13:40:02 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 53 ;
+priority : 3 ;
+keyword : Array ;
+
+2016-08-22 13:40:02 response :
+------------
+Array:
+FromUserName : gh_c8e42a22d2ba ;
+ToUserName : o7oRnwzQRQ9XY6SbwM4LNZj3taCo ;
+MsgType : news ;
+ArticleCount : 2 ;
+Articles : Array ;
+
+2016-08-22 13:40:18 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_c8e42a22d2ba]]></ToUserName>
+<FromUserName><![CDATA[o7oRnwzQRQ9XY6SbwM4LNZj3taCo]]></FromUserName>
+<CreateTime>1471844418</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=25&c=home&t=48]]></EventKey>
+<MenuId>411650003</MenuId>
+</xml>
+
+2016-08-22 13:40:18 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 53 ;
+priority : 3 ;
+keyword : Array ;
+
+2016-08-22 13:40:18 response :
+------------
+Array:
+FromUserName : gh_c8e42a22d2ba ;
+ToUserName : o7oRnwzQRQ9XY6SbwM4LNZj3taCo ;
+MsgType : news ;
+ArticleCount : 2 ;
+Articles : Array ;
+
+2016-08-22 13:40:45 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_c8e42a22d2ba]]></ToUserName>
+<FromUserName><![CDATA[o7oRnwzQRQ9XY6SbwM4LNZj3taCo]]></FromUserName>
+<CreateTime>1471844445</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=25&c=home&t=48]]></EventKey>
+<MenuId>411650003</MenuId>
+</xml>
+
+2016-08-22 13:40:45 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 53 ;
+priority : 3 ;
+keyword : Array ;
+
+2016-08-22 13:40:45 response :
+------------
+Array:
+FromUserName : gh_c8e42a22d2ba ;
+ToUserName : o7oRnwzQRQ9XY6SbwM4LNZj3taCo ;
+MsgType : news ;
+ArticleCount : 2 ;
+Articles : Array ;
+
+2016-08-22 13:40:47 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_c8e42a22d2ba]]></ToUserName>
+<FromUserName><![CDATA[o7oRnwzQRQ9XY6SbwM4LNZj3taCo]]></FromUserName>
+<CreateTime>1471844447</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=25&c=entry&do=bangding&m=lianhu_school]]></EventKey>
+<MenuId>411650003</MenuId>
+</xml>
+
+2016-08-22 13:40:47 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 53 ;
+priority : 3 ;
+keyword : Array ;
+
+2016-08-22 13:40:47 response :
+------------
+Array:
+FromUserName : gh_c8e42a22d2ba ;
+ToUserName : o7oRnwzQRQ9XY6SbwM4LNZj3taCo ;
+MsgType : news ;
+ArticleCount : 2 ;
+Articles : Array ;
+
+2016-08-22 13:40:54 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_c8e42a22d2ba]]></ToUserName>
+<FromUserName><![CDATA[o7oRnwzQRQ9XY6SbwM4LNZj3taCo]]></FromUserName>
+<CreateTime>1471844454</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=25&c=entry&do=bangding&m=lianhu_school]]></EventKey>
+<MenuId>411650003</MenuId>
+</xml>
+
+2016-08-22 13:40:54 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 53 ;
+priority : 3 ;
+keyword : Array ;
+
+2016-08-22 13:40:54 response :
+------------
+Array:
+FromUserName : gh_c8e42a22d2ba ;
+ToUserName : o7oRnwzQRQ9XY6SbwM4LNZj3taCo ;
+MsgType : news ;
+ArticleCount : 2 ;
+Articles : Array ;
+
+2016-08-22 13:40:59 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_c8e42a22d2ba]]></ToUserName>
+<FromUserName><![CDATA[o7oRnwzQRQ9XY6SbwM4LNZj3taCo]]></FromUserName>
+<CreateTime>1471844459</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=25&c=entry&do=teaIn&m=lianhu_school]]></EventKey>
+<MenuId>411650003</MenuId>
+</xml>
+
+2016-08-22 13:40:59 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 53 ;
+priority : 3 ;
+keyword : Array ;
+
+2016-08-22 13:40:59 response :
+------------
+Array:
+FromUserName : gh_c8e42a22d2ba ;
+ToUserName : o7oRnwzQRQ9XY6SbwM4LNZj3taCo ;
+MsgType : news ;
+ArticleCount : 2 ;
+Articles : Array ;
+
+2016-08-22 13:42:23 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_c8e42a22d2ba]]></ToUserName>
+<FromUserName><![CDATA[o7oRnwzQRQ9XY6SbwM4LNZj3taCo]]></FromUserName>
+<CreateTime>1471844543</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=25&c=home&t=48]]></EventKey>
+<MenuId>411650003</MenuId>
+</xml>
+
+2016-08-22 13:42:23 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 53 ;
+priority : 3 ;
+keyword : Array ;
+
+2016-08-22 13:42:23 response :
+------------
+Array:
+FromUserName : gh_c8e42a22d2ba ;
+ToUserName : o7oRnwzQRQ9XY6SbwM4LNZj3taCo ;
+MsgType : news ;
+ArticleCount : 2 ;
+Articles : Array ;
+
+2016-08-22 13:42:33 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_c8e42a22d2ba]]></ToUserName>
+<FromUserName><![CDATA[o7oRnwzQRQ9XY6SbwM4LNZj3taCo]]></FromUserName>
+<CreateTime>1471844553</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[unsubscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+
+2016-08-22 13:43:15 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_c8e42a22d2ba]]></ToUserName>
+<FromUserName><![CDATA[o7oRnwzQRQ9XY6SbwM4LNZj3taCo]]></FromUserName>
+<CreateTime>1471844595</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[subscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+
+2016-08-22 13:43:15 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 53 ;
+priority : 3 ;
+keyword : Array ;
+
+2016-08-22 13:43:15 response :
+------------
+Array:
+FromUserName : gh_c8e42a22d2ba ;
+ToUserName : o7oRnwzQRQ9XY6SbwM4LNZj3taCo ;
+MsgType : news ;
+ArticleCount : 2 ;
+Articles : Array ;
+
+2016-08-22 13:43:21 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_c8e42a22d2ba]]></ToUserName>
+<FromUserName><![CDATA[o7oRnwzQRQ9XY6SbwM4LNZj3taCo]]></FromUserName>
+<CreateTime>1471844601</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=25&c=home&t=48]]></EventKey>
+<MenuId>411650003</MenuId>
+</xml>
+
+2016-08-22 13:43:21 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 53 ;
+priority : 3 ;
+keyword : Array ;
+
+2016-08-22 13:43:21 response :
+------------
+Array:
+FromUserName : gh_c8e42a22d2ba ;
+ToUserName : o7oRnwzQRQ9XY6SbwM4LNZj3taCo ;
+MsgType : news ;
+ArticleCount : 2 ;
+Articles : Array ;
+
+2016-08-22 13:43:47 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_c8e42a22d2ba]]></ToUserName>
+<FromUserName><![CDATA[o7oRnwzQRQ9XY6SbwM4LNZj3taCo]]></FromUserName>
+<CreateTime>1471844627</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=25&c=home&t=48]]></EventKey>
+<MenuId>411650003</MenuId>
+</xml>
+
+2016-08-22 13:43:47 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 53 ;
+priority : 3 ;
+keyword : Array ;
+
+2016-08-22 13:43:47 response :
+------------
+Array:
+FromUserName : gh_c8e42a22d2ba ;
+ToUserName : o7oRnwzQRQ9XY6SbwM4LNZj3taCo ;
+MsgType : news ;
+ArticleCount : 2 ;
+Articles : Array ;
+
+2016-08-22 13:43:53 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_c8e42a22d2ba]]></ToUserName>
+<FromUserName><![CDATA[o7oRnwzQRQ9XY6SbwM4LNZj3taCo]]></FromUserName>
+<CreateTime>1471844633</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=25&c=entry&do=bangding&m=lianhu_school]]></EventKey>
+<MenuId>411650003</MenuId>
+</xml>
+
+2016-08-22 13:43:53 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 53 ;
+priority : 3 ;
+keyword : Array ;
+
+2016-08-22 13:43:53 response :
+------------
+Array:
+FromUserName : gh_c8e42a22d2ba ;
+ToUserName : o7oRnwzQRQ9XY6SbwM4LNZj3taCo ;
+MsgType : news ;
+ArticleCount : 2 ;
+Articles : Array ;
+
+2016-08-22 13:45:36 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_c8e42a22d2ba]]></ToUserName>
+<FromUserName><![CDATA[o7oRnwzQRQ9XY6SbwM4LNZj3taCo]]></FromUserName>
+<CreateTime>1471844736</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=25&c=home&t=48]]></EventKey>
+<MenuId>411650003</MenuId>
+</xml>
+
+2016-08-22 13:45:36 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 53 ;
+priority : 3 ;
+keyword : Array ;
+
+2016-08-22 13:45:36 response :
+------------
+Array:
+FromUserName : gh_c8e42a22d2ba ;
+ToUserName : o7oRnwzQRQ9XY6SbwM4LNZj3taCo ;
+MsgType : news ;
+ArticleCount : 2 ;
+Articles : Array ;
+
+2016-08-22 13:45:38 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_c8e42a22d2ba]]></ToUserName>
+<FromUserName><![CDATA[o7oRnwzQRQ9XY6SbwM4LNZj3taCo]]></FromUserName>
+<CreateTime>1471844738</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=25&c=home&t=48]]></EventKey>
+<MenuId>411650003</MenuId>
+</xml>
+
+2016-08-22 13:45:38 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 53 ;
+priority : 3 ;
+keyword : Array ;
+
+2016-08-22 13:45:38 response :
+------------
+Array:
+FromUserName : gh_c8e42a22d2ba ;
+ToUserName : o7oRnwzQRQ9XY6SbwM4LNZj3taCo ;
+MsgType : news ;
+ArticleCount : 2 ;
+Articles : Array ;
+
+2016-08-22 13:46:22 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_c8e42a22d2ba]]></ToUserName>
+<FromUserName><![CDATA[o7oRnwzQRQ9XY6SbwM4LNZj3taCo]]></FromUserName>
+<CreateTime>1471844782</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=25&c=home&t=48]]></EventKey>
+<MenuId>411650003</MenuId>
+</xml>
+
+2016-08-22 13:46:22 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 53 ;
+priority : 3 ;
+keyword : Array ;
+
+2016-08-22 13:46:22 response :
+------------
+Array:
+FromUserName : gh_c8e42a22d2ba ;
+ToUserName : o7oRnwzQRQ9XY6SbwM4LNZj3taCo ;
+MsgType : news ;
+ArticleCount : 2 ;
+Articles : Array ;
+
+2016-08-22 13:46:28 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_c8e42a22d2ba]]></ToUserName>
+<FromUserName><![CDATA[o7oRnwzQRQ9XY6SbwM4LNZj3taCo]]></FromUserName>
+<CreateTime>1471844788</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[unsubscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+
+2016-08-22 13:46:45 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_c8e42a22d2ba]]></ToUserName>
+<FromUserName><![CDATA[o7oRnwzQRQ9XY6SbwM4LNZj3taCo]]></FromUserName>
+<CreateTime>1471844805</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[subscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+
+2016-08-22 13:46:45 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 53 ;
+priority : 3 ;
+keyword : Array ;
+
+2016-08-22 13:46:45 response :
+------------
+Array:
+FromUserName : gh_c8e42a22d2ba ;
+ToUserName : o7oRnwzQRQ9XY6SbwM4LNZj3taCo ;
+MsgType : news ;
+ArticleCount : 2 ;
+Articles : Array ;
+
+2016-08-22 13:46:47 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_c8e42a22d2ba]]></ToUserName>
+<FromUserName><![CDATA[o7oRnwzQRQ9XY6SbwM4LNZj3taCo]]></FromUserName>
+<CreateTime>1471844807</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=25&c=home&t=31]]></EventKey>
+<MenuId>411650313</MenuId>
+</xml>
+
+2016-08-22 13:46:47 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 53 ;
+priority : 3 ;
+keyword : Array ;
+
+2016-08-22 13:46:47 response :
+------------
+Array:
+FromUserName : gh_c8e42a22d2ba ;
+ToUserName : o7oRnwzQRQ9XY6SbwM4LNZj3taCo ;
+MsgType : news ;
+ArticleCount : 2 ;
+Articles : Array ;
+
+2016-08-22 13:46:54 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_c8e42a22d2ba]]></ToUserName>
+<FromUserName><![CDATA[o7oRnwzQRQ9XY6SbwM4LNZj3taCo]]></FromUserName>
+<CreateTime>1471844814</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=25&c=entry&do=bangding&m=lianhu_school]]></EventKey>
+<MenuId>411650313</MenuId>
+</xml>
+
+2016-08-22 13:46:54 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 53 ;
+priority : 3 ;
+keyword : Array ;
+
+2016-08-22 13:46:54 response :
+------------
+Array:
+FromUserName : gh_c8e42a22d2ba ;
+ToUserName : o7oRnwzQRQ9XY6SbwM4LNZj3taCo ;
+MsgType : news ;
+ArticleCount : 2 ;
+Articles : Array ;
+
+2016-08-22 14:13:41 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_0eab716966d4]]></ToUserName>
+<FromUserName><![CDATA[oSoVuwDkC0H3aOzW-47P70XueWZ0]]></FromUserName>
+<CreateTime>1471846421</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=28&c=entry&eid=1]]></EventKey>
+<MenuId>414492131</MenuId>
+</xml>
+
+2016-08-22 14:13:41 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-08-22 14:13:41 response :
+------------
+
+2016-08-22 14:13:46 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_0eab716966d4]]></ToUserName>
+<FromUserName><![CDATA[oSoVuwDkC0H3aOzW-47P70XueWZ0]]></FromUserName>
+<CreateTime>1471846426</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=28&c=home&]]></EventKey>
+<MenuId>414492131</MenuId>
+</xml>
+
+2016-08-22 14:13:46 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-08-22 14:13:46 response :
+------------
+
+2016-08-22 14:33:02 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_0eab716966d4]]></ToUserName>
+<FromUserName><![CDATA[oSoVuwFDGIv5QLIznqzms3dagbR0]]></FromUserName>
+<CreateTime>1471847582</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[subscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+
+2016-08-22 14:33:02 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-08-22 14:33:02 response :
+------------
+
+2016-08-22 18:27:01 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_7d1762dac7c2]]></ToUserName>
+<FromUserName><![CDATA[o8AZcwDs4vqJMDMidhD03vnQ7pZY]]></FromUserName>
+<CreateTime>1471861621</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[subscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+
+2016-08-22 18:27:01 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-08-22 18:27:01 response :
+------------
+
+2016-08-22 18:57:13 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_7d1762dac7c2]]></ToUserName>
+<FromUserName><![CDATA[o8AZcwE4UduYegwB1_yW01D5007w]]></FromUserName>
+<CreateTime>1471863433</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[subscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+
+2016-08-22 18:57:13 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-08-22 18:57:13 response :
+------------
+
+2016-08-22 19:16:15 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_7d1762dac7c2]]></ToUserName>
+<FromUserName><![CDATA[o8AZcwE4UduYegwB1_yW01D5007w]]></FromUserName>
+<CreateTime>1471864575</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=6&c=entry&eid=2]]></EventKey>
+<MenuId>406999612</MenuId>
+</xml>
+
+2016-08-22 19:16:15 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-08-22 19:16:15 response :
+------------
+
+2016-08-22 19:16:20 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_7d1762dac7c2]]></ToUserName>
+<FromUserName><![CDATA[o8AZcwE4UduYegwB1_yW01D5007w]]></FromUserName>
+<CreateTime>1471864580</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=6&c=home&]]></EventKey>
+<MenuId>406999612</MenuId>
+</xml>
+
+2016-08-22 19:16:20 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-08-22 19:16:20 response :
+------------
+
+2016-08-22 19:16:32 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_7d1762dac7c2]]></ToUserName>
+<FromUserName><![CDATA[o8AZcwE4UduYegwB1_yW01D5007w]]></FromUserName>
+<CreateTime>1471864592</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=6&c=entry&eid=1]]></EventKey>
+<MenuId>406999612</MenuId>
+</xml>
+
+2016-08-22 19:16:32 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-08-22 19:16:32 response :
+------------
+
+2016-08-22 21:12:08 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_e7a0c8306261]]></ToUserName>
+<FromUserName><![CDATA[oRj-FsxR2crq9Pzafaq84CnVk5ak]]></FromUserName>
+<CreateTime>1471871527</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=13&c=entry&eid=2]]></EventKey>
+<MenuId>409075692</MenuId>
+</xml>
+
+2016-08-22 21:12:08 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 22 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-08-22 21:12:08 response :
+------------
+Array:
+FromUserName : gh_e7a0c8306261 ;
+ToUserName : oRj-FsxR2crq9Pzafaq84CnVk5ak ;
+MsgType : text ;
+Content : 欢迎关注同城学堂，点击微官网查看本学校介绍信息，家长点击学生天地绑定自己小孩信息使用，老师点击教师信息绑定自己账号使用 ;
+
+2016-08-22 21:12:08 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_e7a0c8306261]]></ToUserName>
+<FromUserName><![CDATA[oRj-FsxR2crq9Pzafaq84CnVk5ak]]></FromUserName>
+<CreateTime>1471871528</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=13&c=entry&eid=2]]></EventKey>
+<MenuId>409075692</MenuId>
+</xml>
+
+2016-08-22 21:12:08 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 22 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-08-22 21:12:08 response :
+------------
+Array:
+FromUserName : gh_e7a0c8306261 ;
+ToUserName : oRj-FsxR2crq9Pzafaq84CnVk5ak ;
+MsgType : text ;
+Content : 欢迎关注同城学堂，点击微官网查看本学校介绍信息，家长点击学生天地绑定自己小孩信息使用，老师点击教师信息绑定自己账号使用 ;
+

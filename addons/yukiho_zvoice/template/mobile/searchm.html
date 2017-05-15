@@ -1,0 +1,48 @@
+{php $g_title='搜索结果'}
+{php $menu='3'}
+{template 'common/header1'}
+{template 'common/menu'}
+		<div id="content" class="snap-content">
+			<div class="content">
+				<div class="portfolio-filter">
+					<div class="portfolio-filter-wrapper" style="background-color:#fff;margin-left:5px;">
+						
+						{loop $members['list'] $member}
+						<div class="cat{$member['category_id']} all-cat gallery-filter-item" style="display: block;width:100%;">
+								<p class="user-list-follow">
+									<t onclick="window.location.href='{php echo $this->createMobileUrl('tutor',array('openid'=>$member['openid']))}'"  ><img src="{php echo $member['avatar']}" alt="img">
+										<strong>{$member['nickname']}
+											<em class="split-title2">{$member['tags']}</em>
+										</strong>
+									</t> 
+									<a onclick="window.location.href = '{php echo $this->createMobileUrl('making',array('openid'=>$member['openid']))}'" class="follow button-green">提问</a>
+								</p>
+						</div>
+						<div style="margin-bottom:5px;margin-top:10px;" class="decoration"></div>	
+						{/loop}
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer-menu-controls light-footer-menu" style="-webkit-transform:inherit;">
+			<div class="column" style="z-index:9999;">
+				<div id="sb-search" class="sb-search">
+					<form id="sb-form" action="{php echo $this->createMobileUrl('searchm')}" method="post">
+						<input class="sb-search-input" placeholder="搜索老师名称/课程/专业/学校..." type="text" name="key" id="search">
+						<input class="sb-search-submit" type="submit">
+						<a id="sb-icon-search" class="sb-icon-search footer-menu-open" style="filter:alpha(opacity=50); -moz-opacity:0.5; -khtml-opacity: 0.58; opacity: 0.5; transform: translateX(0px); transition: all 250ms ease;"><i class="fa fa-search bg-blue-dark"></i></a>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<link rel="stylesheet" type="text/css" href="{MODULE_URL}/assets/search/css/component.css">
+	<script>
+
+	</script>
+	<script src="{MODULE_URL}/assets/search/js/classie.js"></script>
+	<script src="{MODULE_URL}/assets/search/js/uisearch.js"></script>
+	<script>
+	new UISearch(document.getElementById( 'sb-search' ));
+	</script>
+</body>

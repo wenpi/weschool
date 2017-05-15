@@ -1,0 +1,67 @@
+   {template '../admin/head'}
+   {template '../admin/header'}
+   <style>
+       .page-content{
+           margin-left:0px !important;
+       }
+   </style>
+    <div class="page-container">
+        <div class="page-content-wrapper">
+	    <div class="page-content" >
+         {template '../admin/sidebar'}
+             <h1 class="page-title"> 公众号列表
+                        <small>请选择你要管理的公众号</small>
+              </h1>
+                    <div class="row">
+                        {loop $list $row}
+                        <div class="col-lg-4" >
+                            <div class="portlet light portlet-fit ">
+                                <div class="portlet-body">
+                                    <div class="mt-element-list">
+                                        <div class="mt-list-head list-news ext-1 font-white bg-grey-gallery">
+                                            <div class="list-head-title-container">
+                                                <h3 class="list-title">{$row['name']}</h3>
+                                            </div>
+                                            <div class="list-count pull-right bg-red">{$row['rank']}</div>
+                                        </div>
+                                        <div class="mt-list-container list-news ext-1"  style="min-height:200px;">
+                                            <ul>
+                                                <li class="mt-list-item">
+                                                    <div class="list-icon-container">
+                                                        <a href="{php echo $this->createWebUrl("adminloginCheck",array("in_uniacid"=>$row['uniacid'],'ac'=>'change' ));} ">
+                                                            <i class="fa fa-angle-right"></i>
+                                                        </a>
+                                                    </div>
+                                                    <div class="list-thumb">
+                                                        <a href="{php echo $this->createWebUrl("adminloginCheck",array("in_uniacid"=>$row['uniacid'],'ac'=>'change' ));} ">
+                                                            {php $img = tomedia('headimg_'.$row['acid'].'.jpg');  }
+                                                            <img alt="" src="{if $img}{$img}{/if}" onerror="this.src='{MODULE_URL}logo.png'"  width="100"/>
+                                                        </a>
+                                                    </div>
+                                                    <div class="list-datetime bold uppercase font-red">  {$row['setmeal']['groupname']} </div>
+                                                    <div class="list-item-content">
+                                                        <h3 class="uppercase">
+                                                            <a href="{php echo $this->createWebUrl("adminloginCheck",array("in_uniacid"=>$row['uniacid'],'ac'=>'change' ));}">{$row['name']}</a>
+                                                        </h3>
+                                                        <p>{$row['description']} </p>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                     
+                        {/loop}
+                     
+                    </div>
+                    <!-- END : LISTS -->      
+                </div>
+             </div>
+              <!-- END CONTENT -->
+            <!-- BEGIN QUICK SIDEBAR -->
+          {template '../admin/right'}
+        </div>
+    {template '../admin/footer'}
+    </body>
+    </html>

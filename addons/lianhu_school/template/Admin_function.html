@@ -1,0 +1,56 @@
+{if $_GPC['print_code']==1}
+{template 'print_code'}
+{else}
+{template 'common/header'}
+{template 'common'}
+<ul class="nav nav-tabs">
+	<li {if $ac == 'list'}class="active"{/if}>
+	<a href="{php echo $this->createWebUrl('admin_function')}">功能列表</a>
+	</li>
+	{if $ac=='edit'}
+	<li {if $ac == 'edit'} class="active"{/if}>
+	<a href="{php echo $this->createWebUrl('admin_function', array( 'ac' => 'edit'))}">编辑功能</a>
+	</li> {/if}
+	<li {if  $ac == 'new' }class="active"{/if}>
+	<a href="{php echo $this->createWebUrl('admin_function', array('ac' => 'new'))}">升级必点（还原）</a>
+	</li>	
+</ul>
+
+{if $ac=='list'}
+<div class="main">
+<div class="panel panel-default">
+	<div class="panel-body table-responsive">
+		<table class="table table-hover">
+			<thead class="navbar-inner">
+				<tr>
+					<th>ID</th>
+					<th>功能名</th>
+					<th>功能关键字</th>
+					<th>状态</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				{loop $list $item}
+				<tr>
+					<td>{$item['eid']}</td>
+					<td>{$item['title']}</td>
+					<td>{$item['do']}</td>
+					<td>{if $item['module']=='lianhu_school' }正常{else}隐藏{/if}</td>
+					<td>
+                        {if $item['module']=='lianhu_school' }
+                        <span><a  class='red'  href="{php echo $this->createWebUrl('admin_function',array('eeid'=>$item['eid'],'change'=>'lianhu_school_display','ac'=>'edit'))}">隐藏它</a></span>
+                        {else}
+                        <a href="{php echo $this->createWebUrl('admin_function',array('eeid'=>$item['eid'],'change'=>'lianhu_school','ac'=>'edit'))}">显示它</a>
+                        {/if}
+					</td>
+				</tr>
+				{/loop}
+			</tbody>
+		</table>
+	</div>
+	</div>
+</div>
+{/if}
+
+{/if}

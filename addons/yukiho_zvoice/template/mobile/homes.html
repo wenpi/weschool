@@ -1,0 +1,43 @@
+{php $g_title='我的'}
+{php $menu='4'}
+{template 'common/header1'}
+{template 'common/menu'}
+			<div id="content" class="snap-content">
+				<div class="content">
+					{php $member = M('member')->getInfo($_W['openid'])}
+					{if !empty($member['home_cover'])}
+						{php $image = unserialize($member['home_cover'])}
+					{/if}
+					<div class="page-profile">
+						<div class="page-profile-header container-fullscreen" style="background-image:url({php echo tomedia($image)})">
+							<img src="{php echo $member['avatar']}" alt="img">
+							<h3>{$member['nickname']}</h3>
+							<div class="overlay bg-black" ></div>
+						</div>
+						<div class="page-profile-followers" style="z-index:99">
+							<a href="{php echo $this->createMobileUrl('ask')}"> <i class="ion-ios-compose-outline"></i> 我提问的</a>
+							<a href="{php echo $this->createMobileUrl('visited')}"> <i class="ion-ios-checkmark-outline"></i> 我{php echo $this->template['learnName']}的</a>
+							<a href="{php echo $this->createMobileUrl('follow')}"> <i class="ion-ios-star-outline"></i> 我关注的</a> 
+						</div>
+						<div class="news-strip">
+							<a href="{php echo $this->createMobileUrl('home_edit')}"><i style="float:left;" class="ion-ios-heart-outline"></i>偏好设置<i class="fa fa-angle-right"></i></a>
+							{if '1' == $this->system['openVerify']}
+								{if '0' == $member['status']}
+								<a href="{php echo $this->createMobileUrl('tutor_edit')}"><i style="float:left;" class="ion-ios-color-wand-outline"></i>申请入驻<i class="fa fa-angle-right"></i></a>
+								{/if}
+								{if '1' == $member['status']}
+								<a style="color:red;"><i style="float:left;" class="ion-ios-color-wand-outline"></i>认证审核中</a>
+								{/if}
+								{if '2' == $member['status']}
+								<a href="{php echo $this->createMobileUrl('tutor_edit')}"><i style="float:left;" class="ion-ios-color-wand-outline"></i>重新修改<em style="color:red;">（{$member['verifyMsg']}。）</em><i class="fa fa-angle-right"></i></a>
+								{/if}
+							{/if}
+							<a href="{php echo $this->createMobileUrl('help')}"><i style="float:left;" class="ion-ios-information-outline"></i>需要帮助？<i class="fa fa-angle-right"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<a href="#" class="back-to-top-badge"><i class="fa fa-caret-up"></i>返回顶部</a>
+	</div>
+</body>

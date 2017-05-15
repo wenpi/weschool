@@ -1,0 +1,78 @@
+{template '../xiaoye/newTeaHead'}
+<link href="{MODULE_URL}style/css/weui.min.css" rel="stylesheet" type="text/css" />
+<body>
+<div class="weui_dialog_alert" id="weui_dialog_alert" style="display: none" >
+    <div class="weui_mask" onclick="$('#weui_dialog_alert').hide();"></div>
+    <div class="weui_dialog"  >
+        <div class="weui_dialog_hd"><strong class="weui_dialog_title">切换身份</strong></div>
+        <div class="weui_dialog_bd">
+                <div class="weui_cells weui_cells_access">
+                    {loop $teacher_list $row}
+                    <a class="weui_cell " href="{php echo $this->createMobileUrl('teacenter',array('teacher_id'=>$row['teacher_id']) );}" >
+                        <div class="weui_cell_bd weui_cell_primary">
+                            <p {if $row['teacher_id'] == $result['teacher_id'] } style="color:#ff0033" {/if}> {$row['teacher_realname']}</p>
+                        </div>
+                    </a>
+                    {/loop}
+                </div>
+        </div>
+            <div class="weui_dialog_ft">
+                <br>
+            </div>        
+    </div>
+</div>
+	<div class="main">
+		<div class="top" style="background-image:url({php echo $this->imgFrom(D('adv')->getAdvInfoKeyWord('teacher_top_img'))})">
+			<div class="qhleft" ><a href="{php echo $this->createMobileUrl("teacher")}"   ><img src="{MODULE_URL}/template/xiaoye/upimg/jiahao.png"></a></div>
+			<div class="qh"><a href="javascript:;"  onclick="changeDisplay('weui_dialog_alert')" ><img src="{MODULE_URL}/template/xiaoye/upimg/teacherimg/qh.png"></a></div>
+			<div class="tx">  <div style="background-image: url({php echo $this->imgFrom($result['teacher_img']);});width:22vw;height:22vw "  class="home_head_img" ></div> </div>
+			<div class="bj"><div class="bj1"><p>{$result['teacher_realname']} </p></div><div class="bj2"><p>{php echo $this->teacherCourse($result['teacher_id'],'echo')}</p></div></div>
+			</div>
+			<div class="zt">
+		<div class="tz">
+			<div class="tz1">通知</div>
+			<div class="tz2"><a href="{php echo $this->createMobileUrl("neimsg_tea")}">查看全部通知</a></div> 
+		</div>
+		</div>
+			<div class="tzxq">
+				<div class="tzx1"><img src="{MODULE_URL}/template/xiaoye/upimg/teacherimg/lb.png"></div>
+				<div class="xx">
+				<div class="tzx2">
+					<div class="tzxq11"><a href="{php echo $this->createMobileUrl('msg_content',array("id"=>$msg_list['0']['msg_id']))}">{$msg_list[0]['msg_title']}</a></div>
+					<div class="tzxq12">{php echo  date("m-d H:i",$msg_list[0]['add_time'])}</div>
+				</div>
+					<div class="tzxx">{php echo S('fun','formatLimitContent',array($msg_list[0]['msg_content'],35));}...</div>
+				</div>
+		</div>
+		<div class="kz"></div>
+	{php $class_mobile = D('mobile');}
+	{php $index_list   = $class_mobile->getIndexNav(false); }
+	{loop $index_list $row}
+		{if $row['top']['name']}
+			<div class="zt">
+				<div class="tz">
+					<div class="tz1">{$row['top']['name']}</div>
+				</div>	
+			</div>
+		{/if}
+		<ul class="lm">
+		{loop $row['list'] $key $val}
+			{php $params = json_decode($val['dis_three'],1);}
+			{php $params["token"] = $token;}
+			{if ($key+1)%4==0}
+				<li class="lmn">
+			{else}
+				<li class="lmm">
+			{/if}
+					<div class="lmt"><a href="{if $val['url']}{$val['url']}{else}{php echo $this->createMobileUrl($val['keyword'],$params)}{/if}">
+						<img src="{php echo $this->imgFrom($val['img'])}" style="width:46px;height:31px"></a></div>
+					<div class="lmz">{$val['name']}</div>
+			</li>
+		{/loop}
+		</ul>
+	{/loop}
+		{php $center_class = 'cde'}
+		{template '../xiaoye/newTeaFooter'}
+		</div>
+</body>
+</html>

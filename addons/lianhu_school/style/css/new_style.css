@@ -1,0 +1,83 @@
+.clear{
+    clear: both;
+}
+.font_yellow{
+    color: #ff7f00;
+}
+.font_red{
+    color: #ff2d51;
+}
+.font_green{
+    color: #00e500;
+}
+.class_week{
+    width: 90%;
+    margin-left:5%;
+    margin-top: 20px;
+    text-align: center;
+    background-color: #fff2df;
+    border: 1px solid #999;
+    color: #999;
+    border-radius: 5px;
+    font-size: 0.9em;
+}
+.class_week .title{
+    color: #555;
+    border-bottom: 1px solid #999;
+    font-size: 1em;
+    font-weight: 700;
+}
+.class_week ul{
+    list-style: none;
+}
+.class_week li{
+    width: 14%;
+    float: left;
+}
+.class_week img{
+    margin-bottom: 20px;
+    width: 90%;
+}
+.sign_average_temp{
+    margin: 10px 0;
+}
+.sign_average_temp span{
+    color:#ff0033;
+    font-size: 1em;
+    font-weight: 700;
+}
+.card_time{
+    color: #ff0033;
+}
+.record_list{
+    padding: 10px 0 0 10px;
+}
+.record_list .record_info{
+    float: left;
+    margin-right: 10px;
+    font-size: 1.5em;
+}
+.record_list .up{
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    background: #00e500;
+    color: #fff;
+    line-height: 30px;
+}
+.record_list .out{
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    background: #00e500;
+    color: #fff;
+    line-height: 30px;
+}
+.plus_student{
+    position: absolute;
+    z-index: 400;
+    float: right;
+    right: 20px;
+    color: #fff;
+    top:20px;
+}

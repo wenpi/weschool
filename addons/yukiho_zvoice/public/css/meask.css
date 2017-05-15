@@ -1,0 +1,201 @@
+.question-card {
+    margin-bottom: .45rem;
+    padding: .7rem .65rem 0;
+    background: #fff
+}
+
+.question-card a {
+    display: block
+}
+
+.question-card .question-header {
+    margin-bottom: .5rem;
+    height: 1.85rem;
+    line-height: 1.85rem;
+    font-size: .8rem;
+    overflow: hidden
+}
+
+.question-card .question-header .avatar {
+    float: left;
+    vertical-align: middle
+}
+
+.question-card .question-header .user-name {
+    display: inline-block;
+    margin-left: .475rem;
+    max-width: 54%;
+    color: #3f3f3f;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap
+}
+
+.question-card .question-header .state {
+    float: right;
+    margin-left: .65rem;
+    color: #999;
+    font-size: .8rem
+}
+
+.question-card .question-header .state-wait {
+    color: #1ccda6
+}
+
+.question-card .question-header .price {
+    float: right;
+    color: #f85f48
+}
+
+.question-card .question-header .price img {
+    width: 1.05rem;
+    height: 1.05rem;
+    vertical-align: middle
+}
+
+.question-card .question {
+    line-height: 1.1rem;
+    font-size: .8rem;
+    color: #3f3f3f
+}
+
+.question-card .question .private-tag {
+    margin-right: .2rem;
+    border: 1px solid;
+    border-radius: .1rem;
+    padding: .05rem .15rem 0;
+    font-size: .65rem;
+    font-style: normal;
+    color: #f85f48
+}
+
+.question-card .original-question {
+    margin-top: .4rem;
+    line-height: 1.1rem;
+    font-size: .7rem;
+    color: #ababab
+}
+
+.question-card .question-footer {
+    padding: .4rem 0;
+    overflow: hidden
+}
+
+.question-card .question-footer .time {
+    float: left;
+    line-height: .925rem;
+    font-size: .65rem;
+    color: #ababab
+}
+
+.question-card .question-footer .count {
+    float: right;
+    margin-left: .5rem;
+    font-size: .65rem;
+    line-height: .925rem;
+    color: #ababab
+}
+
+.question-card .question-footer .count-special {
+    color: #f85f48
+}
+
+.ask-list-nav {
+    text-align: center
+}
+
+.ask-list-nav .link {
+    text-decoration: none;
+    color: #999;
+    display: inline-block;
+    margin: .75rem .75rem .4rem;
+    padding-bottom: .15rem;
+    font-size: .75rem
+}
+
+.ask-list-nav .current {
+    color: #f85f48;
+    border-bottom: .2rem solid
+}
+
+.question-list {
+    margin-bottom: 4rem
+}
+
+.question-list .talk-card {
+    margin-bottom: .45rem;
+    padding: .7rem .65rem 0;
+    background: #fff
+}
+
+.question-list .talk-card a {
+    display: block
+}
+
+.question-list .talk-card .talk-header {
+    margin-bottom: .5rem;
+    line-height: 1.85rem;
+    font-size: .8rem;
+    overflow: hidden
+}
+
+.question-list .talk-card .talk-header .user {
+    display: inline-block;
+    max-width: 80%;
+    line-height: 1.85rem;
+    color: #3f3f3f;
+    font-size: .75rem
+}
+
+.question-list .talk-card .talk-header .user .user-name {
+    display: inline-block;
+    font-style: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 80%;
+    vertical-align: middle
+}
+
+.question-list .talk-card .talk-header .state {
+    float: right;
+    color: #999;
+    font-size: .8rem
+}
+
+.question-list .talk-card .talk-question {
+    line-height: 1.1rem;
+    font-size: .8rem;
+    color: #3f3f3f
+}
+
+.question-list .talk-card .talk-footer {
+    padding: .4rem 0;
+    overflow: hidden
+}
+
+.question-list .talk-card .talk-footer .time {
+    float: left;
+    line-height: .925rem;
+    font-size: .65rem;
+    color: #ababab
+}
+
+.question-list .talk-card .talk-footer .count {
+    float: right;
+    margin-left: .5rem;
+    font-size: .65rem;
+    line-height: .925rem;
+    color: #ababab
+}
+
+.loading {
+    text-align: center;
+    color: #999;
+    font-size: .65rem;
+    padding-top: .9rem
+}
+
+.hide {
+    display: none
+}

@@ -1,0 +1,170 @@
+   {template '../admin/head'}
+        {template '../admin/header'}
+        <div class="page-container">
+        {template '../admin/left'}
+            <div class="page-content-wrapper">
+
+            <div class="page-content">
+                {template '../admin/sidebar'}
+                    <h1 class="page-title"> {$_SESSION['school_name']}
+                            <small> {$title} </small>
+                    </h1>
+                    <div class='row'>
+                        <div class="col-md-12 col-sm-12">
+                            <div class="portlet box green-turquoise ">
+                                    <div class="portlet-title">
+                                        <div class="caption">
+                                            <i class="fa fa-info"></i> 详情 
+                                        </div>
+                                    </div>
+                                    <div class="portlet-body form">
+                                        <form class="form-horizontal form" id="form1" >
+                                            <div class="form-body">
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label">家长姓名</label>
+                                                    <div class="col-sm-9 ">
+                                                         <input readonly  value='{$result['my_name']}' >    
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label">家长电话</label>
+                                                    <div class="col-sm-9 ">
+                                                         <input readonly  value='{$result['list_phone']}' >    
+                                                    </div>
+                                                </div>
+                                                 <div class="form-group">
+                                                    <label class="col-md-3 control-label">家庭住址</label>
+                                                    <div class="col-sm-9 ">
+                                                         <input readonly  value='{$result['list_address']}' >    
+                                                    </div>
+                                                </div>
+
+                                                 <div class="form-group">
+                                                    <label class="col-md-3 control-label">学生姓名</label>
+                                                    <div class="col-sm-9 ">
+                                                         <input readonly  value='{$result['list_name']}' >    
+                                                    </div>
+                                                </div>
+                                                 <div class="form-group">
+                                                    <label class="col-md-3 control-label">学生身份证</label>
+                                                    <div class="col-sm-9 ">
+                                                         <input readonly  value='{$result['list_people_id']}' >    
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label">学生性别</label>
+                                                    <div class="col-sm-9 ">
+                                                         {if $result['list_sex']==1}
+                                                            {php $sex = '男';}
+                                                         {elseif $result['list_sex']==2}
+                                                            {php $sex = '女';}
+                                                         {else}
+                                                            {php $sex = '';}
+                                                         {/if}
+                                                         <input readonly  value='{$sex}' >    
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label">学生户籍</label>
+                                                    <div class="col-sm-9 ">
+                                                         <input readonly  value='{$result['list_huji']}' >    
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label">原学校</label>
+                                                    <div class="col-sm-9 ">
+                                                         <input readonly  value='{$result['list_old_school']}' >    
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label">是否住校</label>
+                                                    <div class="col-sm-9 ">
+                                                         {if $result['list_live']==1}
+                                                            {php $live = '住';}
+                                                         {elseif $result['list_live']==2}
+                                                            {php $live = '不住';}
+                                                         {else}
+                                                            {php $live = '';}
+                                                         {/if}
+                                                         <input readonly  value='{$live}' >    
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label">预约时间</label>
+                                                    <div class="col-sm-9 ">
+                                                        {if $result['list_time']}
+                                                            {php $time = date("Y-m-d H:i:s",$result['list_time']);}
+                                                        {else}
+                                                            {php $time = '';}
+                                                        {/if}
+                                                         <input readonly  value='{$time}' >    
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label">照片</label>
+                                                    <div class="col-sm-9 admin_img_list">
+                                                        {if $result['list_imgs']}
+                                                            {php $imgs = json_decode($result['list_imgs']); }
+                                                        {/if}
+                                                        {loop $imgs $row}
+                                                            <img src="{php echo $this->imgFrom($row)}" >
+                                                        {/loop}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    </form>
+                                 </div>
+                            </div>
+                        </div>
+
+                        <form action="{php echo $this->createWebUrl("booking_list",array('id'=>$_GPC['id']))}" method="post" class="form-horizontal form" id="form1" >
+                            <div class="col-md-12 col-sm-12">
+                                <div class="portlet box green-turquoise ">
+                                    <div class="portlet-title">
+                                        <div class="caption">
+                                            <i class="fa fa-edit"></i> 处理 
+                                        </div>
+                                    </div>
+                                    <div class="portlet-body form">
+                                            <div class="form-body">
+                                                <div class="form-group">
+                                                    <label class="col-md-1 control-label"><span style='color:red'>*</span>审核状态</label>
+                                                    <div class="col-sm-10 ">
+                                                        <select name="pass_status" class="form-control">
+                                                            <option value="0" >未通过</option>
+                                                            <option value="1" >审核通过</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-md-1 control-label"><span style='color:red'>*</span>内容说明</label>
+                                                    <div class="col-sm-10 ">
+                                                     <input type='hidden' value='{$result['list_id']}' name='have[]'>    
+                                                     <textarea name='content' class='form-control' rows="3" required ></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-actions form-group">
+                                                	<input type="submit" name="submit" value="提交" class="btn green" />
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>                          
+                        </form>
+                    </div>
+                </div>
+              </div>
+            </div>
+            <script>
+                function checkBox(){
+                    $(".teacher_checkbox").prop("checked",true);
+                }
+            </script>
+         {template '../admin/right'}
+        </div>
+     {template '../admin/footer'}
+    </body>
+    </html>

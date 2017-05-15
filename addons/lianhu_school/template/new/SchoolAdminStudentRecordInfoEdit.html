@@ -1,0 +1,82 @@
+{template 'school/app_header'}
+<link rel="stylesheet" type="text/css" href="{MODULE_URL}/style/css/style.css">
+<link rel="stylesheet" type="text/css" href="{MODULE_URL}/style/css/old_css.css">
+<body>
+  <section class="w-section mobile-wrapper">
+    <div class="page-content" id="main-stack">
+      <div class="w-nav navbar" style="height:45px;padding-top:0"   data-collapse="all" data-animation="over-left" data-duration="400" data-contain="1" data-easing="ease-out-quint" data-no-scroll="1">
+        <div class="w-container">
+          <div class="wrapper-mask" data-ix="menu-mask"></div>
+          <div class="navbar-title">编辑-{$result['word']}</div>
+          <a href="{php echo $this->createMobileUrl('SchoolAdminStudentRecordInfo',array("id"=>$student_id))}">
+            <div class="w-nav-button navbar-button left" id="menu-button" data-ix="hide-navbar-icons">
+                <div class="navbar-button-icon smaller icon ion-reply"></div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="body padding"  style="padding-top:45px;">
+        <div class="w-form">
+          <form  method="post" action="{php echo $this->createMobileUrl('SchoolAdminStudentRecordInfoEdit',array('id'=>$result['work_id']))}">
+            <div class="separator-button-input"></div>
+            <div>
+              <label class="label-form" for="full-name-field">记录类型</label>
+                <select name='jilv_class' class="w-input input-form" >
+                  {loop $class_list $row}
+                    <option value='{$row['class_id']}' {if $result['jilv_class'] == $row['class_id'] } selected {/if}>{$row['class_name']}</option>
+                  {/loop}
+                </select>
+              <div class="separator-fields"></div>
+            </div>
+            <div>
+              <label class="label-form" for="full-name-field">标题</label>
+                <input class="w-input input-form" id="full-name-field" type="text" name="word" data-name="word" required value="{$result['word']}">
+              <div class="separator-fields"></div>
+            </div>
+            <div>
+              <label class="label-form" for="message">内容</label>
+              <textarea class="w-input input-form textarea" id="content" name="content" data-name="content">{$result['content']}</textarea>
+            </div>
+            {if $result['img']}
+              <div >
+                 <label class="label-form" for="message">点评照片</label>
+                          <div id='img_list' style='margin：10px 0px;'>
+                              <div style='background-size:cover; height:150px; width:180px;background-image:url("{php echo $this->imgFrom($result['img'])}");float:left;margin-left:2%;overflow: hidden; margin-bottom:5px;'></div>
+                          </div>
+                          <div style='clear:both'></div>
+              </div>	
+              {/if}
+              {if $result['voice']}
+              <div>
+                	<div >
+                        <audio controls='controls' src="{php echo $this->imgFrom($result['voice'])}"></audio>
+                    </div>     
+              </div>  
+              {/if}
+             <div>
+              <label class="label-form" for="full-name-field" style="color:#ff0033">操作</label>
+                <select name='action_do' class="w-input input-form" >
+                    <option value='1'>正常</option>
+                    <option value='10'>删除</option>
+                </select>
+              <div class="separator-fields"></div>
+            </div>
+
+            <div class="separator-button-input"></div>
+             <input type="hidden" value="{$token}"  name='token'>
+             <input class="w-button action-button" type="submit" name="submit" value="提交" data-wait="Please wait...">
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </section>
+  <style>
+    #voice_stop{
+        margin-top:50px;
+    }
+  </style>
+  <link href="{MODULE_URL}style/css/weui.min.css" rel="stylesheet" type="text/css" />
+  {template 'school/app_footer'}
+</body>
+</html>

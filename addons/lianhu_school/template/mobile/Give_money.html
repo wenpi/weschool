@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>需要缴费记录</title>
+    {template 'common'}
+</head>
+<style>
+    .list_left{width:80%;float: left;height:100%;}
+    .list_right{width:20%;float: left;background-color:#FFAE00;color:#fff;height:100%;}
+    .list_button{text-align:center;font-weight: 700;font-size:1.1em;}
+    </style>
+<body class="body-gray" style="width:100%;overflow:hidden">
+ <!-- <div class="top-wrap">
+	<div class="fn-clear tr-box top">
+	   <div class='text_center'>需要缴费记录</div>
+  </div>
+</div>-->
+<div class="wrap" style="margin-bottom:60px;">
+    <ul class="ul-list focus-list" id="focus-list">
+      {loop $arr $row}
+         <li style='height:2.5em;line-height:2.5em'>
+             <div class='list_left'>&nbsp;&nbsp;{$row['name']}&nbsp;&nbsp;<i style='color:red'>金额{$row['money']}</i></div>
+             <a href="{php echo $this->createMobileUrl('give_money_order',array('name'=>$row['limit_module']));}"><div class='list_right list_button'>去缴费</div></a>
+         </li>        
+      {/loop}
+      {if !$arr}
+         <li style='height:2.5em;line-height:2.5em'>
+             <div class='list_left'> 暂无缴费</div>
+         </li>              
+      {/if}
+    </ul>
+</div>
+{template 'jsweixin'}
+{template 'footer'}

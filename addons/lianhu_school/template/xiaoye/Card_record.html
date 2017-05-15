@@ -1,0 +1,53 @@
+{template '../xiaoye/newHead'}
+<div class="z_main">
+  <div class="z_riqi">
+    <div class="z_riqil datepicker " id="input_01" title='select_time'>
+      {$get_year}年<br/>{$get_month}月 
+    </div>
+    <div class="z_leftl">
+      <ul>
+            {loop $out_time $key $row}
+                <li class="z_ri">
+                <p  {if $key!=0} class="p2" {/if} >{$row['week']}</p>
+                <p  class="{if $in_time == $row['time']}p4{/if}"><a href="{php echo $this->createMobileUrl('card_record',array('time'=>$row['time']) )}" >{php echo date("d",$row['time'])}</a></p>
+                </li>
+            {/loop}
+      </ul>
+    </div>
+  </div>
+  <div class="z_center">
+  {loop $list $row}
+  <div class="z_jin">
+    <div class="z_jin1" id='img_list_{$row['record_id']}' > 
+      {if $row['img_url'] }
+        <img src="{$row['img_url']}"  onclick="displayImage('img_list_{$row['record_id']}','{$row['img_url']}')">
+      {/if}
+      {if $row['img_url2'] }
+        <img src="{$row['img_url2']} " onclick="displayImage('img_list_{$row['record_id']}','{$row['img_url2']}')">
+      {/if}
+    </div>
+    <div class="z_jin2"> <span>打卡时间：{if $row['teacher_add']}教师手动签到{else} {if !$row['play_card_time']}{php echo date("H:i:s",$row['add_time'])} {else}{php echo date("H:i:s",$row['play_card_time'])}{/if} {/if}</span> 
+    {if $row['signTemp']}
+      <span>体温：<span class="{if $row['signTemp'] <= 37.1} p6 {else} z_ri {/if}">{$row['signTemp']}</span></span> </div>
+    {/if}
+    {if $row['up_low']==1} <div class="z_jin3 p4">进</div>{elseif $row['up_low']==2} <div class="z_jin3 p4">出</div>{else}<div class="z_jin3 card_not" >异</div>{/if}
+  </div>  
+  {/loop}
+  {if !$in_result && !$out_result && !other_result}
+         <div class="z_jin">
+            <div class="z_jin1"></div>
+            <div class="z_jin2"></span> 
+            <div class="z_jin3 card_not" >无</div>
+          </div> 
+  {/if}
+    <div class="jie"><img src="{MODULE_URL}/template/xiaoye/img/2.png"><span>异常</span><img src="{MODULE_URL}/template/xiaoye/img/1.png"><span>正常</span></div>
+    <div id="container"></div>
+  </div>
+</div>
+</div>
+  {template 'jsweixin'}
+  {template '../xiaoye/newStudentFooter'}
+  {php $url = $this->createMobileUrl("card_record");}
+  {template '../new/timeDate'}
+</body>
+</html>

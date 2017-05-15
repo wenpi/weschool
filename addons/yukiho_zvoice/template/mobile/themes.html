@@ -1,0 +1,66 @@
+{template 'common/header'}
+<link rel="stylesheet" href="{MODULE_URL}public/css/find.css"/>
+<div id="search"></div>
+<div class="main">
+    <div id="albums">
+        {if !empty($themes['list'])}
+        <div>
+            <ul class="album">
+                {loop $themes['list'] $theme}
+                <li style="background-image:url({php echo tomedia($theme['image'])});">
+                    <a href="{php echo $this->createMobileUrl('themes_detail',array('id'=>$theme['id']))}">
+                        <p>{$theme['title']}</p>
+                        <p class="description">
+                            <span>{$theme['desc']}</span>
+                            <span>{php echo M('themes_answer')->getTotal($theme['id'])}</span>
+                            <span>人</span>
+                        </p>
+                    </a>
+                </li>
+                {/loop}
+            </ul>
+        </div>
+        {else}
+        <div style="text-align:center;padding:3.6rem 2.875rem;" data-reactid=".1">
+            <div data-reactid=".1.0">
+                <img src="http://hangjia.qiniudn.com/FugCrgkvyNW-neCLtifXyyKnS-07" style="display:inline-block;width:4,5rem;height:4.5rem;margin-bottom:1rem;">
+            </div>
+            <p style="font-size:.8rem;color:#999;line-height:1.1rem;margin-bottom:1.65rem;">
+                没有找到相关数据
+            </p>
+            <a style="display:inline-block;line-height:2.2rem;width:8rem;background:#F85F48;border:1px solid #F85F48;font-size:.75rem;color:#fff;text-decoration:none;text-align:center;border-radius:.3rem;" href="{php echo $_W['siteurl']}" data-reactid=".1.2">
+                刷新看看
+            </a>
+        </div>
+        {/if}
+    </div>
+</div>
+{template 'common/footerbar'}
+<script type="text/javascript" src="{MODULE_URL}public/libs/velocity.min.js"></script>
+<script src="{MODULE_URL}public/js/loadmore.js"></script>
+<script>
+    $('.listen').click(function(){
+        $.showLoading('数据提交中');
+        var openid = $(this).data('openid');
+        var _that = $(this);
+        $.post("{php echo $this->createMobileUrl('members')}",{act:'follow',openid:openid},function(data){
+            $.hideLoading();
+            if(data.status == 1){
+                $.toast(data.message,2000,function(){
+                    window.location.href = "{php echo $_W['siteurl']}";
+                });
+            }else{
+                $.toast(data.message,2000,function(){});
+            }
+        },'json');
+    });
+
+    $(function(){
+        function callback(html){
+            $('#Questions .questions').append(html);
+        }
+        initload("",callback);
+        loadmore("",callback);
+    })
+</script>
+{template 'common/footer'}

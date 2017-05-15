@@ -1,0 +1,106 @@
+/** 2016-10-18 新增样式表文件**/
+body {
+    background:url("../images/bg.jpg") no-repeat;
+    background-size: cover;
+    font-family: "Microsoft YaHei";
+}
+
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-top: 0;
+}
+
+.table>thead>tr>th {
+    border-bottom: 2px solid #ddd;
+}
+
+.top-wrap {
+    font-size: 22px;
+    font-weight: normal;
+    color:#fff;
+    text-align: center;
+    height:80px;
+    padding:25px 0;
+}
+
+.top-wrap .text_center {
+    width:100px;
+    margin:0 auto;
+    padding-bottom: 4px;
+    border-bottom: 2px solid #fff;
+}
+
+/*.accordion {
+    padding:10px 0;
+    background-color:rgba(0, 0, 0, 0.2);
+}*/
+
+.accordion-heading {
+    background-color: #fff;
+    border-radius: 5px;
+    padding:8px;
+    color:#1189d7;
+    width:98%;
+    margin:10px auto 0 auto;
+    padding-left:5%;
+    font-weight: 700;
+    -webkit-box-shadow: 3px 3px 3px;
+    -moz-box-shadow: 3px 3px 3px;
+    box-shadow: 3px 3px 3px;
+}
+
+.accordion-heading a:hover {
+    text-decoration: none;
+}
+
+.accordion-heading a > img {
+    margin:0 10px 0 0;
+    width:25px;
+    height:25px;
+}
+
+.accordion-group {
+    background-color: #fff;
+    border-radius: 5px;
+    padding:8px;
+    color:#1189d7;
+    height:auto;
+    width:98%;
+    margin:0 auto;
+}
+
+.accordion-group th {
+    text-align: center;
+    border:0;
+}
+
+.accordion-group th div{
+    background-color: #22d2f7;
+    border-radius: 50px;
+    padding:0 20px;
+    color:#fff;
+    text-align: center;
+    margin:0 auto;
+    font-size:14px;
+    height:30px;
+    line-height: 30px;
+}
+
+.accordion-group tr {
+    padding: 2px 0;
+}
+
+.accordion-group td {
+    text-align: center;
+    color:#3686c3;
+    border-top:0;
+    border-left:0;
+    border-bottom:2px solid #ddd;
+}
+
+.accordion-group tr td:nth-child(1),.accordion-group tr td:nth-child(2) {
+    border-right:1px solid #ccc;
+    border-bootom:1px solid #ccc;
+}

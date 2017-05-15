@@ -1,0 +1,22 @@
+{loop $questions['list'] $li}
+<div class="blog-sidebar-text" onclick="window.location.href='{php echo $this->createMobileUrl('question',array('id'=>$li['id']))}'">
+	<h5>{$li['title']}</h5>
+</div>
+<div class="container one-third-responsive">
+	{php $member = M('member')->getInfo($li['openid'])}
+	<p class="user-list-follow">
+		<a href="{php echo $this->createMobileUrl('tutor',array('openid'=>$member['openid']))}">
+			<img src="{php echo $member['avatar']}" alt="img">
+			<strong>{$member['nickname']}
+				<em class="split-title">{$member['tags']}</em>
+			</strong></a> 							
+			{php $answer = M('answer')->getInfoByQid($li['id'])}
+			{if !empty($answer)}
+				<a onclick="window.location.href='{php echo $this->createMobileUrl('question',array('id'=>$li['id']))}'" class="listen follow2 button-green">查看解答</a>
+			{else}
+				<a onclick="window.location.href='{php echo $this->createMobileUrl('question',array('id'=>$li['id']))}'" class="listen follow2 button-orange">等我解答</a>
+			{/if}
+	</p>
+<div class="decoration"></div>
+</div>
+{/loop}

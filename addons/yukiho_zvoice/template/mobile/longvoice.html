@@ -1,0 +1,103 @@
+{template 'common/header'}
+<link rel="stylesheet" href="{MODULE_URL}public/css/album.css" />
+
+<div class="main">
+    {template 'header/index_header'}
+    <div class="album-header">
+        <h1 class="album-title">超赞答主私藏干货－限时免费听</h1>
+        <span class="album-count">{php echo M('question')->getFreeTotal()}个问题</span>
+    </div>
+    <div id="questions">
+        <audio style="display:none;" preload="preload" src=""></audio>
+        {if !empty($questions['list'])}
+        <ul class="album-questions">
+            {loop $questions['list'] $li}
+            <div class="a-question">
+                <div>
+                    <a style="overflow:hidden;text-decoration:none;" href="{php echo $this->createMobileUrl('question',array('id'=>$li['id']))}">
+                        <div>
+                            <p style="font-size:.8rem;line-height:1.1rem;color:#3F3F3F;">
+                                {$li['title']}
+                            </p>
+                        </div>
+                    </a>
+                </div>
+                {php $member = M('member')->getInfo($li['to_openid'])}
+                <div style="overflow:hidden;">
+                    <p style="color:#ababab;line-height:1.58;font-size:.65rem;margin:.5rem 0 .25rem;">
+                        <span>{$member['nickname']}</span>
+                        <span> | </span>
+                        <span>{$member['desc']}</span>
+                    </p>
+                    <div class="avatar"
+                         style="position:relative;width:1.85rem;height:1.85rem;border-radius:50%;display:inline-block;float:left;margin-top:.2rem;margin-right:1.05rem;">
+                        <img style="position:relative;width:1.85rem;height:1.85rem;border-radius:50%;display:inline-block;"
+                             class="avatarImg" src="{php echo $member['avatar']}"/>
+                        <span></span>
+                    </div>
+                    <input type="hidden" value="nothing"/>
+                    <a class="bubble" style="width:10.862068965517242rem;" href="{php echo $this->createMobileUrl('question',array('id'=>$li['id']))}">
+                        <span class="bubble-tail"></span>
+                        <div>
+                            <span class="wave1"></span>
+                            <span class="wave2"></span>
+                            <span class="wave3"></span>
+                        </div>
+                        <span>限时免费</span>
+                    </a>
+                    <span style="display:block;float:left;line-height:2.2rem;color:#1CCDA6;font-size:.8rem;">
+                        <span>{php echo intval($li['timelong']/60)}</span>
+                        <span>分</span>
+                        <span>{php echo intval($li['timelong']%60)}</span>
+                        <span>秒</span>
+                    </span>
+                </div>
+                <div style="color:#ababab;font-size:.65rem;margin-top:.5rem;overflow:hidden;">
+                    <span style="float:right;">
+                        <i class="like-icon like-icon-gray"></i>
+                        <span> </span><span>{$li['good_num']}</span>
+                    </span>
+                    <span style="float:right;margin-right:.5rem;">
+                        <span>听过 </span>
+                        <span>{$li['listen_num']}</span>
+                    </span>
+                    <span>{php echo M('common')->format_create_time($li['create_time'])}</span>
+                </div>
+            </div>
+            {/loop}
+        </ul>
+        <div class="weui-infinite-scroll" style="padding-bottom: 54px;">
+            <div class="infinite-preloader"></div>
+            正在加载...
+        </div>
+        {else}
+        <div style="text-align:center;padding:3.6rem 2.875rem;" data-reactid=".1">
+            <div data-reactid=".1.0">
+                <img src="http://hangjia.qiniudn.com/FugCrgkvyNW-neCLtifXyyKnS-07" style="display:inline-block;width:4,5rem;height:4.5rem;margin-bottom:1rem;">
+            </div>
+            <p style="font-size:.8rem;color:#999;line-height:1.1rem;margin-bottom:1.65rem;">
+                暂无相关信息
+            </p>
+            <a style="display:inline-block;line-height:2.2rem;width:8rem;background:#F85F48;border:1px solid #F85F48;font-size:.75rem;color:#fff;text-decoration:none;text-align:center;border-radius:.3rem;" href="{php echo $_W['siteurl']}" data-reactid=".1.2">
+                刷新看看
+            </a>
+        </div>
+        {/if}
+    </div>
+</div>
+{template 'common/footerbar'}
+<script type="text/javascript" src="{$_W['siteroot']}app/resource/js/lib/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="{MODULE_URL}public/libs/jquery_weui/jquery-weui.js"></script>
+
+<script type="text/javascript" src="{MODULE_URL}public/libs/velocity.min.js"></script>
+<script src="{MODULE_URL}public/js/loadmore.js"></script>
+<script>
+    $(function(){
+        function callback(html){
+            $('#Questions .questions').append(html);
+        }
+        initload("",callback);
+        loadmore("",callback);
+    })
+</script>
+{template 'common/footer'}

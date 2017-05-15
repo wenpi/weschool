@@ -1,0 +1,76 @@
+<?php defined('IN_IA') or exit('Access Denied');?>    <div class="fs3"><p>图片</p><span><b id="img_up_num">0</b>/<b id="img_all_num">0</b></span></div>
+    <div class="z_dpt63" id="imgDisplay">
+        <div>
+        </div>
+        <label for="z_fl4" id="chooseImage">+</label>
+    </div>
+    <div id='imgValues'>
+
+    </div>
+<script>
+    var images = {
+      localId: [],
+      serverId: []
+    };
+    document.querySelector('#chooseImage').onclick = function () {
+      images.localId = '';
+      $('#imgDisplay').find('div').html('');
+      $('#imgValues').html('');
+      wx.chooseImage({
+          success: function (res) {
+          images.localId = res.localIds;
+          $.each(images.localId,function(i,e){
+                img_data = realImgDis(e);
+                if(!img_data){
+                    wx.getLocalImgData({
+                        localId: e, 
+                        success: function (res) {
+                            var localData = res.localData; 
+                            img_value     = localData;
+                            insertImg(img_value);
+                        }
+                    });             
+                }else{
+                    insertImg(img_data);
+                }
+          });
+          uploadImg();
+        }
+      });
+    };
+  function uploadImg(){
+      if (images.localId.length == 0) {
+          alert('请先选择图片');
+          return;
+      }
+      var i = 0, length = images.localId.length;
+      $("#img_all_num").html(length);
+      images.serverId = [];
+      function upload() {
+        wx.uploadImage({
+          localId: images.localId[i],
+          success: function (res) {
+            i++;
+            images.serverId.push(res.serverId);
+            insertValue(res.serverId);
+            if (i < length) {
+              $("#img_up_num").html(i);
+              upload();
+            }else{
+              $("#img_up_num").html(length);
+            }
+          },
+          fail: function (res) {
+            alert();
+          }
+        });
+      }
+      upload();     
+    }
+    function insertImg(img_src){
+        $('#imgDisplay').prepend(" <label class='upload_img' style='background-image:url("+img_src+")'></label>");
+    }
+    function insertValue(value){
+        $("#imgValues").prepend("<input type='hidden' name='img_value[]' value='"+value+"' >");
+    }
+</script>

@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>{$page_title}-{$_SESSION['school_name']}</title>
+    {template 'common'}
+    {template 'tea_common'}
+    <link href="{MODULE_URL}style/css/line_css.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="{MODULE_URL}template/mobile/style/style_nav.css">
+</head>
+<div class="top-wrap">
+        <div class="fn-clear tr-box top bg_yellow" >
+            <div class='text_center white' style="width: 50%;float: left" >{$page_title}</div>
+            <div  class='head_left_text datepicker'>{$time_date}</div>
+        </div>
+ </div>  
+<div class="main" style='margin-bottom:60px;'>
+		<div class="panel-body table-responsive">
+		<table class="table table-hover">
+			<thead class="navbar-inner">
+				<tr style="color:#009ffb">
+					<th>班级名</th>
+					<th>到校</th>
+					<th>离校</th>
+					<th>异常</th>
+				</tr>
+			</thead>
+			<tbody>
+				{loop $list $item}
+				<tr>
+					<td><a href="{php echo $this->createMobileUrl('tea_ClassAttence',array("class_id"=>$item['class_id'],'time_date'=>$time_date));}">{$item['class_name']}</a></td>
+					<td>{$item['up']}</td>
+					<td>{$item['low']}</td>
+					<td>{$item['other']}</td>
+				</tr>
+				{/loop}
+			</tbody>
+		</table>
+	</div>
+</div>
+<div id="container"></div>
+
+{template 'jsweixin'}
+	<link href="{MODULE_URL}/template/xiaoye/css/teacher.css" rel="stylesheet">
+	{php $center_class = 'cde'}
+	{template '../xiaoye/newTeaFooter'}
+    <link rel="stylesheet" href="{MODULE_URL}/template/xiaoye/css/default/default.css">
+    <link rel="stylesheet" href="{MODULE_URL}/template/xiaoye/css/default/default.date.css">
+    <script src="{MODULE_URL}/template/xiaoye/js/picker.js"></script>
+    <script src="{MODULE_URL}/template/xiaoye/js/picker.date.js"></script>
+    <script src="{MODULE_URL}/template/xiaoye/js/legacy.js"></script>
+    <script type="text/javascript">
+        var $input = $( '.datepicker' ).pickadate({
+            formatSubmit: 'yyyy/mm/dd',
+            container: '#container',
+            closeOnSelect: true,
+            closeOnClear: false,
+            hiddenName:true,
+            value:"{php echo date("d",$class_card->in_time)} {php echo C('week')->date_num[date("n",$class_card->in_time)]}月, {php echo date("Y",$class_card->in_time)}",
+            url:"{php echo $this->createMobileUrl("tea_attence")}",
+        })
+    </script>

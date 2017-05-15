@@ -1,0 +1,39 @@
+{php $page_title = '授课教师列表['.$class_name.']';}
+{template '../new/head'}
+<script type='text/javascript' src='{MODULE_URL}/style/js/jquery.min.js'></script>
+<body ontouchstart>
+<div class="container" id="container">
+<div class="panel">
+<div class="bd">
+    <div class="weui_panel weui_panel_access">
+        <div class="weui_panel_hd">教师列表</div>
+        <div class="weui_panel_bd">
+            {loop $teacher_list $key $row}
+            <div class="weui_media_box weui_media_appmsg">
+                <div class="weui_media_hd">
+                    <img class="weui_media_appmsg_thumb" src="{if $row['teacher_img'] }../attachment/{$row['teacher_img']} {else} {MODULE_URL}icon.jpg{/if}" alt="">
+                </div>
+                <div class="weui_media_bd">
+                    <h4 class="weui_media_title">{$row['teacher_realname']}</h4>
+                    <p class="weui_media_desc">{php echo $this->courseName($row['course_id'])}</p>
+                </div>
+                <div class="weui_media_bd teacher_list">
+                 <ul>
+                     <a href="{php echo $this->createMobileUrl('personer',array('t_id'=>$row['teacher_id']))}"><li><i class="fa fa-arrow-right"></i>查看</li></a>
+                     <a href="{php echo $this->createMobileUrl('chatMessage',array('t_id'=>$row['teacher_id'],'type'=>'teacher'))}"><li><i class="fa fa-comments"></i>留言</li></a>
+                 </ul>
+                </div>
+            </div>
+            {/loop}
+        </div>
+    </div>
+</div>
+</div>
+</div>
+<style>
+    .teacher_list ul{list-style: none;}
+    .teacher_list li{text-align: right;margin-top: 10px; }
+    .teacher_list ul a{color:#999}
+</style>
+{template 'jsweixin'}
+{template '../new/footer'}

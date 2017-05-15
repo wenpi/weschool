@@ -1,0 +1,200 @@
+   {template '../admin/head'}
+        {template '../admin/header'}
+        <div class="page-container">
+        {template '../admin/left'}
+            <div class="page-content-wrapper">
+                <div class="page-content">
+                {template '../admin/sidebar'}
+                    <h1 class="page-title"> {$_SESSION['school_name']}
+                            <small> {$title} </small>
+                    </h1>
+            <!--结束公共头部-->
+                <div class='row'>
+                    <form action="" method="post" class="form-horizontal form" enctype="multipart/form-data" id="form1"  >
+                 	 <input type='hidden' value='{$model}' name='model'>
+                     <div class="col-md-12">
+                            {if $model =='grade'}
+                                {php $page = '年级列表';}
+                                {php $intro ='请选择学生所在的年级'; }
+                                {php $color ='green';}
+                            {elseif $model =='class'}
+                                {php $page = '班级列表';}
+                                {php $intro ='请选择学生所在的班级'; }
+                                {php $color ='yellow-casablanca';}
+                            {elseif $model =='student'}
+                                {php $page = '学生列表';}
+                                {php $intro =''; }
+                                {php $color ='blue';}
+                            {/if}
+                                <div class="note note-info">
+                                    <h4 class="block">{$page}</h4>
+                                    <p>{$intro}</p>
+                                </div> 
+                                {loop $result $item}
+                                <div class="col-md-2 col-sm-2 col-xs-6">
+                                    <div class="color-demo tooltips" >
+                                        {if $model !='student'}
+                                            <a href="{php echo $this->result_result($item,$model,'url','msg');}&aw=1">
+                                        {/if}
+                                             <div onclick="check_this({$item['student_id']})" class="color-view bg-{$color} bg-font-{$color} bold uppercase">{php echo $this->result_result($item,$model,'name','msg');} </div>
+                                        {if $model !='student'}
+                                            </a>
+                                        {/if}
+                                        <div class=" bg-white c-font-14 sbold">
+                                              &nbsp;&nbsp; <input id="chebox_{$item['student_id']}" type='checkbox' value='{if $model!='student'}{$item}{else}{$item['student_id']}{/if}' name='have[]'>选择
+                                       </div>
+                                    </div>
+                                </div>
+                                {/loop}                       
+                       </div>
+                       <div style="clear:both"></div>
+                             <div class="row">
+                           
+                              <div class="col-md-6 ">
+                                     <div class="portlet-body">
+                                        <div class="portlet box blue ">
+                                            <div class="portlet-title">
+                                                <div class="caption">模板消息预览  </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-body">
+                                                <div class='title'>
+                                                    <h3>学校通知</h3>
+                                                    <h5 class="font-blue-oleo">2月12日</h5>
+                                                </div>
+                                                <div class="form-group">
+                                                     <label class="col-md-1 control-label"></label>
+                                                    <div class="col-md-9 font-yellow-casablanca" id="title">[学生姓名]你好，这是个新的消息</div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-md-2 control-label">学校：</label>
+                                                    <div class="col-md-9">
+                                                        {php echo $this->school_info['school_name']}
+                                                    </div>
+                                                </div>
+                                               <div class="form-group">
+                                                    <label class="col-md-2 control-label">通知人：</label>
+                                                    <div class="col-md-9">
+                                                        管理员
+                                                    </div>
+                                                </div>
+ 
+                                               <div class="form-group">
+                                                    <label class="col-md-2 control-label">时间：</label>
+                                                    <div class="col-md-9">
+                                                        {php echo date("Y-m-d H:i:s",time())}
+                                                    </div>
+                                                </div>                               
+                                               <div class="form-group">
+                                                    <label class="col-md-2 control-label">通知内容：</label>
+                                                    <div class="col-md-9" id="content">
+                                                        
+                                                    </div>
+                                                </div> 
+                                               <div class="form-group">
+                                                     <label class="col-md-1 control-label"></label>
+                                                    <div class="col-md-9 font-yellow-casablanca " id="info"></div>
+                                                </div> 
+                                            </div>
+                                    </div>
+
+                                <div class="portlet box blue ">
+                                    <div class="portlet-title">
+                                        <div class="caption">
+                                            <i class="fa fa-gift"></i> 	添加发送内容【微信模板机制】 </div>
+                                        <div class="tools">
+                                            <a href="" class="collapse"> </a>
+                                        </div>
+                                    </div>
+                                    <div class="portlet-body form">
+                                            <div class="form-body">
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label">消息标题【不填写为默认】</label>
+                                                    <div class="col-md-9">
+                                                        <input type="text" class="form-control input-lg"  name='weixin_title'  placeholder="[学生姓名]你好，这是个新的消息"  onchange="contentTo(this,'title')"> </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label"><span style='color:red'>*</span>内容简要说明【将作为短信用户的短信内容】</label>
+                                                    <div class="col-sm-9 ">
+                                                        <textarea name='intro'  maxlength="120" class='form-control' placeholder="本处限制字数为120字" onchange="contentTo(this,'content')"></textarea>
+                                                    </div>
+                                                </div>
+ 
+                                                <div class="form-group">
+                                                    <label class=" col-md-3 control-label"><span style='color:red'>*</span>详细说明</label>
+                                                    <div class="col-sm-9 ">
+                                                        {php echo tpl_ueditor('real_content','');}	
+                                                    </div>
+                                                </div>	                               
+                                                <div class="form-group">
+                                                    <label class=" col-md-3 control-label"><span style='color:red'>*</span>备注信息</label>
+                                                    <div class="col-sm-9 ">
+                                                        <textarea name='remark'  maxlength="30" class='form-control' onchange="contentTo(this,'info')"></textarea>
+                                                    </div>
+                                                </div>	                                                              
+                                                <div class="form-group">
+                                                    <label class=" col-md-3 control-label">详情地址（https:// 或者http://）</label>
+                                                    <div class="col-sm-9 ">
+                                                        <input name='url' type="text" class="form-control input-lg" >
+                                                    </div>
+                                                </div>     
+                                            </div>
+                                            <div class="form-actions right1">
+                                                	<input type="submit" name="submit_weixin" value="发送模板消息" class="btn green" />
+                                            </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-6 ">
+                                <div class="portlet box purple ">
+                                    <div class="portlet-title">
+                                        <div class="caption">
+                                            <i class="fa fa-gift"></i>添加发送内容【短信机制】</div>
+                                        <div class="tools">
+                                            <a href="" class="collapse"> </a>
+                                        </div>
+                                    </div>
+                                    <div class="portlet-body form">
+                                            <div class="form-body">
+                                                <div class="form-group">
+                                                    <label class=" col-md-3 control-label"><span style='color:red'>*</span>抬头(3～10个字符)</label>
+                                                    <div class="col-sm-9  ">
+                                                        <input name='sms_head' value='{$_SESSION['school_name']}' class='form-control'>
+                                                    <br>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="  col-md-3 control-label"><span style='color:red'>*</span>内容说明（控制字数）</label>
+                                                    <div class="col-sm-9  ">
+                                                        <textarea name='sms_content' class='form-control' ></textarea>
+                                                    </div>
+                                                </div>                                               
+                                            </div>
+                                            <div class="form-actions right1">
+                                      			<input type="submit" name="submit_sms" value="发送短信" class="btn green" />
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                          </div>
+                    </form>
+                    </div>
+                </div>
+            <!--开始公共尾部-->
+              </div>
+            </div>
+            <script>
+                function contentTo(obj,idname){
+                    content = $(obj).val();
+                    $("#"+idname).html(content);
+                }
+            </script>
+         {template '../admin/right'}
+        </div>
+     {template '../admin/footer'}
+    </body>
+    </html>

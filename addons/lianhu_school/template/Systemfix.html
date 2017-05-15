@@ -1,0 +1,240 @@
+{template 'common/header'}
+{template 'common'}
+<ul class="nav nav-tabs">
+	{if $op == 'list'}
+	<li {if $ac == 'list'}class="active"{/if}>
+		<a href="{php echo $this->createWebUrl('systemFix')}">功能列表</a>
+	</li>
+	<li {if $ac == 'system_params_set'} class="active" {/if}>
+		<a href="{php echo $this->createWebUrl('systemFix',array('ac'=>'system_params_set') )}">系统参数设置</a>
+	</li>
+	<li {if $ac == 'school_type_set'} class="active" {/if}>
+		<a href="{php echo $this->createWebUrl('systemFix',array('ac'=>'school_type_set') )}">学校类型设置</a>
+	</li>
+
+	{elseif $op=='fix_file'}
+		<li {if $ac == 'list'}class="active"{/if}>
+			<a href="{php echo $this->createWebUrl('systemFix')}">文件更新列表</a>
+		</li>	
+	{elseif $op=='update_school_grade_class_student'}
+		<li {if $ac == 'list'}class="active"{/if}>
+			<a href="{php echo $this->createWebUrl('systemFix')}">打卡数据更新进度</a>
+		</li>	
+	{/if}
+</ul>
+{if $op=='list' && $ac=='system_params_set'}
+	{template 'system_params_set' }
+	{php exit();}
+{/if}
+{if $op=='list' && $ac=='school_type_set'}
+	{template 'school_type_set' }
+	{php exit();}
+{/if}
+<div class="main">
+<div class="panel panel-default">
+	<div class="panel-body table-responsive">
+		<table class="table table-hover">
+			<thead class="navbar-inner">
+				{if $op == 'list'}
+				<tr>
+					<th>功能名</th>
+					<th>功能关键字</th>
+					<th>操作</th>
+				</tr>
+				{elseif $op=='fix_file'}
+				<tr>
+					<th>文件</th>
+					<th>路径</th>
+					<th>最新版本</th>
+					<th>状态</th>
+				</tr>				
+				{elseif $op=='update_school_grade_class_student'}
+				<tr>
+					<th>班级</th>
+					<th>状态</th>
+				</tr>						
+				{/if}
+			</thead>
+			<tbody>
+				{if $op =='list'}
+				<tr>
+					<td>数据库升级【系统级】</td>
+					<td>每日都可点击</td>
+					<td>
+                        <a href="{php echo $this->createWebUrl('systemfix',array('op'=>'fix_table' ))}">点击升级</a>
+					</td>
+				</tr>
+				{if $count>100}
+				<tr>
+					<td>文件升级【系统级】</td>
+					<td>每日都可点击</td>
+					<td>
+						<a href="{php echo $this->createWebUrl('systemfix',array('op'=>'fix_file' ))}">点击升级</a>
+					</td>
+				</tr>		
+				{else}
+				<tr>
+					<td>文件初始化【系统级】</td>
+					<td>第一次必点</td>
+					<td>
+                        <a href="{php echo $this->createWebUrl('systemfix',array('op'=>'init_file' ))}">初始化</a>
+					</td>
+				</tr>				
+				{/if}
+				<tr>
+					<td>打卡数据更新(班级)【单公众号】</td>
+					<td>无打卡设备不需点击</td>
+					<td>
+                        <a href="{php echo $this->createWebUrl('systemfix',array('op'=>'update_school_grade_class_student' ))}">点击升级</a>
+					</td>
+				</tr>	
+				<tr>
+					<td>学校管理人员权限更新【系统级】</td>
+					<td>会补充家校通新增功能</td>	
+					<td>
+                        <a href="{php echo $this->createWebUrl('systemfix',array('op'=>'up_school_admin' ))}">点击更新</a>
+					</td>				
+				</tr>
+				<tr>
+					<td>教师权限更新【系统级】</td>
+					<td>会补充家校通新增功能</td>	
+					<td>
+                        <a href="{php echo $this->createWebUrl('systemfix',array('op'=>'up_teacher' ))}">点击更新</a>
+					</td>				
+				</tr>	
+				<tr>
+					<td>本年度年级升级【系统级】</td>
+					<td>升年级操作-只可在七八月份操作<code>【务必按教程设置好】</code></td>	
+					<td>
+                        <a href="{php echo $this->createWebUrl('systemfix',array('op'=>'up_grade' ))}">点击升级</a>
+						请先阅读：<a href='http://bbs.jiaxt.cn/thread-35.htm'>年级升级设置教程</a> 设置好
+					</td>				
+				</tr>											
+				{elseif $op == 'fix_file'}
+					{if $file_list}
+						{loop $file_list $row}
+							<tr>
+								<td class='file_name' data-id="{$row['id']}" data-status='1' >{$row['file_name']}</td>
+								<td>{$row['file_local']}</td>
+								<td>{$row['version']}</td>
+								<td id='status{$row['id']}'>未更新</td>
+							</tr>
+						{/loop}
+					{/if}
+				{elseif $op=='update_school_grade_class_student'}
+						{loop $class_list $row}
+							<tr class='class_list' data-status='0' data-id= "{$row['class_id']}" >
+								<td >{$row['class_name']}</td>
+								<td > 未更新</td>
+							</tr>
+						{/loop}													
+				{/if}	
+			</tbody>
+		</table>
+	</div>
+	</div>
+</div>
+{if $op=="update_school_grade_class_student"}
+	<script>
+		var page=0;
+		var count=4;		
+		$(function(){
+		if(count>0){
+			if(confirm("确认将进入更新数据进程，未更新完请勿关闭此网页"))
+				ajaxUp();
+		}
+		});
+		//班级数据
+		function ajaxUp(){
+			var obj;
+			var class_id;
+			$.each($(".class_list"),function(i,e){
+				status=$(this).attr("data-status");
+				if(status==0){
+						obj 	 = $(this);
+						class_id = obj.attr("data-id");	
+						$.ajax({
+							type:"POST",
+							url:'{php echo $this->createWebUrl("ajax");}',            
+							async:'false',
+							dataType:'json',
+							data:{class_id:class_id,ac:'update_school_grade_class_student'},
+							success:function(dataJson){
+								changeStatus(dataJson,obj);
+								return false;
+							} 
+						});					
+					return false;					
+				}
+			});
+
+		}    
+		function changeStatus(dataJson,obj){
+			if(dataJson.errcode==1)
+			{
+				alert(dataJson.msg);
+				return false;
+			}else{
+				obj.attr("data-status",1);
+				obj.find("td").eq(1).html(dataJson.add_time+"&nbsp;更新了");
+				ajaxUp();
+			}
+		}		
+	</script>
+{/if}
+{if $op=='fix_file'}
+	<script>
+		var page=0;
+		var xid=0;
+		var count={php echo count($file_list);};
+		$(function(){
+		if(count>0){
+			if(confirm("确认将进入更新进程，未更新完请勿关闭此网页")){
+				xid=setInterval("getNextSend()",3000);
+			}
+		}
+		});
+		function getNextSend(){
+			var send = false;
+			all_list = $('.file_name');
+			$.each(all_list,function(i,e){
+				if($(this).attr('data-status')==1){
+					
+					ajaxUp($(this).attr("data-id"),$(this));
+					send = true;
+					return false;
+				}
+			});
+			if(!send){
+					clearInterval(xid);
+					alert("已经全部更新完毕！");     
+				}
+		}
+		function ajaxUp(file_id,obj){
+			$.ajax({
+			type:"POST",
+			url:'{php echo $this->createWebUrl("NoBeginAjax");}',            
+			async:'false',
+			dataType:'json',
+			data:{file_id:file_id,ac:'update_file'},
+			success:function(dataJson){
+				changeStatus(dataJson.status,dataJson.end_time,obj,file_id,dataJson.msg);
+			} 
+		});
+		}    
+		function changeStatus(status,end_time,obj,file_id,msg){
+			obj.attr('data-status',status);
+			if(status==2){
+				$("#status"+file_id+"").html('<code>更新了</code>');     
+		    }
+			if(status==1){
+				//先跳过，下次再更新
+				obj.attr('data-status',3);
+				$("#status"+file_id+"").html(msg);     
+		    }			
+			if(status==10){
+				clearInterval(xid);
+			}
+		}
+	</script>
+{/if}

@@ -1,0 +1,25 @@
+    <ul class="list list-messages" id='cotent'>
+        {loop $list $row}
+            <li class="list-message" data-ix="list-item" style="height: 80px">
+                        <div class="column-right">
+                            <a class="w-clearfix w-inline-block" href="{php echo $this->createMobileUrl('funcstudent_fencingInfo',array("id"=>$row['fencingId']) )}" data-load="1">
+                                    <div class="message-title" style="position: relative;top:10px;"><span style="color: #ff0033">围栏名：</span>{$row['fencingName']} </div>
+                            </a>
+                            <a href="{php echo $this->createMobileUrl("funcstudent_fencing",array("id"=>$row['fencingId'],'ac'=>"delete") )}"> <div class="message-text ">删除</div></a>
+                        </div>
+                </li>
+        {/loop}
+    </ul>
+    <style>
+        .message-text{
+                font-size: 0.6rem;
+                color: #fff;
+                width: 60px;
+                float: right;
+                text-align: center;
+                height: 30px;
+                line-height: 30px;
+                background-color: #ff0033;
+        }
+    </style>
+    

@@ -1,0 +1,187 @@
+   {template '../admin/head'}
+        {template '../admin/header'}
+        <div class="page-container">
+        {template '../admin/left'}
+            <div class="page-content-wrapper">
+                <div class="page-content">
+                {template '../admin/sidebar'}
+                    <h1 class="page-title"> {$_SESSION['school_name']}
+                            <small> {$title} </small>
+                    </h1>
+                {if $ac=='new' || $ac=='edit'}
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="portlet light ">
+                                    <div class="portlet-title">
+                                        <div class="caption font-green-haze">
+                                            <i class="fa fa-edit font-green-haze"></i>
+                                            <span class="caption-subject bold uppercase"> {if $ac=='new'}新增{else}修改{/if}</span>
+                                        </div>
+                                        <div class="actions">
+                                            <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="javascript:;" data-original-title="" title=""> </a>
+                                        </div>
+                                    </div>
+                                    <div class="portlet-body form">
+                                        <form action="" method="post" class="form-horizontal form" enctype="multipart/form-data" id=""  >
+                                            <div class="form-body">
+                                                <div class="form-group form-md-line-input">
+                                                    <label class="col-md-2 control-label"><span class="required" aria-required="true"> * </span>标题</label>
+                                                    <div class="col-md-10">
+                                                        <input type="text" class="form-control"  placeholder="标题" value="{$result['line_title']}" name='line_title' required >
+                                                        <div class="form-control-focus"> </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group form-md-line-input">
+                                                    <label class="col-md-2 control-label" ><span class="required" aria-required="true"> * </span>类型</label>
+                                                    <div class="col-md-10">
+                                                        <select class="form-control" name='line_type' >
+                                                        {loop $line_type_cfg $key $row}
+                                                        	<option value='{$key}' {if $result['line_type']== $key} selected {/if}>{$row}</option>
+                                                        {/loop}
+                                                    </select>
+                                                        <div class="form-control-focus"> </div>
+                                                    </div>
+                                                </div>                                          
+                                                <div class="form-group form-md-line-input">
+                                                    <label class="col-md-2 control-label" for="form_control_1">消息内容）</label>
+                                                    <div class="col-md-10">
+                                                       {php echo tpl_ueditor('line_content',$result['line_content']);}	
+                                                        <div class="form-control-focus"> </div>
+                                                    </div>
+                                                </div>
+                                                {if $ac=='edit'}
+                                                    <div class='form-group form-md-line-input'>
+                                                    <label class=" col-md-2 control-label"><span style='color:red'>*</span>状态</label>
+                                                    <div class="col-sm-10">
+                                                        <select name='status' class='form-control' >
+                                                                <option value='1' {if $result['status']==1} selected {/if}>正常</option>
+                                                                <option value='0' {if $result['status']==0} selected {/if}>关闭</option>
+                                                        </select>
+                                                    </div>							
+                                                    </div>
+                                                {/if}                        
+                                            </div>
+                                            <div class="form-actions">
+                                                <div class="row">
+                                                    <div class="col-md-offset-2 col-md-10">
+                                                        <input type="submit" name="submit" class="btn blue" value="确认">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                        </div>
+                </div>                    
+                {/if}
+                {if $ac=='old' || $ac=='wait_to_pass'}
+                     <div class="row">
+                         <div class="col-md-12">
+                            <div class="portlet box green-turquoise">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <i class="fa fa-navicon"></i>记录 </div>
+                                        <div class="tools">
+                                            <a href="javascript:;" class="collapse"> </a>
+                                        </div>
+                                </div>
+                                <div class="portlet-body flip-scroll">
+                                    <table class="table table-bordered table-striped table-condensed flip-content" id="sample_3">
+                                        <thead class="flip-content">
+                                              <tr>
+                                                <th>班级</th>
+                                                <th>标题</th>
+                                                <th>发布老师</th>
+                                                <th>类型</th>
+                                                <th  class="numeric">查看数</th>
+                                                <th>状态</th>
+                                                <th  class="numeric"></th>
+                                                <th>操作</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {loop $list $item}
+                                            <tr id="line_{$item['line_id']}">
+                                                {php $grade_id = D('classes')->getClassGradeId($item['class_id']);}
+                                                <td> <span class="label label-sm label-info"> {php echo $this->gradeName($grade_id) }&nbsp;<i class="fa fa-toggle-right"></i>&nbsp;{$item['class_name']}</span> </td>
+                                                <td>{$item['line_title']}</td>
+                                                <td>{if $item['teacher_realname']}{$item['teacher_realname']}{else}管理员{/if}</td>
+                                                <td>{$line_type_cfg[$item['line_type']]}</td>
+                                                <td>{$item['line_look']}</td>
+                                                <td id="line_status_{$item['line_id']}"><span class="label label-sm label-warning"> {if $item['status'] ==1}正常{else if $item['status']  == 2}审核中  {else}关闭{/if} </span></td>
+                                                <td>{php echo date("Y-m-d H:i:s",$item['addtime']);}</td>
+                                                <td>
+                                                    <a href="{php echo $this->createWebUrl('line',array('ac'=>'edit','lid'=>$item['line_id'],'aw'=>1))}"
+                                                            class="btn blue" data-toggle="tooltip" data-placement="top"  title=''
+                                                            ><i class='fa fa-edit'></i>编辑</a>
+                                                    {if $teacher !='teacher' && $item['status'] == 2 }
+                                                        <span class='btn purple   queue_num '  data-queue="{$item['queue_num']}" onclick="passThis('{$item['line_id']}','line')"><i class='fa fa-check'></i>审核通过</span>
+                                                    {/if}
+                                                    <span class='btn  red '      onclick="deleteThis('{$item['line_id']}','line')"  ><i class='fa fa-minus-square'></i>删除</span>
+                                                </td>						
+                                            </tr>
+                                            {/loop}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>                        
+                    </div>
+                {/if}
+                {if $ac=='list'}
+                 <div class="row">
+                        <div class="col-md-12">
+                            <div class="portlet box green-turquoise">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <i class="fa fa-navicon"></i>班级列表 </div>
+                                    <div class="tools">
+                                        <a href="javascript:;" class="collapse"> </a>
+                                    </div>
+                                </div>
+                                <div class="portlet-body flip-scroll">
+                                    <table class="table table-bordered table-striped table-condensed flip-content table-light" id='sample_3'>
+                                        <thead class="flip-content">
+                                            <tr>
+                                                <th width="20%"  > 班级</th>
+                                                <th> 	班主任 </th>
+                                                <th class="numeric"> 学生数 </th>
+                                                <th > 状态 </th>
+                                                <th class="numeric">  </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                         {loop $list $item}
+                                            <tr>
+                                                <td> <span class="label label-sm label-info">   {php echo $this->gradeName($item['grade_id']) }&nbsp;<i class="fa fa-toggle-right"></i>&nbsp;{$item['class_name']}</span> </td>
+                                                <td>  {php echo $this->teacherName($item['teacher_id'])}  </td>
+                                                <td class="numeric">  <span class="label label-sm label-success"> {php echo $this->classStudentNum($item['class_id']);}</span></td>
+                                                <td><span class="label label-sm label-warning"> 	{if $item['status'] ==1}正常{else}<span class='red'>关闭</span>{/if}</span></td>
+                                                <td style="text-align: center">
+                                                    <a  href="{php echo $this->createWebUrl('line', array('ac' => 'new','cid'=>$item['class_id'],'aw'=>1))}" class="btn blue">
+                                                            <i class="fa fa-plus-square"></i> 发布 </a>
+                                                <a href="{php echo $this->createWebUrl('line', array('ac' => 'old','cid'=>$item['class_id'] ,'aw'=>1 ))}" 
+                                                    class="btn purple" title="查看"><i class="fa fa-eye"></i>
+                                                    查看
+                                                </a>      
+                                                </td>                          
+                                            </tr>
+                                        {/loop}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                {/if}
+        </div>
+        </div>
+         {template '../admin/right'}
+        </div>
+     {template '../admin/footer'}
+     {if $ac=='list' || $ac=='old' || $ac=='wait_to_pass'}
+         {template '../admin/table_script'}
+     {/if}
+         </body>
+    </html>

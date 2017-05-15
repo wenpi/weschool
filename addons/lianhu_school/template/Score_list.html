@@ -1,0 +1,95 @@
+{template 'common/header'}
+{template 'common'}
+<div class='main'>
+		<div class="panel-body table-responsive">
+		<form action="" method="post" class="form-horizontal form" enctype="multipart/form-data" id="form1">
+		<table class="table table-hover">
+			<thead class="navbar-inner">
+				<tr>
+					<th style="width:100%">发布成绩</th>
+				</tr>
+			</thead>
+			<tbody>
+				{loop $result $item}
+				<tr>
+					<td>
+						{if $model!='student'}<a href="{php echo $this->result_result($item,$model,'url','score_list');}">{/if}
+												{php echo $this->result_result($item,$model,'name','msg');}
+						{if $model!='student'}</a>{else}
+									<input name='score[{$item['student_id']}]' type='text' placeholder="请填入成绩">
+						{/if}
+						&nbsp;&nbsp;<input type='hidden' value='{$model}' name='model'>
+					</td>
+				</tr>
+				{/loop}
+				{if $model!='grade'}
+				<tr>
+					<td><a href="javascript:;" onclick="window.history.back() ">返回</td>
+				</tr>
+				{/if}
+			</tbody>
+		</table>
+        {if $model=='student'}
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				添加成绩记录
+			</div>
+			<div class="panel-body">
+				<div class="tab-content">
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span>选择课程</label>
+					<div class="col-sm-9 col-xs-8">
+						<select name='course_id' onchange="ajax_up()" id="course_id">
+						{loop $course_list $row}
+							<option value='{$row['course_id']}'>{$row['course_name']}</option>
+						{/loop}
+					</select>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span>选择考试记录</label>
+					<div class="col-sm-9 col-xs-8">
+						<select name='scorejilv_id' onchange="ajax_up()"id="scorejilv_id">
+						{loop $jilv_list $row}
+							<option value='{$row['scorejilv_id']}'>{$row['scorejilv_name']}</option>
+						{/loop}
+					</select>
+					</div>
+				</div>							
+			</div>
+		</div>		
+		<div class="form-group col-sm-12">
+			<br>
+			<input type='hidden' value='{$_GPC['cid']}' name='class_id'>
+			<input type="submit" name="submit" value="提交" class="btn btn-primary col-lg-1" />
+		</div>
+	</div>
+    {/if}
+</div>
+</div>
+{if $model=='student'}
+	<script>
+		$(function(){
+			ajax_up();
+
+		});
+			function ajax_up(){
+				var cid={$_GPC['cid']};
+				var course_id=$('#course_id').val();
+				var scorejilv_id=$('#scorejilv_id').val();
+				$.ajax({
+					type:'post',
+					url:'{php echo $this->createWebUrl('ajax',array('ac'=>'student_score_list'))}',
+					data:{cid:cid,course_id:course_id,scorejilv_id:scorejilv_id},
+					dataType:'json',
+					success:function(obj){
+						if(obj.status=='yes'){
+							$.each(obj.student_score_list,function(i,e){
+								$('input[name="score['+e.student_id+']"]').val(e.score);
+							});
+						}
+					}
+				});								
+			}
+	</script>
+{/if}

@@ -1,0 +1,240 @@
+2016-06-05 06:40:06 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_e7a0c8306261]]></ToUserName>
+<FromUserName><![CDATA[oRj-Fs8Kq_u_aD_S-O60rimuOjLQ]]></FromUserName>
+<CreateTime>1465080005</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=13&c=entry&eid=1]]></EventKey>
+<MenuId>408429854</MenuId>
+</xml>
+
+2016-06-05 06:40:06 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 22 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-06-05 06:40:06 response :
+------------
+Array:
+FromUserName : gh_e7a0c8306261 ;
+ToUserName : oRj-Fs8Kq_u_aD_S-O60rimuOjLQ ;
+MsgType : text ;
+Content : 欢迎关注同城学堂，点击微官网查看本学校介绍信息，家长点击学生天地绑定自己小孩信息使用，老师点击教师信息绑定自己账号使用 ;
+
+2016-06-05 17:51:19 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_7d1762dac7c2]]></ToUserName>
+<FromUserName><![CDATA[o8AZcwLsdMp9inr5V_ac6v_cRWi4]]></FromUserName>
+<CreateTime>1465120279</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[subscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+
+2016-06-05 17:51:19 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-06-05 17:51:19 response :
+------------
+
+2016-06-05 17:51:56 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_7d1762dac7c2]]></ToUserName>
+<FromUserName><![CDATA[o8AZcwLsdMp9inr5V_ac6v_cRWi4]]></FromUserName>
+<CreateTime>1465120316</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=6&c=entry&eid=1]]></EventKey>
+<MenuId>406999612</MenuId>
+</xml>
+
+2016-06-05 17:51:56 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-06-05 17:51:56 response :
+------------
+
+2016-06-05 17:53:41 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_7d1762dac7c2]]></ToUserName>
+<FromUserName><![CDATA[o8AZcwLsdMp9inr5V_ac6v_cRWi4]]></FromUserName>
+<CreateTime>1465120421</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=6&c=home&]]></EventKey>
+<MenuId>406999612</MenuId>
+</xml>
+
+2016-06-05 17:53:41 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-06-05 17:53:41 response :
+------------
+
+2016-06-05 17:55:02 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_7d1762dac7c2]]></ToUserName>
+<FromUserName><![CDATA[o8AZcwLsdMp9inr5V_ac6v_cRWi4]]></FromUserName>
+<CreateTime>1465120502</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=6&c=entry&eid=2]]></EventKey>
+<MenuId>406999612</MenuId>
+</xml>
+
+2016-06-05 17:55:02 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-06-05 17:55:02 response :
+------------
+
+2016-06-05 17:55:12 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_7d1762dac7c2]]></ToUserName>
+<FromUserName><![CDATA[o8AZcwLsdMp9inr5V_ac6v_cRWi4]]></FromUserName>
+<CreateTime>1465120512</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=6&c=home&]]></EventKey>
+<MenuId>406999612</MenuId>
+</xml>
+
+2016-06-05 17:55:12 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-06-05 17:55:12 response :
+------------
+
+2016-06-05 17:55:44 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_7d1762dac7c2]]></ToUserName>
+<FromUserName><![CDATA[o8AZcwLsdMp9inr5V_ac6v_cRWi4]]></FromUserName>
+<CreateTime>1465120544</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=6&c=home&]]></EventKey>
+<MenuId>406999612</MenuId>
+</xml>
+
+2016-06-05 17:55:44 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-06-05 17:55:44 response :
+------------
+
+2016-06-05 17:55:55 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_7d1762dac7c2]]></ToUserName>
+<FromUserName><![CDATA[o8AZcwLsdMp9inr5V_ac6v_cRWi4]]></FromUserName>
+<CreateTime>1465120555</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=6&c=home&]]></EventKey>
+<MenuId>406999612</MenuId>
+</xml>
+
+2016-06-05 17:55:55 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-06-05 17:55:55 response :
+------------
+
+2016-06-05 21:31:11 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_e7a0c8306261]]></ToUserName>
+<FromUserName><![CDATA[oRj-Fs8Kq_u_aD_S-O60rimuOjLQ]]></FromUserName>
+<CreateTime>1465133471</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=13&c=home&]]></EventKey>
+<MenuId>408429854</MenuId>
+</xml>
+
+2016-06-05 21:31:11 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 22 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-06-05 21:31:11 response :
+------------
+Array:
+FromUserName : gh_e7a0c8306261 ;
+ToUserName : oRj-Fs8Kq_u_aD_S-O60rimuOjLQ ;
+MsgType : text ;
+Content : 欢迎关注同城学堂，点击微官网查看本学校介绍信息，家长点击学生天地绑定自己小孩信息使用，老师点击教师信息绑定自己账号使用 ;
+
+2016-06-05 21:31:14 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_e7a0c8306261]]></ToUserName>
+<FromUserName><![CDATA[oRj-Fs8Kq_u_aD_S-O60rimuOjLQ]]></FromUserName>
+<CreateTime>1465133474</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=13&c=home&]]></EventKey>
+<MenuId>408429854</MenuId>
+</xml>
+
+2016-06-05 21:31:14 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 22 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-06-05 21:31:14 response :
+------------
+Array:
+FromUserName : gh_e7a0c8306261 ;
+ToUserName : oRj-Fs8Kq_u_aD_S-O60rimuOjLQ ;
+MsgType : text ;
+Content : 欢迎关注同城学堂，点击微官网查看本学校介绍信息，家长点击学生天地绑定自己小孩信息使用，老师点击教师信息绑定自己账号使用 ;
+

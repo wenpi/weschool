@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="format-detection" content="telephone=no">
+        <title>{$title}</title>
+        <link rel="stylesheet" href="{MODULE_URL}style/aui/css/aui.2.0.css">
+    </head>
+    <style>
+        {php echo htmlspecialchars_decode($css,ENT_QUOTES)}
+    </style>
+    <body ontouchstart="">
+        {php echo htmlspecialchars_decode($html,ENT_QUOTES)}
+        <script src="{MODULE_URL}/style/aui/script/api.js"></script>
+        <script src="{MODULE_URL}/style/js/jquery.min.js"></script>
+        <script>
+            {php echo htmlspecialchars_decode($js,ENT_QUOTES)}
+        </script>
+    </body>
+</html>

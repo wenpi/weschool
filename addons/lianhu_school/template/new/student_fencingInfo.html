@@ -1,0 +1,192 @@
+  {template '../new/StudentCardLeft'}
+        <div class="body"  style="width:100%;" >
+            <link rel="stylesheet" href="http://cache.amap.com/lbs/static/main1119.css"/>
+            <div id="container" style="margin-top:45px;height:60%">
+
+            </div>
+            <div style="position: absolute;top:60%;width: 100%; "  class="body padding" >
+              <div class="w-form">
+                    <p style="color:#ff0033;font-size: 0.8em;width: 100%;text-align: left">1.点击地图改变圆心</p>
+                    <div class="radius_control"> <span id='reduce'>-</span> 
+                      <input type="number" id='radius_number'  value="{$desc[2]}">
+                      <span id='add'>+</span>
+                    </div>
+                <form  method="post" action="{php echo $this->createMobileUrl('funcstudent_fencingInfo',array('id'=>$_GPC['id']))}">
+                    <div class="separator-button-input"></div>
+                    <div>
+                      <label class="label-form" for="full-name-field"  >名称</label>
+                        <input class="w-input input-form" id="full-name-field" {if in_array($info['fencingName'],$not_access)} readonly="readonly"  {/if} type="text" name="fencingName" data-name="fencingName"  value="{$info['fencingName']} {if in_array($info['fencingName'],$not_access)} [不可修改] {/if}" required>
+                      <div class="separator-fields"></div>
+                    </div>
+                    <input class="w-input input-form" id="full-name-field"  type="hidden"  name="lng" data-name="lng"  value="{$desc[4]}" required>
+                    <input class="w-input input-form" id="full-name-field"  type="hidden"  name="lat" data-name="lat"  value="{$desc[3]}" required>
+                    <input class="w-input input-form" id="full-name-field"  type="hidden"  name="radius" data-name="radius"  value="{$desc[2]}" required>
+                    
+                    <div class="row-input-list">
+                                  <div class="w-clearfix input-form one-line">
+                                    <label class="label-form middle" for="email">监控</label>
+                                    <div class="w-clearfix radios-container">
+                                      <div class="w-radio w-clearfix radio-button">
+                                        <div class="radio-bullet-replacement {if $info['alarmType']==1} checked {/if}"></div>
+                                        <input class="w-radio-input radio-bullet" id="node-9" type="radio" name="alarmType" value="1" data-name="alarmType" {if $info['alarmType']==1} checked {/if}>
+                                        <label class="w-form-label" for="node-9">进入</label>
+                                      </div>
+                                      <div class="w-radio w-clearfix radio-button">
+                                        <div class="radio-bullet-replacement {if $info['alarmType']==2} checked {/if} "></div>
+                                        <input class="w-radio-input radio-bullet" id="node-6" type="radio" name="alarmType" value="2" data-name="alarmType" {if $info['alarmType']==2} checked {/if}>
+                                        <label class="w-form-label" for="node-6">离开</label>
+                                      </div>
+                                      <div class="w-radio w-clearfix radio-button">
+                                        <div class="radio-bullet-replacement {if $info['alarmType']==3} checked {/if}"></div>
+                                        <input class="w-radio-input radio-bullet" id="node-5" type="radio" name="alarmType" value="3" data-name="alarmType" {if $info['alarmType']==3} checked {/if}>
+                                        <label class="w-form-label" for="node-5">进入离开</label>
+                                      </div>
+
+                                    </div>
+                                  </div>
+                            <div class="separator-fields"></div>
+                     </div>        
+                      <div class="row-input-list">
+                        <div class="w-clearfix input-form one-line">
+                          <label class="label-form middle" for="email">发送短信给你家长一</label>
+                          <div class="w-clearfix radios-container">
+                            <div class="w-checkbox w-clearfix checkbox-field">
+                              <div class="checkbox-handle  {if $info['noticeMan'] ==1} checked {/if} "></div>
+                              <input class="w-checkbox-input checkbox-input" id="checkbox" type="checkbox" name="noticeMan" data-name="noticeMan" value="1">
+                              <label class="w-form-label checkbox-label {if $info['noticeMan'] ==1} checked {/if}" for="checkbox"></label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="separator-fields"></div>
+                      </div>
+                    <div class="separator-button-input"></div>
+                    <input type="hidden" value="{$token}"  name='token'>
+                    <input class="w-button action-button" type="submit" name="submit" value="修改" data-wait="Please wait...">
+                  </form>
+              </div>
+            </div>
+            <style>
+              .amap-icon img{
+                width: 10px;
+                height:10px;
+              }
+              .radius_control{
+                width: 100%;
+                height: 40px;
+                line-height: 40px;
+              }
+              .radius_control span{
+                display: inline-block;
+                width: 50px;
+                height: 40px;
+                text-align: center;
+                background-color: rgb(51,203,213);
+                color:#fff;
+                font-size: 1.2em;
+              }
+              .radius_control input{
+                height: 34px;
+                line-height: 34px;
+                position: relative;
+                top:2px;
+                font-size: 1.2em;
+                border: 1px solid #ccc;
+                text-align: center;                
+              }
+            </style>
+            <script>
+              var editorTool, map = new AMap.Map("container", {
+                  resizeEnable: true,
+                  center: [{$desc[4]},{$desc[3]}],//地图中心点
+                  zoom: 16 //地图显示的缩放级别
+              });
+                  
+              map.plugin(["AMap.ToolBar"], function() {
+                        map.addControl(new AMap.ToolBar());
+              });
+              var map = new AMap.Map("container", {
+                  resizeEnable: true
+              });
+              var editorre={};
+              
+
+              var editor = {};
+              editor._circle=(function(){
+                      var circle = new AMap.Circle({
+                          center: [{$desc[4]}, {$desc[3]}],// 圆心位置
+                          radius:  {$desc[2]}, //半径
+                          strokeColor: "#F33", //线颜色
+                          strokeOpacity: 1, //线透明度
+                          strokeWeight: 3, //线粗细度
+                          fillColor: "#ee2200", //填充颜色
+                          fillOpacity: 0.35//填充透明度
+                      });
+                      circle.setMap(map);
+                      return circle;
+              })();
+              map.setFitView();
+              editor._circleEditor= new AMap.CircleEditor(map, editor._circle);
+
+            map.on('click', function(e) {
+                  $("input[name='lng']").val(e.lnglat.getLng());
+                  $("input[name='lat']").val(e.lnglat.getLat());
+                  addCircle()
+            });
+            function addCircle(){
+              radius =  $("#radius_number").val();
+              $("input[name='radius']").val(radius)
+              lng    =  $("input[name='lng']").val();
+              lat    =  $("input[name='lat']").val();
+              map.clearMap();
+              var editor = {};
+              editor._circle=(function(){
+                      var circle = new AMap.Circle({
+                          center: [lng, lat],// 圆心位置
+                          radius:  radius, //半径
+                          strokeColor: "#F33", //线颜色
+                          strokeOpacity: 1, //线透明度
+                          strokeWeight: 3, //线粗细度
+                          fillColor: "#ee2200", //填充颜色
+                          fillOpacity: 0.35//填充透明度
+                      });
+                      circle.setMap(map);
+                      return circle;
+              })();              
+            }
+            $(function(){
+              $("#add").click(function(){
+                inval = $("#radius_number").val();
+                inval++;
+                $("#radius_number").val(inval);
+                raChange();
+              });
+              $("#reduce").click(function(){
+                inval = $("#radius_number").val();
+                inval--;
+                $("#radius_number").val(inval);
+                raChange();  
+            });
+              function raChange(){
+                  inval = $("#radius_number").val();
+                  if(inval<5){
+                    alert("最小值为100米");
+                    $("#radius_number").val(100);
+                  }else if(inval>2000){
+                    alert("最大值为2000米");
+                    $("#radius_number").val(2000);
+                  }
+                 addCircle();   
+              }
+              $("#radius_number").change(function(){
+                  raChange();
+              });
+            });
+            </script>
+            <script type="text/javascript" src="http://webapi.amap.com/demos/js/liteToolbar.js"></script>
+            <script type="text/javascript" src="http://cache.amap.com/lbs/static/addToolbar.js"></script>
+       </div>
+    </div>
+  </section>
+  {template 'school/app_footer'}
+</body>
+</html>

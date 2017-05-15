@@ -1,0 +1,113 @@
+   {template '../admin/head'}
+        {template '../admin/header'}
+        <div class="page-container">
+        {template '../admin/left'}
+            <div class="page-content-wrapper">
+                <div class="page-content">
+                {template '../admin/sidebar'}
+                    <h1 class="page-title"> {$_SESSION['school_name']}
+                            <small> {$title} </small>
+                    </h1>
+                {if $ac =='edit'|| $ac=='new' }
+                     <div class="row">
+                        <div class="col-md-12">
+                             <div class="portlet light ">
+                                <div class="portlet-title">
+                                    <div class="caption font-green-haze">
+                                        <i class="fa fa-edit font-green-haze"></i>
+                                        <span class="caption-subject bold uppercase">	{if $ac=='new'}新增{else}修改{/if} </span>
+                                    </div>
+                                    <div class="actions">
+                                        <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="javascript:;" data-original-title="" title=""> </a>
+                                    </div>
+                                </div>
+                                  <div class="portlet-body form">
+                                    <form action="" method="post" class="form-horizontal form" enctype="multipart/form-data" id="form1"  >
+                                             <div class="form-group">
+                                                     <label class="col-md-2 control-label"><span class="required" aria-required="true"> * </span>课程名</label>
+                                                       <div class="col-sm-10">
+                                                                <input type="text" name="course_name" id="course_name" class="form-control" value='{$result['course_name']}' />
+                                                                {if $ac=='edit'}
+                                                                <input type="hidden" name="cid"  class="form-control" value='{$result['course_id']}' />
+                                                                {/if}
+                                                            </div>
+                                              </div>   
+                                            <div class="form-actions">
+                                                <div class="row">
+                                                    <div class="col-md-offset-2 col-md-10">
+                                                        <input type="submit" name="submit" class="btn blue" value="提交">
+                                                    </div>
+                                                </div>
+                                            </div>                                                                                
+                                    </form>
+                                  </div>    
+                             </div>            
+                      </div>                 
+                     </div>
+                {/if}
+                {if $ac=='list'}
+                 <div class="row">
+                        <div class="col-md-12">
+                            <div class="note note-success">
+                                <p> 当前学校的所有课程 </p>
+                            </div>
+                            <div class="portlet box green-turquoise">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <i class="fa fa-navicon"></i>课程列表 
+                                    </div>
+                                    <div class="tools">
+                                        <a href="javascript:;" class="collapse"> </a>
+                                    </div>
+                                </div>
+                                <div class="portlet-body flip-scroll">
+                                    <table class="table table-bordered table-striped table-condensed flip-content  table-light "  id="sample_3" >
+                                        <thead class="flip-content">
+                                            <tr>
+                                                <th width="20%"  class="numeric"> 课程ID </th>
+                                                <th width="20%"> 	课程名 </th>
+                                                <th> 是否为基础课程 </th>
+                                                <th class="numeric">  </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                {loop $list $item}
+                                                <tr>
+                                                    <td>{$item['course_id']}</td>
+                                                    <td>{$item['course_name']}</td>
+                                                    <td><span class='label label-sm label-warning'>	{if $item['course_basic'] ==1}是{else}否{/if}</span> </td>
+                                                    <td>
+                                                        <a href="{php echo $this->createWebUrl('course', array( 'ac' => 'edit','cid'=>$item['course_id'],'aw'=>1 ))}" class="btn blue">  <i class="fa fa-edit"></i> 编辑</a>
+                                                        <a href="{php echo $this->createWebUrl('course', array('ac' => 'delete','cid'=>$item['course_id'],'aw'=>1 ))}" 
+                                                            onclick="return confirm('此操作不可恢复，确认删除？');"
+                                                            class="btn red" ><i class="fa fa-times"></i>删除
+                                                        </a>
+                                                        {if $item['course_basic'] !=1}
+                                                            <a href="{php echo $this->createWebUrl('course', array('ac' => 'update','cid'=>$item['course_id'] ,'aw'=>1 ))}" 
+                                                                onclick="return confirm('此操作会把此课程添加到所有班级中去');"
+                                                                class="btn green" >设为基础课程
+                                                            </a>
+                                                        {else}
+                                                            <a href="{php echo $this->createWebUrl('course', array('ac' => 'update','delete'=>1,'cid'=>$item['course_id'],'aw'=>1 ))}" 
+                                                                class="btn green" >降为普通课程
+                                                            </a>                         
+                                                        {/if}
+                                                    </td>
+                                                </tr>
+                                                {/loop}                                           
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                {/if}
+        </div>
+        </div>
+         {template '../admin/right'}
+        </div>
+        {template '../admin/footer'}
+        {template '../admin/table_script'}     
+         </body>
+    </html>

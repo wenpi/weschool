@@ -1,0 +1,2292 @@
+2016-09-26 06:34:16 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a23de840671]]></ToUserName>
+<FromUserName><![CDATA[oQxC9wb4joF89D5bFoFDjx3YBgsQ]]></FromUserName>
+<CreateTime>1474842856</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[subscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+
+2016-09-26 06:34:16 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 60 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 06:34:16 response :
+------------
+Array:
+FromUserName : gh_2a23de840671 ;
+ToUserName : oQxC9wb4joF89D5bFoFDjx3YBgsQ ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2016-09-26 06:34:20 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a23de840671]]></ToUserName>
+<FromUserName><![CDATA[oQxC9wb4joF89D5bFoFDjx3YBgsQ]]></FromUserName>
+<CreateTime>1474842860</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=31&c=entry&eid=1]]></EventKey>
+<MenuId>408135367</MenuId>
+</xml>
+
+2016-09-26 06:34:20 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 60 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 06:34:20 response :
+------------
+Array:
+FromUserName : gh_2a23de840671 ;
+ToUserName : oQxC9wb4joF89D5bFoFDjx3YBgsQ ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2016-09-26 06:36:42 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a23de840671]]></ToUserName>
+<FromUserName><![CDATA[oQxC9wb4joF89D5bFoFDjx3YBgsQ]]></FromUserName>
+<CreateTime>1474843002</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=31&c=entry&eid=1]]></EventKey>
+<MenuId>408135367</MenuId>
+</xml>
+
+2016-09-26 06:36:42 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 60 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 06:36:42 response :
+------------
+Array:
+FromUserName : gh_2a23de840671 ;
+ToUserName : oQxC9wb4joF89D5bFoFDjx3YBgsQ ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2016-09-26 06:37:49 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a23de840671]]></ToUserName>
+<FromUserName><![CDATA[oQxC9wb4joF89D5bFoFDjx3YBgsQ]]></FromUserName>
+<CreateTime>1474843069</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=31&c=entry&eid=1]]></EventKey>
+<MenuId>408135367</MenuId>
+</xml>
+
+2016-09-26 06:37:49 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 60 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 06:37:49 response :
+------------
+Array:
+FromUserName : gh_2a23de840671 ;
+ToUserName : oQxC9wb4joF89D5bFoFDjx3YBgsQ ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2016-09-26 06:38:44 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a23de840671]]></ToUserName>
+<FromUserName><![CDATA[oQxC9wb4joF89D5bFoFDjx3YBgsQ]]></FromUserName>
+<CreateTime>1474843124</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=31&c=entry&eid=1]]></EventKey>
+<MenuId>408135367</MenuId>
+</xml>
+
+2016-09-26 06:38:44 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 60 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 06:38:44 response :
+------------
+Array:
+FromUserName : gh_2a23de840671 ;
+ToUserName : oQxC9wb4joF89D5bFoFDjx3YBgsQ ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2016-09-26 06:39:14 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a23de840671]]></ToUserName>
+<FromUserName><![CDATA[oQxC9wb4joF89D5bFoFDjx3YBgsQ]]></FromUserName>
+<CreateTime>1474843154</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=31&c=entry&eid=1]]></EventKey>
+<MenuId>408135367</MenuId>
+</xml>
+
+2016-09-26 06:39:14 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 60 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 06:39:14 response :
+------------
+Array:
+FromUserName : gh_2a23de840671 ;
+ToUserName : oQxC9wb4joF89D5bFoFDjx3YBgsQ ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2016-09-26 06:40:09 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a23de840671]]></ToUserName>
+<FromUserName><![CDATA[oQxC9wb4joF89D5bFoFDjx3YBgsQ]]></FromUserName>
+<CreateTime>1474843209</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=31&c=entry&eid=1]]></EventKey>
+<MenuId>408135367</MenuId>
+</xml>
+
+2016-09-26 06:40:09 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 60 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 06:40:09 response :
+------------
+Array:
+FromUserName : gh_2a23de840671 ;
+ToUserName : oQxC9wb4joF89D5bFoFDjx3YBgsQ ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2016-09-26 06:41:01 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a23de840671]]></ToUserName>
+<FromUserName><![CDATA[oQxC9wb4joF89D5bFoFDjx3YBgsQ]]></FromUserName>
+<CreateTime>1474843261</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=31&c=entry&eid=1]]></EventKey>
+<MenuId>408135367</MenuId>
+</xml>
+
+2016-09-26 06:41:01 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 60 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 06:41:01 response :
+------------
+Array:
+FromUserName : gh_2a23de840671 ;
+ToUserName : oQxC9wb4joF89D5bFoFDjx3YBgsQ ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2016-09-26 06:41:35 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a23de840671]]></ToUserName>
+<FromUserName><![CDATA[oQxC9wb4joF89D5bFoFDjx3YBgsQ]]></FromUserName>
+<CreateTime>1474843295</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=31&c=entry&eid=1]]></EventKey>
+<MenuId>408135367</MenuId>
+</xml>
+
+2016-09-26 06:41:35 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 60 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 06:41:35 response :
+------------
+Array:
+FromUserName : gh_2a23de840671 ;
+ToUserName : oQxC9wb4joF89D5bFoFDjx3YBgsQ ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2016-09-26 06:43:17 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a23de840671]]></ToUserName>
+<FromUserName><![CDATA[oQxC9wTj8sF2cTT7RFIWc1Os9vqY]]></FromUserName>
+<CreateTime>1474843397</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[subscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+
+2016-09-26 06:43:17 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 60 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 06:43:17 response :
+------------
+Array:
+FromUserName : gh_2a23de840671 ;
+ToUserName : oQxC9wTj8sF2cTT7RFIWc1Os9vqY ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2016-09-26 06:43:20 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a23de840671]]></ToUserName>
+<FromUserName><![CDATA[oQxC9wTj8sF2cTT7RFIWc1Os9vqY]]></FromUserName>
+<CreateTime>1474843400</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=31&c=entry&eid=1]]></EventKey>
+<MenuId>408135367</MenuId>
+</xml>
+
+2016-09-26 06:43:20 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 60 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 06:43:20 response :
+------------
+Array:
+FromUserName : gh_2a23de840671 ;
+ToUserName : oQxC9wTj8sF2cTT7RFIWc1Os9vqY ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2016-09-26 06:49:26 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a23de840671]]></ToUserName>
+<FromUserName><![CDATA[oQxC9wTj8sF2cTT7RFIWc1Os9vqY]]></FromUserName>
+<CreateTime>1474843766</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=31&c=entry&eid=2]]></EventKey>
+<MenuId>408135367</MenuId>
+</xml>
+
+2016-09-26 06:49:26 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 60 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 06:49:26 response :
+------------
+Array:
+FromUserName : gh_2a23de840671 ;
+ToUserName : oQxC9wTj8sF2cTT7RFIWc1Os9vqY ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2016-09-26 08:04:35 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a23de840671]]></ToUserName>
+<FromUserName><![CDATA[oQxC9wS3NwKNbfR-zq_39PIQlpKU]]></FromUserName>
+<CreateTime>1474848274</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=31&c=entry&eid=1]]></EventKey>
+<MenuId>408135367</MenuId>
+</xml>
+
+2016-09-26 08:04:35 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 60 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 08:04:35 response :
+------------
+Array:
+FromUserName : gh_2a23de840671 ;
+ToUserName : oQxC9wS3NwKNbfR-zq_39PIQlpKU ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2016-09-26 08:05:03 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a23de840671]]></ToUserName>
+<FromUserName><![CDATA[oQxC9wS3NwKNbfR-zq_39PIQlpKU]]></FromUserName>
+<CreateTime>1474848303</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=31&c=entry&eid=1]]></EventKey>
+<MenuId>408135367</MenuId>
+</xml>
+
+2016-09-26 08:05:03 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 60 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 08:05:03 response :
+------------
+Array:
+FromUserName : gh_2a23de840671 ;
+ToUserName : oQxC9wS3NwKNbfR-zq_39PIQlpKU ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2016-09-26 09:59:19 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a23de840671]]></ToUserName>
+<FromUserName><![CDATA[oQxC9wSnty-GyHF0KbG52A28ZCZE]]></FromUserName>
+<CreateTime>1474855159</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[subscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+
+2016-09-26 09:59:19 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 60 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 09:59:19 response :
+------------
+Array:
+FromUserName : gh_2a23de840671 ;
+ToUserName : oQxC9wSnty-GyHF0KbG52A28ZCZE ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2016-09-26 11:45:25 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a23de840671]]></ToUserName>
+<FromUserName><![CDATA[oQxC9wfQA_mwlM6_iPBgtIez1nhg]]></FromUserName>
+<CreateTime>1474861525</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=31&c=entry&eid=1]]></EventKey>
+<MenuId>408135367</MenuId>
+</xml>
+
+2016-09-26 11:45:25 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 60 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 11:45:25 response :
+------------
+Array:
+FromUserName : gh_2a23de840671 ;
+ToUserName : oQxC9wfQA_mwlM6_iPBgtIez1nhg ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2016-09-26 11:47:05 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a23de840671]]></ToUserName>
+<FromUserName><![CDATA[oQxC9wfQA_mwlM6_iPBgtIez1nhg]]></FromUserName>
+<CreateTime>1474861625</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=31&c=entry&eid=1]]></EventKey>
+<MenuId>408135367</MenuId>
+</xml>
+
+2016-09-26 11:47:05 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 60 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 11:47:05 response :
+------------
+Array:
+FromUserName : gh_2a23de840671 ;
+ToUserName : oQxC9wfQA_mwlM6_iPBgtIez1nhg ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2016-09-26 11:47:14 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a23de840671]]></ToUserName>
+<FromUserName><![CDATA[oQxC9wfQA_mwlM6_iPBgtIez1nhg]]></FromUserName>
+<CreateTime>1474861634</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=31&c=home&]]></EventKey>
+<MenuId>408135367</MenuId>
+</xml>
+
+2016-09-26 11:47:14 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 60 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 11:47:14 response :
+------------
+Array:
+FromUserName : gh_2a23de840671 ;
+ToUserName : oQxC9wfQA_mwlM6_iPBgtIez1nhg ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2016-09-26 11:47:21 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a23de840671]]></ToUserName>
+<FromUserName><![CDATA[oQxC9wfQA_mwlM6_iPBgtIez1nhg]]></FromUserName>
+<CreateTime>1474861641</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=31&c=entry&eid=2]]></EventKey>
+<MenuId>408135367</MenuId>
+</xml>
+
+2016-09-26 11:47:21 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 60 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 11:47:21 response :
+------------
+Array:
+FromUserName : gh_2a23de840671 ;
+ToUserName : oQxC9wfQA_mwlM6_iPBgtIez1nhg ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2016-09-26 11:47:37 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a23de840671]]></ToUserName>
+<FromUserName><![CDATA[oQxC9wfQA_mwlM6_iPBgtIez1nhg]]></FromUserName>
+<CreateTime>1474861657</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=31&c=entry&eid=1]]></EventKey>
+<MenuId>408135367</MenuId>
+</xml>
+
+2016-09-26 11:47:37 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 60 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 11:47:37 response :
+------------
+Array:
+FromUserName : gh_2a23de840671 ;
+ToUserName : oQxC9wfQA_mwlM6_iPBgtIez1nhg ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2016-09-26 11:49:07 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a23de840671]]></ToUserName>
+<FromUserName><![CDATA[oQxC9wfQA_mwlM6_iPBgtIez1nhg]]></FromUserName>
+<CreateTime>1474861747</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=31&c=entry&eid=1]]></EventKey>
+<MenuId>408135367</MenuId>
+</xml>
+
+2016-09-26 11:49:07 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 60 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 11:49:07 response :
+------------
+Array:
+FromUserName : gh_2a23de840671 ;
+ToUserName : oQxC9wfQA_mwlM6_iPBgtIez1nhg ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2016-09-26 11:57:37 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a23de840671]]></ToUserName>
+<FromUserName><![CDATA[oQxC9wcDxzXQK6Jt-2r12zPKIvik]]></FromUserName>
+<CreateTime>1474862257</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=31&c=entry&eid=1]]></EventKey>
+<MenuId>408135367</MenuId>
+</xml>
+
+2016-09-26 11:57:37 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 60 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 11:57:37 response :
+------------
+Array:
+FromUserName : gh_2a23de840671 ;
+ToUserName : oQxC9wcDxzXQK6Jt-2r12zPKIvik ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2016-09-26 13:14:42 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a23de840671]]></ToUserName>
+<FromUserName><![CDATA[oQxC9wbaSbzhxCPg6XR66jKNwjwU]]></FromUserName>
+<CreateTime>1474866882</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=31&c=entry&eid=1]]></EventKey>
+<MenuId>408135367</MenuId>
+</xml>
+
+2016-09-26 13:14:42 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 60 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 13:14:42 response :
+------------
+Array:
+FromUserName : gh_2a23de840671 ;
+ToUserName : oQxC9wbaSbzhxCPg6XR66jKNwjwU ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2016-09-26 13:41:41 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a23de840671]]></ToUserName>
+<FromUserName><![CDATA[oQxC9wTFW_fdyGR9ViV-xxcza0vI]]></FromUserName>
+<CreateTime>1474868501</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=31&c=home&]]></EventKey>
+<MenuId>408135367</MenuId>
+</xml>
+
+2016-09-26 13:41:41 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 60 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 13:41:41 response :
+------------
+Array:
+FromUserName : gh_2a23de840671 ;
+ToUserName : oQxC9wTFW_fdyGR9ViV-xxcza0vI ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2016-09-26 14:06:21 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_4e0c181b7380]]></ToUserName>
+<FromUserName><![CDATA[oxtWnv8dKzKM6w_0eFzZG_TYcDDE]]></FromUserName>
+<CreateTime>1474869981</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=27&c=home&]]></EventKey>
+<MenuId>432581458</MenuId>
+</xml>
+
+2016-09-26 14:06:21 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2016-09-26 14:06:21 response :
+------------
+Array:
+params : Array ;
+
+2016-09-26 14:07:16 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_4e0c181b7380]]></ToUserName>
+<FromUserName><![CDATA[oxtWnv8dKzKM6w_0eFzZG_TYcDDE]]></FromUserName>
+<CreateTime>1474870036</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=27&c=entry&eid=1]]></EventKey>
+<MenuId>432581458</MenuId>
+</xml>
+
+2016-09-26 14:07:16 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2016-09-26 14:07:16 response :
+------------
+Array:
+params : Array ;
+
+2016-09-26 14:07:31 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a23de840671]]></ToUserName>
+<FromUserName><![CDATA[oQxC9wcDxzXQK6Jt-2r12zPKIvik]]></FromUserName>
+<CreateTime>1474870051</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=31&c=entry&eid=1]]></EventKey>
+<MenuId>408135367</MenuId>
+</xml>
+
+2016-09-26 14:07:31 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 60 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 14:07:31 response :
+------------
+Array:
+FromUserName : gh_2a23de840671 ;
+ToUserName : oQxC9wcDxzXQK6Jt-2r12zPKIvik ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2016-09-26 14:11:11 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a23de840671]]></ToUserName>
+<FromUserName><![CDATA[oQxC9wSnty-GyHF0KbG52A28ZCZE]]></FromUserName>
+<CreateTime>1474870271</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=31&c=entry&eid=1]]></EventKey>
+<MenuId>408135367</MenuId>
+</xml>
+
+2016-09-26 14:11:11 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 60 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 14:11:11 response :
+------------
+Array:
+FromUserName : gh_2a23de840671 ;
+ToUserName : oQxC9wSnty-GyHF0KbG52A28ZCZE ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2016-09-26 14:15:36 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a23de840671]]></ToUserName>
+<FromUserName><![CDATA[oQxC9wSnty-GyHF0KbG52A28ZCZE]]></FromUserName>
+<CreateTime>1474870536</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=31&c=entry&eid=1]]></EventKey>
+<MenuId>408135367</MenuId>
+</xml>
+
+2016-09-26 14:15:36 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 60 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 14:15:36 response :
+------------
+Array:
+FromUserName : gh_2a23de840671 ;
+ToUserName : oQxC9wSnty-GyHF0KbG52A28ZCZE ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2016-09-26 14:16:11 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_4e0c181b7380]]></ToUserName>
+<FromUserName><![CDATA[oxtWnv8dKzKM6w_0eFzZG_TYcDDE]]></FromUserName>
+<CreateTime>1474870571</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=27&c=home&]]></EventKey>
+<MenuId>432581458</MenuId>
+</xml>
+
+2016-09-26 14:16:11 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2016-09-26 14:16:11 response :
+------------
+Array:
+params : Array ;
+
+2016-09-26 14:17:48 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_4e0c181b7380]]></ToUserName>
+<FromUserName><![CDATA[oxtWnv8dKzKM6w_0eFzZG_TYcDDE]]></FromUserName>
+<CreateTime>1474870668</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=27&c=home&t=52]]></EventKey>
+<MenuId>432581458</MenuId>
+</xml>
+
+2016-09-26 14:17:48 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2016-09-26 14:17:48 response :
+------------
+Array:
+params : Array ;
+
+2016-09-26 14:17:58 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_4e0c181b7380]]></ToUserName>
+<FromUserName><![CDATA[oxtWnv8dKzKM6w_0eFzZG_TYcDDE]]></FromUserName>
+<CreateTime>1474870678</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=25&c=entry&do=teaIn&m=lianhu_school]]></EventKey>
+<MenuId>432581458</MenuId>
+</xml>
+
+2016-09-26 14:17:58 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2016-09-26 14:17:58 response :
+------------
+Array:
+params : Array ;
+
+2016-09-26 14:18:26 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_4e0c181b7380]]></ToUserName>
+<FromUserName><![CDATA[oxtWnv8dKzKM6w_0eFzZG_TYcDDE]]></FromUserName>
+<CreateTime>1474870706</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=27&c=home&]]></EventKey>
+<MenuId>432581458</MenuId>
+</xml>
+
+2016-09-26 14:18:26 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2016-09-26 14:18:26 response :
+------------
+Array:
+params : Array ;
+
+2016-09-26 14:26:54 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a23de840671]]></ToUserName>
+<FromUserName><![CDATA[oQxC9wbnkPfFDtS354N7Wd-vvFhM]]></FromUserName>
+<CreateTime>1474871214</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=31&c=entry&eid=1]]></EventKey>
+<MenuId>408135367</MenuId>
+</xml>
+
+2016-09-26 14:26:54 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 60 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 14:26:54 response :
+------------
+Array:
+FromUserName : gh_2a23de840671 ;
+ToUserName : oQxC9wbnkPfFDtS354N7Wd-vvFhM ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2016-09-26 14:32:01 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a23de840671]]></ToUserName>
+<FromUserName><![CDATA[oQxC9wcDxzXQK6Jt-2r12zPKIvik]]></FromUserName>
+<CreateTime>1474871521</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=31&c=entry&eid=1]]></EventKey>
+<MenuId>408135367</MenuId>
+</xml>
+
+2016-09-26 14:32:01 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 60 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 14:32:01 response :
+------------
+Array:
+FromUserName : gh_2a23de840671 ;
+ToUserName : oQxC9wcDxzXQK6Jt-2r12zPKIvik ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2016-09-26 14:33:36 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a23de840671]]></ToUserName>
+<FromUserName><![CDATA[oQxC9wcDxzXQK6Jt-2r12zPKIvik]]></FromUserName>
+<CreateTime>1474871616</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=31&c=entry&eid=1]]></EventKey>
+<MenuId>408135367</MenuId>
+</xml>
+
+2016-09-26 14:33:36 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 60 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 14:33:36 response :
+------------
+Array:
+FromUserName : gh_2a23de840671 ;
+ToUserName : oQxC9wcDxzXQK6Jt-2r12zPKIvik ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2016-09-26 14:43:03 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a23de840671]]></ToUserName>
+<FromUserName><![CDATA[oQxC9wcDxzXQK6Jt-2r12zPKIvik]]></FromUserName>
+<CreateTime>1474872183</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=31&c=entry&eid=1]]></EventKey>
+<MenuId>408135367</MenuId>
+</xml>
+
+2016-09-26 14:43:03 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 60 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 14:43:03 response :
+------------
+Array:
+FromUserName : gh_2a23de840671 ;
+ToUserName : oQxC9wcDxzXQK6Jt-2r12zPKIvik ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2016-09-26 15:01:44 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2ee031f2e428]]></ToUserName>
+<FromUserName><![CDATA[ojDkIwuRtV8J583Z7Ac3oGYIsKrw]]></FromUserName>
+<CreateTime>1474873304</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[subscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+
+2016-09-26 15:01:44 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-09-26 15:01:44 response :
+------------
+
+2016-09-26 15:18:22 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a23de840671]]></ToUserName>
+<FromUserName><![CDATA[oQxC9wcDxzXQK6Jt-2r12zPKIvik]]></FromUserName>
+<CreateTime>1474874302</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=31&c=entry&eid=1]]></EventKey>
+<MenuId>408135367</MenuId>
+</xml>
+
+2016-09-26 15:18:22 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 60 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 15:18:22 response :
+------------
+Array:
+FromUserName : gh_2a23de840671 ;
+ToUserName : oQxC9wcDxzXQK6Jt-2r12zPKIvik ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2016-09-26 15:50:18 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_4e0c181b7380]]></ToUserName>
+<FromUserName><![CDATA[oxtWnv87MbDvYgjntHUphk_yb9e4]]></FromUserName>
+<CreateTime>1474876218</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=27&c=entry&eid=1]]></EventKey>
+<MenuId>432581458</MenuId>
+</xml>
+
+2016-09-26 15:50:18 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2016-09-26 15:50:18 response :
+------------
+Array:
+params : Array ;
+
+2016-09-26 15:52:10 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_4e0c181b7380]]></ToUserName>
+<FromUserName><![CDATA[oxtWnv87MbDvYgjntHUphk_yb9e4]]></FromUserName>
+<CreateTime>1474876330</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=27&c=home&]]></EventKey>
+<MenuId>432581458</MenuId>
+</xml>
+
+2016-09-26 15:52:10 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2016-09-26 15:52:10 response :
+------------
+Array:
+params : Array ;
+
+2016-09-26 16:07:15 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvjnNs-wlmta5xYTj5zZfmSc]]></FromUserName>
+<CreateTime>1474877235</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=4&c=entry&eid=1]]></EventKey>
+<MenuId>414052825</MenuId>
+</xml>
+
+2016-09-26 16:07:15 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 13 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 16:07:15 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvjnNs-wlmta5xYTj5zZfmSc ;
+MsgType : text ;
+Content : 等你好久了，智慧微校欢迎您。如果您是来逛逛的，请点开微官网查看我们学校的介绍信息。如果您是家长，请点开学生中心，用您家孩子姓名与学号绑定，就可尽情使用微校功能。如果您是老师，请点开微办公，用系统分配的账号与密码完成绑定，使用微校完成家校互动。 ;
+
+2016-09-26 16:07:42 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvjnNs-wlmta5xYTj5zZfmSc]]></FromUserName>
+<CreateTime>1474877262</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=4&c=entry&eid=36]]></EventKey>
+<MenuId>414052825</MenuId>
+</xml>
+
+2016-09-26 16:07:42 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 13 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 16:07:42 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvjnNs-wlmta5xYTj5zZfmSc ;
+MsgType : text ;
+Content : 等你好久了，智慧微校欢迎您。如果您是来逛逛的，请点开微官网查看我们学校的介绍信息。如果您是家长，请点开学生中心，用您家孩子姓名与学号绑定，就可尽情使用微校功能。如果您是老师，请点开微办公，用系统分配的账号与密码完成绑定，使用微校完成家校互动。 ;
+
+2016-09-26 16:07:49 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvjnNs-wlmta5xYTj5zZfmSc]]></FromUserName>
+<CreateTime>1474877269</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=4&c=entry&eid=2]]></EventKey>
+<MenuId>414052825</MenuId>
+</xml>
+
+2016-09-26 16:07:49 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 13 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 16:07:49 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvjnNs-wlmta5xYTj5zZfmSc ;
+MsgType : text ;
+Content : 等你好久了，智慧微校欢迎您。如果您是来逛逛的，请点开微官网查看我们学校的介绍信息。如果您是家长，请点开学生中心，用您家孩子姓名与学号绑定，就可尽情使用微校功能。如果您是老师，请点开微办公，用系统分配的账号与密码完成绑定，使用微校完成家校互动。 ;
+
+2016-09-26 16:07:56 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvjnNs-wlmta5xYTj5zZfmSc]]></FromUserName>
+<CreateTime>1474877276</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://prewx.cloudenergy.me:8900/]]></EventKey>
+<MenuId>414052825</MenuId>
+</xml>
+
+2016-09-26 16:07:56 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 13 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 16:07:56 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvjnNs-wlmta5xYTj5zZfmSc ;
+MsgType : text ;
+Content : 等你好久了，智慧微校欢迎您。如果您是来逛逛的，请点开微官网查看我们学校的介绍信息。如果您是家长，请点开学生中心，用您家孩子姓名与学号绑定，就可尽情使用微校功能。如果您是老师，请点开微办公，用系统分配的账号与密码完成绑定，使用微校完成家校互动。 ;
+
+2016-09-26 16:08:05 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvjnNs-wlmta5xYTj5zZfmSc]]></FromUserName>
+<CreateTime>1474877285</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://m.igrow.cn/m/school/website/1390?platformid=gh_f93654b871ec&openid=oj3rPs7lPbX9A4U7mxv8dMma3uUQ]]></EventKey>
+<MenuId>414052825</MenuId>
+</xml>
+
+2016-09-26 16:08:05 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 13 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 16:08:05 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvjnNs-wlmta5xYTj5zZfmSc ;
+MsgType : text ;
+Content : 等你好久了，智慧微校欢迎您。如果您是来逛逛的，请点开微官网查看我们学校的介绍信息。如果您是家长，请点开学生中心，用您家孩子姓名与学号绑定，就可尽情使用微校功能。如果您是老师，请点开微办公，用系统分配的账号与密码完成绑定，使用微校完成家校互动。 ;
+
+2016-09-26 16:56:24 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvjnNs-wlmta5xYTj5zZfmSc]]></FromUserName>
+<CreateTime>1474880184</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=4&c=entry&eid=1]]></EventKey>
+<MenuId>414052825</MenuId>
+</xml>
+
+2016-09-26 16:56:24 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 13 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 16:56:24 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvjnNs-wlmta5xYTj5zZfmSc ;
+MsgType : text ;
+Content : 等你好久了，智慧微校欢迎您。如果您是来逛逛的，请点开微官网查看我们学校的介绍信息。如果您是家长，请点开学生中心，用您家孩子姓名与学号绑定，就可尽情使用微校功能。如果您是老师，请点开微办公，用系统分配的账号与密码完成绑定，使用微校完成家校互动。 ;
+
+2016-09-26 16:59:17 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvjnNs-wlmta5xYTj5zZfmSc]]></FromUserName>
+<CreateTime>1474880357</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://prewx.cloudenergy.me:8900/]]></EventKey>
+<MenuId>414052825</MenuId>
+</xml>
+
+2016-09-26 16:59:17 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 13 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 16:59:17 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvjnNs-wlmta5xYTj5zZfmSc ;
+MsgType : text ;
+Content : 等你好久了，智慧微校欢迎您。如果您是来逛逛的，请点开微官网查看我们学校的介绍信息。如果您是家长，请点开学生中心，用您家孩子姓名与学号绑定，就可尽情使用微校功能。如果您是老师，请点开微办公，用系统分配的账号与密码完成绑定，使用微校完成家校互动。 ;
+
+2016-09-26 16:59:27 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvjnNs-wlmta5xYTj5zZfmSc]]></FromUserName>
+<CreateTime>1474880367</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=4&c=entry&eid=36]]></EventKey>
+<MenuId>414052825</MenuId>
+</xml>
+
+2016-09-26 16:59:27 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 13 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 16:59:27 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvjnNs-wlmta5xYTj5zZfmSc ;
+MsgType : text ;
+Content : 等你好久了，智慧微校欢迎您。如果您是来逛逛的，请点开微官网查看我们学校的介绍信息。如果您是家长，请点开学生中心，用您家孩子姓名与学号绑定，就可尽情使用微校功能。如果您是老师，请点开微办公，用系统分配的账号与密码完成绑定，使用微校完成家校互动。 ;
+
+2016-09-26 17:02:20 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a23de840671]]></ToUserName>
+<FromUserName><![CDATA[oQxC9wa8NMoopCiEGOs6AmGszfkM]]></FromUserName>
+<CreateTime>1474880540</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=31&c=home&]]></EventKey>
+<MenuId>408135367</MenuId>
+</xml>
+
+2016-09-26 17:02:20 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 60 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 17:02:20 response :
+------------
+Array:
+FromUserName : gh_2a23de840671 ;
+ToUserName : oQxC9wa8NMoopCiEGOs6AmGszfkM ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2016-09-26 17:02:27 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a23de840671]]></ToUserName>
+<FromUserName><![CDATA[oQxC9wa8NMoopCiEGOs6AmGszfkM]]></FromUserName>
+<CreateTime>1474880547</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=31&c=entry&eid=1]]></EventKey>
+<MenuId>408135367</MenuId>
+</xml>
+
+2016-09-26 17:02:27 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 60 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 17:02:27 response :
+------------
+Array:
+FromUserName : gh_2a23de840671 ;
+ToUserName : oQxC9wa8NMoopCiEGOs6AmGszfkM ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2016-09-26 17:02:42 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a23de840671]]></ToUserName>
+<FromUserName><![CDATA[oQxC9wa8NMoopCiEGOs6AmGszfkM]]></FromUserName>
+<CreateTime>1474880562</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=31&c=entry&eid=1]]></EventKey>
+<MenuId>408135367</MenuId>
+</xml>
+
+2016-09-26 17:02:42 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 60 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 17:02:42 response :
+------------
+Array:
+FromUserName : gh_2a23de840671 ;
+ToUserName : oQxC9wa8NMoopCiEGOs6AmGszfkM ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2016-09-26 17:39:57 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a23de840671]]></ToUserName>
+<FromUserName><![CDATA[oQxC9wcCxj-U4fBrYCkq1uOKQ1H0]]></FromUserName>
+<CreateTime>1474882797</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=31&c=entry&eid=1]]></EventKey>
+<MenuId>408135367</MenuId>
+</xml>
+
+2016-09-26 17:39:57 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 60 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 17:39:57 response :
+------------
+Array:
+FromUserName : gh_2a23de840671 ;
+ToUserName : oQxC9wcCxj-U4fBrYCkq1uOKQ1H0 ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2016-09-26 17:40:08 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a23de840671]]></ToUserName>
+<FromUserName><![CDATA[oQxC9wcCxj-U4fBrYCkq1uOKQ1H0]]></FromUserName>
+<CreateTime>1474882808</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=31&c=entry&eid=1]]></EventKey>
+<MenuId>408135367</MenuId>
+</xml>
+
+2016-09-26 17:40:08 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 60 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 17:40:08 response :
+------------
+Array:
+FromUserName : gh_2a23de840671 ;
+ToUserName : oQxC9wcCxj-U4fBrYCkq1uOKQ1H0 ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2016-09-26 18:24:04 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a23de840671]]></ToUserName>
+<FromUserName><![CDATA[oQxC9wa8NMoopCiEGOs6AmGszfkM]]></FromUserName>
+<CreateTime>1474885444</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=31&c=entry&eid=1]]></EventKey>
+<MenuId>408135367</MenuId>
+</xml>
+
+2016-09-26 18:24:04 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 60 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 18:24:04 response :
+------------
+Array:
+FromUserName : gh_2a23de840671 ;
+ToUserName : oQxC9wa8NMoopCiEGOs6AmGszfkM ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2016-09-26 19:07:04 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a23de840671]]></ToUserName>
+<FromUserName><![CDATA[oQxC9wd_RYbZadQRwMi-wbdmwiIg]]></FromUserName>
+<CreateTime>1474888023</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[subscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+
+2016-09-26 19:07:04 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 60 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 19:07:04 response :
+------------
+Array:
+FromUserName : gh_2a23de840671 ;
+ToUserName : oQxC9wd_RYbZadQRwMi-wbdmwiIg ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2016-09-26 19:07:14 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a23de840671]]></ToUserName>
+<FromUserName><![CDATA[oQxC9wd_RYbZadQRwMi-wbdmwiIg]]></FromUserName>
+<CreateTime>1474888034</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=31&c=entry&eid=1]]></EventKey>
+<MenuId>408135367</MenuId>
+</xml>
+
+2016-09-26 19:07:14 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 60 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 19:07:14 response :
+------------
+Array:
+FromUserName : gh_2a23de840671 ;
+ToUserName : oQxC9wd_RYbZadQRwMi-wbdmwiIg ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2016-09-26 19:40:00 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a23de840671]]></ToUserName>
+<FromUserName><![CDATA[oQxC9wb4joF89D5bFoFDjx3YBgsQ]]></FromUserName>
+<CreateTime>1474890000</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=31&c=entry&eid=1]]></EventKey>
+<MenuId>408135367</MenuId>
+</xml>
+
+2016-09-26 19:40:00 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 60 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 19:40:00 response :
+------------
+Array:
+FromUserName : gh_2a23de840671 ;
+ToUserName : oQxC9wb4joF89D5bFoFDjx3YBgsQ ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2016-09-26 19:40:18 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a23de840671]]></ToUserName>
+<FromUserName><![CDATA[oQxC9wTj8sF2cTT7RFIWc1Os9vqY]]></FromUserName>
+<CreateTime>1474890018</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=31&c=entry&eid=1]]></EventKey>
+<MenuId>408135367</MenuId>
+</xml>
+
+2016-09-26 19:40:18 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 60 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 19:40:18 response :
+------------
+Array:
+FromUserName : gh_2a23de840671 ;
+ToUserName : oQxC9wTj8sF2cTT7RFIWc1Os9vqY ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2016-09-26 19:41:50 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a23de840671]]></ToUserName>
+<FromUserName><![CDATA[oQxC9wb4joF89D5bFoFDjx3YBgsQ]]></FromUserName>
+<CreateTime>1474890110</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=31&c=entry&eid=1]]></EventKey>
+<MenuId>408135367</MenuId>
+</xml>
+
+2016-09-26 19:41:50 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 60 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 19:41:50 response :
+------------
+Array:
+FromUserName : gh_2a23de840671 ;
+ToUserName : oQxC9wb4joF89D5bFoFDjx3YBgsQ ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2016-09-26 19:42:26 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a23de840671]]></ToUserName>
+<FromUserName><![CDATA[oQxC9wb4joF89D5bFoFDjx3YBgsQ]]></FromUserName>
+<CreateTime>1474890146</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=31&c=entry&eid=1]]></EventKey>
+<MenuId>408135367</MenuId>
+</xml>
+
+2016-09-26 19:42:26 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 60 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 19:42:26 response :
+------------
+Array:
+FromUserName : gh_2a23de840671 ;
+ToUserName : oQxC9wb4joF89D5bFoFDjx3YBgsQ ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2016-09-26 19:43:05 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a23de840671]]></ToUserName>
+<FromUserName><![CDATA[oQxC9wb4joF89D5bFoFDjx3YBgsQ]]></FromUserName>
+<CreateTime>1474890185</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=31&c=entry&eid=1]]></EventKey>
+<MenuId>408135367</MenuId>
+</xml>
+
+2016-09-26 19:43:05 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 60 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 19:43:05 response :
+------------
+Array:
+FromUserName : gh_2a23de840671 ;
+ToUserName : oQxC9wb4joF89D5bFoFDjx3YBgsQ ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2016-09-26 19:43:19 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a23de840671]]></ToUserName>
+<FromUserName><![CDATA[oQxC9wTj8sF2cTT7RFIWc1Os9vqY]]></FromUserName>
+<CreateTime>1474890199</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=31&c=entry&eid=1]]></EventKey>
+<MenuId>408135367</MenuId>
+</xml>
+
+2016-09-26 19:43:19 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 60 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 19:43:19 response :
+------------
+Array:
+FromUserName : gh_2a23de840671 ;
+ToUserName : oQxC9wTj8sF2cTT7RFIWc1Os9vqY ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2016-09-26 19:43:54 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a23de840671]]></ToUserName>
+<FromUserName><![CDATA[oQxC9wb4joF89D5bFoFDjx3YBgsQ]]></FromUserName>
+<CreateTime>1474890234</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=31&c=entry&eid=1]]></EventKey>
+<MenuId>408135367</MenuId>
+</xml>
+
+2016-09-26 19:43:54 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 60 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 19:43:54 response :
+------------
+Array:
+FromUserName : gh_2a23de840671 ;
+ToUserName : oQxC9wb4joF89D5bFoFDjx3YBgsQ ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2016-09-26 19:43:59 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a23de840671]]></ToUserName>
+<FromUserName><![CDATA[oQxC9wb4joF89D5bFoFDjx3YBgsQ]]></FromUserName>
+<CreateTime>1474890239</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=31&c=entry&eid=1]]></EventKey>
+<MenuId>408135367</MenuId>
+</xml>
+
+2016-09-26 19:43:59 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 60 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 19:43:59 response :
+------------
+Array:
+FromUserName : gh_2a23de840671 ;
+ToUserName : oQxC9wb4joF89D5bFoFDjx3YBgsQ ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2016-09-26 19:44:03 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a23de840671]]></ToUserName>
+<FromUserName><![CDATA[oQxC9wTj8sF2cTT7RFIWc1Os9vqY]]></FromUserName>
+<CreateTime>1474890243</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=31&c=entry&eid=1]]></EventKey>
+<MenuId>408135367</MenuId>
+</xml>
+
+2016-09-26 19:44:03 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 60 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 19:44:03 response :
+------------
+Array:
+FromUserName : gh_2a23de840671 ;
+ToUserName : oQxC9wTj8sF2cTT7RFIWc1Os9vqY ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2016-09-26 19:44:04 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a23de840671]]></ToUserName>
+<FromUserName><![CDATA[oQxC9wd_RYbZadQRwMi-wbdmwiIg]]></FromUserName>
+<CreateTime>1474890244</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=31&c=entry&eid=1]]></EventKey>
+<MenuId>408135367</MenuId>
+</xml>
+
+2016-09-26 19:44:04 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 60 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 19:44:04 response :
+------------
+Array:
+FromUserName : gh_2a23de840671 ;
+ToUserName : oQxC9wd_RYbZadQRwMi-wbdmwiIg ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2016-09-26 19:44:20 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a23de840671]]></ToUserName>
+<FromUserName><![CDATA[oQxC9wd_RYbZadQRwMi-wbdmwiIg]]></FromUserName>
+<CreateTime>1474890260</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=31&c=entry&eid=1]]></EventKey>
+<MenuId>408135367</MenuId>
+</xml>
+
+2016-09-26 19:44:20 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 60 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 19:44:20 response :
+------------
+Array:
+FromUserName : gh_2a23de840671 ;
+ToUserName : oQxC9wd_RYbZadQRwMi-wbdmwiIg ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2016-09-26 19:44:40 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a23de840671]]></ToUserName>
+<FromUserName><![CDATA[oQxC9wd_RYbZadQRwMi-wbdmwiIg]]></FromUserName>
+<CreateTime>1474890280</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=31&c=entry&eid=1]]></EventKey>
+<MenuId>408135367</MenuId>
+</xml>
+
+2016-09-26 19:44:40 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 60 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 19:44:40 response :
+------------
+Array:
+FromUserName : gh_2a23de840671 ;
+ToUserName : oQxC9wd_RYbZadQRwMi-wbdmwiIg ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2016-09-26 19:46:15 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a23de840671]]></ToUserName>
+<FromUserName><![CDATA[oQxC9wb4joF89D5bFoFDjx3YBgsQ]]></FromUserName>
+<CreateTime>1474890375</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=31&c=entry&eid=1]]></EventKey>
+<MenuId>408135367</MenuId>
+</xml>
+
+2016-09-26 19:46:15 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 60 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 19:46:15 response :
+------------
+Array:
+FromUserName : gh_2a23de840671 ;
+ToUserName : oQxC9wb4joF89D5bFoFDjx3YBgsQ ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2016-09-26 20:03:26 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a23de840671]]></ToUserName>
+<FromUserName><![CDATA[oQxC9wb4joF89D5bFoFDjx3YBgsQ]]></FromUserName>
+<CreateTime>1474891406</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=31&c=entry&eid=1]]></EventKey>
+<MenuId>408135367</MenuId>
+</xml>
+
+2016-09-26 20:03:26 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 60 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 20:03:26 response :
+------------
+Array:
+FromUserName : gh_2a23de840671 ;
+ToUserName : oQxC9wb4joF89D5bFoFDjx3YBgsQ ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2016-09-26 20:03:40 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a23de840671]]></ToUserName>
+<FromUserName><![CDATA[oQxC9wb4joF89D5bFoFDjx3YBgsQ]]></FromUserName>
+<CreateTime>1474891420</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=31&c=entry&eid=1]]></EventKey>
+<MenuId>408135367</MenuId>
+</xml>
+
+2016-09-26 20:03:40 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 60 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 20:03:40 response :
+------------
+Array:
+FromUserName : gh_2a23de840671 ;
+ToUserName : oQxC9wb4joF89D5bFoFDjx3YBgsQ ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2016-09-26 20:04:14 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a23de840671]]></ToUserName>
+<FromUserName><![CDATA[oQxC9wb4joF89D5bFoFDjx3YBgsQ]]></FromUserName>
+<CreateTime>1474891454</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=31&c=entry&eid=1]]></EventKey>
+<MenuId>408135367</MenuId>
+</xml>
+
+2016-09-26 20:04:14 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 60 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 20:04:14 response :
+------------
+Array:
+FromUserName : gh_2a23de840671 ;
+ToUserName : oQxC9wb4joF89D5bFoFDjx3YBgsQ ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2016-09-26 20:05:24 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a23de840671]]></ToUserName>
+<FromUserName><![CDATA[oQxC9wb4joF89D5bFoFDjx3YBgsQ]]></FromUserName>
+<CreateTime>1474891524</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=31&c=entry&eid=1]]></EventKey>
+<MenuId>408135367</MenuId>
+</xml>
+
+2016-09-26 20:05:24 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 60 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 20:05:24 response :
+------------
+Array:
+FromUserName : gh_2a23de840671 ;
+ToUserName : oQxC9wb4joF89D5bFoFDjx3YBgsQ ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2016-09-26 20:05:54 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a23de840671]]></ToUserName>
+<FromUserName><![CDATA[oQxC9wb4joF89D5bFoFDjx3YBgsQ]]></FromUserName>
+<CreateTime>1474891554</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=31&c=entry&eid=1]]></EventKey>
+<MenuId>408135367</MenuId>
+</xml>
+
+2016-09-26 20:05:54 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 60 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 20:05:54 response :
+------------
+Array:
+FromUserName : gh_2a23de840671 ;
+ToUserName : oQxC9wb4joF89D5bFoFDjx3YBgsQ ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2016-09-26 21:00:22 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a23de840671]]></ToUserName>
+<FromUserName><![CDATA[oQxC9wb4joF89D5bFoFDjx3YBgsQ]]></FromUserName>
+<CreateTime>1474894822</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[unsubscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+
+2016-09-26 21:00:45 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a23de840671]]></ToUserName>
+<FromUserName><![CDATA[oQxC9wb4joF89D5bFoFDjx3YBgsQ]]></FromUserName>
+<CreateTime>1474894845</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[subscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+
+2016-09-26 21:00:45 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 60 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 21:00:45 response :
+------------
+Array:
+FromUserName : gh_2a23de840671 ;
+ToUserName : oQxC9wb4joF89D5bFoFDjx3YBgsQ ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2016-09-26 21:00:48 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a23de840671]]></ToUserName>
+<FromUserName><![CDATA[oQxC9wb4joF89D5bFoFDjx3YBgsQ]]></FromUserName>
+<CreateTime>1474894848</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=31&c=entry&eid=1]]></EventKey>
+<MenuId>408135367</MenuId>
+</xml>
+
+2016-09-26 21:00:48 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 60 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 21:00:48 response :
+------------
+Array:
+FromUserName : gh_2a23de840671 ;
+ToUserName : oQxC9wb4joF89D5bFoFDjx3YBgsQ ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2016-09-26 21:01:30 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2a23de840671]]></ToUserName>
+<FromUserName><![CDATA[oQxC9wb4joF89D5bFoFDjx3YBgsQ]]></FromUserName>
+<CreateTime>1474894890</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=31&c=entry&eid=2]]></EventKey>
+<MenuId>408135367</MenuId>
+</xml>
+
+2016-09-26 21:01:30 params :
+------------
+Array:
+message : Array ;
+module : news ;
+rule : 60 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-09-26 21:01:30 response :
+------------
+Array:
+FromUserName : gh_2a23de840671 ;
+ToUserName : oQxC9wb4joF89D5bFoFDjx3YBgsQ ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2016-09-26 22:10:39 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2ee031f2e428]]></ToUserName>
+<FromUserName><![CDATA[ojDkIwojrZ7lo9VHnu3dGhkSRa_c]]></FromUserName>
+<CreateTime>1474899039</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[unsubscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+

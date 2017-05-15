@@ -1,0 +1,2510 @@
+2017-01-22 00:11:46 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_9de8493b6ad5]]></ToUserName>
+<FromUserName><![CDATA[o5xEqwT9pnSuj3qH-PPVbo2Vj5Xs]]></FromUserName>
+<CreateTime>1485015106</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[subscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+
+2017-01-22 00:11:46 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_9de8493b6ad5',
+    'fromusername' => 'o5xEqwT9pnSuj3qH-PPVbo2Vj5Xs',
+    'createtime' => '1485015106',
+    'msgtype' => 'event',
+    'event' => 'subscribe',
+    'eventkey' => '',
+    'from' => 'o5xEqwT9pnSuj3qH-PPVbo2Vj5Xs',
+    'to' => 'gh_9de8493b6ad5',
+    'time' => '1485015106',
+    'type' => 'text',
+    'redirection' => true,
+    'source' => 'subscribe',
+  ),
+)
+
+2017-01-22 00:11:46 response :
+------------
+
+2017-01-22 00:52:37 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_9de8493b6ad5]]></ToUserName>
+<FromUserName><![CDATA[o5xEqwQfwfDEHGfG4XxrsYDSc8dY]]></FromUserName>
+<CreateTime>1485017557</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[subscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+
+2017-01-22 00:52:37 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_9de8493b6ad5',
+    'fromusername' => 'o5xEqwQfwfDEHGfG4XxrsYDSc8dY',
+    'createtime' => '1485017557',
+    'msgtype' => 'event',
+    'event' => 'subscribe',
+    'eventkey' => '',
+    'from' => 'o5xEqwQfwfDEHGfG4XxrsYDSc8dY',
+    'to' => 'gh_9de8493b6ad5',
+    'time' => '1485017557',
+    'type' => 'text',
+    'redirection' => true,
+    'source' => 'subscribe',
+  ),
+)
+
+2017-01-22 00:52:37 response :
+------------
+
+2017-01-22 01:00:12 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_9de8493b6ad5]]></ToUserName>
+<FromUserName><![CDATA[o5xEqwTcuW40T98kyUPTRURbULKo]]></FromUserName>
+<CreateTime>1485018012</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[subscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+
+2017-01-22 01:00:12 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_9de8493b6ad5',
+    'fromusername' => 'o5xEqwTcuW40T98kyUPTRURbULKo',
+    'createtime' => '1485018012',
+    'msgtype' => 'event',
+    'event' => 'subscribe',
+    'eventkey' => '',
+    'from' => 'o5xEqwTcuW40T98kyUPTRURbULKo',
+    'to' => 'gh_9de8493b6ad5',
+    'time' => '1485018012',
+    'type' => 'text',
+    'redirection' => true,
+    'source' => 'subscribe',
+  ),
+)
+
+2017-01-22 01:00:12 response :
+------------
+
+2017-01-22 02:54:24 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_b6b2adce2b0d]]></ToUserName>
+<FromUserName><![CDATA[o-SliwGC8xDag0rK2xMsq5WQydGU]]></FromUserName>
+<CreateTime>1485024863</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[subscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+
+2017-01-22 02:54:24 params :
+------------
+String:
+array (
+  'message' => 
+  array (
+    'tousername' => 'gh_b6b2adce2b0d',
+    'fromusername' => 'o-SliwGC8xDag0rK2xMsq5WQydGU',
+    'createtime' => '1485024863',
+    'msgtype' => 'event',
+    'event' => 'subscribe',
+    'eventkey' => '',
+    'from' => 'o-SliwGC8xDag0rK2xMsq5WQydGU',
+    'to' => 'gh_b6b2adce2b0d',
+    'time' => '1485024863',
+    'type' => 'text',
+    'redirection' => true,
+    'source' => 'subscribe',
+    'content' => '1',
+  ),
+  'module' => 'news',
+  'rule' => '73',
+  'priority' => '0',
+  'keyword' => 
+  array (
+    'id' => '156',
+    'rid' => '73',
+    'uniacid' => '39',
+    'module' => 'news',
+    'content' => '1',
+    'type' => '1',
+    'displayorder' => '0',
+    'status' => '1',
+  ),
+)
+
+2017-01-22 02:54:24 response :
+------------
+Array:
+FromUserName : gh_b6b2adce2b0d ;
+ToUserName : o-SliwGC8xDag0rK2xMsq5WQydGU ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2017-01-22 02:55:23 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_b6b2adce2b0d]]></ToUserName>
+<FromUserName><![CDATA[o-SliwGC8xDag0rK2xMsq5WQydGU]]></FromUserName>
+<CreateTime>1485024923</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[unsubscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+
+2017-01-22 02:56:44 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_9046d2e226a2]]></ToUserName>
+<FromUserName><![CDATA[oKlYowTPMFYoLAA7oeIwIWdu5Htk]]></FromUserName>
+<CreateTime>1485025004</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=35&c=home&]]></EventKey>
+<MenuId>412080054</MenuId>
+</xml>
+
+2017-01-22 02:56:44 params :
+------------
+String:
+array (
+  'message' => 
+  array (
+    'tousername' => 'gh_9046d2e226a2',
+    'fromusername' => 'oKlYowTPMFYoLAA7oeIwIWdu5Htk',
+    'createtime' => '1485025004',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://www.9kpu.com/app/index.php?i=35&c=home&',
+    'menuid' => '412080054',
+    'from' => 'oKlYowTPMFYoLAA7oeIwIWdu5Htk',
+    'to' => 'gh_9046d2e226a2',
+    'time' => '1485025004',
+    'type' => 'text',
+    'content' => '1',
+    'redirection' => true,
+    'source' => 'default',
+    'original' => 'http://www.9kpu.com/app/index.php?i=35&c=home&',
+  ),
+  'module' => 'news',
+  'rule' => '64',
+  'priority' => '0',
+  'keyword' => 
+  array (
+    'id' => '119',
+    'rid' => '64',
+    'uniacid' => '35',
+    'module' => 'news',
+    'content' => '1',
+    'type' => '1',
+    'displayorder' => '0',
+    'status' => '1',
+  ),
+)
+
+2017-01-22 02:56:44 response :
+------------
+Array:
+FromUserName : gh_9046d2e226a2 ;
+ToUserName : oKlYowTPMFYoLAA7oeIwIWdu5Htk ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2017-01-22 03:58:01 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_9046d2e226a2]]></ToUserName>
+<FromUserName><![CDATA[oKlYowbpuubux4r5Vta01Hy3-X8Q]]></FromUserName>
+<CreateTime>1485028681</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=35&c=home&]]></EventKey>
+<MenuId>412080054</MenuId>
+</xml>
+
+2017-01-22 03:58:01 params :
+------------
+String:
+array (
+  'message' => 
+  array (
+    'tousername' => 'gh_9046d2e226a2',
+    'fromusername' => 'oKlYowbpuubux4r5Vta01Hy3-X8Q',
+    'createtime' => '1485028681',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://www.9kpu.com/app/index.php?i=35&c=home&',
+    'menuid' => '412080054',
+    'from' => 'oKlYowbpuubux4r5Vta01Hy3-X8Q',
+    'to' => 'gh_9046d2e226a2',
+    'time' => '1485028681',
+    'type' => 'text',
+    'content' => '1',
+    'redirection' => true,
+    'source' => 'default',
+    'original' => 'http://www.9kpu.com/app/index.php?i=35&c=home&',
+  ),
+  'module' => 'news',
+  'rule' => '64',
+  'priority' => '0',
+  'keyword' => 
+  array (
+    'id' => '119',
+    'rid' => '64',
+    'uniacid' => '35',
+    'module' => 'news',
+    'content' => '1',
+    'type' => '1',
+    'displayorder' => '0',
+    'status' => '1',
+  ),
+)
+
+2017-01-22 03:58:01 response :
+------------
+Array:
+FromUserName : gh_9046d2e226a2 ;
+ToUserName : oKlYowbpuubux4r5Vta01Hy3-X8Q ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2017-01-22 06:24:33 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_ad1abe4f841e]]></ToUserName>
+<FromUserName><![CDATA[oF5iMv8BrHUH8T33XEtIbKHt12WU]]></FromUserName>
+<CreateTime>1485037473</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=41&c=home&]]></EventKey>
+<MenuId>409163649</MenuId>
+</xml>
+
+2017-01-22 06:24:33 params :
+------------
+String:
+array (
+  'message' => 
+  array (
+    'tousername' => 'gh_ad1abe4f841e',
+    'fromusername' => 'oF5iMv8BrHUH8T33XEtIbKHt12WU',
+    'createtime' => '1485037473',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://www.9kpu.com/app/index.php?i=41&c=home&',
+    'menuid' => '409163649',
+    'from' => 'oF5iMv8BrHUH8T33XEtIbKHt12WU',
+    'to' => 'gh_ad1abe4f841e',
+    'time' => '1485037473',
+    'type' => 'text',
+    'content' => '1',
+    'redirection' => true,
+    'source' => 'default',
+    'original' => 'http://www.9kpu.com/app/index.php?i=41&c=home&',
+  ),
+  'module' => 'news',
+  'rule' => '93',
+  'priority' => '0',
+  'keyword' => 
+  array (
+    'id' => '197',
+    'rid' => '93',
+    'uniacid' => '41',
+    'module' => 'news',
+    'content' => '1',
+    'type' => '1',
+    'displayorder' => '0',
+    'status' => '1',
+  ),
+)
+
+2017-01-22 06:24:33 response :
+------------
+Array:
+FromUserName : gh_ad1abe4f841e ;
+ToUserName : oF5iMv8BrHUH8T33XEtIbKHt12WU ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2017-01-22 07:13:51 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_9046d2e226a2]]></ToUserName>
+<FromUserName><![CDATA[oKlYowX259FKKrOzG-FrR85SsJ38]]></FromUserName>
+<CreateTime>1485040431</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[subscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+
+2017-01-22 07:13:51 params :
+------------
+String:
+array (
+  'message' => 
+  array (
+    'tousername' => 'gh_9046d2e226a2',
+    'fromusername' => 'oKlYowX259FKKrOzG-FrR85SsJ38',
+    'createtime' => '1485040431',
+    'msgtype' => 'event',
+    'event' => 'subscribe',
+    'eventkey' => '',
+    'from' => 'oKlYowX259FKKrOzG-FrR85SsJ38',
+    'to' => 'gh_9046d2e226a2',
+    'time' => '1485040431',
+    'type' => 'text',
+    'redirection' => true,
+    'source' => 'subscribe',
+    'content' => '1',
+  ),
+  'module' => 'news',
+  'rule' => '64',
+  'priority' => '0',
+  'keyword' => 
+  array (
+    'id' => '119',
+    'rid' => '64',
+    'uniacid' => '35',
+    'module' => 'news',
+    'content' => '1',
+    'type' => '1',
+    'displayorder' => '0',
+    'status' => '1',
+  ),
+)
+
+2017-01-22 07:13:51 response :
+------------
+Array:
+FromUserName : gh_9046d2e226a2 ;
+ToUserName : oKlYowX259FKKrOzG-FrR85SsJ38 ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2017-01-22 08:17:11 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_0eab716966d4]]></ToUserName>
+<FromUserName><![CDATA[oSoVuwAs7fdAXEHg9stQ15qGLlAg]]></FromUserName>
+<CreateTime>1485044231</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=28&c=home&]]></EventKey>
+<MenuId>414492131</MenuId>
+</xml>
+
+2017-01-22 08:17:11 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_0eab716966d4',
+    'fromusername' => 'oSoVuwAs7fdAXEHg9stQ15qGLlAg',
+    'createtime' => '1485044231',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://www.9kpu.com/app/index.php?i=28&c=home&',
+    'menuid' => '414492131',
+    'from' => 'oSoVuwAs7fdAXEHg9stQ15qGLlAg',
+    'to' => 'gh_0eab716966d4',
+    'time' => '1485044231',
+    'type' => 'text',
+    'content' => 'http://www.9kpu.com/app/index.php?i=28&c=home&',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2017-01-22 08:17:11 response :
+------------
+
+2017-01-22 08:17:37 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_0eab716966d4]]></ToUserName>
+<FromUserName><![CDATA[oSoVuwMcOiQkTqTaZYz1Y02BkcI4]]></FromUserName>
+<CreateTime>1485044257</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[subscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+
+2017-01-22 08:17:37 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_0eab716966d4',
+    'fromusername' => 'oSoVuwMcOiQkTqTaZYz1Y02BkcI4',
+    'createtime' => '1485044257',
+    'msgtype' => 'event',
+    'event' => 'subscribe',
+    'eventkey' => '',
+    'from' => 'oSoVuwMcOiQkTqTaZYz1Y02BkcI4',
+    'to' => 'gh_0eab716966d4',
+    'time' => '1485044257',
+    'type' => 'text',
+    'redirection' => true,
+    'source' => 'subscribe',
+  ),
+)
+
+2017-01-22 08:17:37 response :
+------------
+
+2017-01-22 08:17:40 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_0eab716966d4]]></ToUserName>
+<FromUserName><![CDATA[oSoVuwMcOiQkTqTaZYz1Y02BkcI4]]></FromUserName>
+<CreateTime>1485044260</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=28&c=home&]]></EventKey>
+<MenuId>414492131</MenuId>
+</xml>
+
+2017-01-22 08:17:40 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_0eab716966d4',
+    'fromusername' => 'oSoVuwMcOiQkTqTaZYz1Y02BkcI4',
+    'createtime' => '1485044260',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://www.9kpu.com/app/index.php?i=28&c=home&',
+    'menuid' => '414492131',
+    'from' => 'oSoVuwMcOiQkTqTaZYz1Y02BkcI4',
+    'to' => 'gh_0eab716966d4',
+    'time' => '1485044260',
+    'type' => 'text',
+    'content' => 'http://www.9kpu.com/app/index.php?i=28&c=home&',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2017-01-22 08:17:40 response :
+------------
+
+2017-01-22 08:18:04 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_0eab716966d4]]></ToUserName>
+<FromUserName><![CDATA[oSoVuwMcOiQkTqTaZYz1Y02BkcI4]]></FromUserName>
+<CreateTime>1485044284</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=28&c=entry&eid=2]]></EventKey>
+<MenuId>414492131</MenuId>
+</xml>
+
+2017-01-22 08:18:04 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_0eab716966d4',
+    'fromusername' => 'oSoVuwMcOiQkTqTaZYz1Y02BkcI4',
+    'createtime' => '1485044284',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://www.9kpu.com/app/index.php?i=28&c=entry&eid=2',
+    'menuid' => '414492131',
+    'from' => 'oSoVuwMcOiQkTqTaZYz1Y02BkcI4',
+    'to' => 'gh_0eab716966d4',
+    'time' => '1485044284',
+    'type' => 'text',
+    'content' => 'http://www.9kpu.com/app/index.php?i=28&c=entry&eid=2',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2017-01-22 08:18:04 response :
+------------
+
+2017-01-22 08:18:11 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_0eab716966d4]]></ToUserName>
+<FromUserName><![CDATA[oSoVuwMcOiQkTqTaZYz1Y02BkcI4]]></FromUserName>
+<CreateTime>1485044291</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=28&c=entry&eid=1]]></EventKey>
+<MenuId>414492131</MenuId>
+</xml>
+
+2017-01-22 08:18:11 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_0eab716966d4',
+    'fromusername' => 'oSoVuwMcOiQkTqTaZYz1Y02BkcI4',
+    'createtime' => '1485044291',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://www.9kpu.com/app/index.php?i=28&c=entry&eid=1',
+    'menuid' => '414492131',
+    'from' => 'oSoVuwMcOiQkTqTaZYz1Y02BkcI4',
+    'to' => 'gh_0eab716966d4',
+    'time' => '1485044291',
+    'type' => 'text',
+    'content' => 'http://www.9kpu.com/app/index.php?i=28&c=entry&eid=1',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2017-01-22 08:18:11 response :
+------------
+
+2017-01-22 08:18:18 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_0eab716966d4]]></ToUserName>
+<FromUserName><![CDATA[oSoVuwMcOiQkTqTaZYz1Y02BkcI4]]></FromUserName>
+<CreateTime>1485044298</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=28&c=home&]]></EventKey>
+<MenuId>414492131</MenuId>
+</xml>
+
+2017-01-22 08:18:18 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_0eab716966d4',
+    'fromusername' => 'oSoVuwMcOiQkTqTaZYz1Y02BkcI4',
+    'createtime' => '1485044298',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://www.9kpu.com/app/index.php?i=28&c=home&',
+    'menuid' => '414492131',
+    'from' => 'oSoVuwMcOiQkTqTaZYz1Y02BkcI4',
+    'to' => 'gh_0eab716966d4',
+    'time' => '1485044298',
+    'type' => 'text',
+    'content' => 'http://www.9kpu.com/app/index.php?i=28&c=home&',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2017-01-22 08:18:18 response :
+------------
+
+2017-01-22 08:45:51 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_9de8493b6ad5]]></ToUserName>
+<FromUserName><![CDATA[o5xEqwZiPGjrO9LG5ZqAKjpAt4vg]]></FromUserName>
+<CreateTime>1485045951</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[subscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+
+2017-01-22 08:45:51 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_9de8493b6ad5',
+    'fromusername' => 'o5xEqwZiPGjrO9LG5ZqAKjpAt4vg',
+    'createtime' => '1485045951',
+    'msgtype' => 'event',
+    'event' => 'subscribe',
+    'eventkey' => '',
+    'from' => 'o5xEqwZiPGjrO9LG5ZqAKjpAt4vg',
+    'to' => 'gh_9de8493b6ad5',
+    'time' => '1485045951',
+    'type' => 'text',
+    'redirection' => true,
+    'source' => 'subscribe',
+  ),
+)
+
+2017-01-22 08:45:51 response :
+------------
+
+2017-01-22 09:09:34 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_b6b2adce2b0d]]></ToUserName>
+<FromUserName><![CDATA[o-SliwOz8RwS8lFLC-5uW4cj-_fk]]></FromUserName>
+<CreateTime>1485047374</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=39&c=home&]]></EventKey>
+<MenuId>408723140</MenuId>
+</xml>
+
+2017-01-22 09:09:34 params :
+------------
+String:
+array (
+  'message' => 
+  array (
+    'tousername' => 'gh_b6b2adce2b0d',
+    'fromusername' => 'o-SliwOz8RwS8lFLC-5uW4cj-_fk',
+    'createtime' => '1485047374',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://www.9kpu.com/app/index.php?i=39&c=home&',
+    'menuid' => '408723140',
+    'from' => 'o-SliwOz8RwS8lFLC-5uW4cj-_fk',
+    'to' => 'gh_b6b2adce2b0d',
+    'time' => '1485047374',
+    'type' => 'text',
+    'content' => '1',
+    'redirection' => true,
+    'source' => 'default',
+    'original' => 'http://www.9kpu.com/app/index.php?i=39&c=home&',
+  ),
+  'module' => 'news',
+  'rule' => '73',
+  'priority' => '0',
+  'keyword' => 
+  array (
+    'id' => '156',
+    'rid' => '73',
+    'uniacid' => '39',
+    'module' => 'news',
+    'content' => '1',
+    'type' => '1',
+    'displayorder' => '0',
+    'status' => '1',
+  ),
+)
+
+2017-01-22 09:09:34 response :
+------------
+Array:
+FromUserName : gh_b6b2adce2b0d ;
+ToUserName : o-SliwOz8RwS8lFLC-5uW4cj-_fk ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2017-01-22 11:39:58 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_b6b2adce2b0d]]></ToUserName>
+<FromUserName><![CDATA[o-SliwCwlU_gXXw5dPyRJqib_0Cs]]></FromUserName>
+<CreateTime>1485056398</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=39&c=entry&eid=1]]></EventKey>
+<MenuId>408723140</MenuId>
+</xml>
+
+2017-01-22 11:39:58 params :
+------------
+String:
+array (
+  'message' => 
+  array (
+    'tousername' => 'gh_b6b2adce2b0d',
+    'fromusername' => 'o-SliwCwlU_gXXw5dPyRJqib_0Cs',
+    'createtime' => '1485056398',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://www.9kpu.com/app/index.php?i=39&c=entry&eid=1',
+    'menuid' => '408723140',
+    'from' => 'o-SliwCwlU_gXXw5dPyRJqib_0Cs',
+    'to' => 'gh_b6b2adce2b0d',
+    'time' => '1485056398',
+    'type' => 'text',
+    'content' => '1',
+    'redirection' => true,
+    'source' => 'default',
+    'original' => 'http://www.9kpu.com/app/index.php?i=39&c=entry&eid=1',
+  ),
+  'module' => 'news',
+  'rule' => '73',
+  'priority' => '0',
+  'keyword' => 
+  array (
+    'id' => '156',
+    'rid' => '73',
+    'uniacid' => '39',
+    'module' => 'news',
+    'content' => '1',
+    'type' => '1',
+    'displayorder' => '0',
+    'status' => '1',
+  ),
+)
+
+2017-01-22 11:39:58 response :
+------------
+Array:
+FromUserName : gh_b6b2adce2b0d ;
+ToUserName : o-SliwCwlU_gXXw5dPyRJqib_0Cs ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2017-01-22 12:34:55 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_4e0c181b7380]]></ToUserName>
+<FromUserName><![CDATA[oxtWnv61LWca07BQBfdbHVRlpC0Y]]></FromUserName>
+<CreateTime>1485059695</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=27&c=home&]]></EventKey>
+<MenuId>432687017</MenuId>
+</xml>
+
+2017-01-22 12:34:55 params :
+------------
+String:
+array (
+  'message' => 
+  array (
+    'tousername' => 'gh_4e0c181b7380',
+    'fromusername' => 'oxtWnv61LWca07BQBfdbHVRlpC0Y',
+    'createtime' => '1485059695',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://www.9kpu.com/app/index.php?i=27&c=home&',
+    'menuid' => '432687017',
+    'from' => 'oxtWnv61LWca07BQBfdbHVRlpC0Y',
+    'to' => 'gh_4e0c181b7380',
+    'time' => '1485059695',
+    'type' => 'text',
+    'content' => 'http://www.9kpu.com/app/index.php?i=27&c=home&',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+  'module' => 'default',
+  'rule' => '-1',
+)
+
+2017-01-22 12:34:55 response :
+------------
+Array:
+params : Array ;
+
+2017-01-22 12:36:06 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_4e0c181b7380]]></ToUserName>
+<FromUserName><![CDATA[oxtWnv61LWca07BQBfdbHVRlpC0Y]]></FromUserName>
+<CreateTime>1485059766</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=27&c=entry&eid=2]]></EventKey>
+<MenuId>432687017</MenuId>
+</xml>
+
+2017-01-22 12:36:06 params :
+------------
+String:
+array (
+  'message' => 
+  array (
+    'tousername' => 'gh_4e0c181b7380',
+    'fromusername' => 'oxtWnv61LWca07BQBfdbHVRlpC0Y',
+    'createtime' => '1485059766',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://www.9kpu.com/app/index.php?i=27&c=entry&eid=2',
+    'menuid' => '432687017',
+    'from' => 'oxtWnv61LWca07BQBfdbHVRlpC0Y',
+    'to' => 'gh_4e0c181b7380',
+    'time' => '1485059766',
+    'type' => 'text',
+    'content' => 'http://www.9kpu.com/app/index.php?i=27&c=entry&eid=2',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+  'module' => 'default',
+  'rule' => '-1',
+)
+
+2017-01-22 12:36:06 response :
+------------
+Array:
+params : Array ;
+
+2017-01-22 13:32:35 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_9046d2e226a2]]></ToUserName>
+<FromUserName><![CDATA[oKlYowV43iNRoW-VVteXdHDGfnJU]]></FromUserName>
+<CreateTime>1485063155</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[subscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+
+2017-01-22 13:32:35 params :
+------------
+String:
+array (
+  'message' => 
+  array (
+    'tousername' => 'gh_9046d2e226a2',
+    'fromusername' => 'oKlYowV43iNRoW-VVteXdHDGfnJU',
+    'createtime' => '1485063155',
+    'msgtype' => 'event',
+    'event' => 'subscribe',
+    'eventkey' => '',
+    'from' => 'oKlYowV43iNRoW-VVteXdHDGfnJU',
+    'to' => 'gh_9046d2e226a2',
+    'time' => '1485063155',
+    'type' => 'text',
+    'redirection' => true,
+    'source' => 'subscribe',
+    'content' => '1',
+  ),
+  'module' => 'news',
+  'rule' => '64',
+  'priority' => '0',
+  'keyword' => 
+  array (
+    'id' => '119',
+    'rid' => '64',
+    'uniacid' => '35',
+    'module' => 'news',
+    'content' => '1',
+    'type' => '1',
+    'displayorder' => '0',
+    'status' => '1',
+  ),
+)
+
+2017-01-22 13:32:35 response :
+------------
+Array:
+FromUserName : gh_9046d2e226a2 ;
+ToUserName : oKlYowV43iNRoW-VVteXdHDGfnJU ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2017-01-22 14:04:05 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_b6b2adce2b0d]]></ToUserName>
+<FromUserName><![CDATA[o-SliwATCGSKJZtU0aWWo8hsXKyU]]></FromUserName>
+<CreateTime>1485065045</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[unsubscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+
+2017-01-22 14:36:23 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_b6b2adce2b0d]]></ToUserName>
+<FromUserName><![CDATA[o-SliwDprvBiG47bAQQHbZ7CZGr4]]></FromUserName>
+<CreateTime>1485066983</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=39&c=entry&eid=1]]></EventKey>
+<MenuId>408723140</MenuId>
+</xml>
+
+2017-01-22 14:36:23 params :
+------------
+String:
+array (
+  'message' => 
+  array (
+    'tousername' => 'gh_b6b2adce2b0d',
+    'fromusername' => 'o-SliwDprvBiG47bAQQHbZ7CZGr4',
+    'createtime' => '1485066983',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://www.9kpu.com/app/index.php?i=39&c=entry&eid=1',
+    'menuid' => '408723140',
+    'from' => 'o-SliwDprvBiG47bAQQHbZ7CZGr4',
+    'to' => 'gh_b6b2adce2b0d',
+    'time' => '1485066983',
+    'type' => 'text',
+    'content' => '1',
+    'redirection' => true,
+    'source' => 'default',
+    'original' => 'http://www.9kpu.com/app/index.php?i=39&c=entry&eid=1',
+  ),
+  'module' => 'news',
+  'rule' => '73',
+  'priority' => '0',
+  'keyword' => 
+  array (
+    'id' => '156',
+    'rid' => '73',
+    'uniacid' => '39',
+    'module' => 'news',
+    'content' => '1',
+    'type' => '1',
+    'displayorder' => '0',
+    'status' => '1',
+  ),
+)
+
+2017-01-22 14:36:23 response :
+------------
+Array:
+FromUserName : gh_b6b2adce2b0d ;
+ToUserName : o-SliwDprvBiG47bAQQHbZ7CZGr4 ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2017-01-22 14:48:17 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_9046d2e226a2]]></ToUserName>
+<FromUserName><![CDATA[oKlYowYFj9zhmjxvKEtKshSVu_yo]]></FromUserName>
+<CreateTime>1485067697</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=35&c=entry&eid=1]]></EventKey>
+<MenuId>412080054</MenuId>
+</xml>
+
+2017-01-22 14:48:17 params :
+------------
+String:
+array (
+  'message' => 
+  array (
+    'tousername' => 'gh_9046d2e226a2',
+    'fromusername' => 'oKlYowYFj9zhmjxvKEtKshSVu_yo',
+    'createtime' => '1485067697',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://www.9kpu.com/app/index.php?i=35&c=entry&eid=1',
+    'menuid' => '412080054',
+    'from' => 'oKlYowYFj9zhmjxvKEtKshSVu_yo',
+    'to' => 'gh_9046d2e226a2',
+    'time' => '1485067697',
+    'type' => 'text',
+    'content' => '1',
+    'redirection' => true,
+    'source' => 'default',
+    'original' => 'http://www.9kpu.com/app/index.php?i=35&c=entry&eid=1',
+  ),
+  'module' => 'news',
+  'rule' => '64',
+  'priority' => '0',
+  'keyword' => 
+  array (
+    'id' => '119',
+    'rid' => '64',
+    'uniacid' => '35',
+    'module' => 'news',
+    'content' => '1',
+    'type' => '1',
+    'displayorder' => '0',
+    'status' => '1',
+  ),
+)
+
+2017-01-22 14:48:17 response :
+------------
+Array:
+FromUserName : gh_9046d2e226a2 ;
+ToUserName : oKlYowYFj9zhmjxvKEtKshSVu_yo ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2017-01-22 14:49:51 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_9046d2e226a2]]></ToUserName>
+<FromUserName><![CDATA[oKlYowYFj9zhmjxvKEtKshSVu_yo]]></FromUserName>
+<CreateTime>1485067791</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=35&c=home&]]></EventKey>
+<MenuId>412080054</MenuId>
+</xml>
+
+2017-01-22 14:49:51 params :
+------------
+String:
+array (
+  'message' => 
+  array (
+    'tousername' => 'gh_9046d2e226a2',
+    'fromusername' => 'oKlYowYFj9zhmjxvKEtKshSVu_yo',
+    'createtime' => '1485067791',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://www.9kpu.com/app/index.php?i=35&c=home&',
+    'menuid' => '412080054',
+    'from' => 'oKlYowYFj9zhmjxvKEtKshSVu_yo',
+    'to' => 'gh_9046d2e226a2',
+    'time' => '1485067791',
+    'type' => 'text',
+    'content' => '1',
+    'redirection' => true,
+    'source' => 'default',
+    'original' => 'http://www.9kpu.com/app/index.php?i=35&c=home&',
+  ),
+  'module' => 'news',
+  'rule' => '64',
+  'priority' => '0',
+  'keyword' => 
+  array (
+    'id' => '119',
+    'rid' => '64',
+    'uniacid' => '35',
+    'module' => 'news',
+    'content' => '1',
+    'type' => '1',
+    'displayorder' => '0',
+    'status' => '1',
+  ),
+)
+
+2017-01-22 14:49:51 response :
+------------
+Array:
+FromUserName : gh_9046d2e226a2 ;
+ToUserName : oKlYowYFj9zhmjxvKEtKshSVu_yo ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2017-01-22 16:34:53 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_9046d2e226a2]]></ToUserName>
+<FromUserName><![CDATA[oKlYowYg_eYNigT4Db5EH583CR5A]]></FromUserName>
+<CreateTime>1485074092</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=35&c=entry&eid=2]]></EventKey>
+<MenuId>412080054</MenuId>
+</xml>
+
+2017-01-22 16:34:53 params :
+------------
+String:
+array (
+  'message' => 
+  array (
+    'tousername' => 'gh_9046d2e226a2',
+    'fromusername' => 'oKlYowYg_eYNigT4Db5EH583CR5A',
+    'createtime' => '1485074092',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://www.9kpu.com/app/index.php?i=35&c=entry&eid=2',
+    'menuid' => '412080054',
+    'from' => 'oKlYowYg_eYNigT4Db5EH583CR5A',
+    'to' => 'gh_9046d2e226a2',
+    'time' => '1485074092',
+    'type' => 'text',
+    'content' => '1',
+    'redirection' => true,
+    'source' => 'default',
+    'original' => 'http://www.9kpu.com/app/index.php?i=35&c=entry&eid=2',
+  ),
+  'module' => 'news',
+  'rule' => '64',
+  'priority' => '0',
+  'keyword' => 
+  array (
+    'id' => '119',
+    'rid' => '64',
+    'uniacid' => '35',
+    'module' => 'news',
+    'content' => '1',
+    'type' => '1',
+    'displayorder' => '0',
+    'status' => '1',
+  ),
+)
+
+2017-01-22 16:34:53 response :
+------------
+Array:
+FromUserName : gh_9046d2e226a2 ;
+ToUserName : oKlYowYg_eYNigT4Db5EH583CR5A ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2017-01-22 16:35:21 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_9046d2e226a2]]></ToUserName>
+<FromUserName><![CDATA[oKlYowYg_eYNigT4Db5EH583CR5A]]></FromUserName>
+<CreateTime>1485074121</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=35&c=entry&eid=1]]></EventKey>
+<MenuId>412080054</MenuId>
+</xml>
+
+2017-01-22 16:35:21 params :
+------------
+String:
+array (
+  'message' => 
+  array (
+    'tousername' => 'gh_9046d2e226a2',
+    'fromusername' => 'oKlYowYg_eYNigT4Db5EH583CR5A',
+    'createtime' => '1485074121',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://www.9kpu.com/app/index.php?i=35&c=entry&eid=1',
+    'menuid' => '412080054',
+    'from' => 'oKlYowYg_eYNigT4Db5EH583CR5A',
+    'to' => 'gh_9046d2e226a2',
+    'time' => '1485074121',
+    'type' => 'text',
+    'content' => '1',
+    'redirection' => true,
+    'source' => 'default',
+    'original' => 'http://www.9kpu.com/app/index.php?i=35&c=entry&eid=1',
+  ),
+  'module' => 'news',
+  'rule' => '64',
+  'priority' => '0',
+  'keyword' => 
+  array (
+    'id' => '119',
+    'rid' => '64',
+    'uniacid' => '35',
+    'module' => 'news',
+    'content' => '1',
+    'type' => '1',
+    'displayorder' => '0',
+    'status' => '1',
+  ),
+)
+
+2017-01-22 16:35:21 response :
+------------
+Array:
+FromUserName : gh_9046d2e226a2 ;
+ToUserName : oKlYowYg_eYNigT4Db5EH583CR5A ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2017-01-22 16:35:40 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_9046d2e226a2]]></ToUserName>
+<FromUserName><![CDATA[oKlYowYg_eYNigT4Db5EH583CR5A]]></FromUserName>
+<CreateTime>1485074140</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=35&c=entry&eid=1]]></EventKey>
+<MenuId>412080054</MenuId>
+</xml>
+
+2017-01-22 16:35:40 params :
+------------
+String:
+array (
+  'message' => 
+  array (
+    'tousername' => 'gh_9046d2e226a2',
+    'fromusername' => 'oKlYowYg_eYNigT4Db5EH583CR5A',
+    'createtime' => '1485074140',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://www.9kpu.com/app/index.php?i=35&c=entry&eid=1',
+    'menuid' => '412080054',
+    'from' => 'oKlYowYg_eYNigT4Db5EH583CR5A',
+    'to' => 'gh_9046d2e226a2',
+    'time' => '1485074140',
+    'type' => 'text',
+    'content' => '1',
+    'redirection' => true,
+    'source' => 'default',
+    'original' => 'http://www.9kpu.com/app/index.php?i=35&c=entry&eid=1',
+  ),
+  'module' => 'news',
+  'rule' => '64',
+  'priority' => '0',
+  'keyword' => 
+  array (
+    'id' => '119',
+    'rid' => '64',
+    'uniacid' => '35',
+    'module' => 'news',
+    'content' => '1',
+    'type' => '1',
+    'displayorder' => '0',
+    'status' => '1',
+  ),
+)
+
+2017-01-22 16:35:40 response :
+------------
+Array:
+FromUserName : gh_9046d2e226a2 ;
+ToUserName : oKlYowYg_eYNigT4Db5EH583CR5A ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2017-01-22 16:36:11 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_9046d2e226a2]]></ToUserName>
+<FromUserName><![CDATA[oKlYowYg_eYNigT4Db5EH583CR5A]]></FromUserName>
+<CreateTime>1485074171</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=35&c=entry&eid=1]]></EventKey>
+<MenuId>412080054</MenuId>
+</xml>
+
+2017-01-22 16:36:11 params :
+------------
+String:
+array (
+  'message' => 
+  array (
+    'tousername' => 'gh_9046d2e226a2',
+    'fromusername' => 'oKlYowYg_eYNigT4Db5EH583CR5A',
+    'createtime' => '1485074171',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://www.9kpu.com/app/index.php?i=35&c=entry&eid=1',
+    'menuid' => '412080054',
+    'from' => 'oKlYowYg_eYNigT4Db5EH583CR5A',
+    'to' => 'gh_9046d2e226a2',
+    'time' => '1485074171',
+    'type' => 'text',
+    'content' => '1',
+    'redirection' => true,
+    'source' => 'default',
+    'original' => 'http://www.9kpu.com/app/index.php?i=35&c=entry&eid=1',
+  ),
+  'module' => 'news',
+  'rule' => '64',
+  'priority' => '0',
+  'keyword' => 
+  array (
+    'id' => '119',
+    'rid' => '64',
+    'uniacid' => '35',
+    'module' => 'news',
+    'content' => '1',
+    'type' => '1',
+    'displayorder' => '0',
+    'status' => '1',
+  ),
+)
+
+2017-01-22 16:36:11 response :
+------------
+Array:
+FromUserName : gh_9046d2e226a2 ;
+ToUserName : oKlYowYg_eYNigT4Db5EH583CR5A ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2017-01-22 16:37:08 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_9046d2e226a2]]></ToUserName>
+<FromUserName><![CDATA[oKlYowYg_eYNigT4Db5EH583CR5A]]></FromUserName>
+<CreateTime>1485074228</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=35&c=home&]]></EventKey>
+<MenuId>412080054</MenuId>
+</xml>
+
+2017-01-22 16:37:08 params :
+------------
+String:
+array (
+  'message' => 
+  array (
+    'tousername' => 'gh_9046d2e226a2',
+    'fromusername' => 'oKlYowYg_eYNigT4Db5EH583CR5A',
+    'createtime' => '1485074228',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://www.9kpu.com/app/index.php?i=35&c=home&',
+    'menuid' => '412080054',
+    'from' => 'oKlYowYg_eYNigT4Db5EH583CR5A',
+    'to' => 'gh_9046d2e226a2',
+    'time' => '1485074228',
+    'type' => 'text',
+    'content' => '1',
+    'redirection' => true,
+    'source' => 'default',
+    'original' => 'http://www.9kpu.com/app/index.php?i=35&c=home&',
+  ),
+  'module' => 'news',
+  'rule' => '64',
+  'priority' => '0',
+  'keyword' => 
+  array (
+    'id' => '119',
+    'rid' => '64',
+    'uniacid' => '35',
+    'module' => 'news',
+    'content' => '1',
+    'type' => '1',
+    'displayorder' => '0',
+    'status' => '1',
+  ),
+)
+
+2017-01-22 16:37:08 response :
+------------
+Array:
+FromUserName : gh_9046d2e226a2 ;
+ToUserName : oKlYowYg_eYNigT4Db5EH583CR5A ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2017-01-22 17:18:45 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_b6b2adce2b0d]]></ToUserName>
+<FromUserName><![CDATA[o-SliwBR4F3iP2jo6OXB5mUcTceI]]></FromUserName>
+<CreateTime>1485076725</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=39&c=entry&eid=1]]></EventKey>
+<MenuId>408723140</MenuId>
+</xml>
+
+2017-01-22 17:18:45 params :
+------------
+String:
+array (
+  'message' => 
+  array (
+    'tousername' => 'gh_b6b2adce2b0d',
+    'fromusername' => 'o-SliwBR4F3iP2jo6OXB5mUcTceI',
+    'createtime' => '1485076725',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://www.9kpu.com/app/index.php?i=39&c=entry&eid=1',
+    'menuid' => '408723140',
+    'from' => 'o-SliwBR4F3iP2jo6OXB5mUcTceI',
+    'to' => 'gh_b6b2adce2b0d',
+    'time' => '1485076725',
+    'type' => 'text',
+    'content' => '1',
+    'redirection' => true,
+    'source' => 'default',
+    'original' => 'http://www.9kpu.com/app/index.php?i=39&c=entry&eid=1',
+  ),
+  'module' => 'news',
+  'rule' => '73',
+  'priority' => '0',
+  'keyword' => 
+  array (
+    'id' => '156',
+    'rid' => '73',
+    'uniacid' => '39',
+    'module' => 'news',
+    'content' => '1',
+    'type' => '1',
+    'displayorder' => '0',
+    'status' => '1',
+  ),
+)
+
+2017-01-22 17:18:45 response :
+------------
+Array:
+FromUserName : gh_b6b2adce2b0d ;
+ToUserName : o-SliwBR4F3iP2jo6OXB5mUcTceI ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2017-01-22 17:29:17 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_9de8493b6ad5]]></ToUserName>
+<FromUserName><![CDATA[o5xEqwYm7fegDnhPb-Q759yjxbvo]]></FromUserName>
+<CreateTime>1485077357</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[subscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+
+2017-01-22 17:29:17 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_9de8493b6ad5',
+    'fromusername' => 'o5xEqwYm7fegDnhPb-Q759yjxbvo',
+    'createtime' => '1485077357',
+    'msgtype' => 'event',
+    'event' => 'subscribe',
+    'eventkey' => '',
+    'from' => 'o5xEqwYm7fegDnhPb-Q759yjxbvo',
+    'to' => 'gh_9de8493b6ad5',
+    'time' => '1485077357',
+    'type' => 'text',
+    'redirection' => true,
+    'source' => 'subscribe',
+  ),
+)
+
+2017-01-22 17:29:17 response :
+------------
+
+2017-01-22 18:19:49 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_b6b2adce2b0d]]></ToUserName>
+<FromUserName><![CDATA[o-SliwJCGxo_fYlJdiOIp_JWQmBY]]></FromUserName>
+<CreateTime>1485080389</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=39&c=home&]]></EventKey>
+<MenuId>408723140</MenuId>
+</xml>
+
+2017-01-22 18:19:49 params :
+------------
+String:
+array (
+  'message' => 
+  array (
+    'tousername' => 'gh_b6b2adce2b0d',
+    'fromusername' => 'o-SliwJCGxo_fYlJdiOIp_JWQmBY',
+    'createtime' => '1485080389',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://www.9kpu.com/app/index.php?i=39&c=home&',
+    'menuid' => '408723140',
+    'from' => 'o-SliwJCGxo_fYlJdiOIp_JWQmBY',
+    'to' => 'gh_b6b2adce2b0d',
+    'time' => '1485080389',
+    'type' => 'text',
+    'content' => '1',
+    'redirection' => true,
+    'source' => 'default',
+    'original' => 'http://www.9kpu.com/app/index.php?i=39&c=home&',
+  ),
+  'module' => 'news',
+  'rule' => '73',
+  'priority' => '0',
+  'keyword' => 
+  array (
+    'id' => '156',
+    'rid' => '73',
+    'uniacid' => '39',
+    'module' => 'news',
+    'content' => '1',
+    'type' => '1',
+    'displayorder' => '0',
+    'status' => '1',
+  ),
+)
+
+2017-01-22 18:19:49 response :
+------------
+Array:
+FromUserName : gh_b6b2adce2b0d ;
+ToUserName : o-SliwJCGxo_fYlJdiOIp_JWQmBY ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2017-01-22 18:57:29 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_9de8493b6ad5]]></ToUserName>
+<FromUserName><![CDATA[o5xEqwc0F6eU5U8cTivZW05DbGwY]]></FromUserName>
+<CreateTime>1485082649</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[subscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+
+2017-01-22 18:57:29 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_9de8493b6ad5',
+    'fromusername' => 'o5xEqwc0F6eU5U8cTivZW05DbGwY',
+    'createtime' => '1485082649',
+    'msgtype' => 'event',
+    'event' => 'subscribe',
+    'eventkey' => '',
+    'from' => 'o5xEqwc0F6eU5U8cTivZW05DbGwY',
+    'to' => 'gh_9de8493b6ad5',
+    'time' => '1485082649',
+    'type' => 'text',
+    'redirection' => true,
+    'source' => 'subscribe',
+  ),
+)
+
+2017-01-22 18:57:29 response :
+------------
+
+2017-01-22 19:37:06 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_0eab716966d4]]></ToUserName>
+<FromUserName><![CDATA[oSoVuwN-oxpUMOLB6OORNczHUxAg]]></FromUserName>
+<CreateTime>1485085026</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=28&c=entry&eid=2]]></EventKey>
+<MenuId>414492131</MenuId>
+</xml>
+
+2017-01-22 19:37:06 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_0eab716966d4',
+    'fromusername' => 'oSoVuwN-oxpUMOLB6OORNczHUxAg',
+    'createtime' => '1485085026',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://www.9kpu.com/app/index.php?i=28&c=entry&eid=2',
+    'menuid' => '414492131',
+    'from' => 'oSoVuwN-oxpUMOLB6OORNczHUxAg',
+    'to' => 'gh_0eab716966d4',
+    'time' => '1485085026',
+    'type' => 'text',
+    'content' => 'http://www.9kpu.com/app/index.php?i=28&c=entry&eid=2',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2017-01-22 19:37:06 response :
+------------
+
+2017-01-22 19:37:18 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_0eab716966d4]]></ToUserName>
+<FromUserName><![CDATA[oSoVuwN-oxpUMOLB6OORNczHUxAg]]></FromUserName>
+<CreateTime>1485085038</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=28&c=entry&eid=1]]></EventKey>
+<MenuId>414492131</MenuId>
+</xml>
+
+2017-01-22 19:37:18 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_0eab716966d4',
+    'fromusername' => 'oSoVuwN-oxpUMOLB6OORNczHUxAg',
+    'createtime' => '1485085038',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://www.9kpu.com/app/index.php?i=28&c=entry&eid=1',
+    'menuid' => '414492131',
+    'from' => 'oSoVuwN-oxpUMOLB6OORNczHUxAg',
+    'to' => 'gh_0eab716966d4',
+    'time' => '1485085038',
+    'type' => 'text',
+    'content' => 'http://www.9kpu.com/app/index.php?i=28&c=entry&eid=1',
+    'redirection' => true,
+    'source' => 'VIEW',
+  ),
+)
+
+2017-01-22 19:37:18 response :
+------------
+
+2017-01-22 19:51:33 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_b6b2adce2b0d]]></ToUserName>
+<FromUserName><![CDATA[o-SliwGjDAy_uXwbCUyIMkvYcYgc]]></FromUserName>
+<CreateTime>1485085893</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=39&c=entry&eid=1]]></EventKey>
+<MenuId>408723140</MenuId>
+</xml>
+
+2017-01-22 19:51:33 params :
+------------
+String:
+array (
+  'message' => 
+  array (
+    'tousername' => 'gh_b6b2adce2b0d',
+    'fromusername' => 'o-SliwGjDAy_uXwbCUyIMkvYcYgc',
+    'createtime' => '1485085893',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://www.9kpu.com/app/index.php?i=39&c=entry&eid=1',
+    'menuid' => '408723140',
+    'from' => 'o-SliwGjDAy_uXwbCUyIMkvYcYgc',
+    'to' => 'gh_b6b2adce2b0d',
+    'time' => '1485085893',
+    'type' => 'text',
+    'content' => '1',
+    'redirection' => true,
+    'source' => 'default',
+    'original' => 'http://www.9kpu.com/app/index.php?i=39&c=entry&eid=1',
+  ),
+  'module' => 'news',
+  'rule' => '73',
+  'priority' => '0',
+  'keyword' => 
+  array (
+    'id' => '156',
+    'rid' => '73',
+    'uniacid' => '39',
+    'module' => 'news',
+    'content' => '1',
+    'type' => '1',
+    'displayorder' => '0',
+    'status' => '1',
+  ),
+)
+
+2017-01-22 19:51:33 response :
+------------
+Array:
+FromUserName : gh_b6b2adce2b0d ;
+ToUserName : o-SliwGjDAy_uXwbCUyIMkvYcYgc ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2017-01-22 19:55:18 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_9de8493b6ad5]]></ToUserName>
+<FromUserName><![CDATA[o5xEqwQPH0NXYRFxcDq-qbb5EnTE]]></FromUserName>
+<CreateTime>1485086118</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[subscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+
+2017-01-22 19:55:18 params :
+------------
+String:
+array (
+  'rule' => -2,
+  'module' => '',
+  'message' => 
+  array (
+    'tousername' => 'gh_9de8493b6ad5',
+    'fromusername' => 'o5xEqwQPH0NXYRFxcDq-qbb5EnTE',
+    'createtime' => '1485086118',
+    'msgtype' => 'event',
+    'event' => 'subscribe',
+    'eventkey' => '',
+    'from' => 'o5xEqwQPH0NXYRFxcDq-qbb5EnTE',
+    'to' => 'gh_9de8493b6ad5',
+    'time' => '1485086118',
+    'type' => 'text',
+    'redirection' => true,
+    'source' => 'subscribe',
+  ),
+)
+
+2017-01-22 19:55:18 response :
+------------
+
+2017-01-22 19:58:02 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_b6b2adce2b0d]]></ToUserName>
+<FromUserName><![CDATA[o-SliwARtGk-kakRSfVbX70Rc_Tw]]></FromUserName>
+<CreateTime>1485086282</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=39&c=entry&eid=1]]></EventKey>
+<MenuId>408723140</MenuId>
+</xml>
+
+2017-01-22 19:58:02 params :
+------------
+String:
+array (
+  'message' => 
+  array (
+    'tousername' => 'gh_b6b2adce2b0d',
+    'fromusername' => 'o-SliwARtGk-kakRSfVbX70Rc_Tw',
+    'createtime' => '1485086282',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://www.9kpu.com/app/index.php?i=39&c=entry&eid=1',
+    'menuid' => '408723140',
+    'from' => 'o-SliwARtGk-kakRSfVbX70Rc_Tw',
+    'to' => 'gh_b6b2adce2b0d',
+    'time' => '1485086282',
+    'type' => 'text',
+    'content' => '1',
+    'redirection' => true,
+    'source' => 'default',
+    'original' => 'http://www.9kpu.com/app/index.php?i=39&c=entry&eid=1',
+  ),
+  'module' => 'news',
+  'rule' => '73',
+  'priority' => '0',
+  'keyword' => 
+  array (
+    'id' => '156',
+    'rid' => '73',
+    'uniacid' => '39',
+    'module' => 'news',
+    'content' => '1',
+    'type' => '1',
+    'displayorder' => '0',
+    'status' => '1',
+  ),
+)
+
+2017-01-22 19:58:02 response :
+------------
+Array:
+FromUserName : gh_b6b2adce2b0d ;
+ToUserName : o-SliwARtGk-kakRSfVbX70Rc_Tw ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2017-01-22 20:40:39 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_b6b2adce2b0d]]></ToUserName>
+<FromUserName><![CDATA[o-SliwM9_b4Ly8UYQMshj84mfA6Y]]></FromUserName>
+<CreateTime>1485088839</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=39&c=entry&eid=1]]></EventKey>
+<MenuId>408723140</MenuId>
+</xml>
+
+2017-01-22 20:40:39 params :
+------------
+String:
+array (
+  'message' => 
+  array (
+    'tousername' => 'gh_b6b2adce2b0d',
+    'fromusername' => 'o-SliwM9_b4Ly8UYQMshj84mfA6Y',
+    'createtime' => '1485088839',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://www.9kpu.com/app/index.php?i=39&c=entry&eid=1',
+    'menuid' => '408723140',
+    'from' => 'o-SliwM9_b4Ly8UYQMshj84mfA6Y',
+    'to' => 'gh_b6b2adce2b0d',
+    'time' => '1485088839',
+    'type' => 'text',
+    'content' => '1',
+    'redirection' => true,
+    'source' => 'default',
+    'original' => 'http://www.9kpu.com/app/index.php?i=39&c=entry&eid=1',
+  ),
+  'module' => 'news',
+  'rule' => '73',
+  'priority' => '0',
+  'keyword' => 
+  array (
+    'id' => '156',
+    'rid' => '73',
+    'uniacid' => '39',
+    'module' => 'news',
+    'content' => '1',
+    'type' => '1',
+    'displayorder' => '0',
+    'status' => '1',
+  ),
+)
+
+2017-01-22 20:40:39 response :
+------------
+Array:
+FromUserName : gh_b6b2adce2b0d ;
+ToUserName : o-SliwM9_b4Ly8UYQMshj84mfA6Y ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2017-01-22 21:27:01 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_b6b2adce2b0d]]></ToUserName>
+<FromUserName><![CDATA[o-SliwJN40qVKeoh8NycpBx-fph0]]></FromUserName>
+<CreateTime>1485091621</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=39&c=entry&eid=2]]></EventKey>
+<MenuId>408723140</MenuId>
+</xml>
+
+2017-01-22 21:27:01 params :
+------------
+String:
+array (
+  'message' => 
+  array (
+    'tousername' => 'gh_b6b2adce2b0d',
+    'fromusername' => 'o-SliwJN40qVKeoh8NycpBx-fph0',
+    'createtime' => '1485091621',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://www.9kpu.com/app/index.php?i=39&c=entry&eid=2',
+    'menuid' => '408723140',
+    'from' => 'o-SliwJN40qVKeoh8NycpBx-fph0',
+    'to' => 'gh_b6b2adce2b0d',
+    'time' => '1485091621',
+    'type' => 'text',
+    'content' => '1',
+    'redirection' => true,
+    'source' => 'default',
+    'original' => 'http://www.9kpu.com/app/index.php?i=39&c=entry&eid=2',
+  ),
+  'module' => 'news',
+  'rule' => '73',
+  'priority' => '0',
+  'keyword' => 
+  array (
+    'id' => '156',
+    'rid' => '73',
+    'uniacid' => '39',
+    'module' => 'news',
+    'content' => '1',
+    'type' => '1',
+    'displayorder' => '0',
+    'status' => '1',
+  ),
+)
+
+2017-01-22 21:27:01 response :
+------------
+Array:
+FromUserName : gh_b6b2adce2b0d ;
+ToUserName : o-SliwJN40qVKeoh8NycpBx-fph0 ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2017-01-22 21:40:02 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_ad1abe4f841e]]></ToUserName>
+<FromUserName><![CDATA[oF5iMvwLeIBq3jwy-DlAwiT_8plA]]></FromUserName>
+<CreateTime>1485092402</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=41&c=entry&eid=2]]></EventKey>
+<MenuId>409163649</MenuId>
+</xml>
+
+2017-01-22 21:40:02 params :
+------------
+String:
+array (
+  'message' => 
+  array (
+    'tousername' => 'gh_ad1abe4f841e',
+    'fromusername' => 'oF5iMvwLeIBq3jwy-DlAwiT_8plA',
+    'createtime' => '1485092402',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://www.9kpu.com/app/index.php?i=41&c=entry&eid=2',
+    'menuid' => '409163649',
+    'from' => 'oF5iMvwLeIBq3jwy-DlAwiT_8plA',
+    'to' => 'gh_ad1abe4f841e',
+    'time' => '1485092402',
+    'type' => 'text',
+    'content' => '1',
+    'redirection' => true,
+    'source' => 'default',
+    'original' => 'http://www.9kpu.com/app/index.php?i=41&c=entry&eid=2',
+  ),
+  'module' => 'news',
+  'rule' => '93',
+  'priority' => '0',
+  'keyword' => 
+  array (
+    'id' => '197',
+    'rid' => '93',
+    'uniacid' => '41',
+    'module' => 'news',
+    'content' => '1',
+    'type' => '1',
+    'displayorder' => '0',
+    'status' => '1',
+  ),
+)
+
+2017-01-22 21:40:02 response :
+------------
+Array:
+FromUserName : gh_ad1abe4f841e ;
+ToUserName : oF5iMvwLeIBq3jwy-DlAwiT_8plA ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2017-01-22 21:40:04 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_ad1abe4f841e]]></ToUserName>
+<FromUserName><![CDATA[oF5iMvwLeIBq3jwy-DlAwiT_8plA]]></FromUserName>
+<CreateTime>1485092404</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=41&c=entry&eid=2]]></EventKey>
+<MenuId>409163649</MenuId>
+</xml>
+
+2017-01-22 21:40:04 params :
+------------
+String:
+array (
+  'message' => 
+  array (
+    'tousername' => 'gh_ad1abe4f841e',
+    'fromusername' => 'oF5iMvwLeIBq3jwy-DlAwiT_8plA',
+    'createtime' => '1485092404',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://www.9kpu.com/app/index.php?i=41&c=entry&eid=2',
+    'menuid' => '409163649',
+    'from' => 'oF5iMvwLeIBq3jwy-DlAwiT_8plA',
+    'to' => 'gh_ad1abe4f841e',
+    'time' => '1485092404',
+    'type' => 'text',
+    'content' => '1',
+    'redirection' => true,
+    'source' => 'default',
+    'original' => 'http://www.9kpu.com/app/index.php?i=41&c=entry&eid=2',
+  ),
+  'module' => 'news',
+  'rule' => '93',
+  'priority' => '0',
+  'keyword' => 
+  array (
+    'id' => '197',
+    'rid' => '93',
+    'uniacid' => '41',
+    'module' => 'news',
+    'content' => '1',
+    'type' => '1',
+    'displayorder' => '0',
+    'status' => '1',
+  ),
+)
+
+2017-01-22 21:40:04 response :
+------------
+Array:
+FromUserName : gh_ad1abe4f841e ;
+ToUserName : oF5iMvwLeIBq3jwy-DlAwiT_8plA ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2017-01-22 21:42:58 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_9046d2e226a2]]></ToUserName>
+<FromUserName><![CDATA[oKlYowehJww8ALex9-4P1zrfUxNY]]></FromUserName>
+<CreateTime>1485092578</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[subscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+
+2017-01-22 21:42:58 params :
+------------
+String:
+array (
+  'message' => 
+  array (
+    'tousername' => 'gh_9046d2e226a2',
+    'fromusername' => 'oKlYowehJww8ALex9-4P1zrfUxNY',
+    'createtime' => '1485092578',
+    'msgtype' => 'event',
+    'event' => 'subscribe',
+    'eventkey' => '',
+    'from' => 'oKlYowehJww8ALex9-4P1zrfUxNY',
+    'to' => 'gh_9046d2e226a2',
+    'time' => '1485092578',
+    'type' => 'text',
+    'redirection' => true,
+    'source' => 'subscribe',
+    'content' => '1',
+  ),
+  'module' => 'news',
+  'rule' => '64',
+  'priority' => '0',
+  'keyword' => 
+  array (
+    'id' => '119',
+    'rid' => '64',
+    'uniacid' => '35',
+    'module' => 'news',
+    'content' => '1',
+    'type' => '1',
+    'displayorder' => '0',
+    'status' => '1',
+  ),
+)
+
+2017-01-22 21:42:58 response :
+------------
+Array:
+FromUserName : gh_9046d2e226a2 ;
+ToUserName : oKlYowehJww8ALex9-4P1zrfUxNY ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2017-01-22 21:43:16 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_9046d2e226a2]]></ToUserName>
+<FromUserName><![CDATA[oKlYowehJww8ALex9-4P1zrfUxNY]]></FromUserName>
+<CreateTime>1485092596</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=35&c=entry&eid=1]]></EventKey>
+<MenuId>412080054</MenuId>
+</xml>
+
+2017-01-22 21:43:16 params :
+------------
+String:
+array (
+  'message' => 
+  array (
+    'tousername' => 'gh_9046d2e226a2',
+    'fromusername' => 'oKlYowehJww8ALex9-4P1zrfUxNY',
+    'createtime' => '1485092596',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://www.9kpu.com/app/index.php?i=35&c=entry&eid=1',
+    'menuid' => '412080054',
+    'from' => 'oKlYowehJww8ALex9-4P1zrfUxNY',
+    'to' => 'gh_9046d2e226a2',
+    'time' => '1485092596',
+    'type' => 'text',
+    'content' => '1',
+    'redirection' => true,
+    'source' => 'default',
+    'original' => 'http://www.9kpu.com/app/index.php?i=35&c=entry&eid=1',
+  ),
+  'module' => 'news',
+  'rule' => '64',
+  'priority' => '0',
+  'keyword' => 
+  array (
+    'id' => '119',
+    'rid' => '64',
+    'uniacid' => '35',
+    'module' => 'news',
+    'content' => '1',
+    'type' => '1',
+    'displayorder' => '0',
+    'status' => '1',
+  ),
+)
+
+2017-01-22 21:43:16 response :
+------------
+Array:
+FromUserName : gh_9046d2e226a2 ;
+ToUserName : oKlYowehJww8ALex9-4P1zrfUxNY ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2017-01-22 22:00:00 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_b6b2adce2b0d]]></ToUserName>
+<FromUserName><![CDATA[o-SliwIkmp5tfk0VsE1oXs1--gAA]]></FromUserName>
+<CreateTime>1485093600</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=39&c=home&]]></EventKey>
+<MenuId>408723140</MenuId>
+</xml>
+
+2017-01-22 22:00:00 params :
+------------
+String:
+array (
+  'message' => 
+  array (
+    'tousername' => 'gh_b6b2adce2b0d',
+    'fromusername' => 'o-SliwIkmp5tfk0VsE1oXs1--gAA',
+    'createtime' => '1485093600',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://www.9kpu.com/app/index.php?i=39&c=home&',
+    'menuid' => '408723140',
+    'from' => 'o-SliwIkmp5tfk0VsE1oXs1--gAA',
+    'to' => 'gh_b6b2adce2b0d',
+    'time' => '1485093600',
+    'type' => 'text',
+    'content' => '1',
+    'redirection' => true,
+    'source' => 'default',
+    'original' => 'http://www.9kpu.com/app/index.php?i=39&c=home&',
+  ),
+  'module' => 'news',
+  'rule' => '73',
+  'priority' => '0',
+  'keyword' => 
+  array (
+    'id' => '156',
+    'rid' => '73',
+    'uniacid' => '39',
+    'module' => 'news',
+    'content' => '1',
+    'type' => '1',
+    'displayorder' => '0',
+    'status' => '1',
+  ),
+)
+
+2017-01-22 22:00:00 response :
+------------
+Array:
+FromUserName : gh_b6b2adce2b0d ;
+ToUserName : o-SliwIkmp5tfk0VsE1oXs1--gAA ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2017-01-22 22:00:04 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_b6b2adce2b0d]]></ToUserName>
+<FromUserName><![CDATA[o-SliwIkmp5tfk0VsE1oXs1--gAA]]></FromUserName>
+<CreateTime>1485093603</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=39&c=entry&eid=1]]></EventKey>
+<MenuId>408723140</MenuId>
+</xml>
+
+2017-01-22 22:00:04 params :
+------------
+String:
+array (
+  'message' => 
+  array (
+    'tousername' => 'gh_b6b2adce2b0d',
+    'fromusername' => 'o-SliwIkmp5tfk0VsE1oXs1--gAA',
+    'createtime' => '1485093603',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://www.9kpu.com/app/index.php?i=39&c=entry&eid=1',
+    'menuid' => '408723140',
+    'from' => 'o-SliwIkmp5tfk0VsE1oXs1--gAA',
+    'to' => 'gh_b6b2adce2b0d',
+    'time' => '1485093603',
+    'type' => 'text',
+    'content' => '1',
+    'redirection' => true,
+    'source' => 'default',
+    'original' => 'http://www.9kpu.com/app/index.php?i=39&c=entry&eid=1',
+  ),
+  'module' => 'news',
+  'rule' => '73',
+  'priority' => '0',
+  'keyword' => 
+  array (
+    'id' => '156',
+    'rid' => '73',
+    'uniacid' => '39',
+    'module' => 'news',
+    'content' => '1',
+    'type' => '1',
+    'displayorder' => '0',
+    'status' => '1',
+  ),
+)
+
+2017-01-22 22:00:04 response :
+------------
+Array:
+FromUserName : gh_b6b2adce2b0d ;
+ToUserName : o-SliwIkmp5tfk0VsE1oXs1--gAA ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2017-01-22 22:58:56 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_b6b2adce2b0d]]></ToUserName>
+<FromUserName><![CDATA[o-SliwH3jUyIeNhKnb4w2H_9vAzw]]></FromUserName>
+<CreateTime>1485097136</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=39&c=home&]]></EventKey>
+<MenuId>408723140</MenuId>
+</xml>
+
+2017-01-22 22:58:56 params :
+------------
+String:
+array (
+  'message' => 
+  array (
+    'tousername' => 'gh_b6b2adce2b0d',
+    'fromusername' => 'o-SliwH3jUyIeNhKnb4w2H_9vAzw',
+    'createtime' => '1485097136',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://www.9kpu.com/app/index.php?i=39&c=home&',
+    'menuid' => '408723140',
+    'from' => 'o-SliwH3jUyIeNhKnb4w2H_9vAzw',
+    'to' => 'gh_b6b2adce2b0d',
+    'time' => '1485097136',
+    'type' => 'text',
+    'content' => '1',
+    'redirection' => true,
+    'source' => 'default',
+    'original' => 'http://www.9kpu.com/app/index.php?i=39&c=home&',
+  ),
+  'module' => 'news',
+  'rule' => '73',
+  'priority' => '0',
+  'keyword' => 
+  array (
+    'id' => '156',
+    'rid' => '73',
+    'uniacid' => '39',
+    'module' => 'news',
+    'content' => '1',
+    'type' => '1',
+    'displayorder' => '0',
+    'status' => '1',
+  ),
+)
+
+2017-01-22 22:58:56 response :
+------------
+Array:
+FromUserName : gh_b6b2adce2b0d ;
+ToUserName : o-SliwH3jUyIeNhKnb4w2H_9vAzw ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2017-01-22 22:58:57 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_b6b2adce2b0d]]></ToUserName>
+<FromUserName><![CDATA[o-SliwH3jUyIeNhKnb4w2H_9vAzw]]></FromUserName>
+<CreateTime>1485097137</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=39&c=home&]]></EventKey>
+<MenuId>408723140</MenuId>
+</xml>
+
+2017-01-22 22:58:57 params :
+------------
+String:
+array (
+  'message' => 
+  array (
+    'tousername' => 'gh_b6b2adce2b0d',
+    'fromusername' => 'o-SliwH3jUyIeNhKnb4w2H_9vAzw',
+    'createtime' => '1485097137',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://www.9kpu.com/app/index.php?i=39&c=home&',
+    'menuid' => '408723140',
+    'from' => 'o-SliwH3jUyIeNhKnb4w2H_9vAzw',
+    'to' => 'gh_b6b2adce2b0d',
+    'time' => '1485097137',
+    'type' => 'text',
+    'content' => '1',
+    'redirection' => true,
+    'source' => 'default',
+    'original' => 'http://www.9kpu.com/app/index.php?i=39&c=home&',
+  ),
+  'module' => 'news',
+  'rule' => '73',
+  'priority' => '0',
+  'keyword' => 
+  array (
+    'id' => '156',
+    'rid' => '73',
+    'uniacid' => '39',
+    'module' => 'news',
+    'content' => '1',
+    'type' => '1',
+    'displayorder' => '0',
+    'status' => '1',
+  ),
+)
+
+2017-01-22 22:58:57 response :
+------------
+Array:
+FromUserName : gh_b6b2adce2b0d ;
+ToUserName : o-SliwH3jUyIeNhKnb4w2H_9vAzw ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2017-01-22 23:00:04 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_b6b2adce2b0d]]></ToUserName>
+<FromUserName><![CDATA[o-SliwH3jUyIeNhKnb4w2H_9vAzw]]></FromUserName>
+<CreateTime>1485097204</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=39&c=home&]]></EventKey>
+<MenuId>408723140</MenuId>
+</xml>
+
+2017-01-22 23:00:04 params :
+------------
+String:
+array (
+  'message' => 
+  array (
+    'tousername' => 'gh_b6b2adce2b0d',
+    'fromusername' => 'o-SliwH3jUyIeNhKnb4w2H_9vAzw',
+    'createtime' => '1485097204',
+    'msgtype' => 'event',
+    'event' => 'VIEW',
+    'eventkey' => 'http://www.9kpu.com/app/index.php?i=39&c=home&',
+    'menuid' => '408723140',
+    'from' => 'o-SliwH3jUyIeNhKnb4w2H_9vAzw',
+    'to' => 'gh_b6b2adce2b0d',
+    'time' => '1485097204',
+    'type' => 'text',
+    'content' => '1',
+    'redirection' => true,
+    'source' => 'default',
+    'original' => 'http://www.9kpu.com/app/index.php?i=39&c=home&',
+  ),
+  'module' => 'news',
+  'rule' => '73',
+  'priority' => '0',
+  'keyword' => 
+  array (
+    'id' => '156',
+    'rid' => '73',
+    'uniacid' => '39',
+    'module' => 'news',
+    'content' => '1',
+    'type' => '1',
+    'displayorder' => '0',
+    'status' => '1',
+  ),
+)
+
+2017-01-22 23:00:04 response :
+------------
+Array:
+FromUserName : gh_b6b2adce2b0d ;
+ToUserName : o-SliwH3jUyIeNhKnb4w2H_9vAzw ;
+MsgType : news ;
+ArticleCount : 1 ;
+Articles : Array ;
+
+2017-01-22 23:48:19 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_9046d2e226a2]]></ToUserName>
+<FromUserName><![CDATA[oKlYowZ6cCIZCUm7AXDl9aoI7GiA]]></FromUserName>
+<CreateTime>1485100099</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[unsubscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+

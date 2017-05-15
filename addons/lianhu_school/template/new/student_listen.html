@@ -1,0 +1,32 @@
+  {template '../new/StudentCardLeft'}
+        <div class="body padding" style="padding-top:45px;">
+            <ul class="list list-messages" id='cotent'>
+                {loop $list $key $row}
+                  {if $key<2}
+                    <li class="list-message" data-ix="list-item" style="height: 60px">
+                                <div class="column-right">
+                                    <div class="message-title" style="position: relative;"><span style="color: #ff0033">监听手机号：</span>{$row['UserName']} </div>
+                                    <a href="{php echo $this->createMobileUrl("funcstudent_listen",array("id"=>$row['key'],'ac'=>"listen") )}"> <div class="message-text ">监听</div></a>
+                                </div>
+                        </li>
+                  {/if}
+                {/loop}
+            </ul>
+            <style>
+                .message-text{
+                        font-size: 0.6rem;
+                        color: #fff;
+                        width: 60px;
+                        float: right;
+                        text-align: center;
+                        height: 30px;
+                        line-height: 30px;
+                        background-color: #ff0033;
+                }
+            </style>
+      </div>
+    </div>
+  </section>
+  {template 'school/app_footer'}
+</body>
+</html>

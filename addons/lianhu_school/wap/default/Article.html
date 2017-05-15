@@ -1,0 +1,109 @@
+{php $page_title = $class_info['class_name'].'新闻列表' }
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    {if $head_controller != 'no'}
+       <meta name="viewport" content="user-scalable=no"/>
+    {/if}
+    <title>{if $student_name}{$student_name}-{/if}{if $teacher_name} {$teacher_name}-{/if} {$page_title}-{$_SESSION['school_name']}</title>
+    <link rel="stylesheet" type="text/css" href="{MODULE_URL}/wap/default/css/css.css">
+    <script src="{MODULE_URL}/style/js/jquery.min.js"></script>
+</head>
+<script>
+        //加载图片
+    function displayImage(id_name,img_current){
+            var img_urls    = [];
+            var img_current = img_current;
+            var obj         = $("#"+id_name);
+            if(obj.find('img').length>0){
+                $.each(obj.find('img'),function(i,e){
+                    img_urls.push($(this).attr('src'));
+                });
+            }
+            if(obj.find('.wx_img_list').length>0){
+                $.each(obj.find('.wx_img_list'),function(i,e){
+                    img_urls.push($(this).attr('data-src'));
+                });                
+            }
+            // img_urls.pop()
+            wx.previewImage({
+                current: img_current,
+                urls: img_urls
+            });
+    }
+    //首页显示切换学生
+
+    function changeDisplay(id_name){
+        obj = $("#"+id_name);
+        if(obj.attr('data-dis')=='yes'){
+            obj.hide();
+            obj.attr('data-dis','no');
+        }else{
+            obj.show();
+            obj.attr('data-dis','yes');
+        }
+    }
+</script>
+<body>
+<div class="z_main">
+
+    {loop $article_list $row}
+        <div class="tzz">
+                <div class="top">
+                    <div class="t-rq">
+                        <p>{if $row['add_time']} {php echo date("m-d",$row['add_time'])} {else}{php echo date("m-d",$row['addtime'])}{/if}</p>
+                    </div>
+                        <div class="t-fb">
+                            <p style="width: 100%;height: 50px;line-height:50px;font-size:36px;overflow: hidden;white-space:nowrap; overflow:hidden; text-overflow:ellipsis; ">{$row['article_title']}</p>
+                        </div>
+                </div>
+                    <div class="tz-nr">
+                        <a href="{php echo $this->createMobileUrl("wapContent",array('aid'=>$row['list_id']));}">
+                            <p class="p">{php echo S('fun','formatLimitContent',array($row['article_intro'],50));}...</p>
+                        </a>
+                    </div>
+                         {if $row['artice_img']}
+                             <img src="{$_W['attachurl']}{$row['artice_img']}" style="width: 90%;margin:2% 5%;">
+                         {/if}
+                    <div class="tz-mm"></div>
+           </div>
+    {/loop}
+  </div>
+</body>
+	{php $not_hidden='yes';}
+	{template 'jsweixin'}
+	<script>
+		wx.ready(function () {
+			wx.onMenuShareTimeline({
+				title: '{$school_info['school_name']}微官网', // 分享标题
+				link: '{if $school_info['host_url'] }{php echo $school_info['host_url'];}{else}{$_W['siteroot']}app/{php echo $this->createMobileUrl('wapHome',array('school_id'=>$school_info['school_id']))}{/if}', // 分享链接
+				imgUrl: '{$_W['attachurl']}{$img_list[0]['content']}', // 分享图标
+				success: function () { 
+					// 用户确认分享后执行的回调函数
+				},
+				cancel: function () { 
+					// 用户取消分享后执行的回调函数
+				}
+			});
+			wx.onMenuShareAppMessage({
+				title: '{$school_info['school_name']}微官网', // 分享标题
+				desc: '{php echo S("system",'getSetContent',array('school_info_intro',$this->school_info['school_id']) )}', // 分享描述
+				link: '{if $school_info['host_url'] }{php echo $school_info['host_url'];}{else}{$_W['siteroot']}app/{php echo $this->createMobileUrl('wapHome',array('school_id'=>$school_info['school_id']))}{/if}', // 分享链接
+				imgUrl: '{$_W['attachurl']}{$img_list[0]['content']}', // 分享图标
+				type: 'link', // 分享类型,music、video或link，不填默认为link
+				dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+				success: function () { 
+					// 用户确认分享后执行的回调函数
+				},
+				cancel: function () { 
+					// 用户取消分享后执行的回调函数
+				}
+			});			
+		});
+		wx.error(function(res){
+			// config信息验证失败会执行error函数，如签名过期导致验证失败，具体错误信息可以打开config的debug模式查看，也可以在返回的res参数中查看，对于SPA可以在这里更新签名。
+			// alert("js权限获取错误，请设置，或者刷新页面重试");    
+		});
+	</script>
+</html>

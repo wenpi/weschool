@@ -1,0 +1,123 @@
+2016-07-17 07:58:50 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2ee031f2e428]]></ToUserName>
+<FromUserName><![CDATA[ojDkIwhrUZo-cPDcCTwWPaZpnhsc]]></FromUserName>
+<CreateTime>1468713530</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=20&c=entry&do=bangding&m=lianhu_school]]></EventKey>
+<MenuId>410679894</MenuId>
+</xml>
+
+2016-07-17 07:58:50 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-07-17 07:58:50 response :
+------------
+
+2016-07-17 07:59:09 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2ee031f2e428]]></ToUserName>
+<FromUserName><![CDATA[ojDkIwhrUZo-cPDcCTwWPaZpnhsc]]></FromUserName>
+<CreateTime>1468713549</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=20&c=home&=entry&eid=1]]></EventKey>
+<MenuId>410679894</MenuId>
+</xml>
+
+2016-07-17 07:59:09 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-07-17 07:59:09 response :
+------------
+
+2016-07-17 11:53:22 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_7d1762dac7c2]]></ToUserName>
+<FromUserName><![CDATA[o8AZcwNJDX9XxS9zP79ZvYap5JVY]]></FromUserName>
+<CreateTime>1468727602</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[unsubscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+
+2016-07-17 19:45:05 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_4e0c181b7380]]></ToUserName>
+<FromUserName><![CDATA[oxtWnv6ZTmQLu8VzgvVVagWMnCFU]]></FromUserName>
+<CreateTime>1468755905</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=27&c=home&]]></EventKey>
+<MenuId>431040045</MenuId>
+</xml>
+
+2016-07-17 19:45:05 params :
+------------
+Array:
+message : Array ;
+module : default ;
+rule : -1 ;
+
+2016-07-17 19:45:05 response :
+------------
+Array:
+params : Array ;
+
+2016-07-17 23:03:02 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2ee031f2e428]]></ToUserName>
+<FromUserName><![CDATA[ojDkIwokMJkrOuYR9mOWVKn9rjDs]]></FromUserName>
+<CreateTime>1468767782</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=20&c=entry&do=bangding&m=lianhu_school]]></EventKey>
+<MenuId>410679894</MenuId>
+</xml>
+
+2016-07-17 23:03:02 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-07-17 23:03:02 response :
+------------
+
+2016-07-17 23:03:47 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2ee031f2e428]]></ToUserName>
+<FromUserName><![CDATA[ojDkIwokMJkrOuYR9mOWVKn9rjDs]]></FromUserName>
+<CreateTime>1468767827</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=20&c=home&=entry&eid=1]]></EventKey>
+<MenuId>410679894</MenuId>
+</xml>
+
+2016-07-17 23:03:47 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-07-17 23:03:47 response :
+------------
+

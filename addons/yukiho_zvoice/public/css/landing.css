@@ -1,0 +1,356 @@
+body,html {
+    line-height: 1.58;
+    font-size: 16px;
+    color: #3f3f3f
+}
+
+h1,h2,h3 {
+    font-weight: 400
+}
+
+.column {
+    margin: 0 auto;
+    max-width: 1000px
+}
+
+.content {
+    width: 100%;
+    background: #fff
+}
+
+.content .landing-header {
+    margin: 0 40px;
+    height: 70px
+}
+
+.content .landing-header h1 {
+    display: inline-block;
+    padding-left: 46px;
+    line-height: 70px;
+    font-size: 1em;
+    background: url(http://hangjia.qiniudn.com/Fu0zea41hA-JgncvCb_TpVL1JvPq) no-repeat;
+    background-size: 36px 36px;
+    background-position: 0 50%
+}
+
+.content .landing-header a {
+    float: right;
+    margin-left: 50px;
+    line-height: 70px;
+    font-size: .875em;
+    color: #3f3f3f
+}
+
+.content .landing-header a:hover {
+    color: #3f3f3f
+}
+
+.content .banner {
+    width: 100%;
+    height: 580px;
+    background: #f5f5f5 url(http://hangjia.qiniudn.com/FkjMUjsuLOmLVH_-D4Swqn_dfM9R) no-repeat;
+    background-size: cover
+}
+
+.content .banner .column {
+    position: relative;
+    height: 100%
+}
+
+.content .banner .column .qrcode-wrap {
+    float: right;
+    margin-right: 16px;
+    margin-top: 370px;
+    width: 140px;
+    height: 170px;
+    background: #fff;
+    text-align: center;
+    font-size: .875em
+}
+
+.content .banner .column .qrcode-wrap img {
+    margin-bottom: -4px;
+    width: 100%
+}
+
+.content .banner .column .download {
+    position: absolute;
+    top: 20px;
+    border-radius: 4px;
+    padding-left: 32px;
+    height: 30px;
+    line-height: 32px;
+    color: #3f3f3f;
+    font-size: 12px;
+    background: #fff 10px 50% no-repeat;
+    background-size: auto 60%
+}
+
+.content .banner .column .ios-download {
+    right: 16px;
+    width: 65px;
+    cursor: default;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAwCAYAAABnjuimAAAAAXNSR0IArs4c6QAAAvpJREFUWAnNmclrFEEYR+OGC24BcZcZiCguR2+CxIMXFQW9iKNBBEVEPHgJ/gWeEkW8CSqICIonQQWFEA+CijcPSsRBDW7girgQt/cLVKheqqczmqnvgzddXVXd9aa6p6q6p62tNTGZZnbAVXgJX6AGpmIzNk/gT4prVizHIdKTkvNlb1gRPVcgKeHLFkS7GkhK9GBs0XkIvCshuji26MkSktdjS45H4FUD0e+Ur44tuq6BpO7N/bEl1f5e8IcgP62e3KlKzcTEUR5Upf5cmALvQQO5BFy0u0Rq+5T93XAHNL7Ohh/wFf5brOBMZ+Et+D2k9BDchyMwHzaAq/OT9D1QL1bgMPSDjnF1PpO+BUdhETQVyznqCvwGd+KircTU6HHohk1wADRV/oKiY1Wm4y/BUigdW6mpb9vo5GNRrlviGEyCwlBvlO3FsRB157yLRzVkuo8CV9HC9g0+uvcT0cme7hMLgr7DHpxGQgvbx+BXsJDW5Z8zYklC96UFMd/hAk6JH5QGYA3IfqXY6Yv4aN2QiPXsxRbz26/jMzNhyI6sJWopDiGjMTwTWhv63yhmehAX3YqZUI8uy+TGy3hA0+qoTEg0tOLJVG5BxutQGxKdESqMkK95Pjck+jG3JE5m8OpKVOtMK7EkJGJNdC2iiSnTiUv0udsxsNWjUS3koafCmGNnuu0P+FTzZPXIka4ce19rj448WY1fseXS7atnM4/XZwyKOvHbuK2C4ejk0xVY3A64BYC2daiAxRjU8KRQL54fTtn8OOFr6U2F5lprl/4FTlN9UaVPgzXRXWlJ7et1iqVH5r48SZd3ioSFXv2ER8VJ5W1nkWlhAsi95GnhbWTE7FU9LpeOXmrGkNXL3mmlLak4AfSnVStlH9JecJVPWTD0SqWZIesbxw3BaL5knfoL4Z9Cf7wOQKhhSWlm2wj6MbrQo0UX9EPoWOX3QQWC4eb6YAWvQG/8arAdVsIC0KyhFxg98AyKooPCLbAGpoPO9wj06vwmSDgYfwFKr9FY29bClQAAAABJRU5ErkJggg==)
+}
+
+.content .banner .column .android-download {
+    right: 125px;
+    width: 69px;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAA4CAYAAAC7UXvqAAAAAXNSR0IArs4c6QAABYZJREFUaAXtGl1oW1X4fCdpctOfIbar61ZLhRWclWrbMEHGcOjGLBbsX3wQdQ++FcceBOfLEJ3bHCI655O+KY422YodqEOwDzpF17TrShW2FVtXqlt/1h/bpPm5n9+JJtwm5+beJG3SlVxI7znf/8855zvn9DKW5uP2FpztvlXpSJM9xvb1jZ12t9d2DhEhBkyhwVOgjSOFaXbn9uk4YMrdpYU/32bIxgEAU2YmhrQdKGt48jjxP3F+QHkmHcWCp7vfsQeRHUBHzbF0ZaSVtqgyT7/tYUp8r5UX7m6pn5vrHqm1Mf/oHsbCO4FBBUPcxoD5GPJJZDhJfMMuZ2BY8HePbC0G3/wVAPZCe2PgWlRmqu+MHBDK3F77ETL0WXJkERAP0DgoSW4EjJLRPURTRdEfJIdOJadPjs3Ige6rjt0QDn9KE7AuuRo9LHxpLbIfbt21OKNHYQRPy4FLQw8ULQRnT1LUO2kCpj2PhHGUjTsI0OlqCHiMjJXhU3bgYv/2Qh9MfUOG75UJTBcGHI52NATeS5U/pej1/VGt+GGqV2s8ReBjimMdMP6ZWeW0ZL4veCj8n0d5UMVTHq+9M9o3+04pA1Rwumi8u7TCt5bucOx7aMx/4feS0tCSf1qLk7VJYQgbn1dc4A6fH3JUhoOhW1E6Gk40r6HN1RgQk9zUYzoD7gHl6XjjhYbpmclm8Q4t+yNv0U720CplZd7eg4ImHFRX8QjrKbsfpVLhTWWgD5+yTnt/ukprea3MuMhERFYuw8lgItIEnyKDpTxUQ451OAPvyHjjYaYcoKHzIkX/i3jmdesDW2LKfdtctVP/GOkwNYQoUk1GgtYUj6yI+xf2mZFp6ABFnjKK+80IW0saRNWUTquR0t7Bogpa8n6k6ZXtZyXbCnOiLxZXUaRmF26XtT3mm9BaElnfl1fWtOpq5Sdtl5d/63pwwqelEbtY7eSmDSQC7ShPMIZHiFCh6kjbXv6Sq9H/vWAUe3Za5X/QCslW28It1W0N/nGhj6p0s8rwDJW6apqUEzQzX6eC18U9A7ZDZPxRolEEIRFspxLz1YWhYukaHaHJ8h9x7lBR7RHGC9VUjyqplJzzDBQ6OVWUxP0HsuJwMPhylu3UVYeArxHSoiUQVVvF0GFOJ9FdWkSsDfhIrJ3jBgVZvgNA9qjIQKHMPj24jHbdYQglMh00D0oMC5mMcSPB8g7kOhv5DOQzkGEE8kMowwBmzJ7PQMYhzFDApsjArDQIiHK4lHidgYBzMg20pZ7jdNYdkCPlcBntesPo2Dgk04HIh7gFLSfICXUVAcBYWemO7N0DrVKe2LFyyxmC+rUYcirEOH7A25z+Pga8hZCX6faB7inBY7NZ9or7Ti1DLtst9f4xupHcT4G+Qnb46Eg5iBbeRFfyv8UO9XoGbpQzsZ59m2IV0nPunoBv/gwUMPWvHKUibFPvnzLSbZiBFufKKAn51UjQmuMBepudk8tGcg0dEAJsdms7vb6jX1j01/kJiqWcKcqrZvQYLqNaIZH/UDrmt0RgvuAhuiM7qcXH2gCtTCn4OdYXjaBaxUKhX1bBoh1gZ5lie1d0i20Vd5tqbpq+mTa8Xo/qEO//UxpJq7vfvkBXfFp0rG0BPtNWu/R3DECNnkFFodBKH0BY6ojR35TS6AFNDSE95o0AzzuQ6yzkM3DvZoDrn9iQqzPxjhVY7PPxsGif1jLpiSuKT/ZOewhZOOid5BbVgpob8Uqfq5u/+995Ix5DUA7SE1ciZSIkbQdaH1+5Tv9P60oQyeG0q3YkkAAnAAdI+JyGvly51l7/5iUZvRlY2g4I4cVbql6h7x4+pBhep98wGfMGffNzXE9xe+PKJ+K7IKIbpy3AIgXgIkfrQYC3Vh9p9QRI4P8CzG2z6DEZzGUAAAAASUVORK5CYII=)
+}
+
+.content .kol {
+    position: relative;
+    margin: 60px 0;
+    height: 410px;
+    text-align: left;
+    color: #000
+}
+
+.content .kol .column {
+    height: 100%;
+    background-image: url(http://hangjia.qiniudn.com/Fk6r933GwSEbrX2Y15OMC6gigqgH);
+    background-image: linear-gradient(90deg,hsla(0,0%,100%,0) 20%,#fff 50%),url(http://hangjia.qiniudn.com/Fk6r933GwSEbrX2Y15OMC6gigqgH);
+    background-repeat: no-repeat;
+    background-size: auto 100%
+}
+
+.content .kol .column h2 {
+    margin-left: 566px;
+    padding-top: 15px;
+    font-size: 2.25em
+}
+
+.content .kol .column p {
+    margin-left: 566px;
+    padding-top: 20px;
+    font-size: 1.125em
+}
+
+.content .kol .column .qrcode-mob {
+    display: none;
+    padding-top: 240px;
+    color: #f85f48;
+    font-size: 1em
+}
+
+.content .kol .column .qrcode-mob img {
+    display: block;
+    margin: 5px auto;
+    width: 33%
+}
+
+.content .kol .column .kol-name-mob {
+    display: none;
+    padding: 4px 0 10px;
+    font-size: 1em
+}
+
+.content .download-mob {
+    display: none
+}
+
+.content .intro {
+    padding-bottom: 80px;
+    width: 700px
+}
+
+.content .intro p {
+    display: inline-block;
+    padding: 40px 0 30px;
+    width: 50%;
+    height: 150px;
+    background-size: 80px 80px;
+    background-repeat: no-repeat;
+    box-sizing: border-box
+}
+
+.content .intro p:first-child {
+    padding-right: 140px;
+    border-right: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    text-align: right;
+    background-image: url(http://hangjia.qiniudn.com/FpO7uX1Rc4KYgY5y6PofE1SsR9q7);
+    background-position: 240px 30px
+}
+
+.content .intro p:nth-child(2) {
+    padding-left: 140px;
+    border-bottom: 1px solid #eee;
+    text-align: left;
+    background-image: url(http://hangjia.qiniudn.com/FkYgsOPRugYjruHK-3Ztba74r1tE);
+    background-position: 30px 30px
+}
+
+.content .intro p:nth-child(3) {
+    padding-right: 140px;
+    border-right: 1px solid #eee;
+    text-align: right;
+    background-image: url(http://hangjia.qiniudn.com/Fhk4PGsbRr2w6f8BnQKG00n_GZky);
+    background-position: 240px 30px
+}
+
+.content .intro p:last-child {
+    padding-left: 140px;
+    text-align: left;
+    background-image: url(http://hangjia.qiniudn.com/FnnkVypig7u1q6HLoPh0LY0Z7aHm);
+    background-position: 30px 30px
+}
+
+.info {
+    margin: 30px auto;
+    width: 920px
+}
+
+.footer {
+    padding: 40px 0;
+    text-align: center;
+    color: #fff;
+    background: #505050
+}
+
+.footer h3 {
+    display: inline-block;
+    border-left: 180px solid;
+    border-right: 180px solid;
+    line-height: 1px;
+    font-size: 1.25em
+}
+
+.footer .tel {
+    margin-top: 30px;
+    font-size: 1.5em
+}
+
+.footer .date {
+    font-size: .75em;
+    color: #ccc
+}
+
+.footer .service-qrcode {
+    margin: 10px auto 20px;
+    width: 100px;
+    height: 80px;
+    color: #3f3f3f;
+    background: #fff
+}
+
+.footer .copyright {
+    font-size: .75em;
+    color: #b2b2b2
+}
+
+@media screen and (max-width: 769px) {
+    body,html {
+        font-size:.75rem
+    }
+
+    .column {
+        max-width: 92%
+    }
+
+    .content .landing-header {
+        margin: 0;
+        height: 50px;
+        text-align: center
+    }
+
+    .content .landing-header h1 {
+        line-height: 50px;
+        background-size: 32px 32px
+    }
+
+    .content .banner,.content .landing-header .title-describe,.content .landing-header a {
+        display: none
+    }
+
+    .content .kol {
+        margin: 0;
+        height: auto;
+        text-align: center
+    }
+
+    .content .kol .column {
+        max-width: 100%;
+        background-image: linear-gradient(hsla(0,0%,100%,0) 8%,#fff 58%),url(http://hangjia.qiniudn.com/FsB27QCCdWiNvqm7GrUrJIvH3dkc);
+        background-image: -webkit-linear-gradient(hsla(0,0%,100%,0) 8%,#fff 58%),url(http://hangjia.qiniudn.com/FsB27QCCdWiNvqm7GrUrJIvH3dkc);
+        background-size: 100% auto
+    }
+
+    .content .kol .column h2 {
+        margin: 0;
+        padding-top: 15px;
+        font-size: 1.4em
+    }
+
+    .content .kol .column p {
+        margin: 0;
+        padding-top: 4px;
+        line-height: .9;
+        color: #ccc
+    }
+
+    .content .kol .column .qrcode-mob {
+        display: block
+    }
+
+    .content .kol .column .kol-name {
+        display: none
+    }
+
+    .content .kol .column .kol-name-mob {
+        display: block
+    }
+
+    .content .download-mob {
+        display: block;
+        margin: 0 auto;
+        border: 1px solid;
+        border-radius: 4px;
+        width: 64%;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        color: #f85f48;
+        font-size: 1rem
+    }
+
+    .content .intro {
+        margin-top: 55px;
+        padding: 0;
+        width: 700px
+    }
+
+    .content .intro p {
+        width: 100%;
+        height: 95px;
+        background-size: 40px 40px;
+        font-size: 1.1em
+    }
+
+    .content .intro p:first-child,.content .intro p:last-child,.content .intro p:nth-child(2),.content .intro p:nth-child(3) {
+        padding: 25px 0 25px 55px;
+        border: none;
+        border-top: 1px solid #eee;
+        text-align: left;
+        background-position: 0 25px
+    }
+
+    .info {
+        margin: 12px auto;
+        font-size: .8em
+    }
+
+    .footer {
+        padding: 30px 0
+    }
+
+    .footer h3 {
+        border-left: 50px solid;
+        border-right: 50px solid
+    }
+
+    .footer .tel {
+        margin-top: 15px
+    }
+}

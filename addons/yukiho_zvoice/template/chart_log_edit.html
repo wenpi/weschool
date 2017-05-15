@@ -1,0 +1,80 @@
+{if empty($_W['isajax'])}
+{template 'common/header'}
+{template 'navs'}
+{/if}
+<div class="panel panel-default">
+    <div class="panel-heading">
+        添加讨论
+    </div>
+    <div class="panel-body">
+        <form action="" method="post"  class="form-horizontal" enctype="multipart/form-data">
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-2 col-md-2 col-lg-1 control-label">主题讨论</label>
+                <div class="col-sm-8 col-lg-9 col-xs-12">
+                    <select name="chart_id" id="" class="form-control">
+                        <option value="0">请选择</option>
+                        {php $options = M('chart')->getall();}
+                        {loop $options $option}
+                        <option value="{$option['id']}" {if $item['chart_id']==$option['id']}selected{/if}>{$option['title']}</option>
+                        {/loop}
+                    </select>
+                    <span class="help-block"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-2 col-md-2 col-lg-1 control-label">粉丝</label>
+                <div class="col-sm-8 col-lg-9 col-xs-12">
+                    <input type="text" name="openid" data-mame="fans" data-href="{php echo $this->createWebUrl('member_select')}" placeholder="" readonly="readonly" value="{$item['openid']}" class="form-control open_modal"/>
+                    <span class="help-block"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-2 col-md-2 col-lg-1 control-label">回复语音</label>
+                <div class="col-sm-8 col-lg-9 col-xs-12">
+                    {php echo tpl_form_field_audio('voice_id',$item['voice_id'])}
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-2 col-md-2 col-lg-1 control-label">时长</label>
+                <div class="col-sm-8 col-lg-9 col-xs-12">
+                    <input type="text" name="timelong" placeholder="" value="{$item['timelong']}" class="form-control"/>
+                    <span class="help-block">单位为秒</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-md-offset-2 col-lg-offset-1 col-xs-12 col-sm-10 col-md-10 col-lg-11">
+                    <input name="submit" type="submit" value="提交" class="btn btn-primary span3" />
+                    <input type="hidden" name="token" value="{$_W['token']}" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{if empty($_W['isajax'])}
+<script>
+    require(['util'],function(util){
+        $('body').on('click','.open_modal',function(){
+            var _that = $(this);
+            var title = '';
+            var url = $(this).data('href');
+            var name = $(this).data('name');
+            $.get(url,function(data){
+                var content = data;
+                var footer = '<button class="btn btn-danger close2">关闭</button>';
+                var options = {containerName:''+name};
+                var model = name+'_modal';
+                eval(model+'=util.dialog(title, content, footer,options);');
+                eval(model+'.show();');
+                eval(model+'.removeClass("fade");');
+                eval(model+'.find(".close2").click(function(){'+model+'.hide();})');
+                eval(model+'.find(".select").click(function(){var openid = $(this).data("openid");select(openid)})');
+                function select(openid){
+                    _that.val(openid);
+                    eval(model+'.hide();');
+                }
+            },'html');
+        });
+    });
+</script>
+{template 'common/footer'}
+{/if}

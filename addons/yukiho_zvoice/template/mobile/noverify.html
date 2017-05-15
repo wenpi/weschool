@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0 minimal-ui" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title>{$g_title}</title>
+	<link href="../addons/imeepos_fvoice/assets/styles/menus.css" rel="stylesheet" type="text/css">
+	<link href="../addons/imeepos_fvoice/assets/styles/ionicons-2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
+	<link href="../addons/imeepos_fvoice/assets/styles/framework.css" rel="stylesheet" type="text/css">
+	<style type="text/css">*{font-family:"Microsoft YaHei",Arial,Helvetica,sans-serif,"宋体";}</style>
+</head>
+<body class="dual-sidebar">
+	<div id="footer-fixed" class="footer-menu footer-light">
+        {php $footerbars = M('quickmenu')->getall();}
+        {loop $footerbars $footer}
+        {php $menus = $this->getMenus()}
+        {php $menu = $menus[$footer['ido']]}
+		<a href="{php echo $footer['link']}" class="{if $_GPC['do']==$footer['ido']}active-footer-item{/if} footer-mobile"><i class="{php echo $footer['icon']}"></i>{$footer['title']}</a>
+        {/loop}
+	</div>
+	<div class="gallery-fix"></div>
+	<div class="all-elements">
+		<div id="content" class="snap-content">
+			<div class="content" style="margin-bottom:41;">
+				<div class="portfolio-filter">
+					<div class="content" style="margin-top:150px;">
+						<div class="show-no-detection device-detected">
+							<a class="button-small button-orange button-center" style="margin-top:20px;">请联系微信justfake申请授权</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>

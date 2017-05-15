@@ -1,0 +1,232 @@
+{template 'common/header'}
+{template 'common'}
+<ul class="nav nav-tabs">
+	<li {if  $ac == 'list'}class="active"{/if}>
+		<a href="{php echo $this->createWebUrl('appointment');}">列表</a>
+	</li>
+	{if $ac=='edit'}
+	<li {if  $ac == 'edit'} class="active"{/if}>
+		<a href="#">编辑</a>
+	</li> 
+	{/if}
+	<li {if  $ac == 'new'} class="active"{/if}>
+		<a href="{php echo $this->createWebUrl('appointment',array('ac'=>'new'));}">新增</a>
+	</li> 
+	<li>
+		<a href="{php echo $this->createWebUrl('applist');}">预约活动列表</a>
+	</li>
+    
+ 	<li {if $ac=='ac_list'} class='active'{/if} >
+		<a href="{php echo $this->createWebUrl('appointment',array('ac'=>'ac_list'));}">可预约的具体活动</a>
+	</li>
+    
+    {if $ac=='ac_edit'}
+ 	<li {if $ac=='ac_edit'} class='active'{/if} >
+		<a href="#">编辑可预约的具体活动</a>
+	</li>
+  	{/if}
+    
+    <li {if $ac=='ac_new'} class='active'{/if} >
+		<a href="{php echo $this->createWebUrl('appointment',array('ac'=>'ac_new'));}">新增可预约的具体活动</a>
+	</li>
+</ul>
+{if $ac=='ac_list' || $ac=='ac_new'||$ac=='ac_edit'}
+{template 'Activity'}
+{else}
+<div class='main'>
+{if $ac=='list'}
+	<div class="panel-body table-responsive">
+		<table class="table table-hover">
+			<thead class="navbar-inner">
+				<tr>
+					<th style="width:10%">类目</th>
+					<th style="width:10%">名称</th>
+					<th style="width:20%">简要</th>
+					<th style="width:10%">发布时间</th>
+					<th style="width:20%">起始时间</th>
+					<th style="width:5%">申请人数</th>
+					<th style="width:15%">操作</th>
+				</tr>
+			</thead>			
+			<tbody>
+				{loop $list $row}
+					<tr>
+						<td>{$appointment[$row['appointment_type']]}</td>
+						<td>{$row['appointment_name']}</td>
+						<td>{$row['appointment_intro']}</td>
+						<td>{php echo date("Y-m-d H:i:s",$row['appointment_addtime'])}</td>
+						<td>{php echo date("Y-m-d ",$row['appointment_start'])}--{php echo date("Y-m-d",$row['appointment_end'])}</td>
+						<td><span class='red'>{$row['appointment_join_num']}</span></td>
+						<td><a href="{php echo $this->createWebUrl('appointment',array('aid'=>$row['appointment_id'],'ac'=>'edit') )}">编辑</a>
+						<a href="{php echo $this->createWebUrl('applist',array('aid'=>$row['appointment_id'],'ac'=>'list') )}">管理报名</a></td>
+					</tr>
+				{/loop}
+			</tbody>
+		</table>
+        {$pager}
+        </div>
+{/if}
+{if $ac=='new' || $ac=='edit'}
+	<form action="" method="post" class="form-horizontal form" enctype="multipart/form-data" id="form1">
+		<input type="hidden" name="cid"   value='{$class['class_id']}' />
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				{if $ac=='new'}新增{else}修改{/if}
+			</div>
+			<div class="panel-body">
+				<div class="tab-content">
+				<div class='form-group'>
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span>限制类型</label>
+					<div class="col-sm-9 col-xs-8">
+						<select name='limit_type' id="limit_type" >
+							{if $teacher!='teacher' }
+							{loop $appointment_limit $key $row}
+								<option value='{$key}' {if $limit_type==$key} selected {/if}>{$row}</option>
+							{/loop}
+							{else}
+								<option value='class' >班级限制</option>
+							{/if}
+						</select>
+					</div>	
+				</div>	
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span>限制具体</label>
+					<div class="col-sm-9 col-xs-8" id='limit_content' data-type='{$limit_type}'>
+						{if $limit_type==0}无{/if}
+						{if $limit_type==1}
+							{loop $grade_list $row}
+								<input  name='grades[]' type='checkbox' value='{$row['grade_id']}' {if in_array($row['grade_id'],$limit_arr)} checked {/if}>{$row['grade_name']}&nbsp;&nbsp;
+							{/loop}
+						{/if}
+						{if $limit_type==2}
+							{loop $class_list $row}
+								{php $grade_info = D('grade')->getGradeInfo($row['grade_id']);}
+								<input name='class[]' type='checkbox' value='{$row['class_id']}' {if in_array($row['class_id'],$limit_arr)} checked {/if}>{$grade_info['grade_name']}~{$row['class_name']}&nbsp;&nbsp;
+							{/loop}							
+						{/if}
+					</div>
+				</div>								
+				<div class='form-group'>
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span>标题</label>
+					<div class="col-sm-9 col-xs-8">
+						<input type='text' value='{$result['appointment_name']}' name='aname' class='form-control' >
+					</div>	
+				</div>
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span>活动类型</label>
+					<div class="col-sm-9 col-xs-8">
+						<select name='atype'>
+							{loop $appointment  $key $list}
+								<option value='{$key}' {if $result['appointment_type']==$key} selected {/if}>{$list}</option>
+							{/loop}
+
+						</select>
+					</div>
+				</div>
+				<div class="form-group"  id='mutex_content'>
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span>选择活动</label>
+					<div class="col-sm-9 col-xs-8">
+                        大课：    
+                        {loop $list_max $vo}
+                            <input type="checkbox" name='appointment_mutex[]'  value="{$vo['course_id']}" 
+                            {if $ac=='edit'}
+                            {if in_array($vo['course_id'],$result['appointment_mutex']) } checked {/if}
+                            {/if}
+                            >{$vo['course_name']}&nbsp;&nbsp;
+                        {/loop}
+                        <br>
+                        小课：
+                        {loop $list_min $vo}
+                            <input type="checkbox" name='appointment_mutex[]'  value="{$vo['course_id']}" 
+                            {if $ac=='edit'}
+                            {if in_array($vo['course_id'],$result['appointment_mutex']) } checked {/if}
+                            {/if}
+                            >{$vo['course_name']}&nbsp;&nbsp;
+                        {/loop}                        
+					</div>
+				</div>	
+    			<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span>开始时间-结束时间</label>
+					<div class="col-sm-9 col-xs-8">
+						{php echo tpl_form_field_daterange('atime',array('start'=>date("Y-m-d H:i:s",$result['appointment_start']),'end'=>date("Y-m-d H:i:s",$result['appointment_end'])))}	
+					</div>
+				</div>				
+	
+    			<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span>简介</label>
+					<div class="col-sm-9 col-xs-8">
+						<textarea name='aintro' class='form-control'>{$result['appointment_intro']}</textarea>
+					</div>
+				</div>					
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span>预约内容</label>
+					<div class="col-sm-9 col-xs-8">
+						{php echo tpl_ueditor('acontent',$result['appointment_content']);}	
+					</div>
+				</div>	
+				{if $ac=='edit'}
+					<div class='form-group'>
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span>状态</label>
+						<div class="col-sm-9 col-xs-8">
+							<select name='status'>
+									<option value='1' {if $result['status']==1} selected {/if}>正常</option>
+									<option value='0' {if $result['status']==0} selected {/if}>关闭</option>
+							</select>
+						</div>							
+					</div>
+				{/if}
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-xs-12 col-sm-3 col-md-2 control-label"></label>
+			<div class="col-sm-9 col-xs-8">
+				<input type="submit" name="submit" value="提交" class="btn btn-primary col-lg-1" />
+			</div>
+			</div>
+		</div>		
+	</form>		
+	<script>
+		$(function(){
+			{if $teacher!='teacher'}
+				var grade_html='';
+				{loop  $grade_list $key $row}
+					grade_html +="<input value='{$row['grade_id']}' type='checkbox' onclick='checkbox(this)' name='grades[]'>{$row['grade_name']}&nbsp;&nbsp;";
+				{/loop}
+			{/if}
+			var class_html='';
+			{loop $class_list $key $row}
+				{php $grade_info = D('grade')->getGradeInfo($row['grade_id']);}
+				class_html +="<input value='{$row['class_id']}' type='checkbox' onclick='checkbox(this)'name='class[]'>{$grade_info['grade_name']}~{$row['class_name']}&nbsp;&nbsp;";
+			{/loop}
+				var data_type=new Array();
+			$('#limit_type').change(function(){
+				var val=$(this).val();
+					var limit_type=$('#limit_content').attr('data-type');
+					limit_type=limit_type ? limit_type :0;
+					data_type[limit_type]=$('#limit_content').html();
+					$('#limit_content').attr('data-type',val);
+					if(!data_type[val]){
+						if(val==1){
+							var content=grade_html;
+						}else if(val==2){
+							var content=class_html;
+						}else if(val==0){
+							var content='无';
+						}
+						$('#limit_content').html(content);
+					}else{
+						$('#limit_content').html(data_type[val]);
+					}
+			});
+		});
+	function checkbox(obj){
+			if($(obj).is(":checked")){
+				$(obj).attr('checked','checked');
+			}else{
+				$(obj).attr('checked',false);
+			}
+		}
+	</script>
+{/if}
+{/if}
+</div>

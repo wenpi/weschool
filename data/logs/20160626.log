@@ -1,0 +1,74 @@
+2016-06-26 10:15:40 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_7d1762dac7c2]]></ToUserName>
+<FromUserName><![CDATA[o8AZcwLXu67lERj_pGr0iCFS4Txc]]></FromUserName>
+<CreateTime>1466907340</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[subscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+
+2016-06-26 10:15:40 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-06-26 10:15:40 response :
+------------
+
+2016-06-26 10:15:58 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_7d1762dac7c2]]></ToUserName>
+<FromUserName><![CDATA[o8AZcwLXu67lERj_pGr0iCFS4Txc]]></FromUserName>
+<CreateTime>1466907358</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[unsubscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+
+2016-06-26 14:34:07 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2ee031f2e428]]></ToUserName>
+<FromUserName><![CDATA[ojDkIwnmrNDNeYe4Udb7sMr4yy38]]></FromUserName>
+<CreateTime>1466922847</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[subscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+
+2016-06-26 14:34:07 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-06-26 14:34:07 response :
+------------
+
+2016-06-26 20:13:14 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2ee031f2e428]]></ToUserName>
+<FromUserName><![CDATA[ojDkIwgqjsS5DA-hyXJVC_O-q6ek]]></FromUserName>
+<CreateTime>1466943194</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[subscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+
+2016-06-26 20:13:14 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-06-26 20:13:14 response :
+------------
+

@@ -1,0 +1,18 @@
+{template '../xiaoye/newTeaHead'}
+<body>
+	<div class="main">
+        <div class="bl">校车列表</div>
+        <div class="fsx" style="background-color:#fff">
+                {loop $device_list $item}
+                    <div class="f_hcz33">
+                        <label><a href="{php echo $this->createMobileUrl('TeaSchoolBus',array('cid'=>$item['device_id']))}">{$item['device_name']}</a></label>
+                    </div>
+                {/loop}
+        </div>
+    </div>
+    {php $center_class = 'cde'}
+    {template '../xiaoye/newTeaFooter'}
+    {template 'jsweixin'}
+    </div>
+</body>
+</html>

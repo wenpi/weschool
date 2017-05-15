@@ -1,0 +1,72 @@
+{template '../new/head'}
+  <script type='text/javascript' src='{MODULE_URL}/style/js/jquery.min.js'></script>
+<body ontouchstart >
+<div class="container" id="container">
+    <div class="article">
+    <div class="bd">
+        <article class="weui_article"> 
+            <h1>{if $record_re['record_title']} {$record_re['record_title']} {else}{$record_re['record_intro']}{/if}</h1>
+            <section>
+                <h1 class="line_title">
+                    &nbsp;&nbsp;发布时间:{if $record_re['add_time']}{php echo date("m-d H:i:s",$record_re['add_time'])}{else}{php echo date("m-d H:i:s",$record_re['addtime'])}{/if}
+                </h1>
+            </section>
+
+            {if $record_re['imgs']}
+                {php $imgs = unserialize($record_re['imgs']);}
+                {if $imgs}
+                     {php $img_list =S("fun",'decodeImgs',array($imgs ,$this->module['config']['qiniu_url'] )); }
+                     {loop $img_list $row}
+                        <img src='{$row}' style="width:90%;margin-left:5%;margin-top:10px;">
+                     {/loop}
+                {/if}               
+            {/if}
+            {if $record_re['voice']}
+                <br>
+                <br>
+                <div style="width:100%;text-align:center">
+                    {php echo  $this->echoVoiceUrl($record_re['voice']);}
+                </div>    
+                <br>
+            {/if}            
+            <section>
+                    {php echo htmlspecialchars_decode($record_re['record_content']);}
+            </section>
+            {if $record_re['url']}
+                <div>
+                    <a href='{$record_re['url']}'>点击查看详情</a>
+                </div>
+            {/if}
+        </article>
+    {php $type = 1;}
+    {template '../new/reply'}
+    </div>
+    </div>
+    </div>
+    <style>
+        .home_work_title{
+            font-weight:700;
+        }
+        .weui_article h1{
+            font-weight:700;
+        }
+        .article_title{
+            text-align:center;
+        }
+        .voice_class{
+            width:100%;
+            text-align:center;
+            margin-top:20px;
+            margin-bottom:10px
+        }
+        .line_title{
+            font-size:0.7em !important;
+            color:#7093DB;
+        }
+    </style>
+	{template 'jsweixin'}
+    {if $student_info['teacher_realname']}
+        {template '../new/tea_footer'}
+    {else}
+        {template '../new/footer'}
+    {/if}

@@ -1,0 +1,16 @@
+{loop $re['list'] $row}
+    <div class="weui_panel_bd weui_panel_access " style="border:1px solid #ccc;margin-bottom:10px;"> 
+                <div class="weui_media_box weui_media_text">
+                    <p class="weui_mediaweui_media_desc_title">活动：    {$row['info']['booking_title']}</p>
+                    <p class="weui_mediaweui_media_desc_title">孩子姓名：{$row['list_name']}</p>
+                    <p class="weui_mediaweui_media_desc_title">登记电话：{$row['list_phone']}</p>
+                    {if $row['list_time']}
+                        <p class="weui_mediaweui_media_desc_title">预约时间：{php echo date("Y-m-d H:i:s",$row['list_time'])}</p>
+                    {/if}
+                    {if $row['re_time']}
+                        <p class="weui_mediaweui_media_desc_title">状态：<span style="color:#ff0033;">{if $row['pass_status']==0}未通过{else}审核通过{/if}</span></p>
+                    {/if}
+                    <p class="weui_media_desc">{if $row['re_content']}回复：{$row['re_content']}{/if}</p>
+                </div>
+    </div>
+{/loop}

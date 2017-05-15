@@ -1,0 +1,41 @@
+{template '../xiaoye/newHead'}
+<body class="SP">
+<div class="z_main">
+	<div class="headsp">
+		{loop $out_times['duan'] $key $row}
+			<a href="{php echo $this->createMobileUrl('cookbook',array('duan'=>$key) )}" {if $duan==$key } class="pp1" {/if}><p>{$row['begin_date']}~{$row['end_date']}</p></a>
+		{/loop}
+	</div>
+	<div >
+		{loop $out_times['list'][$duan] $row}
+			<div class="SP-NR">
+				<div class="NR-H">
+					{php $w = date("w",$row['unix']); }
+					<img src="{MODULE_URL}/template/xiaoye/img/sp{$w}.png" alt="{if $w==6}六{elseif $w==0}日{/if}">
+					<p>{$row['date']}</p>
+				</div>
+				<div class="NR-B">
+					{loop $cookbook_class_arr $v}
+						{php $g++}
+						<li>
+							<span1>{$v}</span1>
+							<span2>{php echo C('cookbook')->getCookbookText($v,$row['unix']);}</span2>
+							{php $imgs = C('cookbook')->getCookbookImg($v,$row['unix']);}
+							<div class="z_bjt14 homework_img_list_control{$page} " id="img_list_{$g}">
+							{loop $imgs  $val}
+									{php $val =  $this->imgFrom($val) ;}
+									<div class="homework_img_list wx_img_list" data-src="{$val}" style='background-image:url({$val})' onclick="displayImage('img_list_{$g}','{$val}')"></div>
+							{/loop}
+							<div style="clear: both"></div>
+							</div>
+						</li>
+					{/loop}				
+				</div>
+			</div>
+		{/loop}
+	</div>
+</div>
+	{template 'jsweixin'}
+	{template '../xiaoye/newStudentFooter'}
+</body>
+</html>

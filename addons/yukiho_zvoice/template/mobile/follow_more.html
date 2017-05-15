@@ -1,0 +1,18 @@
+{loop $follows['list'] $follow}
+{php $member = M('member')->getInfo($follow['to_openid'])}
+{if empty($member)}
+	{php M('follow')->delete($follow['id'])}
+{/if}
+<div class="cat{$member['category_id']} all-cat gallery-filter-item" style="display: block;width:100%;">
+	<a href="{php echo $this->createMobileUrl('tutor',array('openid'=>$member['openid']))}">
+		<p class="user-list-follow">
+			<img src="{php echo $member['avatar']}" alt="img">
+			<strong>{$member['nickname']}
+				<em class="split-title2">{php echo M('answer')->getTotal($member['openid'])}个解答，{php echo M('follow')->getTotal($member['openid'])}人关注</em>
+			</strong> 
+			{php $credit = intval($member['credit'])}
+			<a href="{php echo $this->createMobileUrl('making',array('openid'=>$member['openid']))}" class="follow2 button-green">{$credit}元提问</a>
+		</p><div style="margin-bottom:5px;margin-top:10px;" class="decoration"></div>
+	</a>
+</div>
+{/loop}

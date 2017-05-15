@@ -1,0 +1,264 @@
+   {template '../admin/head'}
+        {template '../admin/header'}
+        <div class="page-container">
+        {template '../admin/left'}
+            <div class="page-content-wrapper">
+                <div class="page-content">
+                {template '../admin/sidebar'}
+                    <h1 class="page-title"> {$_SESSION['school_name']}
+                            <small> {$title} </small>
+                    </h1>
+                <script>
+                    $(function(){
+                        $("#checkAction").click(function(){
+                            obj=$(".class_ids");
+                            if(obj.prop("checked"))
+                                obj.prop('checked',false);
+                            else 
+                                obj.prop('checked',true);
+                        });
+                    });
+                </script>
+                {if $ac=='list'}
+                 <div class="row">
+                   <form action="" method="post"  enctype="multipart/form-data" id="form1" onsubmit="return onCheck()">
+                        <div class="col-md-5">
+                            <div class="note note-success">
+                                <p> 作业列表 </p>
+                            </div>
+                            <!-- BEGIN SAMPLE TABLE PORTLET-->
+                            <div class="portlet box green-turquoise">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <i class="fa fa-navicon"></i>班级列表 </div>
+                                    <div class="tools">
+                                        <a href="javascript:;" class="collapse"> </a>
+                                    </div>
+                                </div>
+                                <div class="portlet-body flip-scroll">
+                                    <table class="table table-bordered table-striped table-condensed flip-content">
+                                        <thead class="flip-content">
+                                            <tr>
+                                            <th>选择班级</th>
+                                            <th ><span id='checkAction' class='red'>全选/取消</span> &nbsp;&nbsp;操作</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {loop $list $item}
+                                            <tr>
+                                                <td>
+                                                    <span class="label label-sm label-success"> 
+                                                    【{php echo $this->gradeName($item['grade_id']);}】{$item['class_name']}
+                                                    </span>
+                                                </td>
+                                                <td style="text-align: center" > 
+                                                    <input type='checkbox' name='class_ids[]' class='class_ids' value='{$item['class_id']}'>
+                                                    &nbsp;&nbsp;
+                                                    <a href="{php echo $this->createWebUrl('homework',array('ac'=>'old','cid'=>$item['class_id'],'aw'=>1 ))}"  
+                                                        class="btn yellow"  title='查看以往'><i class='fa fa-clock-o'></i>查看以往
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            {/loop}                                                                                                                             
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        新增
+                                    </div>
+                                    <div class="panel-body form">
+                                             <div class="form-body">
+                                                <div class="form-group  ">
+                                                    <label class=" col-md-2 control-label"><span style='color:red'>*</span>内容</label>
+                                                    <div class="col-sm-10">
+                                                        {php echo tpl_ueditor('content',$result['content']);}	
+                                                    </div>
+                                                </div>	
+                                                <div class="form-group  "><label class="col-md-12 control-label"></label></div>
+                                                 {template '../admin/upFile'}
+                                                <div class="form-group  "><label class="col-md-12 control-label"></label></div>
+                                                 <div class="form-group  ">
+                                                        <label class=" col-md-2 control-label">图片组</label>
+                                                        <div class="col-sm-10">
+                                                        {php echo tpl_form_field_multi_image('img', $images);}
+                                                        </div>
+                                                 </div>            
+                                         <div class="form-group">
+                                            <label class="col-md-2 control-label"><span style='color:red'>*</span> 选择课程</label>
+	                                        <div class="md-radio-inline col-sm-10">
+                                              {loop $course_list $row}
+                                                <div class="md-radio">
+                                                    <input type="radio" id="radion{$row['course_id']}" class="md-radiobtn course_id " name="course_id"   value='{$row['course_id']}'  />
+                                                    <label for="radion{$row['course_id']}">
+                                                        <span></span>
+                                                        <span class="check"></span>
+                                                        <span class="box"></span>
+                                                        {$row['course_name']}
+                                                    </label>
+                                                </div>
+                                              {/loop}  
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                        <div class="form-actions">
+                                            <div class="row">
+                                                <div class="col-md-offset-2 col-md-10">
+                                                    <input type='hidden' name='ac' value='new'>
+                                                    <input type="submit" name="submit" class="btn blue" value="确认">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br>
+                                </div>		
+                            </div>                            
+                        </form>
+                    </div>
+                {/if}
+    	{if $ac=='old'}
+             <div class="row">
+                 <div class="col-md-12">
+                       <div class="note note-success">
+                           <p> 作业记录 </p>
+                       </div>
+                <div class="portlet box green-turquoise">
+                    <div class="portlet-title">
+                      <div class="caption">
+                          <i class="fa fa-navicon"></i>{$class['class_name']}*作业记录 </div>
+                         <div class="tools">
+                               <a href="javascript:;" class="collapse"> </a>
+                          </div>
+                       </div>
+                       <div class="portlet-body flip-scroll">
+                       <table class="table table-bordered table-striped table-condensed flip-content">
+                           <thead class="flip-content">
+                                <tr>
+                                    <th>班级</th>
+                                    <th>发布老师</th>
+                                    <th>科目</th>
+                                    <th>时间</th>
+                                    <th>状态</th>
+                                    <th>操作</th>
+                                </tr>                
+                            </thead>
+                            <tbody>
+                        {loop $list $item}
+                        <tr>
+                            <td>{$class['class_name']}</td>
+                            <td>{$t_name}</td>
+                            <td>{php echo $this->courseName($item['course_id']);}</td>
+                            <td>{php echo date("Y-m-d H:i:s",$item['add_time']);}</td>
+                            <td><span class="label label-sm label-warning">{if $item['status'] ==1}正常{else}关闭{/if}</span></td>
+                            <td style="text-align: center">
+                                     <a href="{php echo $this->createWebUrl('homework',array('ac'=>'edit','hid'=>$item['homework_id'],'cid'=>$_GPC['cid']))}"
+                                      class="btn red" ><i class='fa fa-edit'></i> 编辑</a>
+                                      <a href="{php echo $this->createWebUrl('homework',array('ac'=>'delete','hid'=>$item['homework_id'],'cid'=>$_GPC['cid']))}"
+                                      class="btn yellow" ><i class='fa fa-close'></i> 删除</a>
+
+                            </td>
+                        </tr>
+                        {/loop}
+			            </tbody>
+		            </table>
+		        {$pager}
+	            </div>
+	            </div>
+	            </div>
+	            </div>
+	    {/if}
+        {if $ac=='new' || $ac=='edit'}
+            <form action="" method="post" class="form-horizontal form" enctype="multipart/form-data" id="form1"{if $ac=='new'} onsubmit="return onCheck()"{/if}>
+                <input type="hidden" name="cid"   value='{$class['class_id']}' />
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        {if $ac=='new'}新增{else}修改{/if}
+                    </div>
+                    <div class="panel-body">
+                        <div class="tab-content">
+                        <div class="form-group">
+                            <label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span>内容</label>
+                            <div class="col-sm-9 col-xs-8">
+                                {php echo tpl_ueditor('content',$result['content']);}	
+                            </div>
+                        </div>	
+                       <div class="form-group  "><label class="col-md-12 control-label"></label></div>
+                            {template '../admin/upFile'}
+                        <div class="form-group  "><label class="col-md-12 control-label"></label></div>
+                        <div class="form-group">
+                            <label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span>图片组</label>
+                            <div class="col-sm-9 col-xs-8">
+                            {php echo tpl_form_field_multi_image('img', $images);}
+                            </div>
+                        </div>               
+                        <div class="form-group form-md-radios form-md-line-input ">
+	                        <label class="col-md-2 control-label"  >选择课程</label>
+	                                <div class="md-radio-inline col-sm-9 col-xs-8">
+	                                    {loop $course_list $row}
+                                                <div class="md-radio">
+                                                    <input type="radio" id="radion{$row['course_id']}" class="md-radiobtn" name="course_id"  {if $row['course_id']==$result['course_id']} checked  {/if} value='{$row['course_id']}'  />
+                                                    <label for="radion{$row['course_id']}">
+                                                        <span></span>
+                                                        <span class="check"></span>
+                                                        <span class="box"></span>{$row['course_name']}</label>
+                                                </div>
+                                              {/loop}  
+	                                </div>
+                        </div>          
+
+                        {if $ac=='edit'}
+                            <div class='form-group'>
+                            <label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span>状态</label>
+                            <div class="col-sm-9 col-xs-8">
+                            <select name='status' class="form-control">
+                                    <option value='1' {if $result['status']==1} selected {/if}>正常</option>
+                                    <option value='0' {if $result['status']==0} selected {/if}>关闭</option>
+                            </select>
+                            </div>							
+                            </div>
+                        {/if}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-12 col-sm-3 col-md-2 control-label"></label>
+                    <div class="col-sm-9 col-xs-8">
+                        <input type="submit" name="submit" value="提交" class="btn btn-primary col-lg-1" />
+                    </div>
+                    </div>
+                </div>		
+            </form>		
+         {/if}   
+        </div>
+        </div>
+         {template '../admin/right'}
+        </div>
+     {template '../admin/footer'}
+     <script>
+         function onCheck(){
+             var class_check = false;
+             $.each($(".class_ids"),function(i,e){
+                if($(this).prop("checked")){
+                    class_check = true;
+                }
+             });
+             if(!class_check){
+                 alert("请先选择班级");
+                 return false;
+             }
+             $.each($(".course_id"),function(i,e){
+                if($(this).prop("checked")){
+                    course_id_check = true;
+                }
+             });
+             if(!course_id_check){
+                alert("请先选择课程");
+                return false;   
+             }
+        }
+     </script>
+         </body>
+    </html>

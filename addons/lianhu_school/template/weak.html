@@ -1,0 +1,88 @@
+{template 'common/header'}
+{template 'common'}
+<div class="main">
+	{if $model!='someone'}
+	<div class="panel-body table-responsive">
+		<table class="table table-hover">
+			<thead class="navbar-inner">
+				<tr>
+					<th style="width:100%">{if $model=='grade'}年级列表{elseif $model=='class'}班级列表{elseif $model=='student'}学生列表{/if}</th>
+				</tr>
+			</thead>
+			<tbody>
+				{loop $result $item}
+				<tr>
+					<td><a href="{php echo $this->result_result($item,$model,'url','weak');}">{php echo $this->result_result($item,$model,'name','weak');}</a></td>
+				</tr>
+				{/loop}
+				{if $model!='grade'}
+				<tr>
+					<td><a href="javascript:;" onclick="window.history.back() ">返回</td>
+				</tr>
+				{/if}
+			</tbody>
+		</table>
+	</div>
+	{/if}
+	{if $model=='someone'}
+	<div class="panel panel-info">
+	<div class="panel-body ">
+	<form action="" method="post" class="form-horizontal form" enctype="multipart/form-data" id="form1">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				添加弱项记录【{$result['student_name']}】
+			</div>
+			<div class="panel-body">
+				<div class="tab-content">
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span>内容说明（总结）</label>
+					<div class="col-sm-9 col-xs-8">
+						<textarea name='content' class='form-control'></textarea>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span>内容说明（错题）</label>
+					<div class="col-sm-9 col-xs-8">
+						<textarea name='content1' class='form-control'></textarea>
+					</div>
+				</div>					
+				</div>
+			</div>
+		</div>		
+		<div class="form-group col-sm-12">
+			<input type="submit" name="submit" value="提交" class="btn btn-primary col-lg-1" />
+		</div>
+	</form>	
+</div>
+<div class="panel panel-default">
+	<div class="panel-body table-responsive">
+		<table class="table table-hover">
+			<thead class="navbar-inner">
+				<tr>
+					<th style="width:5%">弱项记录ID</th>
+					<th style="width:5%">学生</th>
+					<th style="width:5%">教师</th>
+					<th style="width:20%">总结</th>
+					<th style="width:20%">错题</th>
+					<th style="width:10%">添加时间</th>
+				</tr>
+			</thead>
+			<tbody>
+				{loop $list $item}
+				{php $teacher=$item['teacher_realname'] ? $item['teacher_realname'] :'管理员无法绑定教师';}
+				<tr>
+					<td>{$item['weak_id']}</td>
+					<td>{$result['student_name']}</td>
+					<td>{$teacher}</td>
+					<td>{$item['content']}</td>
+					<td>{$item['content1']}</td>
+					<td>{php echo date("Y-m-d H:i:s",$item['addtime']);}</td>
+				</tr>
+				{/loop}
+			</tbody>
+		</table>
+	</div>
+	</div>
+</div>
+	{/if}
+</div>

@@ -1,0 +1,104 @@
+{php $title='与学生账号绑定';}
+{template 'header'}
+{template 'common'}
+<link type="text/css" rel="stylesheet" href="../addons/lianhu_school/images/style.css">
+<link rel="stylesheet" href="{MODULE_URL}template/mobile/style/style_nav.css">
+<div class="head">
+	<span class="title">与学生账号绑定</span>
+</div>
+<form class="form-horizontal" method="post" role="form" action="{php echo $this->createMobileUrl('bdMobile', array('submit' => '1'))}">
+	<div class="order-main">
+		<div class="add-address img-rounded" id="" >
+			<div class="add-address-main">
+				<div class="form-group">
+					<label class="col-sm-3 control-label">手机号码：</label>
+					<div class="col-sm-9">
+						<input type="number" class="form-control" name='mobile' id='mobile' >
+                        <div class="btn btn-send" id='send_code' onclick="sendCode()">发送验证码</div>
+					</div>
+				</div>
+     
+				<div class="form-group">
+					<label class="col-sm-3 control-label">手机验证码：</label>
+					<div class="col-sm-9">
+						<input type="text" class="form-control" name='valid_code' id='valid_code'>
+					</div>
+				</div>          
+
+				<div class="form-group" style="display:none" id='select_student'>
+					<label class="col-sm-3 control-label">学生：</label>
+					<div class="col-sm-9">
+                        <select name="student_id">
+
+                        </select>
+					</div>
+				</div>
+ 				
+                 <div class="form-group">
+					<label class="col-sm-3 control-label">关系：</label>
+					<div class="col-sm-9">
+						{php $relation_list = $this->class_base->getRelation(); }
+						<select name='relation' class="form-control" style="border: 1px solid #ccc !important;">
+							{loop $relation_list $row}
+								<option value="{$row}">{$row}</option>
+							{/loop}
+						</select>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-12">
+							 <button class="button button-raised button-caution" type="submit" ><i class="fa fa-user"></i>&nbsp;&nbsp;保存</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
+
+
+<script>
+    var send_code = 0;
+    var send_misc = 60;
+    var xu_id  = 0;
+    var mobile_phone;
+    $(function(){
+        $("#mobile").focus(function(){
+            $(this).val('');
+        });
+    });  
+    function sendCode(){
+        if(send_code==0){
+            this_value = $("#mobile").val();
+            if(this_value){
+                if(this_value.length!=11){
+                    alert("请检查手机号");
+                    return false;
+                }
+                send_code = 1;
+                xu_id     = setInterval("reRwrite()",1000);
+                getCode(this_value);
+            }
+        }
+    }
+    function reRwrite(){
+        if(send_misc>0){
+            $("#send_code").html('请等待'+send_misc+'秒....');
+            send_misc--
+        }else{
+            clearInterval(xu_id);
+            $("#send_code").html('发送手机验证码');
+            send_code = 0;
+        }
+    }
+    function getCode(mobile){
+        $.ajax({
+            url:'{php echo $this->createMobileUrl('bdMobile');}',
+            type:'post',
+            data:{ac:'ajax',mobile:mobile},
+            dataType:'json',
+            success:function(obj){
+                
+            } 
+        });
+    }
+</script>

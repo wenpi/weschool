@@ -1,0 +1,3415 @@
+2016-04-18 00:56:27 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvjueIkLU7218kMXz93i7DY8]]></FromUserName>
+<CreateTime>1460912187</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=4&c=entry&eid=2]]></EventKey>
+<MenuId>402697403</MenuId>
+</xml>
+
+2016-04-18 00:56:27 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 14 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-04-18 00:56:27 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvjueIkLU7218kMXz93i7DY8 ;
+MsgType : text ;
+Content : 欢迎关注杭州师范大学附属仓前实验中学，请点击菜单使用。 ;
+
+2016-04-18 00:57:20 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvodQbJscFvVHtC4xh757R2Y]]></FromUserName>
+<CreateTime>1460912239</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>403881636</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 00:57:20 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 14 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-04-18 00:57:20 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvodQbJscFvVHtC4xh757R2Y ;
+MsgType : text ;
+Content : 欢迎关注杭州师范大学附属仓前实验中学，请点击菜单使用。 ;
+
+2016-04-18 00:57:21 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvjueIkLU7218kMXz93i7DY8]]></FromUserName>
+<CreateTime>1460912241</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>403881637</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 00:57:21 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 14 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-04-18 00:57:21 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvjueIkLU7218kMXz93i7DY8 ;
+MsgType : text ;
+Content : 欢迎关注杭州师范大学附属仓前实验中学，请点击菜单使用。 ;
+
+2016-04-18 00:57:22 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvv8PDFqifacH9rwLYMejnDw]]></FromUserName>
+<CreateTime>1460912242</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>403881638</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 00:57:22 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 14 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-04-18 00:57:22 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvv8PDFqifacH9rwLYMejnDw ;
+MsgType : text ;
+Content : 欢迎关注杭州师范大学附属仓前实验中学，请点击菜单使用。 ;
+
+2016-04-18 00:57:22 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvlBtCuGnGpEOMyuUTlrZ0Gs]]></FromUserName>
+<CreateTime>1460912242</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>403881639</MsgID>
+<Status><![CDATA[failed:user block]]></Status>
+</xml>
+
+2016-04-18 00:57:22 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 14 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-04-18 00:57:22 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvlBtCuGnGpEOMyuUTlrZ0Gs ;
+MsgType : text ;
+Content : 欢迎关注杭州师范大学附属仓前实验中学，请点击菜单使用。 ;
+
+2016-04-18 00:57:23 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvjnNs-wlmta5xYTj5zZfmSc]]></FromUserName>
+<CreateTime>1460912243</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>403881640</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 00:57:23 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 14 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-04-18 00:57:23 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvjnNs-wlmta5xYTj5zZfmSc ;
+MsgType : text ;
+Content : 欢迎关注杭州师范大学附属仓前实验中学，请点击菜单使用。 ;
+
+2016-04-18 00:58:35 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvjueIkLU7218kMXz93i7DY8]]></FromUserName>
+<CreateTime>1460912315</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=4&c=entry&eid=2]]></EventKey>
+<MenuId>402697403</MenuId>
+</xml>
+
+2016-04-18 00:58:35 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 14 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-04-18 00:58:35 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvjueIkLU7218kMXz93i7DY8 ;
+MsgType : text ;
+Content : 欢迎关注杭州师范大学附属仓前实验中学，请点击菜单使用。 ;
+
+2016-04-18 00:59:07 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvodQbJscFvVHtC4xh757R2Y]]></FromUserName>
+<CreateTime>1460912347</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>403881650</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 00:59:07 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 14 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-04-18 00:59:07 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvodQbJscFvVHtC4xh757R2Y ;
+MsgType : text ;
+Content : 欢迎关注杭州师范大学附属仓前实验中学，请点击菜单使用。 ;
+
+2016-04-18 00:59:08 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvjueIkLU7218kMXz93i7DY8]]></FromUserName>
+<CreateTime>1460912348</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>403881651</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 00:59:08 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 14 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-04-18 00:59:08 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvjueIkLU7218kMXz93i7DY8 ;
+MsgType : text ;
+Content : 欢迎关注杭州师范大学附属仓前实验中学，请点击菜单使用。 ;
+
+2016-04-18 00:59:09 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvv8PDFqifacH9rwLYMejnDw]]></FromUserName>
+<CreateTime>1460912349</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>403881652</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 00:59:09 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 14 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-04-18 00:59:09 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvv8PDFqifacH9rwLYMejnDw ;
+MsgType : text ;
+Content : 欢迎关注杭州师范大学附属仓前实验中学，请点击菜单使用。 ;
+
+2016-04-18 00:59:10 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvlBtCuGnGpEOMyuUTlrZ0Gs]]></FromUserName>
+<CreateTime>1460912350</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>403881653</MsgID>
+<Status><![CDATA[failed:user block]]></Status>
+</xml>
+
+2016-04-18 00:59:10 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 14 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-04-18 00:59:10 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvlBtCuGnGpEOMyuUTlrZ0Gs ;
+MsgType : text ;
+Content : 欢迎关注杭州师范大学附属仓前实验中学，请点击菜单使用。 ;
+
+2016-04-18 00:59:11 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvjnNs-wlmta5xYTj5zZfmSc]]></FromUserName>
+<CreateTime>1460912351</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>403881654</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 00:59:11 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 14 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-04-18 00:59:11 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvjnNs-wlmta5xYTj5zZfmSc ;
+MsgType : text ;
+Content : 欢迎关注杭州师范大学附属仓前实验中学，请点击菜单使用。 ;
+
+2016-04-18 06:16:19 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvv8PDFqifacH9rwLYMejnDw]]></FromUserName>
+<CreateTime>1460931379</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=4&c=entry&eid=2]]></EventKey>
+<MenuId>402697403</MenuId>
+</xml>
+
+2016-04-18 06:16:19 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 14 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-04-18 06:16:19 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvv8PDFqifacH9rwLYMejnDw ;
+MsgType : text ;
+Content : 欢迎关注杭州师范大学附属仓前实验中学，请点击菜单使用。 ;
+
+2016-04-18 06:16:35 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvv8PDFqifacH9rwLYMejnDw]]></FromUserName>
+<CreateTime>1460931395</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=4&c=entry&eid=2]]></EventKey>
+<MenuId>402697403</MenuId>
+</xml>
+
+2016-04-18 06:16:35 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 14 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-04-18 06:16:35 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvv8PDFqifacH9rwLYMejnDw ;
+MsgType : text ;
+Content : 欢迎关注杭州师范大学附属仓前实验中学，请点击菜单使用。 ;
+
+2016-04-18 06:16:43 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvv8PDFqifacH9rwLYMejnDw]]></FromUserName>
+<CreateTime>1460931403</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=4&c=entry&eid=1]]></EventKey>
+<MenuId>402697403</MenuId>
+</xml>
+
+2016-04-18 06:16:43 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 14 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-04-18 06:16:43 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvv8PDFqifacH9rwLYMejnDw ;
+MsgType : text ;
+Content : 欢迎关注杭州师范大学附属仓前实验中学，请点击菜单使用。 ;
+
+2016-04-18 06:17:13 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvv8PDFqifacH9rwLYMejnDw]]></FromUserName>
+<CreateTime>1460931433</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=4&c=entry&eid=1]]></EventKey>
+<MenuId>402697403</MenuId>
+</xml>
+
+2016-04-18 06:17:13 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 14 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-04-18 06:17:13 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvv8PDFqifacH9rwLYMejnDw ;
+MsgType : text ;
+Content : 欢迎关注杭州师范大学附属仓前实验中学，请点击菜单使用。 ;
+
+2016-04-18 07:08:26 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcottw7qP2pciewrM5tmFvI8As4]]></FromUserName>
+<CreateTime>1460934506</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402970720</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 07:08:26 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 07:08:26 response :
+------------
+
+2016-04-18 07:37:42 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcott_TScLOOrncqPhtzglnYENA]]></FromUserName>
+<CreateTime>1460936262</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402971265</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 07:37:42 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 07:37:42 response :
+------------
+
+2016-04-18 07:42:08 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcottwdRSG6HkIZwvuQXqa3QKng]]></FromUserName>
+<CreateTime>1460936528</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402971291</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 07:42:08 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 07:42:08 response :
+------------
+
+2016-04-18 07:52:03 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcott8j6IUHePzxE_Daw_DYK8eM]]></FromUserName>
+<CreateTime>1460937123</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402971381</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 07:52:03 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 07:52:03 response :
+------------
+
+2016-04-18 07:54:17 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcottweuKMCfyRDSq_VzSWdhHL4]]></FromUserName>
+<CreateTime>1460937257</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402971402</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 07:54:17 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 07:54:17 response :
+------------
+
+2016-04-18 07:56:31 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcottzBLHgNZQimwE8XOIsT1IY0]]></FromUserName>
+<CreateTime>1460937391</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402971429</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 07:56:31 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 07:56:31 response :
+------------
+
+2016-04-18 07:57:42 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcott7ShK4TAzzs-r2z7vxof71E]]></FromUserName>
+<CreateTime>1460937462</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402971441</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 07:57:42 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 07:57:42 response :
+------------
+
+2016-04-18 07:59:23 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcott70voayiiyG-DpyHj7M30_4]]></FromUserName>
+<CreateTime>1460937563</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402971459</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 07:59:23 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 07:59:23 response :
+------------
+
+2016-04-18 08:04:24 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcott84pU16wJT6ChwWpKVayVsQ]]></FromUserName>
+<CreateTime>1460937864</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402971514</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 08:04:24 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 08:04:24 response :
+------------
+
+2016-04-18 08:07:29 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcott-O08EqTyB2vYvWY1DM_DPw]]></FromUserName>
+<CreateTime>1460938049</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402971557</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 08:07:29 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 08:07:29 response :
+------------
+
+2016-04-18 08:07:37 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcott9j2Z30FezqLMZANHtpKRrc]]></FromUserName>
+<CreateTime>1460938057</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402971559</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 08:07:37 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 08:07:37 response :
+------------
+
+2016-04-18 08:13:53 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcottyNJ25zzQtzEyNqnQxM1MOA]]></FromUserName>
+<CreateTime>1460938433</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402971655</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 08:13:53 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 08:13:53 response :
+------------
+
+2016-04-18 08:14:52 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcott-ABRgmooGIBYo6pfmvHqa8]]></FromUserName>
+<CreateTime>1460938492</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402971669</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 08:14:52 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 08:14:52 response :
+------------
+
+2016-04-18 08:15:28 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcottw-XpAyVDw19kaEaIYggcQM]]></FromUserName>
+<CreateTime>1460938528</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402971683</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 08:15:28 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 08:15:28 response :
+------------
+
+2016-04-18 08:17:19 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcotty9Hy_CUxbMI7Ce1okwOCpk]]></FromUserName>
+<CreateTime>1460938639</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402971707</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 08:17:19 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 08:17:19 response :
+------------
+
+2016-04-18 08:18:10 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcott9ljw-R0nLqj9w8n9-Ki3fk]]></FromUserName>
+<CreateTime>1460938690</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402971718</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 08:18:10 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 08:18:10 response :
+------------
+
+2016-04-18 08:20:32 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcott8QzR6FuIfbjGYBlK2rCCjY]]></FromUserName>
+<CreateTime>1460938831</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402971745</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 08:20:32 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 08:20:32 response :
+------------
+
+2016-04-18 08:23:27 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcott3J9KhtJb00_3ga_Kkmz2wo]]></FromUserName>
+<CreateTime>1460939007</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402971782</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 08:23:27 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 08:23:27 response :
+------------
+
+2016-04-18 08:24:04 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcott5b5wbU8rzCcze6w7sk3ZCE]]></FromUserName>
+<CreateTime>1460939044</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402971788</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 08:24:04 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 08:24:04 response :
+------------
+
+2016-04-18 08:24:51 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcott0BYGm77xwFerCfTO68jYpE]]></FromUserName>
+<CreateTime>1460939091</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402971798</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 08:24:51 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 08:24:51 response :
+------------
+
+2016-04-18 08:25:48 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcott_HC4Mi8y5j3sFlJBgqhd9E]]></FromUserName>
+<CreateTime>1460939148</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402971810</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 08:25:48 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 08:25:48 response :
+------------
+
+2016-04-18 08:26:38 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcottxty6YaSaSyWDPLhYWgCpEo]]></FromUserName>
+<CreateTime>1460939198</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402971816</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 08:26:38 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 08:26:38 response :
+------------
+
+2016-04-18 08:27:02 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcott8bXNlBO-pF9t-0J1dTDGPs]]></FromUserName>
+<CreateTime>1460939222</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402971822</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 08:27:02 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 08:27:02 response :
+------------
+
+2016-04-18 08:27:37 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcottyilUy5tLd8vANXKGPG4EcA]]></FromUserName>
+<CreateTime>1460939257</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402971826</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 08:27:37 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 08:27:37 response :
+------------
+
+2016-04-18 08:29:42 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcott5JI0hsdoCxNPA10KHiY1kA]]></FromUserName>
+<CreateTime>1460939382</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402971846</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 08:29:42 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 08:29:42 response :
+------------
+
+2016-04-18 08:32:26 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcott82FheWLXY2ft9sHxcV1YYQ]]></FromUserName>
+<CreateTime>1460939546</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402971870</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 08:32:26 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 08:32:26 response :
+------------
+
+2016-04-18 08:39:00 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcottwAqWW9x8Wo1YdwPF4SIpbs]]></FromUserName>
+<CreateTime>1460939939</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402971937</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 08:39:00 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 08:39:00 response :
+------------
+
+2016-04-18 08:39:08 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcottzrsY0hiIxBYE3CK2zp6WYY]]></FromUserName>
+<CreateTime>1460939948</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402971942</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 08:39:08 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 08:39:08 response :
+------------
+
+2016-04-18 08:41:26 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcottwVEJ256h6vTGhxIdtgmqfM]]></FromUserName>
+<CreateTime>1460940086</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402971969</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 08:41:26 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 08:41:26 response :
+------------
+
+2016-04-18 08:47:39 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcottwW2YU7yp_kBQarnTzqdlEs]]></FromUserName>
+<CreateTime>1460940459</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402972011</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 08:47:39 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 08:47:39 response :
+------------
+
+2016-04-18 08:56:39 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcott2dwp2nY9k0xvuKyswBnhkQ]]></FromUserName>
+<CreateTime>1460940999</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402972119</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 08:56:39 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 08:56:39 response :
+------------
+
+2016-04-18 08:56:52 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcott8-fHoACFiURkUXBYRZHEro]]></FromUserName>
+<CreateTime>1460941012</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402972123</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 08:56:52 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 08:56:52 response :
+------------
+
+2016-04-18 09:05:37 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcottwUAPs9DpzF09MOdy_19fZQ]]></FromUserName>
+<CreateTime>1460941537</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402972242</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 09:05:37 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 09:05:37 response :
+------------
+
+2016-04-18 09:10:45 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcott635Povl9tOo6clkek3iiWI]]></FromUserName>
+<CreateTime>1460941845</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402972282</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 09:10:45 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 09:10:45 response :
+------------
+
+2016-04-18 09:36:20 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcott5JBy_cI3HgnkPVqsrHbWso]]></FromUserName>
+<CreateTime>1460943380</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402972571</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 09:36:20 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 09:36:20 response :
+------------
+
+2016-04-18 09:49:35 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcottwqUGE1u3b5ckvGD0KWlBl8]]></FromUserName>
+<CreateTime>1460944175</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402972659</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 09:49:35 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 09:49:35 response :
+------------
+
+2016-04-18 10:10:13 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcott52uezBMOS2iT-RAS8H9OZE]]></FromUserName>
+<CreateTime>1460945413</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402972954</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 10:10:13 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 10:10:13 response :
+------------
+
+2016-04-18 10:20:37 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcottwqUGE1u3b5ckvGD0KWlBl8]]></FromUserName>
+<CreateTime>1460946037</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[CLICK]]></Event>
+<EventKey><![CDATA[concat.parent]]></EventKey>
+</xml>
+
+2016-04-18 10:20:37 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 10:20:37 response :
+------------
+
+2016-04-18 10:31:25 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvodQbJscFvVHtC4xh757R2Y]]></FromUserName>
+<CreateTime>1460946685</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>403885678</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 10:31:25 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 14 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-04-18 10:31:25 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvodQbJscFvVHtC4xh757R2Y ;
+MsgType : text ;
+Content : 欢迎关注杭州师范大学附属仓前实验中学，请点击菜单使用。 ;
+
+2016-04-18 10:31:26 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvjueIkLU7218kMXz93i7DY8]]></FromUserName>
+<CreateTime>1460946686</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>403885679</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 10:31:26 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 14 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-04-18 10:31:26 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvjueIkLU7218kMXz93i7DY8 ;
+MsgType : text ;
+Content : 欢迎关注杭州师范大学附属仓前实验中学，请点击菜单使用。 ;
+
+2016-04-18 10:31:27 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvv8PDFqifacH9rwLYMejnDw]]></FromUserName>
+<CreateTime>1460946687</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>403885680</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 10:31:27 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 14 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-04-18 10:31:27 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvv8PDFqifacH9rwLYMejnDw ;
+MsgType : text ;
+Content : 欢迎关注杭州师范大学附属仓前实验中学，请点击菜单使用。 ;
+
+2016-04-18 10:31:28 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvlBtCuGnGpEOMyuUTlrZ0Gs]]></FromUserName>
+<CreateTime>1460946688</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>403885681</MsgID>
+<Status><![CDATA[failed:user block]]></Status>
+</xml>
+
+2016-04-18 10:31:28 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 14 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-04-18 10:31:28 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvlBtCuGnGpEOMyuUTlrZ0Gs ;
+MsgType : text ;
+Content : 欢迎关注杭州师范大学附属仓前实验中学，请点击菜单使用。 ;
+
+2016-04-18 10:31:29 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvjnNs-wlmta5xYTj5zZfmSc]]></FromUserName>
+<CreateTime>1460946689</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>403885682</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 10:31:29 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 14 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-04-18 10:31:29 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvjnNs-wlmta5xYTj5zZfmSc ;
+MsgType : text ;
+Content : 欢迎关注杭州师范大学附属仓前实验中学，请点击菜单使用。 ;
+
+2016-04-18 10:40:09 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvodQbJscFvVHtC4xh757R2Y]]></FromUserName>
+<CreateTime>1460947209</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=4&c=entry&eid=1]]></EventKey>
+<MenuId>402697403</MenuId>
+</xml>
+
+2016-04-18 10:40:09 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 14 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-04-18 10:40:09 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvodQbJscFvVHtC4xh757R2Y ;
+MsgType : text ;
+Content : 欢迎关注杭州师范大学附属仓前实验中学，请点击菜单使用。 ;
+
+2016-04-18 13:50:47 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvodQbJscFvVHtC4xh757R2Y]]></FromUserName>
+<CreateTime>1460958647</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=4&c=entry&eid=2]]></EventKey>
+<MenuId>402697403</MenuId>
+</xml>
+
+2016-04-18 13:50:47 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 14 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-04-18 13:50:47 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvodQbJscFvVHtC4xh757R2Y ;
+MsgType : text ;
+Content : 欢迎关注杭州师范大学附属仓前实验中学，请点击菜单使用。 ;
+
+2016-04-18 13:50:56 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvodQbJscFvVHtC4xh757R2Y]]></FromUserName>
+<CreateTime>1460958656</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>403897874</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 13:50:56 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 14 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-04-18 13:50:56 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvodQbJscFvVHtC4xh757R2Y ;
+MsgType : text ;
+Content : 欢迎关注杭州师范大学附属仓前实验中学，请点击菜单使用。 ;
+
+2016-04-18 13:50:57 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvjueIkLU7218kMXz93i7DY8]]></FromUserName>
+<CreateTime>1460958656</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>403897876</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 13:50:57 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 14 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-04-18 13:50:57 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvjueIkLU7218kMXz93i7DY8 ;
+MsgType : text ;
+Content : 欢迎关注杭州师范大学附属仓前实验中学，请点击菜单使用。 ;
+
+2016-04-18 13:50:57 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvv8PDFqifacH9rwLYMejnDw]]></FromUserName>
+<CreateTime>1460958657</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>403897877</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 13:50:57 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 14 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-04-18 13:50:57 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvv8PDFqifacH9rwLYMejnDw ;
+MsgType : text ;
+Content : 欢迎关注杭州师范大学附属仓前实验中学，请点击菜单使用。 ;
+
+2016-04-18 13:50:57 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvlBtCuGnGpEOMyuUTlrZ0Gs]]></FromUserName>
+<CreateTime>1460958657</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>403897879</MsgID>
+<Status><![CDATA[failed:user block]]></Status>
+</xml>
+
+2016-04-18 13:50:57 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 14 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-04-18 13:50:57 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvlBtCuGnGpEOMyuUTlrZ0Gs ;
+MsgType : text ;
+Content : 欢迎关注杭州师范大学附属仓前实验中学，请点击菜单使用。 ;
+
+2016-04-18 13:50:57 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvjnNs-wlmta5xYTj5zZfmSc]]></FromUserName>
+<CreateTime>1460958657</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>403897880</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 13:50:57 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 14 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-04-18 13:50:57 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvjnNs-wlmta5xYTj5zZfmSc ;
+MsgType : text ;
+Content : 欢迎关注杭州师范大学附属仓前实验中学，请点击菜单使用。 ;
+
+2016-04-18 13:51:24 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvv8PDFqifacH9rwLYMejnDw]]></FromUserName>
+<CreateTime>1460958684</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=4&c=entry&eid=1]]></EventKey>
+<MenuId>402697403</MenuId>
+</xml>
+
+2016-04-18 13:51:24 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 14 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-04-18 13:51:24 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvv8PDFqifacH9rwLYMejnDw ;
+MsgType : text ;
+Content : 欢迎关注杭州师范大学附属仓前实验中学，请点击菜单使用。 ;
+
+2016-04-18 13:51:50 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvv8PDFqifacH9rwLYMejnDw]]></FromUserName>
+<CreateTime>1460958710</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=4&c=entry&eid=2]]></EventKey>
+<MenuId>402697403</MenuId>
+</xml>
+
+2016-04-18 13:51:50 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 14 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-04-18 13:51:50 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvv8PDFqifacH9rwLYMejnDw ;
+MsgType : text ;
+Content : 欢迎关注杭州师范大学附属仓前实验中学，请点击菜单使用。 ;
+
+2016-04-18 13:51:53 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvv8PDFqifacH9rwLYMejnDw]]></FromUserName>
+<CreateTime>1460958713</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=4&c=entry&eid=1]]></EventKey>
+<MenuId>402697403</MenuId>
+</xml>
+
+2016-04-18 13:51:53 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 14 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-04-18 13:51:53 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvv8PDFqifacH9rwLYMejnDw ;
+MsgType : text ;
+Content : 欢迎关注杭州师范大学附属仓前实验中学，请点击菜单使用。 ;
+
+2016-04-18 13:53:35 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvodQbJscFvVHtC4xh757R2Y]]></FromUserName>
+<CreateTime>1460958814</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=4&c=entry&eid=1]]></EventKey>
+<MenuId>402697403</MenuId>
+</xml>
+
+2016-04-18 13:53:35 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 14 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-04-18 13:53:35 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvodQbJscFvVHtC4xh757R2Y ;
+MsgType : text ;
+Content : 欢迎关注杭州师范大学附属仓前实验中学，请点击菜单使用。 ;
+
+2016-04-18 13:55:03 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvodQbJscFvVHtC4xh757R2Y]]></FromUserName>
+<CreateTime>1460958903</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=4&c=entry&eid=2]]></EventKey>
+<MenuId>402697403</MenuId>
+</xml>
+
+2016-04-18 13:55:03 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 14 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-04-18 13:55:03 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvodQbJscFvVHtC4xh757R2Y ;
+MsgType : text ;
+Content : 欢迎关注杭州师范大学附属仓前实验中学，请点击菜单使用。 ;
+
+2016-04-18 13:55:33 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvodQbJscFvVHtC4xh757R2Y]]></FromUserName>
+<CreateTime>1460958933</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=4&c=entry&eid=2]]></EventKey>
+<MenuId>402697403</MenuId>
+</xml>
+
+2016-04-18 13:55:33 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 14 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-04-18 13:55:33 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvodQbJscFvVHtC4xh757R2Y ;
+MsgType : text ;
+Content : 欢迎关注杭州师范大学附属仓前实验中学，请点击菜单使用。 ;
+
+2016-04-18 13:56:46 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvodQbJscFvVHtC4xh757R2Y]]></FromUserName>
+<CreateTime>1460959006</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=4&c=entry&eid=2]]></EventKey>
+<MenuId>402697403</MenuId>
+</xml>
+
+2016-04-18 13:56:46 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 14 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-04-18 13:56:46 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvodQbJscFvVHtC4xh757R2Y ;
+MsgType : text ;
+Content : 欢迎关注杭州师范大学附属仓前实验中学，请点击菜单使用。 ;
+
+2016-04-18 13:59:25 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvodQbJscFvVHtC4xh757R2Y]]></FromUserName>
+<CreateTime>1460959165</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=4&c=entry&eid=1]]></EventKey>
+<MenuId>402697403</MenuId>
+</xml>
+
+2016-04-18 13:59:25 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 14 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-04-18 13:59:25 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvodQbJscFvVHtC4xh757R2Y ;
+MsgType : text ;
+Content : 欢迎关注杭州师范大学附属仓前实验中学，请点击菜单使用。 ;
+
+2016-04-18 14:00:28 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvodQbJscFvVHtC4xh757R2Y]]></FromUserName>
+<CreateTime>1460959228</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=4&c=entry&eid=2]]></EventKey>
+<MenuId>402697403</MenuId>
+</xml>
+
+2016-04-18 14:00:28 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 14 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-04-18 14:00:28 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvodQbJscFvVHtC4xh757R2Y ;
+MsgType : text ;
+Content : 欢迎关注杭州师范大学附属仓前实验中学，请点击菜单使用。 ;
+
+2016-04-18 14:27:56 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvjnNs-wlmta5xYTj5zZfmSc]]></FromUserName>
+<CreateTime>1460960876</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=4&c=entry&eid=1]]></EventKey>
+<MenuId>402697403</MenuId>
+</xml>
+
+2016-04-18 14:27:56 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 14 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-04-18 14:27:56 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvjnNs-wlmta5xYTj5zZfmSc ;
+MsgType : text ;
+Content : 欢迎关注杭州师范大学附属仓前实验中学，请点击菜单使用。 ;
+
+2016-04-18 14:28:03 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvjnNs-wlmta5xYTj5zZfmSc]]></FromUserName>
+<CreateTime>1460960883</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=4&c=entry&eid=2]]></EventKey>
+<MenuId>402697403</MenuId>
+</xml>
+
+2016-04-18 14:28:03 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 14 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-04-18 14:28:03 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvjnNs-wlmta5xYTj5zZfmSc ;
+MsgType : text ;
+Content : 欢迎关注杭州师范大学附属仓前实验中学，请点击菜单使用。 ;
+
+2016-04-18 14:28:13 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvjnNs-wlmta5xYTj5zZfmSc]]></FromUserName>
+<CreateTime>1460960893</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://m.igrow.cn/m/school/website/1390]]></EventKey>
+<MenuId>402697403</MenuId>
+</xml>
+
+2016-04-18 14:28:13 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 14 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-04-18 14:28:13 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvjnNs-wlmta5xYTj5zZfmSc ;
+MsgType : text ;
+Content : 欢迎关注杭州师范大学附属仓前实验中学，请点击菜单使用。 ;
+
+2016-04-18 14:53:27 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_7d1762dac7c2]]></ToUserName>
+<FromUserName><![CDATA[o8AZcwC1Vs06PA8f9zPCAbMM78bM]]></FromUserName>
+<CreateTime>1460962407</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[qualification_verify_success]]></Event>
+<ExpiredTime>1492498394</ExpiredTime>
+</xml>
+
+2016-04-18 14:53:27 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 14:53:27 response :
+------------
+
+2016-04-18 14:53:27 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_7d1762dac7c2]]></ToUserName>
+<FromUserName><![CDATA[o8AZcwC1Vs06PA8f9zPCAbMM78bM]]></FromUserName>
+<CreateTime>1460962407</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[naming_verify_success]]></Event>
+<ExpiredTime>1492498394</ExpiredTime>
+</xml>
+
+2016-04-18 14:53:27 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 14:53:27 response :
+------------
+
+2016-04-18 15:04:18 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcott6NxqQL1nVC6VxQb0II8gA0]]></FromUserName>
+<CreateTime>1460963058</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[CLICK]]></Event>
+<EventKey><![CDATA[uc.profile]]></EventKey>
+</xml>
+
+2016-04-18 15:04:18 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 15:04:18 response :
+------------
+
+2016-04-18 15:04:58 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcott6NxqQL1nVC6VxQb0II8gA0]]></FromUserName>
+<CreateTime>1460963098</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[CLICK]]></Event>
+<EventKey><![CDATA[uc.profile]]></EventKey>
+</xml>
+
+2016-04-18 15:04:58 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 15:04:58 response :
+------------
+
+2016-04-18 15:06:00 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcott6NxqQL1nVC6VxQb0II8gA0]]></FromUserName>
+<CreateTime>1460963160</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[CLICK]]></Event>
+<EventKey><![CDATA[uc.profile]]></EventKey>
+</xml>
+
+2016-04-18 15:06:00 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 15:06:00 response :
+------------
+
+2016-04-18 15:06:12 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcott6NxqQL1nVC6VxQb0II8gA0]]></FromUserName>
+<CreateTime>1460963172</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[CLICK]]></Event>
+<EventKey><![CDATA[uc.class]]></EventKey>
+</xml>
+
+2016-04-18 15:06:12 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 15:06:12 response :
+------------
+
+2016-04-18 15:06:30 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcott6NxqQL1nVC6VxQb0II8gA0]]></FromUserName>
+<CreateTime>1460963190</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[CLICK]]></Event>
+<EventKey><![CDATA[uc.profile]]></EventKey>
+</xml>
+
+2016-04-18 15:06:30 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 15:06:30 response :
+------------
+
+2016-04-18 15:06:48 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcott6NxqQL1nVC6VxQb0II8gA0]]></FromUserName>
+<CreateTime>1460963208</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[CLICK]]></Event>
+<EventKey><![CDATA[uc.profile]]></EventKey>
+</xml>
+
+2016-04-18 15:06:48 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 15:06:48 response :
+------------
+
+2016-04-18 15:06:53 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcott6NxqQL1nVC6VxQb0II8gA0]]></FromUserName>
+<CreateTime>1460963213</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[CLICK]]></Event>
+<EventKey><![CDATA[uc.profile]]></EventKey>
+</xml>
+
+2016-04-18 15:06:53 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 15:06:53 response :
+------------
+
+2016-04-18 15:07:20 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcott6NxqQL1nVC6VxQb0II8gA0]]></FromUserName>
+<CreateTime>1460963240</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[CLICK]]></Event>
+<EventKey><![CDATA[uc.profile]]></EventKey>
+</xml>
+
+2016-04-18 15:07:20 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 15:07:20 response :
+------------
+
+2016-04-18 15:07:36 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcott6NxqQL1nVC6VxQb0II8gA0]]></FromUserName>
+<CreateTime>1460963256</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[CLICK]]></Event>
+<EventKey><![CDATA[uc.profile]]></EventKey>
+</xml>
+
+2016-04-18 15:07:36 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 15:07:36 response :
+------------
+
+2016-04-18 15:23:05 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvjueIkLU7218kMXz93i7DY8]]></FromUserName>
+<CreateTime>1460964185</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://m.igrow.cn/m/school/website/1390]]></EventKey>
+<MenuId>402697403</MenuId>
+</xml>
+
+2016-04-18 15:23:05 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 14 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-04-18 15:23:05 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvjueIkLU7218kMXz93i7DY8 ;
+MsgType : text ;
+Content : 欢迎关注杭州师范大学附属仓前实验中学，请点击菜单使用。 ;
+
+2016-04-18 15:23:22 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvjueIkLU7218kMXz93i7DY8]]></FromUserName>
+<CreateTime>1460964202</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=4&c=entry&eid=1]]></EventKey>
+<MenuId>402697403</MenuId>
+</xml>
+
+2016-04-18 15:23:22 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 14 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-04-18 15:23:22 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvjueIkLU7218kMXz93i7DY8 ;
+MsgType : text ;
+Content : 欢迎关注杭州师范大学附属仓前实验中学，请点击菜单使用。 ;
+
+2016-04-18 15:31:46 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcott84pU16wJT6ChwWpKVayVsQ]]></FromUserName>
+<CreateTime>1460964706</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402976329</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 15:31:46 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 15:31:46 response :
+------------
+
+2016-04-18 15:32:12 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcott_HC4Mi8y5j3sFlJBgqhd9E]]></FromUserName>
+<CreateTime>1460964732</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402976331</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 15:32:12 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 15:32:12 response :
+------------
+
+2016-04-18 15:32:22 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcottw-XpAyVDw19kaEaIYggcQM]]></FromUserName>
+<CreateTime>1460964742</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402976333</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 15:32:22 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 15:32:22 response :
+------------
+
+2016-04-18 15:32:43 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcott52uezBMOS2iT-RAS8H9OZE]]></FromUserName>
+<CreateTime>1460964763</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402976337</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 15:32:43 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 15:32:43 response :
+------------
+
+2016-04-18 15:33:15 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcottweuKMCfyRDSq_VzSWdhHL4]]></FromUserName>
+<CreateTime>1460964795</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402976347</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 15:33:15 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 15:33:15 response :
+------------
+
+2016-04-18 15:33:15 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcott7ShK4TAzzs-r2z7vxof71E]]></FromUserName>
+<CreateTime>1460964795</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402976348</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 15:33:15 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 15:33:15 response :
+------------
+
+2016-04-18 15:33:33 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcott_TScLOOrncqPhtzglnYENA]]></FromUserName>
+<CreateTime>1460964813</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402976352</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 15:33:33 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 15:33:33 response :
+------------
+
+2016-04-18 15:34:34 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcott9j2Z30FezqLMZANHtpKRrc]]></FromUserName>
+<CreateTime>1460964874</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402976358</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 15:34:34 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 15:34:34 response :
+------------
+
+2016-04-18 15:35:16 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcottzBLHgNZQimwE8XOIsT1IY0]]></FromUserName>
+<CreateTime>1460964916</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402976363</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 15:35:16 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 15:35:16 response :
+------------
+
+2016-04-18 15:36:48 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcott-O08EqTyB2vYvWY1DM_DPw]]></FromUserName>
+<CreateTime>1460965008</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402976372</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 15:36:48 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 15:36:48 response :
+------------
+
+2016-04-18 15:43:08 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcott5b5wbU8rzCcze6w7sk3ZCE]]></FromUserName>
+<CreateTime>1460965388</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402976425</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 15:43:08 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 15:43:08 response :
+------------
+
+2016-04-18 15:43:08 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcottwqUGE1u3b5ckvGD0KWlBl8]]></FromUserName>
+<CreateTime>1460965388</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402976426</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 15:43:08 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 15:43:08 response :
+------------
+
+2016-04-18 15:44:03 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcott82FheWLXY2ft9sHxcV1YYQ]]></FromUserName>
+<CreateTime>1460965443</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402976442</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 15:44:03 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 15:44:03 response :
+------------
+
+2016-04-18 15:47:32 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcottyilUy5tLd8vANXKGPG4EcA]]></FromUserName>
+<CreateTime>1460965652</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402976498</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 15:47:32 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 15:47:32 response :
+------------
+
+2016-04-18 15:48:48 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcott-Gft4vv4qG56uwiyofjGHg]]></FromUserName>
+<CreateTime>1460965728</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402976526</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 15:48:48 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 15:48:48 response :
+------------
+
+2016-04-18 15:50:03 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcottwcgxXGOVdfIJ0iDGWxOKZQ]]></FromUserName>
+<CreateTime>1460965803</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402976534</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 15:50:03 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 15:50:03 response :
+------------
+
+2016-04-18 15:50:13 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcott9ljw-R0nLqj9w8n9-Ki3fk]]></FromUserName>
+<CreateTime>1460965813</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402976535</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 15:50:13 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 15:50:13 response :
+------------
+
+2016-04-18 15:50:13 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcott70voayiiyG-DpyHj7M30_4]]></FromUserName>
+<CreateTime>1460965813</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402976536</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 15:50:13 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 15:50:13 response :
+------------
+
+2016-04-18 15:50:14 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcott3J9KhtJb00_3ga_Kkmz2wo]]></FromUserName>
+<CreateTime>1460965814</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402976537</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 15:50:14 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 15:50:14 response :
+------------
+
+2016-04-18 15:50:18 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcottyNJ25zzQtzEyNqnQxM1MOA]]></FromUserName>
+<CreateTime>1460965818</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402976538</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 15:50:18 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 15:50:18 response :
+------------
+
+2016-04-18 15:51:46 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcott5JBy_cI3HgnkPVqsrHbWso]]></FromUserName>
+<CreateTime>1460965906</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402976565</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 15:51:46 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 15:51:46 response :
+------------
+
+2016-04-18 15:53:45 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcottwAqWW9x8Wo1YdwPF4SIpbs]]></FromUserName>
+<CreateTime>1460966024</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402976585</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 15:53:45 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 15:53:45 response :
+------------
+
+2016-04-18 15:54:48 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcott8QzR6FuIfbjGYBlK2rCCjY]]></FromUserName>
+<CreateTime>1460966088</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402976593</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 15:54:48 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 15:54:48 response :
+------------
+
+2016-04-18 15:58:39 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcott8bXNlBO-pF9t-0J1dTDGPs]]></FromUserName>
+<CreateTime>1460966319</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402976613</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 15:58:39 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 15:58:39 response :
+------------
+
+2016-04-18 16:06:46 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcottzrsY0hiIxBYE3CK2zp6WYY]]></FromUserName>
+<CreateTime>1460966806</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402976676</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 16:06:46 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 16:06:46 response :
+------------
+
+2016-04-18 16:07:10 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcottwdRSG6HkIZwvuQXqa3QKng]]></FromUserName>
+<CreateTime>1460966830</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402976681</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 16:07:10 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 16:07:10 response :
+------------
+
+2016-04-18 16:20:21 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcottw7qP2pciewrM5tmFvI8As4]]></FromUserName>
+<CreateTime>1460967621</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402976904</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 16:20:21 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 16:20:21 response :
+------------
+
+2016-04-18 16:23:09 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcottxty6YaSaSyWDPLhYWgCpEo]]></FromUserName>
+<CreateTime>1460967789</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402976933</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 16:23:09 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 16:23:09 response :
+------------
+
+2016-04-18 16:24:54 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcott8-fHoACFiURkUXBYRZHEro]]></FromUserName>
+<CreateTime>1460967894</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402976959</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 16:24:54 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 16:24:54 response :
+------------
+
+2016-04-18 16:24:54 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcottwUAPs9DpzF09MOdy_19fZQ]]></FromUserName>
+<CreateTime>1460967894</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402976960</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 16:24:54 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 16:24:54 response :
+------------
+
+2016-04-18 16:26:11 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcott4a-0QekZBexvAtcmke-D4w]]></FromUserName>
+<CreateTime>1460967971</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402976970</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 16:26:11 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 16:26:11 response :
+------------
+
+2016-04-18 16:26:11 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcott-ABRgmooGIBYo6pfmvHqa8]]></FromUserName>
+<CreateTime>1460967971</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402976971</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 16:26:11 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 16:26:11 response :
+------------
+
+2016-04-18 16:26:11 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcott5JI0hsdoCxNPA10KHiY1kA]]></FromUserName>
+<CreateTime>1460967971</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402976972</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 16:26:11 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 16:26:11 response :
+------------
+
+2016-04-18 16:26:12 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcott3nJuxjFu-NKKpc3ZmQp0YE]]></FromUserName>
+<CreateTime>1460967972</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402976973</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 16:26:12 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 16:26:12 response :
+------------
+
+2016-04-18 16:26:12 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcott0BYGm77xwFerCfTO68jYpE]]></FromUserName>
+<CreateTime>1460967972</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[TEMPLATESENDJOBFINISH]]></Event>
+<MsgID>402976974</MsgID>
+<Status><![CDATA[success]]></Status>
+</xml>
+
+2016-04-18 16:26:12 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 16:26:12 response :
+------------
+
+2016-04-18 17:55:43 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcott9bfh8EIq9mOTbCPRaclvDY]]></FromUserName>
+<CreateTime>1460973343</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[CLICK]]></Event>
+<EventKey><![CDATA[uc.class]]></EventKey>
+</xml>
+
+2016-04-18 17:55:43 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 17:55:43 response :
+------------
+
+2016-04-18 17:56:00 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcott9bfh8EIq9mOTbCPRaclvDY]]></FromUserName>
+<CreateTime>1460973360</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[CLICK]]></Event>
+<EventKey><![CDATA[uc.school]]></EventKey>
+</xml>
+
+2016-04-18 17:56:00 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-18 17:56:00 response :
+------------
+
+2016-04-18 20:42:52 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvjnNs-wlmta5xYTj5zZfmSc]]></FromUserName>
+<CreateTime>1460983372</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=4&c=entry&eid=2]]></EventKey>
+<MenuId>402697403</MenuId>
+</xml>
+
+2016-04-18 20:42:52 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 14 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-04-18 20:42:52 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvjnNs-wlmta5xYTj5zZfmSc ;
+MsgType : text ;
+Content : 欢迎关注杭州师范大学附属仓前实验中学，请点击菜单使用。 ;
+
+2016-04-18 20:44:50 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvjnNs-wlmta5xYTj5zZfmSc]]></FromUserName>
+<CreateTime>1460983490</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=4&c=entry&eid=2]]></EventKey>
+<MenuId>402697403</MenuId>
+</xml>
+
+2016-04-18 20:44:50 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 14 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-04-18 20:44:50 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvjnNs-wlmta5xYTj5zZfmSc ;
+MsgType : text ;
+Content : 欢迎关注杭州师范大学附属仓前实验中学，请点击菜单使用。 ;
+
+2016-04-18 20:45:10 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvjnNs-wlmta5xYTj5zZfmSc]]></FromUserName>
+<CreateTime>1460983509</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=4&c=entry&eid=2]]></EventKey>
+<MenuId>402697403</MenuId>
+</xml>
+
+2016-04-18 20:45:10 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 14 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-04-18 20:45:10 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvjnNs-wlmta5xYTj5zZfmSc ;
+MsgType : text ;
+Content : 欢迎关注杭州师范大学附属仓前实验中学，请点击菜单使用。 ;
+
+2016-04-18 20:45:35 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvjnNs-wlmta5xYTj5zZfmSc]]></FromUserName>
+<CreateTime>1460983535</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://m.igrow.cn/m/school/website/1390]]></EventKey>
+<MenuId>402697403</MenuId>
+</xml>
+
+2016-04-18 20:45:35 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 14 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-04-18 20:45:35 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvjnNs-wlmta5xYTj5zZfmSc ;
+MsgType : text ;
+Content : 欢迎关注杭州师范大学附属仓前实验中学，请点击菜单使用。 ;
+
+2016-04-18 20:45:39 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvjnNs-wlmta5xYTj5zZfmSc]]></FromUserName>
+<CreateTime>1460983539</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=4&c=entry&eid=1]]></EventKey>
+<MenuId>402697403</MenuId>
+</xml>
+
+2016-04-18 20:45:39 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 14 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-04-18 20:45:39 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvjnNs-wlmta5xYTj5zZfmSc ;
+MsgType : text ;
+Content : 欢迎关注杭州师范大学附属仓前实验中学，请点击菜单使用。 ;
+
+2016-04-18 20:45:58 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvjnNs-wlmta5xYTj5zZfmSc]]></FromUserName>
+<CreateTime>1460983558</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=4&c=entry&eid=2]]></EventKey>
+<MenuId>402697403</MenuId>
+</xml>
+
+2016-04-18 20:45:58 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 14 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-04-18 20:45:58 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvjnNs-wlmta5xYTj5zZfmSc ;
+MsgType : text ;
+Content : 欢迎关注杭州师范大学附属仓前实验中学，请点击菜单使用。 ;
+
+2016-04-18 20:48:07 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvjnNs-wlmta5xYTj5zZfmSc]]></FromUserName>
+<CreateTime>1460983687</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=4&c=entry&eid=2]]></EventKey>
+<MenuId>402697403</MenuId>
+</xml>
+
+2016-04-18 20:48:07 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 14 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-04-18 20:48:07 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvjnNs-wlmta5xYTj5zZfmSc ;
+MsgType : text ;
+Content : 欢迎关注杭州师范大学附属仓前实验中学，请点击菜单使用。 ;
+
+2016-04-18 20:48:51 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvjnNs-wlmta5xYTj5zZfmSc]]></FromUserName>
+<CreateTime>1460983731</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=4&c=entry&eid=2]]></EventKey>
+<MenuId>402697403</MenuId>
+</xml>
+
+2016-04-18 20:48:51 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 14 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-04-18 20:48:51 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvjnNs-wlmta5xYTj5zZfmSc ;
+MsgType : text ;
+Content : 欢迎关注杭州师范大学附属仓前实验中学，请点击菜单使用。 ;
+
+2016-04-18 20:52:58 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvjnNs-wlmta5xYTj5zZfmSc]]></FromUserName>
+<CreateTime>1460983978</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=4&c=entry&eid=2]]></EventKey>
+<MenuId>402697403</MenuId>
+</xml>
+
+2016-04-18 20:52:58 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 14 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-04-18 20:52:58 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvjnNs-wlmta5xYTj5zZfmSc ;
+MsgType : text ;
+Content : 欢迎关注杭州师范大学附属仓前实验中学，请点击菜单使用。 ;
+
+2016-04-18 20:53:50 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvjnNs-wlmta5xYTj5zZfmSc]]></FromUserName>
+<CreateTime>1460984030</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://m.igrow.cn/m/school/website/1390]]></EventKey>
+<MenuId>402697403</MenuId>
+</xml>
+
+2016-04-18 20:53:50 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 14 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-04-18 20:53:50 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvjnNs-wlmta5xYTj5zZfmSc ;
+MsgType : text ;
+Content : 欢迎关注杭州师范大学附属仓前实验中学，请点击菜单使用。 ;
+
+2016-04-18 22:20:06 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_081ee8610e82]]></ToUserName>
+<FromUserName><![CDATA[ohNDtvjnNs-wlmta5xYTj5zZfmSc]]></FromUserName>
+<CreateTime>1460989206</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=4&c=entry&eid=2]]></EventKey>
+<MenuId>402697403</MenuId>
+</xml>
+
+2016-04-18 22:20:06 params :
+------------
+Array:
+message : Array ;
+module : basic ;
+rule : 14 ;
+priority : 0 ;
+keyword : Array ;
+
+2016-04-18 22:20:06 response :
+------------
+Array:
+FromUserName : gh_081ee8610e82 ;
+ToUserName : ohNDtvjnNs-wlmta5xYTj5zZfmSc ;
+MsgType : text ;
+Content : 欢迎关注杭州师范大学附属仓前实验中学，请点击菜单使用。 ;
+

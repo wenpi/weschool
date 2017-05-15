@@ -1,0 +1,87 @@
+    {template 'admin_head'}
+<link href="{MODULE_URL}template/mobile/style/user.min.css" rel="stylesheet" type="text/css" />
+    <style>
+        .name_edit, .name_edit1 {
+            width:50%;
+            }
+        .icon-level-p1 {
+            width: 100%;
+            border-radius: 50px;
+            border-radius: 100px;
+            border: none;
+            overflow: hidden;
+        -webkit-box-shadow:none;
+            box-shadow:none;
+            margin:20px auto 10px auto;
+        }
+        .stu_name img {
+            width: 30px;
+            
+        }
+ </style>
+  <body ontouchstart  style="background-color:#fff">
+        <div class="home_bg2" style="height:220px;">
+                <div class="id_box user_bg">
+                    <a href="{php echo $this->createMobileUrl('admin_data');}">
+                    <div class="icon-level-p1"><img src="{$info['avatar']}"/> </div>
+                    <div class="stu_name">{$info['nickname']}<img src="{MODULE_URL}template/mobile/style/info.png" /></div>
+                    </a>
+            </div>	
+        </div>
+    <div class="weui_grids">
+      <a href="buttons.html" class="weui_grid js_grid" data-id="button">
+        <div class="weui_grid_icon">
+          <i class="fa fa-paper-plane-o" aria-hidden="true" style="color:#0dc1fc"></i>
+        </div>
+        <p class="weui_grid_label">
+          教师通知
+        </p>
+      </a>
+      <a href="cell.html" class="weui_grid js_grid" data-id="cell">
+        <div class="weui_grid_icon">
+         <i class="fa fa-bell-o" aria-hidden="true" style="color:#0dc1fc"></i>
+        </div>
+        <p class="weui_grid_label">
+          发布公告
+        </p>
+      </a>
+      
+      <a href="form.html" class="weui_grid js_grid" data-id="cell">
+        <div class="weui_grid_icon">
+             <i class="fa fa-cube" aria-hidden="true" style="color:#0dc1fc" ></i>
+        </div>
+        <p class="weui_grid_label">
+          通知查看
+        </p>
+      </a>
+      
+      <a href="toast.html" class="weui_grid js_grid" data-id="toast">
+        <div class="weui_grid_icon">
+          <i class="fa fa-pencil-square-o" aria-hidden="true" style="color:#5efa40"></i>
+        </div>
+        <p class="weui_grid_label">
+          学生通知
+        </p>
+      </a>
+      <a href="dialog.html" class="weui_grid js_grid" data-id="dialog">
+        <div class="weui_grid_icon">
+         <i class="fa fa-coffee" aria-hidden="true"style="color:#5efa40"></i>
+        </div>
+        <p class="weui_grid_label">
+          班级圈
+        </p>
+      </a>
+      
+      <a href="progress.html" class="weui_grid js_grid" data-id="progress">
+        <div class="weui_grid_icon">
+          <i class="fa fa-envelope-o" aria-hidden="true" style="color:#5efa40"></i>
+        </div>
+        <p class="weui_grid_label">
+          校长信箱
+        </p>
+      </a>
+      
+
+    </div>
+    </body>
+  </html>

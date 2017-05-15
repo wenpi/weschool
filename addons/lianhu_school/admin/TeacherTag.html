@@ -1,0 +1,87 @@
+   {template '../admin/head'}
+        {template '../admin/header'}
+        <div class="page-container">
+        {template '../admin/left'}
+            <div class="page-content-wrapper">
+                <div class="page-content">
+                    {template '../admin/sidebar'}
+                    <h1 class="page-title"> 
+                            <small> {$title} </small>
+                    </h1>
+                 <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-4">
+                                <div class="portlet light ">
+                                    <div class="portlet-title">
+                                        <div class="caption font-green-haze">
+                                            <i class="fa fa-plus font-green-haze"></i>
+                                            <span class="caption-subject bold uppercase"> 新增标签</span>
+                                        </div>
+                                        <div class="actions">
+                                            <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="javascript:;" data-original-title="" title=""> </a>
+                                        </div>
+                                    </div>
+                                    <div class="portlet-body form">
+                                        <form action="" method="post" class="form-horizontal form" enctype="multipart/form-data" id="form1"  >
+                                                <div class="form-group form-md-line-input">
+                                                    <label class="col-md-4 control-label">标签名</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control"  placeholder="标签名" name='tag_name' required autofocus>
+                                                        <div class="form-control-focus"> </div>
+                                                    </div>
+                                                </div>                
+                                                <div class="form-actions">
+                                                    <div class="row">
+                                                        <div class="col-md-offset-2 col-md-10">
+                                                            <input type="hidden" name="ac" value="new">
+                                                            <input type="submit" name="submit" class="btn blue" value="确认">
+                                                        </div>
+                                                    </div>
+                                                </div>                                                                                
+                                        </form>
+                                    </div>    
+                                </div> 
+                             </div> 
+                             <div class="col-md-6">
+                                <div class="portlet box green-turquoise">
+                                    <div class="portlet-title">
+                                        <div class="caption">
+                                            <i class="fa fa-navicon"></i>标签列表 <b class="font-red">{$out_msg}</b></div>
+                                        <div class="tools">
+                                            <a href="javascript:;" class="collapse"> </a>
+                                        </div>
+                                    </div>
+                                    <div class="portlet-body flip-scroll">
+                                        <table class="table table-bordered table-striped table-condensed flip-content table-light  ">
+                                            <thead class="flip-content">
+                                            <tr>
+                                                <th width="400">名称<b class="font-red">【点击标签名编辑，点击其他区域提交】</b></th>
+                                                <th>操作</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                                {loop $list $item}
+                                                        <tr>
+                                                            <td><input value='{$item['tag_name']}' data-id ='{$item['tag_id']}' data-name='tag_name' class="form-control" onblur="ajaxChange(this,'{php echo $this->createWebUrl('teacherTag',array('ac'=>'edit'))}')" class="col-md-4 font-blue-steel"></td>
+                                                            <td style="text-align: center">
+                                                                    <a  href="{php echo $this->createWebUrl('teacherTag',array("id"=>$item['tag_id'],'ac'=>'delete' ) );} " class="btn red">
+                                                                    <i class="fa fa-close"></i> 删除 </a>
+                                                            </td>
+                                                        </tr>
+                                                {/loop}                                           
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        </div>
+        </div>
+
+         {template '../admin/ajaxChange'}
+         {template '../admin/right'}
+        </div>
+     {template '../admin/footer'}
+         </body>
+    </html>

@@ -1,0 +1,133 @@
+{if $_GPC['print_bd_code']==1}
+	{template '../admin/print_bd_code'}
+    {php exit();}
+{/if}
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=52c98799d98f668ebe11f46d655abd82"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/library/TextIconOverlay/1.2/src/TextIconOverlay_min.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/library/MarkerClusterer/1.2/src/MarkerClusterer_min.js"></script>
+   {template '../admin/head'}
+        {template '../admin/header'}
+        <div class="page-container">
+        {template '../admin/left'}
+            <div class="page-content-wrapper">
+                <div class="page-content">
+                {template '../admin/sidebar'}
+                    <h1 class="page-title"> {$_SESSION['school_name']}
+                            <small> {$title} </small>
+                    </h1>
+                {if $ac=='list'}
+                          <div class="portlet light bordered">
+                                            <div class="portlet-title">
+                                                <div class="caption">
+                                                    <i class="icon-equalizer font-red-sunglo"></i>
+                                                    <span class="caption-subject font-red-sunglo bold uppercase">搜索</span>
+                                                    <span class="caption-helper">筛选</span>
+                                                </div>
+                                            </div>
+                                            <div class="portlet-body form">
+                                                <!-- BEGIN FORM-->
+                                                <form action="./index.php" method="POST" class="form-horizontal">
+                                                    	<input type="hidden" name="c" value="site" />
+                                                        <input type="hidden" name="a" value="entry" />
+                                                        <input type="hidden" name="m" value="lianhu_school" />
+                                                        <input type="hidden" name="do" value="schoolBus" />
+                                                        <input type="hidden" name="ac" value="list" />
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-3">开始时间</label>
+                                                            <div class="col-md-4">
+                                                                <input name='begin_time' class="form-control"  id='begin_time' value="{php echo date("Y-m-d H:i",$class_schoolBus->begin_time)}">
+                                                            </div>
+                                                        </div>	
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-3">终止时间</label>
+                                                            <div class="col-md-4">
+                                                                <input name='end_time' class="form-control"  id='begin_time' value="{php echo date("Y-m-d H:i",$class_schoolBus->end_time)}">
+                                                                <input name='id' class="form-control" type="hidden"  value="{$_GPC['id']}">
+                                                            </div>
+                                                        </div>                    
+
+                                                    <div class="form-actions">
+                                                            <div class="row">
+                                                                <div class="col-md-offset-2 col-md-10">
+                                                                     <input type="submit" name="submit" class="btn blue" value="确认搜索">
+                                                                </div>
+                                                            </div>
+                                                    </div>   
+                                                </form>
+                                              </div>
+                             </div>
+                            <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="portlet box green-turquoise">
+                                            <div class="portlet-title">
+                                                <div class="caption">
+                                                    <i class="fa fa-cogs"></i>行驶轨迹 </div>
+                                                <div class="tools">
+                                                    <a href="javascript:;" class="collapse"> </a>
+                                                </div>
+                                            </div>
+                                            <div class="portlet-body flip-scroll">
+                                                <div id="allmap" style="height:100%;width:100%"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                {/if}
+        </div>
+        </div>
+         {template '../admin/right'}
+        </div>
+     {template '../admin/footer'}
+         </body>
+    </html>
+<script type="text/javascript">
+	var map = new BMap.Map("allmap");
+    map.centerAndZoom(new BMap.Point({$list[0]['baidu_lon']}, {$list[0]['baidu_lat']}), 15);
+	map.enableScrollWheelZoom();
+	var arrPoint=[];	
+	var myIcon = new BMap.Icon("{MODULE_URL}/images/school_bus.png", new BMap.Size(48,28));
+        {php $count = count($list)}
+        {loop $list $key $row}
+             var time   = "{php echo date('Y-m-d H:i:s',$row['add_time']);}" ;  
+			 var bjd    = "{$row['baidu_lon']}" ; 			
+			 var bwd    = "{$row['baidu_lat']}" ; 
+             {if $key+1 == $count}
+    			 var cardno = "0000000000" ;
+            {/if}
+			 var mc     = "停留点" ;
+			 //var name="<?php echo $mc;?>" 
+			 if(cardno == "0000000000"){
+			  			var marker = new BMap.Marker(new BMap.Point(bjd, bwd),{icon:myIcon}); 
+						var label  = new BMap.Label(mc+"-"+time+"",{offset:new BMap.Size(20,-10)});
+						marker.setLabel(label); 
+						map.addOverlay(marker); 
+			 }
+			 arrPoint.push(new BMap.Point(bjd, bwd));
+        {/loop}
+	var polyline = new BMap.Polyline(arrPoint,{strokeColor:"red", strokeWeight:6, strokeOpacity:0.5});    
+	map.addOverlay(polyline);
+</script>
+<script src="{MODULE_URL}/assets/global/plugins/jquery-inputmask/jquery.inputmask.bundle.min.js" type="text/javascript"></script>
+<script src="{MODULE_URL}/assets/global/plugins/jquery.input-ip-address-control-1.0.min.js" type="text/javascript"></script>
+<script>
+                        var FormInputMask = function () {
+                            var handleInputMasks = function () {
+                                $("#begin_time").inputmask("y-m-d h:s", {
+                                    autoUnmask: true
+                                }); //direct mask 
+                                $("#end_time").inputmask("y-m-d h:s", {
+                                    autoUnmask: true
+                                }); //direct mask  
+                            }                                 
+                            return {
+                                init: function () {
+                                    handleInputMasks();
+                                }
+                            };
+                        }();
+                        if (App.isAngularJsApp() === false) { 
+                            jQuery(document).ready(function() {
+                                FormInputMask.init(); // init metronic core componets
+                            });
+                        }                
+</script>

@@ -1,0 +1,431 @@
+{template 'common/header'}
+<link rel="stylesheet" href="{MODULE_URL}public/css/question_detail.css" />
+<style>.active{color:#fff !important;background-color:red !important;}</style>
+<style>
+    .weui-photo-browser-modal .photo-container img{
+        margin:0 auto;
+    }
+    .weui-photo-browser-modal.weui-photo-browser-modal-visible{
+        z-index:999;
+    }
+</style>
+<audio id="player" autoplay preload src=""></audio>
+<div class="main">
+    <div id="header">
+        <div>
+            {if $question['status'] == 1}
+            {if $question['openid'] == $_W['openid']}
+            <p style="font-size:.8em;padding:0.5em;line-height:2em;">超过48小时未回答，付款将按原支付路径全额退回</p>
+            {/if}
+            {/if}
+        </div>
+    </div>
+    <ul id="Question">
+        <li class="aq">
+            <div class="question">
+                <div class="question-title">
+                    <div class="avatar" style="position:relative;width:1.25rem;height:1.25rem;border-radius:50%;display:inline-block;" data-reactid=".13qenjtvthc.0.0.0">
+                        <img style="position:relative;width:1.25rem;height:1.25rem;border-radius:50%;display:inline-block;"
+                             class="avatarImg" src="{php echo $member['avatar']}"/>
+                        <span></span>
+                    </div>
+                    <span class="question-name">{$member['nickname']}</span>
+                    <span class="question-price">￥{$question['credit']}</span>
+                </div>
+                <div>
+                    <p class="question-content">
+                        <span></span>
+                        <span>{$question['title']}</span>
+                    </p>
+                </div>
+            </div>
+            {if $question['status'] == 2}
+            <div class="answer">
+                <div class="avatar" style="position:relative;width:1.85rem;height:1.85rem;border-radius:50%;display:inline-block;">
+                    <img style="position:relative;width:1.85rem;height:1.85rem;border-radius:50%;display:inline-block;"
+                         class="avatarImg" src="{php echo $answer['avatar']}"/>
+                    <img class="verified" style="position:absolute;width:0.6166666666666667rem;height:0.6166666666666667rem;right:0;bottom:0;"
+                         src="http://hangjia.qiniudn.com/Ft5o9F6sVsq8s1oAMi8ZfJ5wzhIw"/>
+                </div>
+                {php $answers = M('answer')->getall(array('question_id'=>$question['id']))}
+                {loop $answers $anser}
+                <a class="bubble bubble-red" style="width:10.862068965517242rem;margin-top:10px;"
+                   data-id="{$anser['question_id']}" data-answer="{$answer['id']}" id="listen" href="javascript:;">
+                    <span class="bubble-tail"></span>
+                    <div>
+                        <span class="wave1"></span>
+                        <span class="wave2"></span>
+                        <span class="wave3"></span>
+                    </div>
+                    {php $check = M('listen_log')->getOpenid($question['id'],$_W['openid'])}
+                    {if $question['isfree'] ==1}
+                    <span>限时免费</span>
+                    {else if ($question['openid']==$_W['openid'] || $question['to_openid'] == $_W['openid'])}
+                    <span>点击播放</span>
+                    {else}
+                    <span>{if !empty($check)}点击播放{else}{php echo $this->system['listen_price']}元偷偷听{/if}</span>
+                    {/if}
+                </a>
+                {/loop}
+                <span class="duration">
+                    <span>&quot;</span>
+                </span>
+                <span></span>
+            </div>
+            {/if}
+            <span></span>
+            <div class="footer">
+                <span>{php echo M('common')->format_create_time($question['create_time'])}</span>
+                {if $question['openid'] == $_W['openid']}
+                {if $question['status'] == 1}
+                <a class="action-btn" href="javascript:;">撤销问题</a>
+                {/if}
+                {if $question['status'] == 2}
+                <a class="action-btn" href="javascript:;">继续追问</a>
+                {/if}
+                {/if}
+                {if $question['to_openid'] == $_W['openid']}
+                {if $question['status'] == 1}
+                <a class="action-btn" href="javascript:;">决绝回答</a>
+                {/if}
+                {if $question['status'] == 2}
+                <a class="action-btn" href="javascript:;">补充回答</a>
+                {/if}
+                {/if}
+                <span></span>
+                <span></span>
+            </div>
+        </li>
+    </ul>
+    <ul id="Inquiry">
+        <style>
+            .imageview{
+                width:30%;
+            }
+        </style>
+        {php $images = unserialize($question['images'])}
+        {loop $images $image}
+        <img class="imageview" src="{php echo tomedia($image)}" alt=""/>
+        {/loop}
+    </ul>
+    <div>
+        <span></span>
+    </div>
+
+    <div id="content">
+        {if $question['status'] == 1}
+        <div style="font-size:.65rem;color:#999;padding:.75rem .6rem;text-align:center;">
+            <strong style="font-weight:normal;color:#00C287;">公开</strong>
+            <span>提问公开回答，答案每被偷偷听1次，你就赚￥0.5</span>
+        </div>
+        {/if}
+        {if $question['status']==2}
+        <div>
+            <div class="tutor-card">
+                <a href="" class="tutor-content">
+                    <h3 class="tutor-name">
+                        <span>{$answer['nickname']}</span>
+                        <span class="count">
+                        <span>{$answer['follow']}</span>
+                        <span>人收听</span></span>
+                    </h3>
+                    <p class="tutor-title">{$answer['desc']}</p>
+                </a>
+            </div>
+        </div>
+        {/if}
+    </div>
+    {template 'common/reward'}
+</div>
+{if $question['status'] == 1 && $question['to_openid'] == $_W['openid']}
+<style>
+    .seccondTip{
+        display:inline-block;
+        vertical-align:middle;
+        line-height:5rem;
+        font-size: 1.2rem;
+        color: #F85F48;
+        text-align: center;
+        position: absolute;
+        left: 2.6rem;
+    }
+</style>
+<div id="voicePanel">
+    <div style="margin-top:50px;">
+        <style>
+            .startIcon{
+                background-color: red;
+                width: 6em;
+                height: 6em;
+                border-radius: 3em;
+            }
+        </style>
+        <a href="javascript:;" class="seccondTip"></a>
+        <div style="text-align: center;">
+            <button class="startIcon" id="startRecord">
+                <img style="width: 2.5em;" src="{MODULE_URL}public/img/voice.png" alt=""/>
+            </button>
+        </div>
+        <span style="margin: 0 auto;display: block;text-align: center;margin-top: 10px;">点击开始录音，最多可录制60"</span>
+        <div style="text-align: center;">
+            <button id="postVoice" style="font-size: 15px;background-color: red;color: #fff;padding: 10px 15px;border-radius: 10px;margin-top: 20px;">确认发送</button>
+            <button id="playVoice" style="font-size: 15px;background-color: red;color: #fff;padding: 10px 15px;border-radius: 10px;margin-top: 20px;">试听一下</button>
+            <button id="restart" style="font-size: 15px;background-color: #908f8f;color: #fff;padding: 10px 15px;border-radius: 10px;margin-top: 20px;">重新录制</button>
+
+        </div>
+    </div>
+</div>
+{/if}
+<div class="h44"></div>
+<div class="h44"></div>
+{template 'common/footerbar'}
+<script type="text/javascript" src="{$_W['siteroot']}app/resource/js/lib/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="{MODULE_URL}public/libs/jquery_weui/js/jquery-weui.js"></script>
+<script src="{MODULE_URL}public/libs/jquery_weui/js/swiper.js"></script>
+
+<script>
+    var pb = $.photoBrowser({
+        items: {php echo json_encode($images)}
+    });
+    $('.imageview').click(function(){
+        pb.open();
+    });
+    wx.ready(function(){
+        var timelong = 0;
+        var recording = false;
+        var localId = null;
+        var post = {};
+        function show(){
+            $.modal({
+                title: "语音录制中",
+                text: "<span class='time_run'>1s</span>",
+                buttons: [
+                    {
+                        text: "我录好了",
+                        className: "default",
+                        onClick: function(){
+                            wx.stopRecord({
+                                success: function (res) {
+                                    localId = res.localId;
+                                    recording = false;
+                                    post.timelong = timelong;
+                                    post.localId = localId;
+                                }
+                            });
+                            return false;
+                        }
+                    }
+                ]
+            });
+        }
+
+        function play(){
+            wx.playVoice({
+                localId: localId,
+                success: function(e) {
+                    playing = true;
+                }
+            });
+            wx.onVoicePlayEnd({
+                complete: function(e) {
+                    playing = false;
+                }
+            });
+        }
+
+        function restart(){
+            timelong = 0;
+            recording = false;
+            start();
+        }
+        function timer(){
+            setTimeout(function(){
+                timelong = timelong + 1;
+                $('.time_run').html(timelong+'s');
+                if(recording){
+                    timer();
+                }
+            },1000);
+        }
+        function start(){
+            wx.startRecord({
+                cancel: function() {
+                    $.toast("你拒绝了录音");
+                    return ;
+                },
+                success: function() {
+                    recording = true;
+                    show();
+                    timer();
+                }
+            });
+            wx.onVoiceRecordEnd({
+                complete: function(e) {
+                    localId = e.localId;
+                    recording = false;
+                }
+            });
+        }
+        var posting = false;
+
+
+        $('#postVoice').click(function(){
+            posting = true;
+            wx.uploadVoice({
+                localId: post.localId,
+                isShowProgressTips: 1,
+                success: function (res) {
+                    post.serverId = res.serverId;
+                    post.act = 'answer';
+                    $.showLoading("正在发送数据");
+                    $.post("",post,function(data){
+                        if(data.status == 1){
+                            $.toast(data.message,2000,function(){
+                                window.location.href = "{php echo $this->createMobileUrl('answer')}";
+                            });
+                        }else{
+                            $.toast(data.message,2000,'cancel');
+                            $.hideLoading();
+                        }
+                        posting = false;
+                    },'json');
+                }
+            });
+
+        });
+
+        $('#playVoice').click(function(){
+            play();
+        });
+
+        $('#restart').click(function(){
+            restart();
+        });
+        $('#startRecord').click(function(){
+            start();
+        });
+    });
+</script>
+<script>
+    var player = document.getElementById('player');
+    console.log('reward');
+    var end = false;
+
+    var play_localId=null;
+    function playData(data,pre,dates){
+        play_localId = data.play_localId;
+        console.log(play_localId);
+        $(pre.target).find('.wave3').removeClass('voicing');
+        if(pre.play_localId){
+            wx.ready(function(){
+                wx.stopVoice({
+                    localId: pre.play_localId
+                });
+            });
+        }
+        if(data.isweixin == 1){
+            $(pre.target).find('.wave3').removeClass('voicing');
+            if(!play_localId){
+                wx.ready(function(){
+                    wx.downloadVoice({
+                        serverId: data.src,
+                        isShowProgressTips: 1,
+                        success: function (res) {
+                            data.localId = res.localId;
+                            eval("dates."+data.id+"=data");
+                            play_localId = data.localId;
+                            wx.playVoice({
+                                localId: play_localId
+                            });
+                            wx.onVoicePlayEnd({
+                                success: function (res) {
+                                    $(data.target).find('.wave3').removeClass('voicing');
+                                }
+                            });
+                            setTimeout(function(){
+                                $(data.target).find('.wave3').addClass('voicing');
+                            },500);
+                        }
+                    });
+                });
+            }else{
+                wx.playVoice({
+                    localId: play_localId
+                });
+                setTimeout(function(){
+                    end = false;
+                    $(data.target).find('.wave3').addClass('voicing');
+                },500);
+                wx.onVoicePlayEnd({
+                    success: function (res) {
+                        $(data.target).find('.wave3').removeClass('voicing');
+                        end = true;
+                    }
+                });
+            }
+        }else{
+            player.src = data.src;
+            player.play();
+        }
+    }
+    var now_data = {};
+    var pre_data = {};
+    var dates = {};
+
+    $(document.body).on('click','.listen',function(){
+        var id = "imeepos_"+$(this).data('id');
+        var src = $(this).data('src');
+        eval("var has = dates."+id);
+        if(!has){
+            $.get("",{id:$(this).data('id'),act:'src'},function(data){
+                if(data.status == 8){
+                    $.toast(data.message,2000,function(){});
+                    return '';
+                }
+                if(data.status == 0){
+                    data.target = $(this)[0];
+                    data.id = id;
+                    pre_data = now_data;
+                    now_data = data;
+                    eval("dates."+id+"=data");
+                    playData(now_data,pre_data,dates);
+                    return '';
+                }
+                wx.ready(function(){
+                    wx.chooseWXPay({
+                        timestamp: data.timeStamp,
+                        nonceStr: data.nonceStr,
+                        package: data.package,
+                        signType: data.signType,
+                        paySign: data.paySign,
+                        success: function (res) {
+                            if(res.errMsg == 'chooseWXPay:ok') {
+                                data.act == 'paySuccess';
+                                $.post("",{act:'paySuccess',listen_id:data.listen_id},function(d){
+                                    if(d.status == 1){
+                                        data.target = $(this)[0];
+                                        data.id = id;
+                                        pre_data = now_data;
+                                        now_data = data;
+                                        eval("dates."+id+"=data");
+                                        playData(now_data,pre_data,dates);
+                                        return '';
+                                    }else{
+                                        $.toast('系统错误',2000,'cancel');
+                                    }
+                                },'json');
+                            }else{
+                                window.location.href = "{php echo $_W['siteurl']}";
+                            }
+                        }
+                    });
+                });
+            },'json');
+        }else{
+            pre_data = now_data;
+            eval("now_data = dates."+id);
+            playData(now_data,pre_data,dates);
+        }
+    });
+</script>
+{template 'common/footer'}

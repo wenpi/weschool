@@ -1,0 +1,45 @@
+{php $g_title='添加讨论'}
+{php $menu='1'}
+{template 'common/header1'}
+{template 'common/menu'}
+		<div id="content" class="snap-content">
+			<div class="content">
+				<div class="one-half-responsive">
+					<div class="container heading-style-5"></div>
+				</div>
+				<form class="contactForm">
+					<fieldset>
+						<div class="formTextareaWrap">
+							<textarea placeholder="请认真回答哦！" id="desc" class="contactTextarea requiredField"></textarea>
+						</div>
+						<div class="formSubmitButtonErrorsWrap contactFormButton">
+							<input type="button" class="buttonWrap button button-green contactSubmitButton"
+								id="save" value="我写好了">
+						</div>
+					</fieldset>
+				</form>
+			</div>
+		</div>
+	</div>
+	<script>
+    $(document.body).on('click','#save',function(){
+        post.desc = $('#desc').val();
+		post.act = 'answer';
+		console.log(post);
+		warn("正在发送数据");
+		$.post("",post,function(data){
+			console.log(data);
+			if(data.status == 1){
+				$.hideLoading();
+				bingo(data.message,function(){
+					//window.location.href = "{php echo $_W['siteurl']}";
+				});
+			}else{
+				warn(data.message,'cancel');
+				$.hideLoading();
+			}
+			posting = false;
+		},'json');
+    });
+	</script>
+</body>

@@ -1,0 +1,35 @@
+{php $page_title = '需要缴费记录';}
+{template '../new/head'}
+  <link rel="apple-touch-icon"  href="{MODULE_URL}/style/app/images/logo.ico">
+  <link rel="stylesheet" href="{MODULE_URL}template/mobile/style/style_nav.css">
+  <script type='text/javascript' src='{MODULE_URL}/style/js/jquery.min.js'></script>
+<body>
+<div class="container" id="container">
+    <div class="cell">
+    <div class="hd">
+        <h1 class="page_title">需要缴费记录</h1>
+    </div>
+    </div>
+<div class="weui_cells weui_cells_access">
+        {loop $arr $row}
+        <a class="weui_cell" href="{php echo $this->createMobileUrl('give_money_order',array('name'=>$row['limit_module']));}">
+            <div class="weui_cell_bd weui_cell_primary">
+                <p>{$row['name']}:{$row['money']}元</p>
+            </div>
+            <div class="weui_cell_ft">
+            </div>
+        </a>
+        {/loop}
+      {if !$arr}
+        <a class="weui_cell" href="">
+            <div class="weui_cell_bd weui_cell_primary">
+                <p>暂无缴费</p>
+            </div>
+            <div class="weui_cell_ft">
+            </div>
+        </a>              
+      {/if}
+</div>
+</div>
+{template 'jsweixin'}
+{template '../new/footer'}

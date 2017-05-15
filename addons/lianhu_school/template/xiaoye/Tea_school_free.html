@@ -1,0 +1,18 @@
+{template '../xiaoye/newTeaHead'}
+<body>
+	<div class="main">
+		<div class="bl">班级列表-选择要放学的班级</div>
+        <ul class="bll">
+            {loop $class_list $row}
+                <li class="bjlb">
+                    <div class="bl1"><a href="{php echo $this->createMobileUrl("tea_school_free",array("cid"=>$row['class_id'],'send_leave'=>1))}"   onclick=" if(!confirm('该操作会通知该班级的学生家长，该学生已经放学！')){return false;}">
+                        <p>{$row['grade_name']}</p></a><a href="{php echo $this->createMobileUrl("tea_school_free",array("cid"=>$row['class_id'],'send_leave'=>1))}"  onclick=" if(!confirm('该操作会通知该班级的学生家长，该学生已经放学！')){return false;}" ><p>{$row['class_name']}</p></a></div>
+                    <div class="bl2"><a href="{php echo $this->createMobileUrl("tea_school_free",array("cid"=>$row['class_id'],'send_leave'=>1))}"  onclick=" if(!confirm('该操作会通知该班级的学生家长，该学生已经放学！')){return false;}"><img src="{MODULE_URL}/template/xiaoye/upimg/teacherimg/jt.png"></a></div>
+                </li>            
+            {/loop}
+        </ul>
+    </div>
+    {php $center_class = 'cde'}
+    {template '../xiaoye/newTeaFooter'}
+</body>
+</html>

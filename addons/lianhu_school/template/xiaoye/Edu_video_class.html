@@ -1,0 +1,33 @@
+{template '../xiaoye/newHead'}
+<div class="z_main">
+	{loop $list $row}
+		<div class="bb">
+			<a href="/"><p>{$row['class_name']}</p></a>
+		</div>
+		<ul class="bb-b">
+			{loop $row['sec'] $val}
+				<a href="{php echo $this->createMobileUrl('edu_video',array("cid"=>$val['class_id'])) }">
+				<li class="bbb">
+					<div style="background-image: url({php echo $this->imgFrom($val['class_img'])});width:100%;height: 100px;background-size:100%" class="background_img" >
+					</div>
+					<p>{$val['class_name']}</p>
+					<span>
+						<img src="{MODULE_URL}/template/xiaoye/upimg/ll.png" style="width:20px;">
+						<p>{php $cclass_eduClass->class_id = $val['class_id'];}
+							{php echo $cclass_eduClass->getClassViews();}</p>
+					</span>
+				</li>			
+				</a>
+			{/loop}
+		</ul>	
+		<div class="kk"></div>
+	{/loop}
+{if $in_type['type']=='teacher'}
+	<link href="{MODULE_URL}/template/xiaoye/css/teacher.css" rel="stylesheet">
+	{php $center_class = 'cde'}
+	{template '../xiaoye/newTeaFooter'}
+{else}
+	{template '../xiaoye/newStudentFooter'}
+{/if}  
+</body>
+</html>

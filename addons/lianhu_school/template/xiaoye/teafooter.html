@@ -1,0 +1,18 @@
+<div style="height:120px; overflow:hidden; width:100%;"></div>
+<div class="caidan">
+    <ul>
+    {php  $class_mobile = D('mobile');}
+    {php  $button_list  = $class_mobile->getButtonNav(false,false); }
+    {loop $button_list $row}
+           <li> <a href="{if $row['keyword']=='school_home'}
+                        {if $this->school_info['host_url'] }{php echo $this->school_info['host_url'];}{else}{php echo $this->createMobileUrl('wapHome',array('school_id'=>$this->school_info['school_id'] ) )} {/if} 
+                    {elseif !$row['url']}
+                        {php echo $this->createMobileUrl($row['keyword'])}
+                    {else}
+                        {$row['url']}
+                    {/if} " class="weui_tabbar_item weui_bar_item_on">
+                    <img src="{php echo $this->imgFrom($row['xiaoyeimg'])}">
+            </a></li>        
+      {/loop}
+    </ul>
+</div>

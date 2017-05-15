@@ -1,0 +1,156 @@
+﻿
+/*头部*/
+.header { background: #fff; overflow: hidden }
+.logo{ float:left; width:75%; height: 1rem; overflow:hidden}
+.qqzone{ float:right; width:22%}
+.qqzone img{ float:right; margin-top:5px}
+/*****c初高中生引导区******/
+.sort-nav1 { overflow: hidden; background: #fff; margin-bottom:.15rem; padding:5px 0px}
+.sort-nav1 ul li { display: inline-block; width: 25%; text-align: center; float: left; }
+/*导航*/
+.sort-nav { overflow: hidden; background: #fff; padding-bottom:.1rem;
+margin-bottom:.15rem;
+}
+.sort-nav ul li { display: inline-block; width: 25%; text-align: center; float: left; }
+.sort-nav .sort-circle { display: block; margin: auto; margin-bottom: .1rem;
+width:1.1rem;
+height:1.1rem;
+text-align: center; color: #fff; }
+.sort-nav li a {font-size: .26rem; padding:.36rem 0 0; display: block; color: inherit; height: 100%;color:#545454; }
+.sort-nav .sortid1 { background: url(http://3g.hnxdf.com/skin/m/images/icon1.png) no-repeat; background-size: 100%; }
+.sort-nav .sortid2 { background: url(http://3g.hnxdf.com/skin/m/images/icon2.png) no-repeat; background-size: 100%; }
+.sort-nav .sortid3 { background: url(http://3g.hnxdf.com/skin/m/images/icon3.png) no-repeat; background-size: 100%; }
+.sort-nav .sortid4 { background: url(http://3g.hnxdf.com/skin/m/images/icon4.png) no-repeat; background-size: 100%; }
+.sort-nav .sortid5 { background: url(http://3g.hnxdf.com/skin/m/images/icon5.png) no-repeat; background-size: 100%; }
+.sort-nav .sortid6 { background: url(http://3g.hnxdf.com/skin/m/images/icon6.png) no-repeat; background-size: 100%; }
+.sort-nav .sortid7 { background: url(http://3g.hnxdf.com/skin/m/images/ico7.png) no-repeat; background-size: 100%; }
+.sort-nav .sortid8 { background: url(http://3g.hnxdf.com/skin/m/images/icon8.png) no-repeat; background-size: 100%; }
+.voice{ border-top:#E0E0E0 1px solid; /*border-bottom:#E0E0E0 1px solid;box-shadow:0 .1px .1px #888888*/;}
+.voice_1{ background:url(http://3g.hnxdf.com/skin/m/images/sd.png) 0 0 no-repeat; width: 20px; background-size: 50px; height: 35px;display: block; float:left;margin: 2%; }
+.voice a{ font-size:.15rem;}
+.voice marquee{ float:left;font:.9em/3.3em "Microsoft YaHei"; width:90%;}
+.voice marquee a{color:#F00;}
+/*banner */
+.rslides { position: relative; list-style: none; overflow: hidden; width: 100%; padding: 0; margin: 0; }
+.rslides li { -webkit-backface-visibility: hidden; position: absolute; display: none; width: 100%; left: 0; top: 0; }
+.rslides li:first-child { position: relative; display: block; float: left; }
+.rslides img { display: block; height: auto; float: left; width: 100%; border: 0; }
+.slide_container { position: relative; max-width: 640px; margin: 0 auto; padding: 0; }
+.slide { position: relative; list-style: none; overflow: hidden; width: 100%; padding: 0; margin: 0; }
+.slide li { position: absolute; width: 100%; left: 0; top: 0; }
+.slide img { display: block; position: relative; z-index: 1; height: auto; width: 100%; border: 0; }
+.slide .caption { display: block; position: absolute; z-index: 2; font-size: 20px; text-shadow: none; color: #fff; background: #000; background: rgba(0, 0, 0, .8); left: 0; right: 0; bottom: 0; padding: 10px 20px; margin: 0; max-width: none; }
+.slide_nav { position: absolute; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); top: 55%; left: 0; opacity: 0.5; z-index: 3; text-indent: -9999px; overflow: hidden; text-decoration: none; height: 61px; width: 30px; background: transparent url(http://3g.hnxdf.com/skin/m/images/themes.gif) no-repeat -6px top; margin-top: -45px;  }
+.slide_nav:active { opacity: 1.0; }
+.slide_nav.next { left: auto; background-position: -42px top; right: 0; }
+
+
+/*厨师培训 */
+.cooking{ width:100%;border-collapse: collapse;}
+.cooking td{  text-align:center;border-collapse: collapse;  border-radius:5px; border:.1rem solid #fff}
+.cooking a{ text-align:center; color:#fff;}
+.cooking a h4,.cooking1 a h4{ font-size:.28rem;}
+.bg1{ background:#FE8812;  border-radius:5px}
+.bg2{ background:#f6b62e;  border-radius:5px}
+.bg3{ background:#a3cb5b;  border-radius:5px}
+.dc-circle { width: 100%; text-align: center; float: left }
+.dc1 em { background-size: 100%;width:.9rem; height:1.3rem; display: inline-block; margin:.2rem 0; }
+.dc2 em {  background-size: 100%;width:.9rem; height:.9rem;   display: inline-block }
+.dc3 em {   background-size: 100%;width:.9rem; height:.9rem;   display: inline-block }
+.dc4 em {  background-size: 100%;width:.9rem; height:.9rem;   display: inline-block }
+.dc5 em {  background-size: 100%;width:.9rem; height:.9rem;   display: inline-block }
+.dc6 em {   background-size: 100%;width:.9rem; height:.9rem;   display: inline-block }
+.dc7 em {   background-size: 100%;width:.9rem; height:.9rem;   display: inline-block }
+.dc8 em {   background-size: 100%;width:1.1rem; height:.9rem;   display: inline-block }
+.attention{ font-size:.2rem;}
+.cooking1{ width:100%;border-collapse: collapse;}
+.cooking1 td{ border-style: solid; border-color: #fff; border-width: 0 .1rem .1rem .1rem;  text-align:center}
+.cooking1 a{ text-align:center; color:#fff; padding:10px 0; display:block}
+
+.con_title1 {line-height: 0.4rem; background: #fff; border-bottom:1px solid #e1e1e1; float:left; width:100% }
+.con_title1 span { float: left; font-size: 0.32rem; color: #333; display: block; margin:10px 0 0 10px}
+.con_title1 span em { background-size: 100% auto; width:.06rem;height:.32rem;float: left; margin-right: 0.08rem;margin-top: 0.03rem; }
+.con_title1 span em.modular4{ background:#6cc8c7;}
+#www_zzjs_net {width:100%; float:left;display:inline; background:#fff;}
+.zzjs_net {width:65%; display: block; overflow: hidden; float:right}
+.zzjs_net ul {margin:0px;padding:0px; text-align:center}
+.zzjs_net li { width: 32%; padding:10px 0px; display: inline-block; font-size:.26rem; cursor:pointer}
+.nTab{ padding:10px}
+.zzjs_net li.hover { background:#fe8812;color: #fff;}
+.nTab h1{ font-size:.34rem; color:#333; line-height:.45rem; margin-bottom:.15rem}
+.nTab h1 a{ color:#333}
+.nTab dl{ float:left; padding:.2rem 0; width:100%;}
+.nTab dl dt{ float:left; margin-right:10px}
+.nTab dl dt img{width:1.8rem; height:1.5rem;}
+.nTab dl dd{ font-size:13px; color:#818181; line-height:21px}
+.nTab ul{}
+.TabContent ul li{line-height:.8rem; font-size:15px; float:left; width:100%; position:relative;}
+.TabContent ul li a{float:left; color:#333;   padding-left:12px; font-size:.28rem; color:#666;width: 95%;height: 2em;overflow: hidden}
+.morebtn a{ border-radius:50px; clear:both; text-align:center; height:.7rem; line-height:.7rem; width:100%; float:left; color:#818181; margin:15px 0; font-size:.28rem;}
+.date {color: #666;float: left; font-size:.22rem;}
+.clicks {color: #666;float: right;  font-size: .22rem;}
+
+/*热门视频 */
+.NIMarquee-img-layer { display: block; width: 100%; height: 100%; background-color: #000; filter: alpha(opacity=50); opacity: .5; position: absolute; left: 0; top: 0 }
+.onfocus .NIMarquee-layer-bg { width: 100%; height: 100%; position: absolute; left: 0; top: 0; background: url(http://3g.hnxdf.com/skin/m/images/play.png) no-repeat 50% 50%; }
+.onfocus .NIMarquee-img-layer { filter: alpha(opacity=20); opacity: 0.2; }
+#featureCarousel { height: 160px; width: 100%; position: relative }
+#featureCarousel img { border: 0 }
+#featureCarousel .feature { position: absolute; top: -1000px; left: -1000px; cursor: pointer }
+#featureCarousel .feature > div { position: absolute; bottom: 0px; left: 0px; width: 100% }
+#featureCarousel .feature > div p { margin: 0; padding: 5px; font-weight: bold; font-size: 12px; color: white }
+#featureCarousel .blipsContainer { position: absolute; color: white; right: 25px; top: 210px; padding: 0; margin: 0 }
+#featureCarousel .blipsContainer .blip { margin: 3px; height: 14px; width: 14px; color: white; text-align: center; font-size: 10px; border: 1px dotted black }
+#featureCarousel .blipsContainer .blipSelected { color: white; font-weight: bold; background-color: black }
+
+/****/
+.zxbm{width:100%;margin:0px auto; background-color:#f2f2f2;}
+#testTable{width:100%}
+.zx input{height:30px}
+.coolbg{width:50%;height:35px;cursor:pointer; background-color:#ee7800}
+#bmleft{width:90px;height:auto}
+#bmrig{width:125px;height:auto}
+#bmleft ul li,#bmrig ul li{height:30px;padding-top:5px;color:#440211}
+#bmleft ul li{text-align:right;width:80px;font-size:14px}
+#bmrig ul li{text-align:left;width:120px;font-size:13px}
+#bmrig ul li.fg{height:60px}
+table{border:none;}
+table tr td{font-size:18px;height:40px; color:#000; }
+#fx,#sbmt{height:30px;padding-top:10px}
+#sbmt{text-align:left;padding-left:10px}
+#scrollobj,.news .gongao{text-align:center}
+#fx{border-top:#F60 1px dashed}
+.ghee{height:20px}
+#bzsp{margin-top:40px;color:#600;background-color:#FEFCF1;text-indent:10px;height:30px;border:1px dotted #F90}
+#bzsp span{margin-left:20px}
+.dede_pages{height:20px}
+#bmts{font-size:14px;line-height:22px;margin-bottom:10px;border:1px solid #F90;padding:5px}
+#bmts span{padding-left:40px}
+p#vtip{padding:10px;font-size:.8em;background-color:#fff;border:1px solid #a6c9e2;-moz-border-radius:5px;-webkit-border-radius:5px;z-index:9999}
+p#vtip #vtipArrow{top:-10px}
+.input_validation-failed{border:2px solid red}
+.select_validation-failed{color:red}
+#name,#qqmsn,#tell,#timeer{height:35px;width:100%}
+.Fontstyle{padding-top:4px;padding-bottom:4px;padding-right:18px}
+.solidW{min-width:90px}
+.news{width:95%;margin:0 auto}
+.news .gongao{height:35px}
+.news .gongao .laba{width:2.57142%;margin-right:2%;margin-top:5px;float:left}
+.lxb-cb-input-btn,lxb-cb-input-tip-content,lxb-cb-input{font-size:12px;}
+/****附加****/
+.nav_zt{ margin:1% 0%; background-color:#fff; margin-bottom:8%;}
+.nav_zt a{ width:49.5%;float:left; text-align:center; display:block;font:.3rem "Microsoft YaHei"; background:#ee7800; color:#FFF;}
+.Special li:first-child{ border-left:none;}
+.Special li a img{width:100%;}
+/*******/
+.shake{margin:0 auto; display:block; position:fixed; top:77%;}
+.shake img{ margin:0 auto;}
+/******新闻列表******/
+
+.nTab dl a img{width:1.8rem; height:1.5rem; margin-right:10px;float:left}
+.ind-foot{
+    color: #8a8a8a;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 0.8em;
+}

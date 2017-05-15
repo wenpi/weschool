@@ -1,0 +1,42 @@
+   {template '../admin/head'}
+        {template '../admin/header'}
+        <div class="page-container">
+        {template '../admin/left'}
+            <div class="page-content-wrapper">
+                <div class="page-content">
+                {template '../admin/sidebar'}
+                    <h1 class="page-title"> {$_SESSION['school_name']}
+                            <small> {$title} </small>
+                    </h1>
+                 <div class="row">
+                        <div class="col-md-8" style="margin-bottom: 15px;">
+                                <button type="button" class="btn blue mt-ladda-btn ladda-button" data-style="slide-down" style="border-radius: 5px !important;">
+                                        <span class="ladda-label"><i class="fa fa-plus"></i>添加首页菜单</span>
+                                        <span class="ladda-spinner"></span>
+                                </button>
+
+                                <button type="button" class="btn green mt-ladda-btn ladda-button" data-style="slide-down"  style="border-radius:  5px !important;margin-left: 10px;">
+                                        <span class="ladda-label"><i class="fa fa-plus"></i>添加二级菜单</span>
+                                        <span class="ladda-spinner"></span>
+                                </button>
+                        </div>
+
+
+                        <div class="col-md-12">
+                            <div class="portlet box grey">
+                                <div class="portlet-title">
+                                    <div class="caption font-grey-salsa"> 菜单操作 </div>
+                                </div>
+                                <div class="portlet-body flip-scroll">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        </div>
+        </div>
+         {template '../admin/right'}
+        </div>
+     {template '../admin/footer'}
+         </body>
+    </html>

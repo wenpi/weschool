@@ -1,0 +1,47 @@
+{loop $logs['list'] $log}
+{php $member = M('member')->getInfo($log['openid'])}
+<style>
+    .delete_log{
+        float: right;
+        color: red;
+        padding: 5px;
+        border-width: 1px;
+        border-style: solid;
+        border-radius: 5px;
+    }
+</style>
+<div class="board">
+    <a data-id="" href="javascript:;">
+                        <span class="nickname">
+                            <span style="color:#1ccda6;">{php echo date('H:i',$log['create_time'])}</span>
+                            &nbsp;&nbsp;|{$member['nickname']}｜{$member['desc']}
+                            {php $myinfo = M('member')->getInfo($_W['openid'])}
+                            {if $myinfo['admin'] == 1 || $_W['openid'] == $log['openid']}
+                            <a href="javascript:;" style="float:right;color:red;" data-id="{$log['id']}" class=" delete_log">撤销</a>
+                            {/if}
+                        </span>
+        <p style="color:#000;">{$log['desc']}</p>
+        <div class="answer">
+            <div class="avatar" data-openid="{php echo $member['openid']}" style="position:relative;width:1.85rem;height:1.85rem;border-radius:50%;display:inline-block;">
+                <img style="position:relative;width:1.85rem;height:1.85rem;border-radius:50%;display:inline-block;"
+                     class="avatarImg" src="{php echo $member['avatar']}">
+                <span></span>
+            </div>
+            <div class="bubble-wrap listen" data-id="{$log['id']}" data-timelong="{$log['timelong']}"  data-src="{php echo $log['src']}">
+                                <span class="bubble">
+                                    <span class="bubble-tail"></span>
+                                    <div id="voice">
+                                        <span class="wave3"></span>
+                                    </div>
+                                    <span class="listen" >免费畅听</span>
+                                </span>
+            </div>
+            <div class="duration">
+                <span>{php echo $log['timelong']}</span>
+                <span>"</span>
+            </div>
+            <div class="amount amount{$log['id']}">听过 <span>{php echo M('chart_listen_log')->getLogTotal($log['id'])}</span></div>
+        </div>
+    </a>
+</div>
+{/loop}

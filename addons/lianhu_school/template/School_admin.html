@@ -1,0 +1,108 @@
+{template 'common/header'}
+{template 'common'}
+<ul class="nav nav-tabs">
+	<li {if  $ac == 'list'}class="active"{/if}>
+	<a href="{php echo $this->createWebUrl('school_admin');}">学校管理员列表</a>
+	</li>
+	{if $ac=='edit'}
+	<li {if  $ac == 'edit'} class="active"{/if}>
+	<a href="{php echo $this->createWebUrl('school_admin', array( 'ac' => 'edit'))}">编辑学校管理员</a>
+	</li> 
+	{/if}
+	<li {if  $ac == 'new' }class="active"{/if}>
+	<a href="{php echo $this->createWebUrl('school_admin', array('ac' => 'new'))}">新增学校管理员</a>
+	</li>
+</ul>
+{if $ac=='list'}
+<div class="main">
+	<div class="panel panel-info">
+	<div class="panel-heading">筛选</div>
+	<div class="panel-body">
+	</div>
+</div>
+<div class="panel panel-default">
+	<div class="panel-body table-responsive">
+		<table class="table table-hover">
+			<thead class="navbar-inner">
+				<tr>
+					<th>账号</th>
+					<th>学校</th>
+					<th>状态</th>
+					<th style="text-align:center; width:15%;">操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				{loop $list $item}
+				<tr>
+					<td>{$item['username']}</td>
+					<td>{$item['school_name']}</td>
+					<td>
+						{if $item['status'] ==1}正常{else}<span class='red'>关闭</span>{/if}
+					</td>
+					<td style="text-align:center;">
+					   <a href="{php echo $this->createWebUrl('school_admin', array('admin_id' => $item['admin_id'],'ac'=>'edit'))}"
+                            class="btn btn-default btn-sm" data-toggle="tooltip" data-placement="top" title="编辑">
+                            <i class="fa fa-pencil"></i>
+                            </a>
+					</td>
+				</tr>
+				{/loop}
+			</tbody>
+		</table>
+	</div>
+	</div>
+</div>		
+{/if}
+{if $ac=='edit' || $ac=='new'}
+	<div class="main">
+	<form action="" method="post" class="form-horizontal form" >
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				{if $ac=='new'}新增学校管理员{else}修改{/if}
+			</div>
+			<div class="panel-body">
+				<div class="tab-content">
+				
+        
+				<div class='form-group'>
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span>系统账号(_先设置一个名字为“学校组”的用户组)</label>
+					<div class="col-sm-9 col-xs-12">
+						{if $ac=='edit'}
+							{$result['username']}
+						{else}
+							<input name='passport' class='form-control' value=''>
+						{/if}
+					</div>	
+				</div>
+				<div class='form-group'>
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span>系统密码</label>
+					<div class="col-sm-9 col-xs-12">
+						{if $ac=='edit'}
+							留空不修改
+						{/if}
+						<input name='password' class='form-control'value='{$result['password']}'>
+					</div>	
+				</div>								
+				{if $ac=='edit'}
+					<div class='form-group'>
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span>状态</label>
+					<div class="col-sm-9 col-xs-8">
+					<select name='status'>
+							<option value='1' {if 1 ==$result['status']} selected {/if}>正常</option>
+							<option value='0' {if 0 ==$result['status']} selected {/if}>关闭</option>
+					</select>
+					</div>							
+					</div>
+				{/if}
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-xs-12 col-sm-3 col-md-2 control-label"></label>
+			<div class="col-sm-9 col-xs-8">
+				<input type="submit" name="submit" value="提交" class="btn btn-primary col-lg-1" />
+			</div>
+			</div>
+		</div>		
+	</form>
+</div>	
+{/if}

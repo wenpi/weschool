@@ -1,0 +1,45 @@
+ {template '../new/head'}
+  <link rel="stylesheet"        type="text/css"     href="{MODULE_URL}/style/app/css/normalize.css">
+  <link rel="stylesheet"        type="text/css"     href="{MODULE_URL}/style/app/css/framework.css">
+  <link rel="stylesheet"        type="text/css"     href="{MODULE_URL}/style/app/css/styles.css">
+  <link rel="stylesheet"        type="text/css"     href="{MODULE_URL}/style/app/css/chart.css">
+  <link rel="shortcut icon"     type="image/x-icon" href="{MODULE_URL}/style/app/images/logo.ico">
+  <script type='text/javascript' src='https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js'></script>
+ <link rel="apple-touch-icon"  href="{MODULE_URL}/style/app/images/logo.ico">
+  <link href="{MODULE_URL}/style/app/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+  <body style="background-color: whitesmoke;">
+  <section class="w-section mobile-wrapper">
+    <div class="page-content" id="main-stack" style="background-color:whitesmoke">
+       <div class="body" style="padding-top:0px;">
+        <div class="w-tabs" data-duration-in="400" data-duration-out="400" data-easing="ease-out-quint">
+          <div class="w-tab-content tabs-content">
+                	{loop $list $k $v}
+
+                       {if $v['class_img']}
+
+                    <div class="group-block" style="padding-left:4px;">
+
+                    {else}
+                    <div class="" style="padding-left:4px;display:inline-block;width:100%;">
+                 {/if}
+
+                      <a class="w-inline-block" href="{if $_GPC['cid']}{php echo $this->createMobileUrl('edu_video',array("cid"=>$v['class_id']) )}{else}{php echo $this->createMobileUrl('edu_video_class',array("cid"=>$v['class_id']) )} {/if}" data-load="1">
+                      {if $v['class_img']} 
+                       <div class="group-image" style="background-image:url('{$_W['attachurl']}{$v['class_img']}')"></div> 
+                       {/if}
+                        <div class="group-title">
+                           <div class="title-text" style="text-align:left;padding-left:20px;">{$v['class_name']} </div>
+                        </div>
+                      </a>
+                    </div>
+             {/loop} 
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<!--{if $_SESSION['teacher_mobile']}
+  {template '../new/tea_footer'}
+{else}
+  {template '../new/footer'}
+{/if}--!>

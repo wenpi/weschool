@@ -1,0 +1,116 @@
+   {template '../admin/head'}
+        {template '../admin/header'}
+        <div class="page-container">
+        {template '../admin/left'}
+            <div class="page-content-wrapper">
+                <div class="page-content">
+                {template '../admin/sidebar'}
+                    <h1 class="page-title"> {$_SESSION['school_name']}
+                            <small> {$title} </small>
+                    </h1>
+                {if $ac =='edit'|| $ac=='new' }
+                     <div class="row">
+                        <div class="col-md-12">
+                             <div class="portlet light ">
+                                <div class="portlet-title">
+                                    <div class="caption font-green-haze">
+                                        <i class="fa fa-edit font-green-haze"></i>
+                                        <span class="caption-subject bold uppercase"> {if $ac=='new'}新增年级{else}编辑{/if}</span>
+                                    </div>
+                                    <div class="actions">
+                                        <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="javascript:;" data-original-title="" title=""> </a>
+                                    </div>
+                                </div>
+                                  <div class="portlet-body form">
+                                    <form action="" method="post" class="form-horizontal form" enctype="multipart/form-data" id="form1"  >
+                                              <div class="form-group form-md-line-input">
+                                                <label class="col-md-2 control-label"><span class="required" aria-required="true"> * </span>年级名字</label>
+                                                <div class="col-md-10">
+                                                    <input type="text" class="form-control"  placeholder="年级名字" value="{$result['grade_name']}" name='grade_name' required >
+                                               		{if $ac=='edit'}
+					                                	<input type="hidden" name="id"  class="form-control" value='{$result['grade_id']}' />
+						                            {/if}
+                                                    <div class="form-control-focus"> </div>
+                                                </div>
+                                            </div>                
+                                            <div class="form-group form-md-line-input">
+                                                <label class="col-md-2 control-label"><span style='color:red'>*</span>入学年份</label>
+                                                <div class="col-md-10">
+                                                    <input type="number" name="in_school_year" id="in_school_year" class="form-control" value='{$result['in_school_year']}' required />
+                                                    <div class="form-control-focus"> </div>
+                                                    <span class="help-block">请填写实际的入学年份</span>
+                                                </div>
+                                            </div>    
+                                            <div class="form-actions">
+                                                <div class="row">
+                                                    <div class="col-md-offset-2 col-md-10">
+                                                        <input type="submit" name="submit" class="btn blue" value="确认">
+                                                    </div>
+                                                </div>
+                                            </div>                                                                                
+                                    </form>
+                                  </div>    
+                             </div>            
+                      </div>                 
+                     </div>
+                {/if}
+                {if $ac=='list'}
+                 <div class="row">
+                        <div class="col-md-12">
+                            <div class="note note-success">
+                                <p> 当前学校所有的年级（包含已经毕业离校的年级） </p>
+                            </div>
+                            <div class="portlet box green-turquoise">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <i class="fa fa-navicon"></i>年级列表 </div>
+                                        <div class="tools">
+                                            <a href="javascript:;" class="collapse"> </a>
+                                        </div>
+                                </div>
+                                <div class="portlet-body flip-scroll">
+                                    <table class="table table-bordered table-striped table-condensed flip-content table-light"  id="sample_3">
+                                        <thead class="flip-content">
+                                            <tr>
+                                                <th width="10%"  class="numeric"> 年级ID </th>
+                                                <th>显示年级名 </th>
+                                                <th class="numeric"> 入学年份 </th>
+                                                <th class="numeric"> 班级数 </th>
+                                                <th class="numeric">  </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                         {loop $list $item}
+                                            <tr>
+                                                <td  class="numeric"> {$item['grade_id']} </td>
+                                                <td> <a class="label label-sm label-success" href='{php echo $this->createWebUrl('class',array('grade_id'=>$item['grade_id'],'aw'=>1 ))}'>{$item['grade_name']} </td>
+                                                <td class="numeric"> {$item['in_school_year']}</td>
+                                                <td class="numeric"> {php echo $this->grade_class_num($item['grade_id']);} </td>
+                                                <td>
+                                                    <a  href="{php echo $this->createWebUrl('grade', array('ac' => 'edit','id'=>$item['grade_id'],'aw'=>1))}" class="btn blue">
+                                                                <i class="fa fa-edit"></i> 编辑 </a>
+                                                    <a href="{php echo $this->createWebUrl('grade', array('ac' => 'delete','id'=>$item['grade_id'] ,'aw'=>1 ))}" 
+                                                        onclick="return confirm('此操作不可恢复，确认删除？');"
+                                                        class="btn  red" title="删除"><i class="fa fa-trash-o"></i>
+                                                        删除
+                                                    </a>       
+
+                                                </td>                          
+                                            </tr>
+                                        	{/loop}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                {/if}
+        </div>
+        </div>
+         {template '../admin/right'}
+        </div>
+        {template '../admin/footer'}
+        {template '../admin/table_script'}         
+         </body>
+    </html>

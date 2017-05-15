@@ -1,0 +1,98 @@
+{template 'common/header'}
+{template 'common'}
+<div class="main">
+	{if $model!='someone'}
+	<div class="panel-body table-responsive">
+		<table class="table table-hover">
+			<thead class="navbar-inner">
+				<tr>
+					<th style="width:100%">{if $model=='grade'}年级列表{elseif $model=='class'}班级列表{elseif $model=='student'}学生列表{/if}</th>
+				</tr>
+			</thead>
+			<tbody>
+				{loop $result $item}
+				<tr>
+					<td><a href="{php echo $this->result_result($item,$model,'url','work');}">{php echo $this->result_result($item,$model,'name','work');}</a></td>
+				</tr>
+				{/loop}
+				{if $model!='grade'}
+				<tr>
+					<td><a href="javascript:;" onclick="window.history.back() ">返回</td>
+				</tr>
+				{/if}
+			</tbody>
+		</table>
+	</div>
+	{/if}
+
+	{if $model=='someone'}
+	<div class="panel panel-info">
+	<div class="panel-body ">
+	<form action="" method="post" class="form-horizontal form" enctype="multipart/form-data" id="form1">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				添加新的作业记录【{$result['student_name']}】
+			</div>
+			<div class="panel-body">
+				<div class="tab-content">
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span>作业记录名</label>
+					<div class="col-sm-9 col-xs-8">
+						<input type="text" name="word" id="word" class="form-control" />
+						<input type="hidden" name="sid"  class="form-control" value='{$_GPC['sid']}' />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span>作业内容简评</label>
+					<div class="col-sm-9 col-xs-8">
+						<textarea name='content' class='form-control'></textarea>
+					</div>
+				</div>	
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span>照片</label>
+					<div class="col-sm-9 col-xs-8">
+						{php echo tpl_form_field_image('img',$result['img']);}
+					</div>
+				</div>	
+				</div>
+			</div>
+		</div>		
+		<div class="form-group col-sm-12">
+			<input type="submit" name="submit" value="提交" class="btn btn-primary col-lg-1" />
+		</div>
+	</form>	
+</div>
+<div class="panel panel-default">
+	<div class="panel-body table-responsive">
+		<table class="table table-hover">
+			<thead class="navbar-inner">
+				<tr>
+					<th style="width:10%">作业记录ID</th>
+					<th style="width:10%">作业记录名</th>
+					<th style="width:5%">学生</th>
+					<th style="width:10%">教师</th>
+					<th style="width:10%">图片</th>
+					<th style="width:20%">内容</th>
+					<th style="width:10%">添加时间</th>
+				</tr>
+			</thead>
+			<tbody>
+				{loop $list $item}
+				{php $teacher=$item['teacher_realname'] ? $item['teacher_realname'] :'管理员无法绑定教师';}
+				<tr>
+					<td>{$item['work_id']}</td>
+					<td>{$item['word']}</td>
+					<td>{$result['student_name']}</td>
+					<td>{$teacher}</td>
+					<td><img src="{$_W['attachurl']}{$item['img']}" style="width:80px;"></td>
+					<td>{$item['content']}</td>
+					<td>{php echo date("Y-m-d H:i:s",$item['addtime']);}</td>
+				</tr>
+				{/loop}
+			</tbody>
+		</table>
+	</div>
+	</div>
+</div>
+	{/if}
+</div>

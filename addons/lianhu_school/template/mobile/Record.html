@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>{$info['class_name']}</title>
+    {template 'common'}
+    <link rel="stylesheet" href="{MODULE_URL}style/css/buttons.css">
+    <link rel="stylesheet" href="{MODULE_URL}style/css/line_css.css?{TIMESTAMP}">
+    <link  href="{MODULE_URL}assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <script src="{MODULE_URL}style/js/modernizr.js"></script>
+    <script src="{MODULE_URL}style/js/jquery.lazyload.js"></script>
+    <script src="{MODULE_URL}style/js/main.js"></script>
+	<link rel="stylesheet" href="{MODULE_URL}template/mobile/style/style_nav.css">
+	<link href="{MODULE_URL}template/mobile/style/user.min.css" rel="stylesheet" type="text/css" />
+	</head>
+<body  style="background-color:#fff">
+<section style='background:#fff;margin-bottom:60px;'>
+<div class="wrap" id="list" style="margin-top:20px;">
+          {loop $jilv_list $row}
+      		<ul> 
+            <li class="box" >
+            		<div class="author">
+                    		<a href="#"><img src="{php echo D('teacher')->teacherImg($row['teacher_id']);}"></a>
+                            <p class="author_name">{if $row['teacher_realname']}{$row['teacher_realname']}{else}管理员{/if}</p>
+                            <p class="author_time">&nbsp;&nbsp;时间：{php echo date("Y-m-d H:i:s",$row['addtime']);}</p>
+                    </div>
+                    <div class="topic" style='margin-top:-10px;'>
+                           <a href='{php echo $this->createMobileUrl('line_article',array('wid'=>$row['work_id']));}'>
+                                <p>{php echo $this->clear_html_short($row['content']);}</p>
+                          </a>
+                          {if $row['img']!='qiniu' &&  $row['img']}
+                          <div onclick='displayImage(this)'>
+                                    {php echo $this->decodeLineImgs($row['img']);}
+                                    <div class='clear'></div>
+                          </div>   
+                          {/if}
+                         {if $row['voice']}
+                         <br>
+                         <div>{php echo  $this->echoVoiceUrl($row['voice']);}</div>    
+                         {/if}                             
+                   </div>
+            </li>           
+            </ul> 
+            {/loop}    
+</div>
+</section>
+<script>
+  function displayImage(obj){
+      var img_urls=[];
+      var img_current='';
+        if($(obj).find('.lazy').length>0){
+             img_current=$(obj).find('.lazy').attr('src');
+             img_urls=[img_current];
+        }
+        if($(obj).find('div').length>0){
+                img_current=$(obj).find('div').eq(0).attr('data-img');
+                $.each($(obj).find('div'),function(i,e){
+                    img_urls.push($(this).attr('data-img'));
+                });
+        }
+        img_urls.pop()
+        wx.previewImage({
+        current: img_current,
+        urls: img_urls
+        });
+  }
+</script>
+{template 'record_nav'}
+{template 'jsweixin'}
+{template 'footer'}

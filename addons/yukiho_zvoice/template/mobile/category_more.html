@@ -1,0 +1,24 @@
+{loop $members['list'] $member}
+<li>
+    <a href="{php echo $this->createMobileUrl('tutor',array('openid'=>$member['openid']))}">
+        <img src="{php echo $member['avatar']}" class="avatar">
+        <p>{$member['nickname']}</p>
+        <p class="description">{$member['tags']}</p>
+        <p class="description">
+            <span>{php echo M('answer')->getTotal($member['openid'])}</span>
+            <span>个回答，</span>
+            <span>{php echo M('follow')->getTotal($member['openid'])}</span>
+            <span>人收听</span>
+        </p>
+    </a>
+    {php $check = M('follow')->check($member['openid'])}
+    <div class="{if !empty($check)}followed{else}follow{/if}">
+        {if !empty($check)}
+        <span>已收听</span>
+        {else}
+        <img src="http://hangjia.qiniudn.com/FuG33n6Tx-hT2VhbVrb4FPgm4dCz" data-openid="{$member['openid']}" class="btn-follow">
+        <span class="listen">收听</span>
+        {/if}
+    </div>
+</li>
+{/loop}

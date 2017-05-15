@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{if $student_name}{$student_name}-{/if}{if $teacher_name} {$teacher_name}-{/if} {$page_title}-{$_SESSION['school_name']}</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <link href="{MODULE_URL}/style/css/old_css.css?{php echo time();}" rel="stylesheet">
+    <link href="{MODULE_URL}style/css/weui.min.css" rel="stylesheet" type="text/css" />
+    <script src="{MODULE_URL}/style/js/jquery.min.js"></script>
+</head>
+<body>
+    <header class="tscore_list">
+        <div class="left_info">{if $ac=='list'}今年{elseif $ac=='month'}本月{elseif $ac=='day'}今日{/if}积分</div>
+        <div class="middle_info">
+            {$result['all_num']}
+        </div>
+    </header>
+    <div class="tscore_info_list">
+        {if $homework_list['num']['num'] }
+            <div class='tscore_info_head'>
+                发布家庭作业积分:<span> {$homework_list['all']}</span>
+            </div>
+            <ul>
+                {loop $homework_list['num']['num'] $key $row}
+                    <li> {php echo date("Y-m-d",$homework_list['num']['time'][$key][0]['add_time'])}&nbsp;&nbsp;有效次数{$row}次 
+                        <span>+{php echo $row*$homework_list['score'];}</span>
+                    </li>
+                {/loop}
+            </ul>
+        {/if}
+        {if $line_list['num']['num'] }
+            <div class='tscore_info_head'>
+                发布班级圈积分:<span> {$line_list['all']}</span>
+            </div>
+
+            <ul>
+                {loop $line_list['num']['num'] $key $row}
+                    <li> {php echo date("Y-m-d",$line_list['num']['time'][$key][0]['add_time'])}&nbsp;&nbsp;有效次数{$row}次 
+                        <span>+{php echo $row*$line_list['score'];}</span>
+                    </li>
+                {/loop}
+            </ul>
+        {/if}
+        {if $article_list['num']['num'] }
+            <div class='tscore_info_head'>
+                发布文章积分:<span> {$article_list['all']}</span>
+            </div>
+            <ul>
+                {loop $article_list['num']['num'] $key $row}
+                    <li> {php echo date("Y-m-d",$article_list['num']['time'][$key][0]['add_time'])}&nbsp;&nbsp;有效次数{$row}次 
+                        <span>+{php echo $row*$article_list['score'];}</span>
+                    </li>
+                {/loop}
+            </ul>        
+        {/if}
+
+        {if $login_list['num']['num'] }
+            <div class='tscore_info_head'>
+                登录教师中心积分:<span> {$login_list['all']}</span>
+            </div>
+            <ul>
+                {loop $login_list['num']['num'] $key $row}
+                    <li> {php echo date("Y-m-d",$login_list['num']['time'][$key][0]['add_time'])}&nbsp;&nbsp;有效次数{$row}次 
+                        <span>+{php echo $row*$login_list['score'];}</span>
+                    </li>
+                {/loop}
+            </ul>        
+        {/if}
+    </div>
+</body>

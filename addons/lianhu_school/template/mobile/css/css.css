@@ -1,0 +1,196 @@
+@charset "utf-8";
+*{ -webkit-tap-highlight-color:rgba(0, 0, 0, 0);}/*取消链接点击的时候变蓝*/
+*:focus{outline:none;}
+input,select,textarea{ line-height:normal;font-size:24px;-webkit-appearance:none;}
+input,select,textarea,div,.an1{FONT-FAMILY:'Microsoft YaHei';}
+body {margin:0px;font-size:24px;background: #fff; color: #2b2b2b;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;}
+a {	text-decoration: none;	color: #2b2b2b;}
+a:hover {text-decoration: none;color: #cc0000;}
+ul,li,tr,td{list-style-type: none;margin: 0px;padding: 0px;}
+a img{text-decoration: none;margin: 0px;padding: 0px;border:none;}
+.f{ float:left; overflow:hidden;}
+.r{ float:right; overflow:hidden;}
+.bai,.bai a{ color:#FFFFFF;}
+.hong,.hong a{ color:#cc0000;}
+.huang,.huang a{ color:#faaf19;}
+.lan,.lan a{ color:#2293d1;}
+.lv,.lv a{ color:#2293d1;}
+.hui,.hui a{color:#909090;}
+.mgz{ margin-left:auto; margin-right:auto; overflow:hidden; width:640px;}
+.mg{ margin-left:auto; margin-right:auto; overflow:hidden; width:600px;}
+.mg2{ margin-left:auto; margin-right:auto; overflow:hidden;}
+.cen{ text-align:center;}
+
+.xi12{ font-size:12px;}
+.xi13{ font-size:13px;}
+.xi14{ font-size:14px;}
+.xi15{ font-size:15px;}
+.xi16{ font-size:16px;}
+.xi17{ font-size:17px;}
+.xi18{ font-size:18px;}
+.xi19{ font-size:19px;}
+.xi20{ font-size:20px;}
+.xi21{ font-size:21px;}
+.xi22{ font-size:22px;}
+.xi23{ font-size:23px;}
+.xi24{ font-size:24px;}
+.xi25{ font-size:25px;}
+.xi26{ font-size:26px;}
+.xi27{ font-size:27px;}
+.xi28{ font-size:28px;}
+.xi29{ font-size:29px;}
+.xi30{ font-size:30px;}
+.xi31{ font-size:31px;}
+.xi32{ font-size:32px;}
+.xi33{ font-size:33px;}
+.xi34{ font-size:34px;}
+.xi35{ font-size:35px;}
+.xi36{ font-size:36px;}
+.xi37{ font-size:37px;}
+.xi38{ font-size:38px;}
+.xi39{ font-size:39px;}
+.xi40{ font-size:40px;}
+.xi46{ font-size:46px;}
+.xi50{ font-size:50px;}
+.xi52{ font-size:52px;}
+.xi59{ font-size:59px;}
+.xi60{ font-size:60px;}
+.cu{font-weight:bold;}
+.xi{font-weight:lighter;}
+.tcher2{ height:82px; line-height:82px; background:url(../images/teacher_06.png) center bottom no-repeat; margin-bottom:70px;}
+.tcher2 span{ padding-left:6px;}
+.tcher3{ height:82px; line-height:82px; text-indent:66px;}
+.bd1{ width:512px; height:58px; border:2px solid #e5e9ee;border-radius:15px; background:url(../images/teacher.png); padding:0; text-indent:10px; margin:0 0 0 66px;}
+.an1{ width:512px; height:58px; border:none; padding:0; margin:100px 0 40px 66px; background:#4eaff4;border-radius:15px;}
+
+
+
+/*** 追加自定义属性 ***/
+.main {
+    padding-top:33%;
+    height:100%;
+    background:#fff url(../images/bg.png) no-repeat;
+    background-size:100% 100%;
+}
+
+.main .avatar {
+    width:100px;
+    height:100px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin:0 auto;
+}
+
+.main .avatar img {
+    width:100px;
+    height:100px;
+}
+
+.main .form {
+    border: 1px solid #dbdbdb;
+    border-radius:10px;
+    width:93%;
+    margin:0 auto;
+    padding:20px;
+    font-size:14px;
+    position: relative;
+    top:30px;
+}
+
+.main .form .form-group {
+    padding:4px 0;
+}
+
+.main .form .form-group label img {
+    width:32px;
+    height:32px;
+}
+
+.main .form .form-group input {
+    font-size:17px;
+    color:#171717;
+    width:80%;
+    border-radius: 0;
+    border-bottom: 1px solid #dbdbdb;
+    border-top:0px;
+    border-left:0px;
+    border-right:0px;
+}
+
+.main .form .form-group input.info{
+    font-size:14px;
+    color:#2979bd;
+}
+
+.main .form .left_btn {
+    float: left;
+    margin: 65px 0 0 17%;
+}
+
+.main .form .img_list {
+    float: right;
+    width: 100px;
+    height: 100px;
+    margin-right: 60px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

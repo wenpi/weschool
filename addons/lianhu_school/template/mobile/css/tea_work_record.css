@@ -1,0 +1,86 @@
+body {
+    margin:0;
+    padding:0;
+    background: url('../images/bg.jpg') no-repeat;
+    background-size: cover;
+}
+
+.table-responsive>.table>tbody>tr>td, .table-responsive>.table>tbody>tr>th, .table-responsive>.table>tfoot>tr>td, .table-responsive>.table>tfoot>tr>th, .table-responsive>.table>thead>tr>td, .table-responsive>.table>thead>tr>th {
+    font-size:14px;
+}
+
+.top-wrap {
+    font-size: 24px;
+    font-weight: 700;
+    color:#fff;
+    text-align: center;
+    height:80px;
+    padding:25px 0;
+    border-bottom:0;
+    margin:0 0 3% 0;
+}
+
+.top-wrap .text_center {
+    width:170px;
+    margin:0 auto;
+    font-weight: 700;
+    padding-bottom: 4px;
+    border-bottom: 2px solid #fff;
+    color:#fff;
+}
+
+.main {
+    background-color:transparent;
+}
+
+.main .panel-body {
+    padding-left:0;
+    padding-right:0;
+}
+
+.main .panel-body tbody {
+    display:block;
+    width:100%;
+}
+
+.main table {
+    display:block;
+    width:98%;
+    margin:0 auto;
+}
+
+.main table tr {
+    display:block;
+    margin-top:10px;
+    width:100%;
+}
+
+.main table td {
+    display:block;
+    background-color: #fff;
+    opacity:1;
+    border-radius: 5px;
+    width:100%;
+    -webkit-box-shadow: 3px 3px 3px;
+    -moz-box-shadow: 3px 3px 3px;
+    box-shadow: 3px 3px 3px;
+    font-weight: bold;
+    font-size:14px;
+}
+
+.main table td span {
+    font-size: 14px;
+}
+
+.main table td img {
+    float:right;
+    width:25px;
+    height:25px;
+    margin:0 10px 0 0;
+}
+
+@-moz-document url-prefix() {
+    .main table td img {
+        margin: -25px 10px 0 0;
+    }
+}

@@ -1,0 +1,74 @@
+{template '../xiaoye/newHead'}
+<body>
+	<div class="z_main">
+		<div class="z_tx1">
+            <div class="z_tx11">
+                <form method="post"  action="{php echo $this->createMobileUrl('teaChat')}">
+                    <input type="text"  placeholder="请输入你要搜索的联系人" name="search_name" value="{$_GPC['search_name']}">
+                    <input name="submit" type="submit" class="z_bxx" value=" " > 
+                </form>
+            </div>
+		</div>
+		<div class="z_tx2">
+        {loop $all_list $key $row}
+            <div id="class_name_{$key}" class="menu_list">
+                <h3 class="menu_head current">
+                    <div class="z_tx21"><img src="{MODULE_URL}/template/xiaoye/img/js.png"></div>
+                    <div class="z_tx22">{$row['class_name']}</div>
+                    <div class="z_tx23"><img src="{MODULE_URL}/template/xiaoye/img/jiantou.png"></div>
+                </h3>
+                <div style="display:none" class="menu_body">
+                    <ul class="z_txx">
+                        {loop $row['student_list'] $k $val}
+                            <li>
+                                <div class="z_txx1"><img src="{php echo C('student')->studentImg($val['student_id']);}"></div>
+                                <div class="z_txx2" style="margin-top: 0px;width:40%" >{$val['student_name']}</div>
+                                <div class="z_txx3"><a href="{php echo $this->createMobileUrl('chatMessage',array('s_id'=>$val['student_id'],'type'=>'student','in_type'=>'as_teacher' ))}"><img src="{MODULE_URL}/template/xiaoye/upimg/xx_tea.png"></a></div>
+                                {if $val['parent_phone']}
+                                <div class="z_txx3"><a href="tel:{$val['parent_phone']}"><img src="{MODULE_URL}/template/xiaoye/upimg/Z_tea.png"></a></div>
+                                {/if}
+                            </li>
+                        {/loop}
+                    </ul>
+                </div>
+            </div>
+        {/loop}
+		<div id="class_name_end" class="menu_list">
+            <h3 class="menu_head current">
+                <div class="z_tx21"><img src="{MODULE_URL}/template/xiaoye/img/js.png"></div>
+                <div class="z_tx22">教师组</div>
+                <div class="z_tx23"><img src="{MODULE_URL}/template/xiaoye/img/jiantou.png"></div>
+            </h3>
+            <div class="menu_body" style="display:none">
+                <ul class="z_txx">
+                    {loop $teacher_list $key $row}
+                        <li>
+                            <div class="z_txx1"><img src="{php echo D('teacher')->teacherImg($row['teacher_id']);}"></div>
+                            <div class="z_txx2"  style="margin-top: 0px;width:40%">{$row['teacher_realname']}<span>({php echo $this->courseName($row['course_id'])})</span></div>
+                            <div class="z_txx3"><a href="{php echo $this->createMobileUrl('chatMessage',array('o_id'=>$row['teacher_id'],'type'=>'teacher','in_type'=>'as_teacher' ))}"><img src="{MODULE_URL}/template/xiaoye/upimg/xx_tea.png"></a></div>
+                            {if $row['teacher_telphone']}
+                                <div class="z_txx3"><a href="tel:{$row['teacher_telphone']}"><img src="{MODULE_URL}/template/xiaoye/upimg/Z_tea.png"></a></div>
+                            {/if}
+                        </li>
+                    {/loop}
+                </ul>
+            </div>
+        </div>
+
+<script>
+    $(document).ready(function(){
+        $("#class_name_0 .menu_body:eq(0)").show();
+        $("h3.menu_head").click(function(){
+            $(".menu_body").hide();
+            $(this).addClass("current").next("div.menu_body").slideToggle(300).siblings("div.menu_body").slideUp("slow");
+            $(this).siblings().removeClass("current");
+
+        });
+    });
+</script>
+</div>
+<link href="{MODULE_URL}/template/xiaoye/css/teacher.css" rel="stylesheet">
+{php $center_class = 'cdb'}
+{template '../xiaoye/newTeaFooter'}
+</body>
+</html>

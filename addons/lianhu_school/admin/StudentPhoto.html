@@ -1,0 +1,183 @@
+   {template '../admin/head'}
+        {template '../admin/header'}
+        <link href="{MODULE_URL}/assets/global/plugins/jstree/dist/themes/default/style.min.css" rel="stylesheet" type="text/css" />
+        <div class="page-container">
+        {template '../admin/left'}
+            <div class="page-content-wrapper">
+                <div class="page-content">
+                {template '../admin/sidebar'}
+                    <h1 class="page-title"> {$_SESSION['school_name']}
+                            <small> {$title} </small>
+                    </h1>
+                <div class='row'>
+                     <div class="col-md-12">
+                         {if $model !='someone'}
+                            {if $model =='grade'}
+                                {php $page = '年级列表';}
+                                {php $intro ='请选择学生所在的年级'; }
+                                {php $color ='green';}
+                            {elseif $model =='class'}
+                                {php $page = '学生列表';}
+                                {php $intro ='请选择学生所在的班级'; }
+                                {php $color ='yellow-casablanca';}
+                            {elseif $model =='student'}
+                                {php $page = '学生列表';}
+                                {php $intro ='请选择具体的学生'; }
+                                {php $color ='blue';}
+                            {/if}
+                             <div class="note note-info">
+                                    <h4 class="block">{$page}</h4>
+                                    <p>{$intro}</p>
+                             </div> 
+                              <div class="row">
+                                {loop $result $item}
+                                <div class="col-md-2 col-sm-2 col-xs-6">
+                                    <div class="color-demo tooltips" >
+                                        <a href="{php echo $this->result_result($item,$model,'url','studentPhoto');}&aw=1">
+                                            <div class="color-view bg-{$color} bg-font-{$color} bold uppercase">{php echo $this->result_result($item,$model,'name','list');} </div>
+                                            <div class="color-info bg-white c-font-14 sbold"> 点击选择 </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                {/loop}                       
+                             </div>                       
+                         {/if}
+                        {if $model=='someone'}
+                                <div class="note note-info">
+                                    <h4 class="block">{$result['student_name']}</h4>
+                                    <p>添加照片</p>
+                                </div>                   
+                                 <div class="portlet light ">          
+                                 <div class="portlet-body form ">
+                                    <form action="" method="post" class="form-horizontal form" enctype="multipart/form-data" id="form1"  >
+                                        <input type="hidden" name="sid"  class="form-control" value='{$_GPC['sid']}' />
+                                        <div class="form-body">
+                                            <div class="form-group form-md-line-input">
+                                                <label class="col-md-2 control-label"><span class="required" aria-required="true"> * </span>备注名</label>
+                                                <div class="col-md-10">
+                                                    <input type="text" class="form-control" name='word' required autofocus >
+                                                    <div class="form-control-focus"> </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-2 control-label"> 照片</label>
+                                                <div class="col-sm-10">
+                                                    {php echo tpl_form_field_multi_image('img', $images);}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-actions">
+                                            <div class="row">
+                                                <div class="col-md-offset-2 col-md-10">
+                                                    <input type="submit" name="submit" class="btn blue" value="确认">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>                               
+                              </div>     
+
+                            <div class="row">
+                             <div class="col-md-12 col-sm-12">
+                                <div class="portlet light portlet-fit bordered">
+                                    <div class="portlet-title">
+                                        <div class="caption">
+                                            <i class="icon-directions font-green hide"></i>
+                                            <span class="caption-subject bold font-dark uppercase "> 相册</span>
+                                            <span class="caption-helper">时光轴</span>
+                                        </div>
+                                        <div class="actions">
+                                            <div class="btn-group">
+                                                <a class="btn blue btn-outline btn-circle btn-sm" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"> 年份
+                                                    <i class="fa fa-angle-down"></i>
+                                                </a>
+                                                <ul class="dropdown-menu pull-right">
+                                                    {loop $year_list $key $row}
+                                                        {php $year = date("Y",$row);}
+                                                        <li>
+                                                            <a href="{php echo $this->createWebUrl('studentPhoto',array('year_key'=>$key,'model'=>'someone','sid'=>$_GPC['sid']));}"> {$year}年</a>
+                                                        </li>
+                                                    {/loop}
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="portlet-body">
+                                        <div class="cd-horizontal-timeline mt-timeline-horizontal">
+                                            <div class="timeline">
+                                                <div class="events-wrapper">
+                                                    <div class="events">
+                                                        <ol>
+                                                            {loop $list $key $row}
+                                                                <li>
+                                                                    <a href="#0" data-date="{php echo date("d/m/Y",$row['add_time'])}T{php echo date("H:i",$row['add_time'])}" class="border-after-red bg-after-red  {if $key ==0} selected  {/if} ">{php echo date("m-d H",$row['add_time'])}</a>
+                                                                </li>
+                                                            {/loop}
+                                                        </ol>
+                                                        <span class="filling-line bg-red" aria-hidden="true"></span>
+                                                    </div>
+                                                </div>
+                                                <ul class="cd-timeline-navigation mt-ht-nav-icon">
+                                                    <li>
+                                                        <a href="#0" class="prev inactive btn btn-outline red md-skip">
+                                                            <i class="fa fa-chevron-left"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#0" class="next btn btn-outline red md-skip">
+                                                            <i class="fa fa-chevron-right"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="events-content">
+                                                <ol>
+                                                    {loop $list $key $row}
+                                                        <li {if $key ==0 } class="selected"  {/if} data-date="{php echo date("d/m/Y",$row['add_time'])}T{php echo date("H:i",$row['add_time'])}">
+                                                            <div class="mt-title">
+                                                                <h2 class="mt-content-title">{$row['title']}</h2>
+                                                            </div>
+                                                            <!--<div class="mt-author">
+                                                                <div class="mt-avatar">
+                                                                    <img src="{MODULE_URL}/assets/pages/media/users/avatar80_3.jpg" />
+                                                                </div>
+                                                                <div class="mt-author-name">
+                                                                    <a href="javascript:;" class="font-blue-madison">Hugh Grant</a>
+                                                                </div>
+                                                                <div class="mt-author-datetime font-grey-mint">28 February 2014 : 10:15 AM</div>
+                                                            </div>
+                                                            <div class="clearfix"></div>-->
+                                                            <div class="mt-content border-grey-steel">
+                                                                <p>{php $img_list = C('studentPhoto')->decodePhotos($row['photo_list']);}
+                                                                    {loop $img_list $v}
+                                                                        <img src = "{php echo $this->imgFrom($v) }" />
+                                                                    {/loop}
+                                                                </p>
+                                                            </div>
+                                                        </li>
+                                                    {/loop}
+                                                </ol>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>                          
+                            </div>
+                        {/if}
+                        <style>
+                            .mt-content img{
+                                width: 200px;
+                                margin-left: 20px;
+                            }
+                        </style>
+                    </div>
+                </div>
+              </div>
+            </div>
+         {template '../admin/right'}
+        </div>
+     {template '../admin/footer'}
+     <script src="{MODULE_URL}/assets/global/plugins/horizontal-timeline/horozontal-timeline.min.js" type="text/javascript"></script>
+    </body>
+    </html>

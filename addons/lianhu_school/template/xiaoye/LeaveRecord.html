@@ -1,0 +1,17 @@
+{template '../xiaoye/newHead'}
+<script>
+$( function(){
+    $( 'audio' ).audioPlayer();
+});
+</script>
+<div class="z_main">
+    <div class="headqj">
+        <a href="{php echo $this->createMobileUrl('leave')}"><p>请假申请</p></a>
+        <a href="{php echo $this->createMobileUrl('leaveRecord')}"  class="pp"><p>申请记录</p></a>
+    </div>
+     {template '../xiaoye/LeaveRecord_content'}
+</div>
+    {php $footer_type = 'center';}
+     {template '../xiaoye/newStudentFooter'}
+</body>
+</html>

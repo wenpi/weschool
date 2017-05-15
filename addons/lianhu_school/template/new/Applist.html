@@ -1,0 +1,42 @@
+{php $title = "预约活动-".$_SESSION['school_name']}
+{template 'school/app_header'}
+{template 'common'}
+<link href="{MODULE_URL}style/css/weui.min.css" rel="stylesheet" type="text/css" />
+<link href="{MODULE_URL}style/css/new_style.css" rel="stylesheet" type="text/css" />
+<link href="{MODULE_URL}style/css/weui2.css?{php echo time();}" rel="stylesheet" type="text/css" />
+<link href="{MODULE_URL}style/css/weui_example.css" rel="stylesheet" type="text/css" />
+<link href="{MODULE_URL}assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="{MODULE_URL}style/css/line_css.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="{MODULE_URL}template/mobile/style/style_nav.css">
+ <body>
+ <div class="body" style="padding-top:0px;padding-bottom:60px;">
+        <div class="w-tabs" data-duration-in="400" data-duration-out="400" data-easing="ease-out-quint">
+          <div class="w-tab-menu top-buttons">
+            <a class="w-tab-link w-inline-block toolbar-top-button w--current " data-w-tab="Tab 1">
+              <div>预约活动</div>
+            </a>
+            <a class="w-tab-link  w-inline-block toolbar-top-button" data-w-tab="Tab 2"  href="{php echo $this->createMobileUrl('Applist_result');}">
+              <div>预约结果</div>
+            </a>
+          </div>
+		<div class="w-tab-content tabs-content" style="background-color:#fff;padding-top:20px;">
+            <div class="w-tab-pane  w--tab-active tab-pane" data-w-tab="Tab 1">
+                <ul class="ul-list focus-list" id="focus-list" style='padding-left:0'>
+                {loop $list $row}
+                    <li>
+                        <a href="{php echo $this->createMobileUrl('appointment_article',array('op'=>$row['appointment_id']));}"><b>
+                            <strong style="color:#ff0033;display:inline-block;float:left;">【 {if $row['status']==1 && $row['appointment_end']>time()  && time()>$row['appointment_start']}进行中{elseif $row['status']==1 && $row['appointment_end']< time() }已结束 {elseif $row['status']==1 && $row['appointment_start']>time() }未开始{/if} 】</strong> <b style="color:#333">{$row['appointment_name']}</b>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;{php echo $this->clear_html_short($row['appointment_intro']);}</p>
+                        </a>
+                        <p class="p-btm"><u>{if $row['appointment_type_limit']==0}全校{elseif $row['appointment_type_limit']==1}年级{elseif $row['appointment_type_limit']==2}班级{/if}</u>|<time>{php echo date("m-d H:i",$row['appointment_start']);}--{php echo date("m-d H:i",$row['appointment_end']);}</time>|<i>
+                        <a href="#">申请数({$row['appointment_join_num']})</a></i></p>              
+                    </li>        
+                {/loop}
+                </ul>                
+            </div>           
+        </div>
+        </div>
+    </div>
+{template 'jsweixin'}
+{template '../new/footer'}
+{template 'school/app_footer'}

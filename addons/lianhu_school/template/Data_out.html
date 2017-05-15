@@ -1,0 +1,310 @@
+{template 'common/header'}
+{template 'common'}
+<ul class="nav nav-tabs">
+	<li {if  $ac == 'list'}class="active"{/if}>
+		<a href="{php echo $this->createWebUrl('data_out')}">年级，班级，学生数据</a>
+	</li>
+	<li {if  $ac == 'sroce'}class="active"{/if}>
+		<a href="{php echo $this->createWebUrl('data_out', array('ac' => 'sroce'))}">考试数据</a>
+	</li>	
+	
+	<li {if  $ac == 'on_school'}class="active"{/if}>
+		<a href="{php echo $this->createWebUrl('data_out', array('ac' => 'on_school'))}">到校数据</a>
+	</li>		
+	
+	<li {if  $ac == 'leave_school'}class="active"{/if}>
+		<a href="{php echo $this->createWebUrl('data_out', array('ac' => 'leave_school'))}">离校数据</a>
+	</li>	
+							
+</ul>
+{if $ac=='list'}
+	<div class="panel panel-default">
+		<div class="panel-body table-responsive">
+			<div class="panel-heading red">
+				{if $op=='list'}年级列表{elseif $op=='class'}【{$grade_name}】下班级列表{elseif $op=='student'}【{$class_name}】下的学生列表{/if}
+			</div>
+			<table class="table table-hover">
+				{if $op=='list'}
+					<thead class="navbar-inner">
+					<tr>
+						<th style="width:80px;">年级ID</th>
+						<th style="width:120px;">年级</th>
+						<th style="width:80px;">班级数</th>
+						<th style="width:80px;">学生数</th>
+						<th style="width:80px;">老师数</th>
+						<th style="width:80px;">状态</th>
+					</tr>
+					</thead>
+				{elseif $op=='class'}
+					<thead class="navbar-inner">
+					<tr>
+						<th style="width:80px;">班级ID</th>
+						<th style="width:120px;">班级级</th>
+						<th style="width:80px;">学生数</th>
+						<th style="width:80px;">老师数</th>
+						<th style="width:80px;">状态</th>
+					</tr>
+					</thead>	
+				{elseif $op=='student'}		
+					<thead class="navbar-inner">
+					<tr>
+						<th style="width:80px;">学生ID</th>
+						<th style="width:120px;">学生姓名</th>
+						<th style="width:80px;">学生学号</th>
+						<th style="width:80px;">系统编号</th>
+						<th style="width:80px;">状态</th>
+					</tr>
+					</thead>					
+				{/if}
+				<tbody>
+					{if $op=='list'}
+						{loop $grade $item}
+						<tr>
+							<td>{$item['grade_id']}</td>
+							<td><a href="{php echo $this->createWebUrl('data_out',array('ac'=>'list','gid'=>$item['grade_id'],'op'=>'class'));}">{$item['in_school_year']}~{$item['grade_name']}</a></td>
+							<td>{php $class_num=$this->grade_class_num($item['grade_id'])}{$class_num}{php $class_all_num+=$class_num}</td>
+							<td>{php $grade_num=$this->grade_student_num($item['grade_id'])}{$grade_num}{php $grade_all_num+=$grade_num}</td>
+							<td>{php $teacher_num=$this->grade_teacher_num($item['grade_id'])}{$teacher_num}{php $teacher_all_num+=$teacher_num}</td>
+							<td>{if $item['status']==1} 正常{else} 关闭{/if}</td>
+						</tr>
+						{/loop}
+						<tr>
+							<td>总计：</td>
+							<td></td>
+							<td>{$class_all_num}</td>
+							<td>{$grade_all_num}</td>
+							<td>{$teacher_all_num}</td>
+							<td></td>
+						</tr>
+					{elseif $op=='class'}
+						{loop $class $item}
+						<tr>
+							<td>{$item['class_id']}</td>
+							<td><a href="{php echo $this->createWebUrl('data_out',array('ac'=>'list','op'=>'student','cid'=>$item['class_id']));}">{$item['class_name']}</a></td>
+							<td>{php echo $this->class_student_num($item['class_id'])}</td>
+							<td>{php echo $this->class_teacher_num($item['class_id'])}</td>
+							<td>{if $item['status']==1} 正常{else} 关闭{/if}</td>
+						</tr>
+						{/loop}		
+					{elseif $op=='student'}	
+						{loop $student $item}
+						<tr>
+							<td>{$item['student_id']}</td>
+							<td>{$item['student_name']}</a></td>
+							<td>{$item['xuehao']}</td>
+							<td>{$item['class_id']}{$item['student_id']}</td>
+							<td>{if $item['status']==1} 正常{else} 关闭{/if}</td>
+						</tr>
+						{/loop}												
+					{/if}
+				</tbody>
+			</table>
+		</div>
+	</div>	
+{/if}
+{if $ac=='sroce'}
+	<div class="panel panel-info">
+	<div class="panel-heading">筛选</div>
+	<div class="panel-body">
+		<form action="./index.php" method="get" class="form-horizontal" role="form">
+			<input type="hidden" name="c" value="site" />
+			<input type="hidden" name="a" value="entry" />
+			<input type="hidden" name="m" value="lianhu_school" />
+			<input type="hidden" name="do" value="data_out" />
+			<input type="hidden" name="ac" value="sroce" />
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span>选择年级</label>
+					<div class="col-sm-9 col-xs-8">
+						<select name='gid' id="grade_id" class='form-control'>
+							{loop $grade $row}
+									<option value='{$row['grade_id']}' {if $row['grade_id']==$gid } selected {/if}>{$row['grade_name']}</option>
+							{/loop}
+						</select>
+					</div>
+				</div>			
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span>选择班级</label>
+					<div class="col-sm-9 col-xs-8">
+						<select name='class_id' id="class_id" class='form-control'>
+							<option value='0'>不选择</option>
+							{loop $class_list $row}
+									<option value='{$row['class_id']}' {if $row['class_id']==$_GPC['class_id'] } selected {/if}>{$row['class_name']}</option>
+							{/loop}
+						</select>
+					</div>
+				</div>	
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span>选择考试</label>
+					<div class="col-sm-9 col-xs-8">
+						<select name='jilv_id'id="jilv_id" class='form-control'>
+							{loop $jilv_list $row}
+									<option value='{$row['scorejilv_id']}'  {if $row['scorejilv_id']==$_GPC['jilv_id'] } selected {/if}>{$row['scorejilv_name']}</option>
+							{/loop}
+						</select>
+					</div>
+				</div>					
+			<div class="form-group">
+				<div class="col-sm-5 col-xs-5"></div>
+					<button class="btn btn-default"><i class="fa fa-search"></i> 搜索</button>
+					<button class="btn btn-default" type="button">总记录数：{$total}</button>
+					<input type='submit'name='excel' class="btn btn-default" type="button" value='导出'>
+			</div>
+		</form>
+	</div>
+</div>
+<div class="panel panel-default">
+	<div class="panel-body table-responsive">
+		<table class="table table-hover">
+			<thead class="navbar-inner">
+				<tr>
+					<th style="width:50px;">学生</th>
+					<th style="width:60px">班级</th>
+					{loop $out_course_arr $row}
+					<th style="width:50px;">{$row['course_name']}</th>
+					{/loop}
+					<th style="width:50px;">总分</th>
+					<th style="width:50px;">排名</th>
+				</tr>
+			</thead>
+			<tbody>
+				{loop $out_list $key  $item}
+				<tr>
+					<td>{$item['student_name']}</td>
+					<td>{$item['class_name']}</td>
+					{loop $out_course_arr $row}
+						<td>{if $item['course_ids'][$row['course_id']]>0 } {$item['course_ids'][$row['course_id']]} {else}0{/if}</td>
+					{/loop}
+					<td>{$item['all_score']}</td>
+					<td>{php echo $key+1}</td>
+				</tr>
+				{/loop}
+			</tbody>
+		</table>
+	</div>
+	</div>
+{$pager}
+<script>
+		var html="<option value='0'>不选择</option>";
+		$(function(){
+            {if $_GPC['class_id'] && $_GPC['jilv_id']}
+		      	ajax_up({$_GPC['class_id']},{$_GPC['jilv_id']});
+            {/if}
+             {if $_GPC['class_id'] && !$_GPC['jilv_id']}
+		      	ajax_up({$_GPC['class_id']},0);
+            {/if} 
+             {if !$_GPC['class_id'] && !$_GPC['jilv_id']}
+		      	ajax_up(0,0);
+            {/if}                       
+			$('#grade_id').change(function(){
+				ajax_up(0,0);
+			});
+		});
+		function ajax_up(first_class_id,first_jilv_id){
+				var gid=$('#grade_id').val();
+				$.ajax({
+					type:'post',
+					url:'{php echo $this->createWebUrl('ajax',array('ac'=>'class_list'))}',
+					data:{gid:gid},
+					dataType:'json',
+					success:function(obj){
+						$('#class_id').html(" ");
+						$('#class_id').html(html);
+						if(obj.success){
+							$.each(obj.list,function(i,e){
+                                if(first_class_id>0 && first_class_id==e.class_id){
+    								$('#class_id').append("<option value='"+e.class_id+"' selected >"+e.class_name+"</option>");
+                                }else{
+	       							$('#class_id').append("<option value='"+e.class_id+"'>"+e.class_name+"</option>");
+                                }
+							});
+						}
+					}
+				});	
+				$.ajax({
+					type:'post',
+					url:'{php echo $this->createWebUrl('ajax',array('ac'=>'jilv_list'))}',
+					data:{gid:gid},
+					dataType:'json',
+					success:function(obj){
+						$('#jilv_id').html(" ");
+						$('#jilv_id').html(html);
+						if(obj.success){
+							$.each(obj.list,function(i,e){
+                                 if(first_jilv_id>0 && first_jilv_id==e.scorejilv_id){
+    								$('#jilv_id').append("<option value='"+e.scorejilv_id+"' selected >"+e.scorejilv_name+"</option>");
+                                }else{
+	       							$('#jilv_id').append("<option value='"+e.scorejilv_id+"'>"+e.scorejilv_name+"</option>");
+                                }                               
+							});
+						}
+					}
+				});							
+		}
+</script>
+{/if}
+{if $ac == 'on_school' || $ac=='leave_school'}
+<div class="panel panel-info">
+	<div class="panel-heading">筛选</div>
+	<div class="panel-body">
+		<form action="./index.php" method="get" class="form-horizontal" role="form">
+			<input type="hidden" name="c" value="site" />
+			<input type="hidden" name="a" value="entry" />
+			<input type="hidden" name="m" value="lianhu_school" />
+			<input type="hidden" name="do" value="data_out" />
+			<input type="hidden" name="ac" value="{$ac}" />
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span>选择年级</label>
+					<div class="col-sm-9 col-xs-8">
+						<select name='gid' id="grade_id" class='form-control'>
+							{loop $grade $row}
+									<option value='{$row['grade_id']}' {if $row['grade_id']==$gid } selected {/if}>{$row['grade_name']}</option>
+							{/loop}
+						</select>
+					</div>
+				</div>			
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span>选择班级</label>
+					<div class="col-sm-9 col-xs-8">
+						<select name='class_id' id="class_id" class='form-control'>
+							<option value='0'>不选择</option>
+							{loop $class_list $row}
+									<option value='{$row['class_id']}' {if $row['class_id']==$_GPC['class_id'] } selected {/if}>{$row['class_name']}</option>
+							{/loop}
+						</select>
+					</div>
+				</div>	
+			<div class="form-group">
+				<div class="col-sm-5 col-xs-5"></div>
+					<button class="btn btn-default"><i class="fa fa-search"></i> 搜索</button>
+					<button class="btn btn-default" type="button">总学生数：{php $grade_num=$this->grade_student_num($gid)}{$grade_num}</button>
+					<button class="btn btn-default" type="button">{if $ac=='on_school' }到校学生数{else}离校人数{/if}：{$do_count}</button>
+			</div>
+			
+		</form>
+	</div>
+<div class="panel panel-default">
+	<div class="panel-body table-responsive">
+		<table class="table table-hover">
+			<thead class="navbar-inner">
+				<tr>
+					<th style="width:50px;">学生</th>
+					<th style="width:60px">班级</th>
+					<th style="width:50px;">时间点</th>
+					<th style="width:50px;">操作教师</th>
+				</tr>
+			</thead>
+			<tbody>
+				{loop $list $key  $item}
+				<tr>
+					<td>{php echo $this->studentName($item['student_id']) }</td>
+					<td>{php echo $this->className($item['class_id']) }</td>
+					<td>{php echo date("Y-m-d H:i:s",$item['addtime']);}</td>
+					<td>{php echo $this->teacherName($item['teacher_id']) }</td>
+				</tr>
+				{/loop}
+			</tbody>
+		</table>
+	 </div>
+	</div>	
+</div>
+{/if}

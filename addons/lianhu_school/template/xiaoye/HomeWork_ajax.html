@@ -1,0 +1,64 @@
+  <script>
+        $(function(){
+            $('.voice_{$page}' ).audioPlayer();
+            home_width_con = $(".homework_img_list_control{$page}");
+            $.each(home_width_con,function(i,e){
+                img_num = $(this).find('.homework_img_list').length;
+                if(img_num){
+                    if(img_num==2){
+                        this_width  = '120px';
+                        this_height = '120px';
+                    }else if(img_num==1){
+                        this_width  = '200px';
+                        this_height = '300px';
+                    }else if(img_num>2){
+                        this_width  = '120px';
+                        this_height = '120px';
+                    }
+                    $(this).find('.homework_img_list').css('height',this_height); 
+                    $(this).find('.homework_img_list').css('width',this_width); 
+                }
+            });
+        });
+ </script>
+    {loop $list $row}
+        <div class="zy">
+        <div class="zy-tp">
+            <div style="width:50px;height:50px;border-radius:50%;background-image: url({php echo D('teacher')->teacherImg($row['teacher_id']);})" class="background_img"></div>
+        </div>
+        <div class="zy-t"  style="margin-left: 5px;">
+            <p>{if $row['teacher_realname']}{$row['teacher_realname']}{else}管理员{/if}</p>
+            <p><span>({php echo $this->courseName($row['course_id']);})</span></p>
+        </div>
+        <div class="zy-tt" style="margin-left: 75px;">
+             <a href="{php echo $this->createMobileUrl('homeWork_info',array('id'=>$row['homework_id']));}">
+                <p>{php echo $this->clear_html_short($row['content']);}</p>
+            </a>
+        </div>
+        {php $urls =  $this->decodeLineImgsToArr($row['img']);}
+                {if $urls}
+                    <div class="zy-t-t homework_img_list_control{$page}">
+                    <a href="{php echo $this->createMobileUrl('homeWork_info',array('id'=>$row['homework_id']));}" >
+                        {loop $urls  $val}
+                        <div class="homework_img_list background_img" style='background-image:url({$val})'></div>
+                        {/loop}
+                    </a>
+                    </div>
+        {/if}
+        {if $row['voice']}
+            <div class="zy-yyy" style="margin-left: 75px;float: left; width: 240px;">
+                <div>
+                    <audio preload="auto" controls class='voice_{$page}'>
+                        <source src="{php echo $this->imgFrom($row['voice'])}">
+                    </audio>
+                  </div>                
+            </div>
+        {/if}
+        <div style="clear: both"></div>
+            <div class="zy-b">
+                    <p>{php echo date("Y-m-d",$row['add_time']);}&nbsp;</p>
+                    <p>{php echo date("H:i:s",$row['add_time']);}</p>
+            </div>
+
+        </div>
+    {/loop}

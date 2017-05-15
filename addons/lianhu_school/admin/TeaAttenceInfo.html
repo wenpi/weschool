@@ -1,0 +1,96 @@
+      {template '../admin/head'}
+        {template '../admin/header'}
+        <div class="page-container">
+        {template '../admin/left'}
+            <div class="page-content-wrapper">
+                <div class="page-content">
+                {template '../admin/sidebar'}
+                    <h1 class="page-title"> {$_SESSION['school_name']}
+                            <small> {$title} </small>
+                    </h1>
+            <!--结束公共头部-->
+                                <div class="note note-info">
+                                    <h4 class="block">{$result['teacher_realname']}</h4>
+                                </div>                   
+                                 <div class="portlet light ">          
+                                 <div class="portlet-body form ">
+                                    <form action="" method="post" class="form-horizontal form" enctype="multipart/form-data" id="form1"  >
+                                        <input type="hidden" name="id"  class="form-control" value='{$_GPC['id']}' />
+                                        <div class="form-body">
+                                            <div class="form-group form-md-line-input">
+                                                <label class="col-md-2 control-label">开始时间</label>
+                                                <div class="col-md-10">
+                                                    <input type="text" class="form-control" name='begin_time'  id='mask_date' value="{php echo date("Y-m-d",$begin_time);}" >
+                                                    <div class="form-control-focus"> </div>
+                                                </div>
+                                            </div>
+                                        <div class="form-group  form-md-line-input has-success">
+                                                <label class= "col-md-2 control-label">结束时间</label>
+                                                <div class="col-md-10">
+                                                    <input  class='form-control' name='end_time' id='mask_date1' value="{php echo date("Y-m-d",$end_time);}" >
+                                                    <div class="form-control-focus"> </div>
+                                                </div>
+                                          </div>
+                                        </div>
+
+                                        <div class="form-actions">
+                                            <div class="row">
+                                                <div class="col-md-offset-2 col-md-10">
+                                                    <input type="submit" name="submit" class="btn blue" value="确认">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>                               
+                                </div>     
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <!-- BEGIN SAMPLE TABLE PORTLET-->
+                                        <div class="portlet box green-turquoise">
+                                            <div class="portlet-title">
+                                                <div class="caption">
+                                                    <i class="fa fa-cogs"></i>记录列表</div>
+                                                <div class="tools">
+                                                    <a href="javascript:;" class="collapse"> </a>
+                                                </div>
+                                            </div>
+                                            <div class="portlet-body flip-scroll">
+                                                <table class="table table-bordered table-striped table-condensed flip-content">
+                                                    <thead class="flip-content">
+                                                        <tr>
+                                                            <th class="numeric">记录ID</th>
+                                                            <th>姓名</th>
+                                                            <th>设备</th>
+                                                            <th>卡</th>
+                                                            <th>图片</th>
+                                                            <th>图片2</th>
+                                                            <th>添加时间</th>                                                           
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        {loop $list $item}
+                                                           {php $device_info = D('card')->deviceInfo($item['device_id']);}
+                                                          <tr>
+                                                            <td>{$item['record_id']}</td>
+                                                            <td>{$result['teacher_realname']}</td>
+                                                            <td>{$device_info['device_name']}</td>
+                                                            <td>{$item['rfid_value']}</td>
+                                                            <td><img src="{$item['img_url']}" style="width:80px;"></td>
+                                                            <td><img src="{$item['img_url2']}" style="width:80px;"></td>
+                                                            <td>{php echo date("Y-m-d H:i:s",$item['add_time']);}</td>
+                                                        </tr>
+                                                        {/loop}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>                             
+                                </div>   
+            <!--开始公共尾部-->
+              </div>
+            </div>
+         {template '../admin/right'}
+        </div>
+     {template '../admin/footer'}
+    </body>
+    </html>

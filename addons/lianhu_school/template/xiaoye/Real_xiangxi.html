@@ -1,0 +1,69 @@
+{template '../xiaoye/newHead'}
+<div class="z_main">
+  <form action=" " method="POST">
+    <div class="b3-t">
+	<div class="kzk"></div>
+    <li id='head_img' {if $result['student_img']} style="background-image: url({php echo $this->imgFrom($result['student_img']);});" {/if}>
+		<a href="javascript:;" id='chooseImage'> <img src="{MODULE_URL}/template/xiaoye/upimg/zp.png"></a></li>
+	</div>
+	<div class="sq">
+		<div class="sq-tf">
+			<p class="sq-11">学生姓名</p>
+			<input class="sq-t2f" value='{$result['student_name']}' readonly >
+		</div>
+        <div class="sq-tf">
+			<p class="sq-11">学生系统号</p>
+			<input class="sq-t22" value='{$result['student_passport']}' readonly >
+		</div>
+        <div class="sq-tf">
+			<p class="sq-11">学生学号</p>
+			<input class="sq-t2f"  value='{$result['xuehao']}' readonly >
+		</div>
+        <div class="sq-tf">
+			<p class="sq-11">学生地址</p>
+			<input  class="sq-t2f" name='address'    value='{$result['address']}' >
+		</div>
+        <div class="sq-tf">
+			<p class="sq-11">联系方式</p>
+			<input class="sq-t2f" name='student_link'   value='{$result['student_link']}'>
+		</div>
+		<div class="tz-mn"></div>
+		<div class="sq-tf">
+			<p class="sq-11">家长姓名</p>
+			<input class="sq-t2f"  name='parent_name'   value='{$result['parent_name']}'>
+		</div>
+		<div class="sq-tf">
+			<p class="sq-11">家长电话</p>
+			<input class="sq-t2f" name='parent_phone'    value='{$result['parent_phone']}' >
+		</div>
+		<div class="sq-tf">
+			<p class="sq-11">关系</p>
+                {php $relation_list = $this->class_base->getRelation(); }
+				<select name='relation' class="sq-t23" style="-webkit-appearance: none;width:100px;padding:1px;height:auto;padding-left:5px; ">
+					{loop $relation_list $row}
+                        <option value="{$row}" {if $row == $my_relation} selected {/if}>{$row}</option>
+					{/loop}
+				</select>
+		</div>
+	</div>
+	    <div  class='hide' id='img_value'></div>  
+        <div class="z_dpt5">
+			<input type="submit"   value="提交">
+		</div>
+  </form>
+ </div>
+<script>
+    $(function(){
+        {if $result['student_img']}
+            insertValue('{$result['student_img']}');
+        {/if}
+    });   
+    function insertImg(img_src){
+        $('#head_img').css('background-image','url('+img_src+')');
+    }
+</script>
+{template '../xiaoye/upLoneImg'}
+{template 'jsweixin'}
+  {template '../xiaoye/newStudentFooter'}
+</body>
+</html>

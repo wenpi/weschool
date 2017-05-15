@@ -1,0 +1,21 @@
+{
+  "name": "imeepos",
+  "version": "1.0.0",
+  "description": "imeepos node js",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.14.0",
+    "mysql": "^2.11.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "imeepos",
+    "node",
+    "js"
+  ],
+  "author": "imeepos",
+  "license": "ISC"
+}

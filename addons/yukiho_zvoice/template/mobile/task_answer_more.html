@@ -1,0 +1,31 @@
+{loop $logs['list'] $log}
+{php $member = M('member')->getInfo($log['openid'])}
+<div class="board">
+    <a data-id="" href="javascript:;">
+                        <span class="nickname">
+                            {$member['nickname']}｜{$member['desc']}
+                        </span>
+        <div class="answer">
+            <div class="avatar" style="position:relative;width:1.85rem;height:1.85rem;border-radius:50%;display:inline-block;">
+                <img style="position:relative;width:1.85rem;height:1.85rem;border-radius:50%;display:inline-block;"
+                     class="avatarImg" src="{php echo $member['avatar']}">
+                <span></span>
+            </div>
+            <div class="bubble-wrap">
+                                <span class="bubble listen" data-id="{$log['id']}" data-timelong="{$log['timelong']}" data-src="{php echo $log['src']}">
+                                    <span class="bubble-tail"></span>
+                                    <div id="voice">
+                                        <span class="wave3"></span>
+                                    </div>
+                                    <span class="" >免费畅听</span>
+                                </span>
+            </div>
+            <div class="duration">
+                <span>{php echo $log['timelong']}</span>
+                <span>"</span>
+            </div>
+            <div class="amount amount{$log['id']}">听过 <span>{php echo M('task_answer_log')->getLogTotal($log['id'])}</span></div>
+        </div>
+    </a>
+</div>
+{/loop}

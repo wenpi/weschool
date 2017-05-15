@@ -1,0 +1,136 @@
+   {template '../admin/head'}
+        {template '../admin/header'}
+        <div class="page-container">
+        {template '../admin/left'}
+            <div class="page-content-wrapper">
+                <div class="page-content">
+                {template '../admin/sidebar'}
+                    <h1 class="page-title"> {$_SESSION['school_name']}
+                            <small> {$title} </small>
+                    </h1>
+            <!--结束公共头部-->
+                <div class='row'>
+                     <div class="col-md-12">
+                         {if $ac=='list'}
+                         {if $model !='someone'}
+                            {if $model =='grade'}
+                                {php $page = '年级列表';}
+                                {php $intro ='请选择学生所在的年级'; }
+                                {php $color ='green';}
+                            {elseif $model =='class'}
+                                {php $page = '学生列表';}
+                                {php $intro ='请选择学生所在的班级'; }
+                                {php $color ='yellow-casablanca';}
+                            {elseif $model =='student'}
+                                {php $page = '学生列表';}
+                                {php $intro ='填写具体的分数'; }
+                                {php $color ='blue';}
+                            {/if}
+                                <div class="note note-info">
+                                    <h4 class="block">{$page}</h4>
+                                    <p>{$intro}</p>
+                                </div> 
+                              <div class="row" >
+                                {if $model =='student' }
+                                    <form   action="" method="post" class="form-horizontal form" enctype="multipart/form-data" id="form1"  >
+                                            <div class="form-body form-actions ">
+                                                    <div class="form-group form-md-line-input">
+                                                    <label class="col-md-2 control-label" ><span class="required" aria-required="true"> * </span>选择课程</label>
+                                                    <div class="col-md-10">
+                                                        <select name='course_id' onchange="ajax_up()" id="course_id" class="form-control">
+                                                            {loop $course_list $row}
+                                                                <option value='{$row['course_id']}'>{$row['course_name']}</option>
+                                                            {/loop}
+                                                        </select>
+                                                        <div class="form-control-focus"> </div>
+                                                    </div>
+                                                </div>                                             
+                                                <div class="form-group form-md-line-input">
+                                                    <label class="col-md-2 control-label" ><span class="required" aria-required="true"> * </span>选择考试记录</label>
+                                                    <div class="col-md-10">
+                                                       <select name='scorejilv_id' onchange="ajax_up()" id="scorejilv_id" class="form-control">
+                                                            {loop $jilv_list $row}
+                                                                <option value='{$row['scorejilv_id']}'>{$row['scorejilv_name']}</option>
+                                                            {/loop}
+                                                        </select>
+                                                        <div class="form-control-focus"> </div>
+                                                    </div>
+                                                </div>  
+                                          	<div class="form-actions">
+                                                <div class="row">
+                                                    <div class="col-md-offset-2 col-md-10">
+                                                        <input type='hidden' value='{$_GPC['cid']}' name='class_id'>
+                                                        <input type="submit" name="submit" class="btn blue" value="确认">
+                                                    </div>
+                                                </div>
+                                             </div>                                            
+                                        </div>
+                                {/if}
+                                <div  id='score_list'>
+                                {loop $result $item}
+                                <div class="col-md-2 col-sm-2 col-xs-6">
+                                    <div class="color-demo tooltips" >
+                                        {if $model !='student'}
+                                        <a href="{php echo $this->result_result($item,$model,'url','score_list');}&aw=1">
+                                        {/if}
+                                             <div  onclick="input_this({$item['student_id']})"  class="color-view bg-{$color} bg-font-{$color} bold uppercase">{php echo $this->result_result($item,$model,'name','score_list');} </div>
+                                           {if $model =='student'}
+                                                <div class=" bg-white c-font-14 sbold">
+                                                     <input id="input_{$item['student_id']}" type="text" class="col-md-12  " style="margin-bottom:10px;" name='score[{$item['student_id']}]' placeholder="填写成绩"> </div>
+                                           {else}
+                                                <div class="color-info bg-white c-font-14 sbold"> 点击选择 </div>
+                                           {/if}
+                                        {if $model !='student'}
+                                            </a>
+                                        {/if}
+                                    </div>
+                                </div>
+                                {/loop}                       
+                             </div>                       
+                             </div>                       
+                         {/if}
+ 
+                        {/if}
+                        {if $model=='student'}
+                            </form>
+                            <script>
+                                $(function(){
+                                    ajax_up();
+                                });
+                                    function ajax_up(){
+                                        var cid={$_GPC['cid']};
+                                        var course_id=$('#course_id').val();
+                                        var scorejilv_id=$('#scorejilv_id').val();
+                                        $.ajax({
+                                            type:'post',
+                                            url:'{php echo $this->createWebUrl('ajax',array('ac'=>'student_score_list'))}',
+                                            data:{cid:cid,course_id:course_id,scorejilv_id:scorejilv_id},
+                                            dataType:'json',
+                                            success:function(obj){
+                                                if(obj.status=='yes'){
+                                                    $("#score_list").find('input').attr("data-id",0);
+                                                    $.each(obj.student_score_list,function(i,e){
+                                                        $('input[name="score['+e.student_id+']"]').val(e.score);
+                                                		$('input[name="score['+e.student_id+']"]').attr("data-id",1);
+                                                    });
+                                                    $.each($("#score_list").find('input'),function(i,e){
+                                                        if($(this).attr('data-id')!=1)
+                                                                $(this).val(0);
+                                                    });                                                   
+                                                }
+                                            }
+                                        });								
+                                    }
+                            </script>
+                        {/if}
+
+                    </div>
+                </div>
+            <!--开始公共尾部-->
+              </div>
+            </div>
+         {template '../admin/right'}
+        </div>
+     {template '../admin/footer'}
+    </body>
+    </html>

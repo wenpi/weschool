@@ -1,0 +1,45 @@
+{template '../xiaoye/newHead'}
+<div class="z_main">
+    <div class="head-ks">
+        <p>{$scorejilv_name}</p>
+    </div>
+	<div class="ksx">
+        {loop $score_list $row}
+            <li class="ym">
+                <p>{$row['score']}</p>
+                <img src="{MODULE_URL}/template/xiaoye/img/{php echo $cclass_scoreList->echoScoreImg($row['score'])}">
+                <p>{$row['course_name']}</p>
+                
+            </li>
+        {/loop}
+	</div>
+	<div class="ks-m">
+		<p1>总成绩：{$all_score}</p1>
+		<p2>班级平均分：{$average_score}</p2>
+	</div>
+	<div class="y-xx"></div>
+    {loop $score_list $row}
+    <a href="{php echo $this->createMobileUrl('scoreInfo',array('course_id'=>$row['course_id']))}">
+        <li class="kxy-b">
+            {if $row['score']>=60}
+                <img src="{MODULE_URL}/template/xiaoye/img/TZ-Z.png">
+            {else}
+                <img src="{MODULE_URL}/template/xiaoye/img/CY.png">
+            {/if}
+            <p1>{$row['course_name']}</p1>
+            <p2>成绩：{$row['score']}</p2>
+            <p2>班级平均分：{php echo $cclass_scoreList->getCourseAverageScore($row['course_id'])}</p2>
+            <div class="t-x-j">
+                    <div class="t-x-j">
+                                <img src="{MODULE_URL}/template/xiaoye/img/jt.png">
+                        
+                    </div>
+            </div>
+        </li>    
+        </a>
+    {/loop}
+</div>
+    {php $footer_type = 'center';}
+   {template '../xiaoye/newStudentFooter'}
+</body>
+</html>

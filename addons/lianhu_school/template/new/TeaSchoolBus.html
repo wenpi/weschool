@@ -1,0 +1,55 @@
+<!doctype html>
+<html ng-app='new_app'>
+<head>
+ <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>{if $student_name}{$student_name}-{/if}{$page_title}-{$_SESSION['school_name']}</title>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=52c98799d98f668ebe11f46d655abd82"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/library/TextIconOverlay/1.2/src/TextIconOverlay_min.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/library/MarkerClusterer/1.2/src/MarkerClusterer_min.js"></script>
+    <script src="{MODULE_URL}/web/default/js/jquery.min.js"> </script>
+</head>
+ <body>
+        <div id="allmap">
+
+        </div>
+<link href="{MODULE_URL}style/css/weui.min.css" rel="stylesheet" type="text/css" />
+  {template '../new/tea_footer'}
+ </body>
+ </html>
+   <script type="text/javascript">
+   $(function(){
+       width  = $(window).width();
+       height = $(window).height();
+       $("#allmap").height(height);
+       $("#allmap").width(width);
+   });
+	var map = new BMap.Map("allmap");
+    map.centerAndZoom(new BMap.Point({$list[0]['baidu_lon']}, {$list[0]['baidu_lat']}), 15);
+	map.enableScrollWheelZoom();
+	var arrPoint=[];	
+	var myIcon = new BMap.Icon("{MODULE_URL}/images/school_bus.png", new BMap.Size(48,28));
+        {php $count = count($list)}
+        {loop $list $key $row}
+             var time   = "{php echo date('Y-m-d H:i:s',$row['add_time']);}" ;  
+			 var bjd    = "{$row['baidu_lon']}" ; 			
+			 var bwd    = "{$row['baidu_lat']}" ; 
+             {if $key+1 == $count}
+    			 var cardno = "0000000000" ;
+            {/if}
+			 var mc     = "停留点" ;
+			 //var name="<?php echo $mc;?>" 
+			 if(cardno == "0000000000"){
+			  			var marker = new BMap.Marker(new BMap.Point(bjd, bwd),{icon:myIcon}); 
+						var label  = new BMap.Label(mc+"-"+time+"",{offset:new BMap.Size(20,-10)});
+						marker.setLabel(label); 
+						map.addOverlay(marker); 
+			 }
+			 arrPoint.push(new BMap.Point(bjd, bwd));
+        {/loop}
+	var polyline = new BMap.Polyline(arrPoint,{strokeColor:"red", strokeWeight:6, strokeOpacity:0.5});    
+	map.addOverlay(polyline);
+</script>

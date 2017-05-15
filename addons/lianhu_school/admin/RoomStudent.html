@@ -1,0 +1,56 @@
+   {template '../admin/head'}
+        {template '../admin/header'}
+        <div class="page-container">
+        {template '../admin/left'}
+            <div class="page-content-wrapper">
+                <div class="page-content">
+                {template '../admin/sidebar'}
+                    <h1 class="page-title"> {$_SESSION['school_name']}
+                            <small>宿舍管理  </small>
+                    </h1>
+                <div class="portlet light bordered">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <span class="caption-subject font-red-sunglo bold uppercase">{$building_name}-{$room_re['room_num']}</span>
+                        </div>
+                    </div>
+                </div>
+
+              <div class="portlet-body form">
+                      <form action="" method="post" class="form-horizontal form" enctype="multipart/form-data" id="form1"  >
+                                            <div class="form-group  form-md-line-input">
+                                                <label class="control-label col-md-2">选择学生</label>
+                                                    <div class="col-md-10">
+                                                        <select name="student_id[]" id='pre-selected-options'  multiple="multiple" class="multi-select"  >
+                                                                {loop $student_list $row}
+                                                                    {if   in_array($row['student_id'],$do_student_ids) }
+                                                                            <option value='{$row['student_id']}' selected > {$row['student_name']}【学号:{$row['xuehao']}】</option>
+                                                                    {/if}
+                                                                {/loop}
+                                                                 {loop $student_list $row}
+                                                                    {if   !in_array($row['student_id'],$all_student_ids) }
+                                                                            <option value='{$row['student_id']}'  > {$row['student_name']}【学号:{$row['xuehao']}】</option>
+                                                                    {/if}
+                                                                {/loop}                                                               
+
+                                                        </select>
+                                                    </div>
+                                            </div>  
+                                        
+                                        <div class="form-actions">
+                                                <div class="row">
+                                                    <div class="col-md-offset-2 col-md-10">
+                                                        <input type="submit" name="submit" class="btn blue" value="确认">
+                                                    </div>
+                                                </div>
+                                         </div>                                                                                
+                         </form>
+               </div>              
+           {template '../admin/mutilSelect'}
+        </div>
+        </div>
+         {template '../admin/right'}
+        </div>
+         {template '../admin/footer'}
+         </body>
+    </html>

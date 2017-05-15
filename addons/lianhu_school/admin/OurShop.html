@@ -1,0 +1,55 @@
+   {template '../admin/head'}
+        {template '../admin/header'}
+        <div class="page-container">
+        {template '../admin/left'}
+            <div class="page-content-wrapper">
+                <div class="page-content">
+                {template '../admin/sidebar'}
+                    <h1 class="page-title"> 
+                            <small> {$title} </small>
+                    </h1>
+                 <div class="row">
+                        <div class="col-md-12">
+                            <!-- BEGIN SAMPLE TABLE PORTLET-->
+                            <div class="portlet box green-turquoise">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <i class="fa fa-cogs"></i>插件列表【购买联系朱欢】 </div>
+                                    <div class="tools">
+                                        <a href="javascript:;" class="collapse"> </a>
+                                    </div>
+                                </div>
+                                <div class="portlet-body flip-scroll">
+                                    <table class="table table-bordered table-striped table-condensed flip-content">
+                                        <thead class="flip-content">
+                                            <tr>
+                                                <th>插件名</th>
+                                                <th>插件标示</th>
+                                                <th>价格</th>
+                                                <th>介绍</th>
+                                                <th>是否购买</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                         {loop $list $item}
+                                            <tr >
+                                                <td>  {$item['name']}</td>
+                                                <td>  {$item['shop_key']}  </td>
+                                                <td>  {$item['price']}  </td>
+                                                <td>  {$item['info']}  </td>
+                                                <td>{if in_array($item['shop_id'],$my_ids)} 已购买 {else}<span class="font-red">未购买</span>{/if} </td>
+                                            </tr>
+                                        {/loop}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        </div>
+        </div>
+         {template '../admin/right'}
+        </div>
+     {template '../admin/footer'}
+         </body>
+    </html>

@@ -1,0 +1,55 @@
+{template 'school/app_header'}
+<body style="height: 100%">
+  <section class="w-section mobile-wrapper" style="height: 100%">
+    <div class="page-content" id="main-stack">
+      <div class="w-nav navbar" data-collapse="all" data-animation="over-left" data-duration="400" data-contain="1" data-easing="ease-out-quint" data-no-scroll="1">
+        <div class="w-container">
+            {template 'school/app_left'}
+          <div class="wrapper-mask" data-ix="menu-mask"></div>
+          <div class="navbar-title">首页</div>
+          <div class="w-nav-button navbar-button left" id="menu-button" data-ix="hide-navbar-icons">
+            <div class="navbar-button-icon home-icon">
+              <div class="bar-home-icon top"></div>
+              <div class="bar-home-icon middle"></div>
+              <div class="bar-home-icon bottom"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="home-content">
+          <div class="text-new grey">
+            <div class="separator-fields"></div>
+            <h1 class="title-h1">学生到校率!</h1>
+            <div class="separator-fields"></div>
+              <p class="description-new">通过考勤设备进校的人数</p>
+                <div class="index_people">
+                  {$morning_student_count}&nbsp;人
+                </div>
+            <div class="separator-fields"></div>
+            <div class="separator-fields"></div>
+          </div>
+
+          <div class="text-new grey">
+            <div class="separator-fields"></div>
+            <h1 class="title-h1">学生离校率!</h1>
+            <div class="separator-fields"></div>
+              <p class="description-new">通过考勤设备出校的人数</p>
+                <div  class="index_people">
+                  {$afternoon_student_count}&nbsp;人
+                </div>
+            <div class="separator-fields"></div>
+            <div class="separator-fields"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="page-content loading-mask" id="new-stack">
+      <div class="loading-icon">
+        <div class="navbar-button-icon icon ion-load-d"></div>
+      </div>
+    </div>
+  </section>
+ {template 'school/app_footer'}
+</body>
+</html>

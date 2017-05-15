@@ -1,0 +1,260 @@
+   {template '../admin/head'}
+        {template '../admin/header'}
+        <div class="page-container">
+        {template '../admin/left'}
+            <div class="page-content-wrapper">
+                <div class="page-content"> 
+                {template '../admin/sidebar'}
+                    <h1 class="page-title"> {$_SESSION['school_name']}
+                            <small> {$title} </small>
+                    </h1>
+                {if $ac =='edit'|| $ac=='new' }
+                    <script>
+                        function templateDevice(obj){
+                            val = $(obj).val();
+                            if(val==1){
+                                $("#template_device_mac").show();
+                            }else{
+                                $("#template_device_mac").hide();
+                            }
+                        }
+                        function deviceChange(obj){
+                            arr        = new Array();
+                            device_val = $(obj).val();
+                            $(".other_input").hide();
+                            {loop D('device')->display_type $key $row}
+                                arr[{$key}] = new Array();
+                                {loop $row $k $val}
+                                    arr[{$key}][{$k}] = '{$val}'; 
+                                {/loop}
+                            {/loop}
+                            new_display = arr[device_val];
+                            $.each(new_display,function(i,e){
+                                $("#"+e+"").show();
+                            });
+                        }
+                        $(function(){
+                            deviceChange("#device_type");
+                        });
+                    </script> 
+                     <div class="row">
+                        <div class="col-md-12">
+                             <div class="portlet light ">
+                                <div class="portlet-title">
+                                    <div class="caption font-green-haze">
+                                        <i class="icon-settings font-green-haze"></i>
+                                        <span class="caption-subject bold uppercase">{if $ac=='new'}新增设备{else}修改{/if} </span>
+                                    </div>
+                                    <div class="actions">
+                                        <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="javascript:;" data-original-title="" title=""> </a>
+                                    </div>
+                                </div>
+                                  <div class="portlet-body form">
+                                    <form action="" method="post" class="form-horizontal form" enctype="multipart/form-data" id="form1"  >
+                                                <div class="form-group form-md-line-input">
+                                                    <label class="col-md-2 control-label"><span style='color:red'>*</span>设备备注名</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="text" name="device_name" id="device_name" class="form-control" value='{$result['device_name']}' required />
+                                                        {if $ac=='edit'}
+                                                        <input type="hidden" name="id"  class="form-control" value='{$result['device_id']}' />
+                                                        {/if}
+                                                    </div>
+                                                </div>
+                                                 <div class="form-group form-md-line-input">
+                                                    <label class=" col-md-2 control-label">设备类别</label>
+                                                    <div class="col-sm-10">
+                                                        <select name='device_type' id='device_type' class="form-control" onchange="deviceChange(this)"  >
+                                                            {loop $device_types $key $rows}
+                                                               <option value='{$key}' {if $key == $result['device_type']} selected {/if} >{$rows}</option>
+                                                            {/loop}
+                                                        </select>                                                         
+                                                    </div>
+                                                </div>                                                
+                                                
+                                                <div class="form-group form-md-line-input ">
+                                                    <label class=" col-md-2 control-label"><span style='color:red'>*</span>设备识别</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="text" name="device_openid"  class="form-control" value='{$result['device_openid']}' required />
+                                                    </div>
+                                                </div>
+
+                                                 <div class="form-group form-md-line-input other_input" id='template_device'>
+                                                    <label class=" col-md-2 control-label">有无体温枪</label>
+                                                    <div class="col-sm-10">
+                                                        <select name='template_device'  class="form-control"  onchange="templateDevice(this)">
+                                                            <option value='1' {if 1 == $result['template_device']} selected {/if}>有</option>
+                                                            <option value='2' {if 2 == $result['template_device'] || !$result['template_device'] } selected {/if}>无</option>
+                                                        </select>                                                         
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group form-md-line-input" id="template_device_mac" {if 1 != $result['template_device'] } style="display:none;" {/if} >
+                                                    <label class=" col-md-2 control-label"><span style='color:red'>*</span>体温枪蓝牙MAC</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="text" name="template_device_mac" id="template_device_mac" class="form-control" value='{$result['template_device_mac']}' />
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group form-md-line-input other_input" id="img_ad_name">
+                                                    <label class=" col-md-2 control-label">标题</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="text" name="img_ad_name"  class="form-control" value='{$result['img_ad_name']}' />
+                                                    </div>
+                                                 </div>
+
+                                                 <div class="form-group form-md-line-input other_input" id='img_ads'>
+                                                    <label class=" col-md-2 control-label">图片组</label>
+                                                    <div class="col-sm-10">
+                                                        {php echo tpl_form_field_multi_image('img_ads', $result['img_ads']);}
+                                                    </div>
+                                                 </div>
+
+                                                <div class="form-group form-md-line-input other_input" id="video_name">
+                                                    <label class=" col-md-2 control-label">标题[或者学校公告]：</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="text" name="video_name"  class="form-control" value='{$result['video_name']}' />
+                                                    </div>
+                                               </div>
+
+                                                <div class="form-group form-md-line-input other_input" id="video_url">					
+                                                    <label class=" col-md-2 control-label">视频地址（mp4）(需：http://)：</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="text" name="video_url"  class="form-control" value='{$result['video_url']}' />
+                                                    </div>
+                                                </div>				
+                                               
+                                                <div class="form-group form-md-line-input">
+                                                    <label class=" col-md-2 control-label"><span style='color:red'>*</span>状态</label>
+                                                    <div class="col-sm-10">
+                                                        <select name='device_status'  class="form-control" >
+                                                            <option value='1' {if 1 ==$result['device_status']} selected {/if}>正常</option>
+                                                            <option value='0' {if 0 ==$result['device_status']} selected {/if}>关闭</option>
+                                                        </select>                       
+                                                    </div>
+                                                </div>                
+                                                
+                                                {if $room_re}
+                                                    <div class="form-group form-md-line-input ">
+                                                        <label class=" col-md-2 control-label">是否宿舍控制</label>
+                                                        <div class="col-sm-10">
+                                                            <select name='room_controller' id='roomController' class="form-control" onchange="roomControllers()" >
+                                                                <option value='1' {if 1 == $result['room_controller']} selected {/if}>宿舍控制</option>
+                                                                <option value='0' {if 0 == $result['room_controller']} selected {/if}>否</option>
+                                                            </select>                       
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group form-md-line-input " id='buildingNum'>
+                                                        <label class=" col-md-2 control-label">楼栋号</label>
+                                                        <div class="col-sm-10">
+                                                            <select name='building_id' class="form-control"  >
+                                                                {loop $building_list $row}
+                                                                    <option value="{$row['building_id']}" {if $row['building_id']==$result['building_id'] }selected {/if}>{$row['building_num']}</option>
+                                                                {/loop}
+                                                            </select>                       
+                                                        </div>
+                                                    </div>
+                                                    <script>
+                                                            function roomControllers(){
+                                                                val = $("#roomController").val();
+                                                                if(val==1){
+                                                                    $("#buildingNum").show();
+                                                                }else{
+                                                                    $("#buildingNum").hide();
+                                                                }
+                                                            }
+                                                            roomControllers();
+                                                    </script>
+                                                {/if}
+
+                                                <div class="form-group form-md-line-input other_input" id='on_school_gate'>
+                                                    <label class=" col-md-2 control-label"><span style='color:red'>*</span>是否校门口</label>
+                                                    <div class="col-sm-10">
+                                                        <select name='on_school_gate'  class="form-control" >
+                                                            <option value='1' {if 1 == $result['on_school_gate']} selected {/if}>位于校门口</option>
+                                                            <option value='0' {if 0 == $result['on_school_gate']} selected {/if}>否</option>
+                                                        </select>                       
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-actions">
+                                                    <div class="row">
+                                                        <div class="col-md-offset-2 col-md-10">
+                                                            <input type="submit" name="submit" class="btn blue" value="确认">
+                                                        </div>
+                                                    </div>
+                                                </div>                                                                                
+                                    </form>
+                                  </div>    
+                             </div>            
+                      </div>                 
+                     </div>
+                {/if}
+                {if $ac=='list'}
+                 <div class="row">
+                        <div class="col-md-12">
+                            <div class="note note-success">
+                                <p> 设备列表 </p>
+                            </div>
+                            <div class="portlet box green-turquoise">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <i class="fa fa-cogs"></i>设备列表 </div>
+                                    <div class="tools">
+                                        <a href="javascript:;" class="collapse"> </a>
+                                    </div>
+                                </div>
+                                <div class="portlet-body flip-scroll">
+                                    <table class="table table-bordered table-striped table-condensed flip-content">
+                                        <thead class="flip-content">
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>设备识别</th>
+                                                <th>设备名</th>
+                                                <th>状态</th>
+                                                <th>类别</th>
+                                                <th>添加时间</th>
+                                                {if $room_re}
+                                                <th>宿舍控制 </th>
+                                                {/if}
+                                                <th > </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                             {loop $list $item}
+                                                <tr>
+                                                    <td>{$item['device_id']}        </td>
+                                                    <td>{$item['device_openid']}    </td>
+                                                    <td>{$item['device_name']}      </td>
+                                                    <td>{if $item['device_status']==1}可用{else}<b class="font-red">注销</b>{/if}</td>
+                                                    <td>{php echo $device_types[$item['device_type']]}</td>
+                                                    <td>{php echo date("Y-m-d H:i:s",$item['add_time']);}</td>
+                                                    {if $room_re}
+                                                        {if $item['room_controller']}
+                                                            <td>{php echo Au("room/building")->getBuildNum($item['building_id']); }</td>
+                                                        {else}
+                                                            <td>无</td>
+                                                        {/if}
+                                                    {/if}
+                                                    <td style="text-align:  left">
+                                                            <a href="{php echo $this->createWebUrl('device', array('ac' => 'edit','id'=>$item['device_id'],'aw'=>1))}"  class="btn blue"> <i class="fa fa-edit"></i>编辑</a>
+                                                            <a href="{php echo $this->createWebUrl('device', array('ac' => 'delete','id'=>$item['device_id'],'aw'=>1))}"  class="btn red"> <i class="fa fa-trash"></i>删除</a>
+                                                            {if $item['device_type']==5 || $item['device_type']==2}
+                                                                <a target="_blank" href="{php echo $this->createWebUrl('schoolBus', array('id'=>$item['device_id']))}"  class="btn yellow"> <i class="fa fa-road"></i>校车路径</a>
+                                                            {/if}
+                                                    </td>
+                                                </tr>
+                                            {/loop}                                                                                     
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {/if}
+        </div>
+        </div>
+         {template '../admin/right'}
+        </div>
+     {template '../admin/footer'}
+         </body>
+    </html>

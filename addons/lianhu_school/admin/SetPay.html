@@ -1,0 +1,80 @@
+   {template '../admin/head'}
+        {template '../admin/header'}
+        <div class="page-container">
+       {template '../admin/left'}
+            <div class="page-content-wrapper">
+                <div class="page-content">
+                {template '../admin/sidebar'}
+                    <h1 class="page-title"> 
+                            <small> 调用支付设置[{$_SESSION['school_name']}] </small> 
+                    </h1>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="portlet light ">
+                                <div class="portlet-title">
+                                    <div class="caption font-green-haze">
+                                        <i class="icon-settings font-green-haze"></i>
+                                        <span class="caption-subject bold uppercase"> 参数设置</span>
+                                    </div>
+                                    <div class="actions">
+                                        <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="javascript:;" data-original-title="" title=""> </a>
+                                    </div>
+                                </div>
+                                <div class="portlet-body form">
+                                    <form action="" method="post" class="form-horizontal form" enctype="multipart/form-data" id="form1"  >
+                                        <div class="form-body">
+                                                        <div class="panel panel-default">
+                                                                <div class="panel-heading">支付配置（多校共用）</div>
+                                                                <div class="panel-body">
+                                                                  <div class="form-group form-md-radios form-md-line-input ">
+                                                                        <label class="col-md-2 control-label"  >是否开启其他账号支付</label>
+                                                                        <div class="md-radio-inline">
+                                                                            <div class="md-radio">
+                                                                               <input type='radio' value='0'  id= 'radiolgr' name='pay_do' class="md-radiobtn" {if $settings['pay_do']==0} checked {/if}/> 
+                                                                                <label for="radiolgr">
+                                                                                    <span></span>
+                                                                                    <span class="check"></span>
+                                                                                    <span class="box"></span>不开启</label>
+                                                                            </div>
+                                                                            <div class="md-radio">
+                                                                            <input type='radio' value='1' name='pay_do'  id= 'radiolg1' class="md-radiobtn"  {if $settings['pay_do']==1} checked {/if}/> 
+                                                                                <label for="radiolg1">
+                                                                                    <span></span>
+                                                                                    <span class="check"></span>
+                                                                                    <span class="box"></span>开启</label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>                                                                           
+                                                                    <div class="form-group  form-md-line-input ">
+                                                                        <label class=" col-md-2 control-label">选择公众号</label>
+                                                                        <div class="col-sm-10">
+                                                                        <select name='pay_uniacid' class="form-control">
+                                                                            {loop $uniacid_list $row}
+                                                                                <option value="{$row['uniacid']}" {if $settings['pay_uniacid']==$row['uniacid']} selected {/if}>{$row['name']}</option>
+                                                                            {/loop}
+                                                                        </select>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                    </div>        
+                                        </div>
+                                        <div class="form-actions">
+                                            <div class="row">
+                                                <div class="col-md-offset-2 col-md-10">
+                                                    			<input type="hidden" name="token" value="{$_W['token']}" />
+                                                                <input type="submit" name="submit" class="btn blue" value="确认">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                    </div>
+                    </div>
+             </div>
+         {template '../admin/right'}
+         </div>
+       {template '../admin/footer'}
+     </body>
+    </html>
+           

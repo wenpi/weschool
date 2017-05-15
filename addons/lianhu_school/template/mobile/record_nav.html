@@ -1,0 +1,14 @@
+    <nav class="cd-nav-container" id="cd-nav" style='z-index:1000'>
+		<ul class="cd-nav">
+            {loop $list $row}
+                <li data-menu="{$row}" class="{if $op==$row}cd-selected{/if}" style="{if $class_id==$row['class_id']}background-color:#009ffb; {else}background-color:#fff;{/if}" >
+                    <a href="{php echo $this->createMobileUrl('record',array('op'=>$row['class_id']));}">
+                      
+                        <em  style="{if $class_id==$row['class_id']}color:#fff;{else}color:#009ffb;{/if}">{$row['class_name']}</em>
+                    </a>
+                </li>
+            {/loop}
+		</ul> 
+	</nav>
+    <div class="cd-overlay">
+    </div>

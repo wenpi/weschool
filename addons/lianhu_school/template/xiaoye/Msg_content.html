@@ -1,0 +1,35 @@
+{template '../xiaoye/newHead'}
+		<div class="z_main" >
+			<div class="TP"  >
+				<p>{$result['msg_title']}</p>
+				<p1>发布者： {$admin_name} 发布时间：{php echo date("Y-m-d",$result['add_time'])}</p1>
+				<div style="clear:both"></div>
+			</div>
+		    <div class="head-solid" style="margin-bottom:5px;"></div>
+			<div  class = 'z_dp' >
+				{php echo htmlspecialchars_decode($result['msg_content']);}
+			</div>
+			{php $imgs =  $this->decodeLineImgsToArr($result['images']);}
+				{if $imgs}
+					<div class="z_dpt3" id="img_list">
+						{loop $imgs  $val}
+							<img src="{$val}" style="margin-top:5px;" onclick="displayImage('img_list','{$val}')">
+						{/loop}
+					</div>				
+				{elseif $result['img']}
+					<div class="tz-tp"  id='img_list_1'>
+						<img  src="{php echo $this->imgFrom($result['img'])}" onclick="displayImage('img_list_1','{php echo $this->imgFrom($result['img'])}')" >
+					</div>
+				{/if}           
+				<div style="clear:both"></div>
+		</div>
+	 	 {template 'jsweixin'}
+		  {if $in_type['type']=='student'}
+			 {template '../xiaoye/newStudentFooter'}
+		  {else}
+		  	<link href="{MODULE_URL}/template/xiaoye/css/teacher.css" rel="stylesheet">
+			{php $center_class = 'cde'}
+			{template '../xiaoye/newTeaFooter'}
+		  {/if}
+	</body>
+</html>

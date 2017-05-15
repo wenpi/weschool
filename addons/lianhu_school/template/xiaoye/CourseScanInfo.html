@@ -1,0 +1,16 @@
+{template '../xiaoye/newHead'}
+<body>
+<div class="z_main" >
+	<div class="TP">
+		<p>{$result['course_name']}</p>
+        <p1>课时数：{$result['nums']} 发布时间：{php echo date("Y-m-d",$result['add_time'])}</p1>
+		<div style="clear:both"></div>
+	</div>
+	<div class="head-solid" style="margin-bottom:5px;"></div>
+	<div class="tx-m" id = 'html_content'>
+        	{php echo myHtmlspecialchars_decode($result['course_contet']);}
+	</div>
+</div>
+    {template '../xiaoye/newStudentFooter'}
+</body>
+</html>

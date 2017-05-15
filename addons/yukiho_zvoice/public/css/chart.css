@@ -1,0 +1,169 @@
+.question-libs .nav {
+    height: 1.8rem;
+    background: #fff;
+    text-align: center;
+    border-bottom: 1px solid #e5e5e5;
+    padding-top: .2rem
+}
+
+.question-libs .nav .item {
+    line-height: 1.75rem;
+    display: inline-block;
+    font-size: .75rem;
+    margin: 0 1.25rem;
+    color: #999
+}
+
+.question-libs .nav .current {
+    color: #f85f48;
+    border-bottom: .15rem solid #f85f48
+}
+
+.question-libs .talk-nav {
+    border-bottom: 1px solid #e5e5e5;
+    padding: 0 .75rem;
+    height: 1.8rem;
+    line-height: 1.8rem;
+    font-size: .75rem;
+    color: #999;
+    background: #fff
+}
+
+.question-libs .talk-nav .count {
+    display: inline-block;
+    font-size: .65rem
+}
+
+.question-libs .talk-nav .item {
+    float: right;
+    line-height: 1.75rem;
+    display: inline-block;
+    margin: 0 .4rem;
+    color: #999
+}
+
+.question-libs .talk-nav .current {
+    color: #f85f48;
+    border-bottom: .15rem solid #f85f48
+}
+
+.question-libs .question-list {
+    margin-bottom: 4rem
+}
+
+.question-libs .question-list .board {
+    background: #fff;
+    padding: .6rem .75rem .7rem;
+    margin-bottom: .5rem
+}
+
+.question-libs .question-list .board .nickname {
+    color: #999;
+    font-size: .65rem;
+    margin-bottom: .5rem
+}
+
+.question-libs .question-list .board .answer {
+    margin-top: .5rem;
+    overflow: hidden
+}
+
+.question-libs .question-list .board .answer .avatar {
+    float: left;
+    display: inline-block;
+    margin-top: .15rem;
+    margin-right: .8rem;
+    vertical-align: middle
+}
+
+.question-libs .question-list .board .answer .bubble-wrap {
+    display: inline-block;
+    float: left
+}
+
+.question-libs .question-list .board .answer .bubble-wrap .bubble {
+    float: none;
+    width: 8rem;
+    min-width: 8rem
+}
+
+.question-libs .question-list .board .answer .duration {
+    display: inline-block;
+    line-height: 2.2rem;
+    float: left;
+    color: #c3c3c3;
+    font-size: .8rem
+}
+
+.question-libs .question-list .board .answer .amount {
+    display: inline-block;
+    line-height: 2.2rem;
+    float: right;
+    font-size: .65rem;
+    color: #999
+}
+
+.question-libs .question-list .board .answer .amount-red {
+    color: #f85f48
+}
+
+.question-libs .loading {
+    text-align: center;
+    padding-top: 1rem;
+    font-size: .65rem;
+    color: #999
+}
+
+.detail-wrap .intro {
+    padding: .75rem;
+    color: #999;
+    font-size: .7rem
+}
+
+.detail-wrap .detail {
+    padding: .75rem;
+    background: #fff
+}
+
+.detail-wrap .detail .asker {
+    display: block;
+    line-height: 1.25rem;
+    font-size: .65rem;
+    color: #999
+}
+
+.detail-wrap .detail .question {
+    line-height: 1.58
+}
+
+.detail-wrap .detail .question:before {
+    display: inline-block;
+    width: .9rem;
+    height: .7rem;
+    content: '';
+    background: '';
+    background-size: auto 100%
+}
+
+.detail-wrap .detail .guide {
+    position: relative;
+    padding-top: .75rem;
+    text-align: center;
+    line-height: 1.6rem;
+    font-size: .75rem
+}
+
+.detail-wrap .detail .guide .btn {
+    display: inline-block;
+    height: 1.6rem;
+    padding: 0 1.25rem;
+    background: #f85f48;
+    color: #fff;
+    border-radius: .2rem
+}
+
+.detail-wrap .detail .guide .other-link {
+    position: absolute;
+    right: .5rem;
+    color: #999
+}

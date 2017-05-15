@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>教学中心-{$_SESSION['school_name']}</title>
+    {template 'common'}
+  <script src="{MODULE_URL}/style/teacher/bositang.js" type="text/javascript"></script>
+	<link href="{MODULE_URL}/style/teacher/style.css" type="text/css" rel="stylesheet" />  
+</head>
+<body>
+	<!--头部-->
+	<div class="top_index">
+        <div style="text-align:center;line-height:35px;color:#666;width:100%;font-size:20px;font-weight:700">{$_W['uniaccount']['name']}</div>
+    </div>
+    <div class="banner_body" id="wrapper">
+    	<p class="top_icon"></p>
+        <div class="banner">
+        	<ul class="promptu-menu" id="slider">
+        		{loop $this->module['config']['ad'][$_SESSION['school_id']] $key $row}
+              	 <li><a href="{$row['url']}"><img src="{$_W['attachurl']}{$row['img']}" width="100%" height="100%" class="banner_{$key}"/></a></li>
+        		{/loop}
+           </ul>
+        </div>
+        <div class="t_ul_two b_f_ico b_f_ico_1" style="z-index:2;" id="pagenavi">
+        	{loop $this->module['config']['ad'][$_SESSION['school_id']] $key $row}
+           		<span class="li_a_info" index="{$key}" style="color:#FFF;">&nbsp;&nbsp;{$row['text']}</span>
+        	{/loop}
+                <font style=" width:auto; height:23px; display:block;; float:right;">
+                	{loop $this->module['config']['ad'][$_SESSION['school_id']] $key $row}
+                		<a href="javascript:void(0);" style="float:left"  index="{$key}" ></a>
+                	{/loop}
+                </font>
+         </div>
+    </div>
+    <!--头部-->
+    <div style="clear:both;"></div>
+    <!--中部-->
+    <div class="middle_index" style='margin-bottom:60px;'>
+    	<div class="title_1_index title">
+        	<p style="width:92%;"><span>功能导航</span></p>
+        </div>
+        <div class="icon">
+        	<div class="icon_top"></div>
+            <div class="icon_left">
+            	<div class="icon_right">
+                	<div>
+                    	<a class="a_1" href="{php echo $this->createMobileUrl('tea_data');}"></a>
+                        <a class="a_2" href="{php echo $this->createMobileUrl('Neimsg_tea');}"></a>
+                        <a class="a_3" href="{php echo $this->createMobileUrl('tea_work_record');}"></a>
+                        <a class="a_4" href="{php echo $this->createMobileUrl('tea_error_record');}"></a>
+                        <a class="a_5" href="{php echo $this->createMobileUrl('tea_jinbu_record');}"></a>
+                        <a class="a_6" href="{php echo $this->createMobileUrl('tea_score_in');}"></a>
+                        <a class="a_7" href="javascript:;" onclick="school_free()"></a>
+                        <a class="a_8" href="{php echo $this->createMobileUrl('tea_line');}"></a>
+                        <a class="a_9" href="{php echo $this->createMobileUrl('tea_msg');}"></a>
+                        <div style="clear:both;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="icon_bottom"></div>
+        </div>
+    </div>
+<script type="text/javascript" src="{MODULE_URL}/style/teacher/touchScroll.js"></script>
+<script type="text/javascript" src="{MODULE_URL}/style/teacher/touchslider.dev.js"></script>
+<script type="text/javascript">
+function school_free(){
+    if(confirm("点击之后会通知班主任的班级下面所有家长")){
+        $.get("{php echo $this->createMobileUrl('tea_school_free')}",function(obj){
+            if(obj.status=='yes'){
+                alert('发送成功');
+            }else{
+                alert(obj.msg);
+            }
+        },'json');
+    }
+}
+jQuery(document).ready(function(){
+var active=0,
+	as=document.getElementById('pagenavi').getElementsByTagName('a')
+for(var i=0;i<as.length;i++){
+	(function(){
+		var j=i;
+		as[i].onclick=function(){
+			t2.slide(j);
+			return false;
+		}
+	})();
+}
+var t1=new TouchScroll({id:'wrapper','width':5,'opacity':0.7,color:'#555',minLength:20});
+var t2=new TouchSlider({id:'slider', speed:1000, timeout:6000, before:function(index){
+		jQuery('.li_a_info').hide();
+		jQuery('.li_a_info[index='+index+']').show();
+}});
+})
+</script>
+{template 'footer_tea'}

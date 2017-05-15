@@ -1,0 +1,38 @@
+{template '../xiaoye/newTeaHead'}
+<body>
+	<div class="main">
+		<div class="ft">
+			<div class="ft2"><a href="{php echo $this->createMobileUrl("teaStudentAddWorkRecord",array("sid"=>$student_info['student_id']))}">添加记录</a></div>
+			<div class="ft1"><a href="{php echo $this->createMobileUrl("teaStudentHisWorkRecord",array("sid"=>$student_info['student_id']))}">历史记录</a></div>
+		</div>
+        <div class="fsnr">
+            <form method="post" >
+            <div class="fsgg">添加新的记录【{$student_info['student_name']}】</div>
+            <div class="fss1"><p>记录类型</p>
+                <input type="hidden" name="sid" value="{$student_info['student_id']}">
+                <select name="record_class_id" id="selectAge">
+                    {loop $recore_class_list $row}
+                        <option value="{$row['class_id']}">{$row['class_name']}</option>
+                    {/loop}
+                </select>
+            </div>
+            <div class="sfs1"><p> 记录名</p><input type="text" name="record_title" required></div>
+            <div class="ssc">
+                <p>文字描述内容</p>
+                <span>
+                    <textarea class="zxx1 mmm" placeholder="请输入资料内容" name="record_content" ></textarea>
+                </span>
+            </div>
+            {template '../xiaoye/upTeaImgs'}
+            <div class="qjyy">
+            {template '../xiaoye/only_voice'}
+            </div>
+            <div class="mf"><a href="#"><input type="submit"  name="submit" value="提交" /></a></div>
+            </form>	
+       </div>
+        {php $center_class = 'cde'}
+        {template '../xiaoye/newTeaFooter'}
+        {template 'jsweixin'}
+    </div>
+</body>
+</html>

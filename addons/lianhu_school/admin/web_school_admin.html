@@ -1,0 +1,160 @@
+   {template '../admin/head'}
+        {template '../admin/header'}
+        <div class="page-container">
+        {template '../admin/left'}
+            <div class="page-content-wrapper">
+                <div class="page-content">
+                {template '../admin/sidebar'}
+                    <h1 class="page-title"> {$_SESSION['school_name']}
+                            <small> {$title} </small>
+                    </h1>
+                {if $ac =='edit'|| $ac=='new' }
+                     <div class="row">
+                        <div class="col-md-12">
+                             <div class="portlet light ">
+                                <div class="portlet-title">
+                                    <div class="caption font-green-haze">
+                                        <i class="fa fa-edit font-green-haze"></i>
+                                        <span class="caption-subject bold uppercase"> {if $ac=='new'}新增学校管理员{else}修改{/if}</span>
+                                    </div>
+                                    <div class="actions">
+                                        <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="javascript:;" data-original-title="" title=""> </a>
+                                    </div>
+                                </div>
+                                  <div class="portlet-body form">
+                                    <form action="" method="post" class="form-horizontal form" enctype="multipart/form-data" id="form1"  >
+                                                <div class="form-group form-md-line-input">
+                                                            <label class="col-md-2 control-label"><span class="required" aria-required="true"> * </span>姓名</label>
+                                                            <div class="col-sm-10">
+                                                                <input type="text" name="admin_name" id="admin_name" class="form-control" value='{$result['admin_name']}'required  />
+                                                            </div>
+                                                 </div>
+                                                <div class="form-group form-md-line-input">
+                                                    <label class=" col-sm-2  control-label"><span class="required" aria-required="true"> * </span>照片</label>
+                                                    <div class="col-sm-10">
+                                                         {php echo upImg('admin_img',$result['admin_img'] ,$this);}
+                                                    </div>
+                                                </div>	
+                                                    <div class='form-group form-md-line-input '>
+                                                        <label class=" col-md-2 control-label"><span class="required" aria-required="true"> * </span>系统账号</label>
+                                                        <div class="col-sm-10">
+                                                                <input name='passport'{if $ac=='edit'} readonly {/if} class='form-control' value='{$result['passport']}'>
+                                                        </div>	
+                                                    </div>
+
+                                                    <div class='form-group form-md-line-input '>
+                                                        <label class=" col-md-2 control-label"><span class="required" aria-required="true"> * </span>系统密码</label>
+                                                        <div class="col-sm-10">
+                                                            <input name='password' class='form-control' value=''>
+                                                             <div class="form-control-focus"> </div>
+                                                             <span class="help-block">留空不修改</span>
+                                                        </div>	
+                                                    </div>								
+                                                    {if $ac=='edit'}
+                                                        <div class='form-group form-md-line-input  '>
+                                                            <label class=" col-md-2 control-label"><span class="required" aria-required="true"> * </span>状态</label>
+                                                            <div class="col-sm-10">
+                                                            <select name='status'  class='form-control' >
+                                                                    <option value='1' {if 1 ==$result['status']} selected {/if}>正常</option>
+                                                                    <option value='0' {if 0 ==$result['status'] && isset($result['status']) } selected {/if}>关闭</option>
+                                                            </select>
+                                                            </div>							
+                                                        </div>
+                                                    {/if}
+                                            <div class="form-actions">
+                                                <div class="row">
+                                                    <div class="col-md-offset-2 col-md-10">
+                                                        <input type="submit" name="submit" class="btn blue" value="确认">
+                                                    </div>
+                                                </div>
+                                            </div>                                                                                
+                                    </form>
+                                  </div>    
+                             </div>            
+                      </div>                 
+                     </div>
+                {/if}
+                {if $ac=='list'}
+                 <div class="row">
+                        <div class="col-md-12">
+                            <div class="note note-success">
+                                <p>可以直接管理当前学校的人员 </p>
+                            </div>
+                            <!-- BEGIN SAMPLE TABLE PORTLET-->
+                            <div class="portlet box green-turquoise">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <i class="fa fa-navicon"></i>管理人员列表 </div>
+                                        {if $have_up}
+                                            <a href="{php echo $this->createWebUrl('school_admin',array('ac'=>'up_to_new') )}"><button class="btn red" type="button">请马上点击此处升级到新的账户体系</button></a>	
+                                        {/if}
+                                    <div class="tools">
+                                        <a href="javascript:;" class="collapse"> </a>
+                                    </div>
+                                </div>
+	
+                                <div class="portlet-body flip-scroll">
+                                    <table class="table table-bordered table-striped table-condensed flip-content table-light" id='sample_3'>
+                                        <thead class="flip-content">
+                                            <tr>
+                                                <th width="10%" > 账号 </th>
+                                                <th>用户名</th>
+                                                <th>头像</th>
+                                                <th>状态</th>
+                                                <th>绑定人员</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {loop $list $item}
+                                            <tr>
+                                                <td><span class='label label-sm label-info'>{$item['passport']}</span></td>
+                                                <td>{$item['admin_name']}</td>
+                                                <td>{if $item['admin_img']}<img src='{php echo $_W['attachurl'].$item['admin_img']}' width="50">{/if}</td>
+                                                <td><span class='label label-sm label-warning'>
+                                                    {if $item['status'] ==1}正常{else}关闭{/if}</span>
+                                                </td>
+                                                <td> 
+                                                        {if $item['mobile_uid']}
+                                                        {php $fanid = $this->class_base->mobileGetFanidByUid($item['mobile_uid']);}
+                                                        {php echo $this->find_user($fanid);}
+                                                        {/if}
+                                                </td>
+                                                <td style="text-align:center;">
+                                                    <a href="{php echo $this->createWebUrl('school_admin', array('admin_id' => $item['school_admin_id'],'ac'=>'edit'))}"
+                                                        class="btn blue"  title="编辑">
+                                                            <i class="fa fa-edit"></i> 编辑
+                                                    </a>
+                                                    {if $item['mobile_uid']}
+                                                     <a href="{php echo $this->createWebUrl('school_admin', array('admin_id' => $item['school_admin_id'],'ac'=>'unbundling'))}"
+                                                        class="btn red"  title="解绑">
+                                                            <i class="fa fa-trash-o red"></i> 解绑
+                                                     </a>  
+                                                     {else}
+                                                        <a href="{php echo $this->createWebUrl('qrcode', array('id' => $item['school_admin_id'], 'op' => 'school_admin_bd' ))}"
+                                                            class="btn green"  title="扫码绑定">扫码绑定
+                                                        </a>                                               
+                                                    {/if}
+                                                </td>
+                                            </tr>
+                                            {/loop}                                         
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {/if}
+        </div>
+        </div>
+         {template '../admin/right'}
+        </div>
+        {template '../admin/footer'}
+        {if $ac=='list'}
+            {template '../admin/table_script'}         
+        {else}
+            {template '../admin/mutilSelect'}
+        {/if}
+
+         </body>
+    </html>

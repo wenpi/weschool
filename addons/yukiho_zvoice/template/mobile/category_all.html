@@ -1,0 +1,33 @@
+{template 'common/header1'}
+{template 'common/menu'}
+			<div id="content" class="snap-content">
+				<div class="header-clear"></div>
+				<div class="content">
+					<div class="portfolio-filter">
+						<div class="portfolio-filter-categories">
+							<a href="#" class="filter-category selected-filter" data-rel="all-cat">所有</a>
+							<a href="#" class="filter-category" data-rel="cat1">内科</a>
+							<a href="#" class="filter-category" data-rel="cat8">外科</a>
+						</div>
+						<div class="clear"></div>
+						<div class="portfolio-filter-wrapper" style="margin-left:5px;">
+							{php $categorys = M('category')->getall(array('fid'=>1));}
+							{loop $categorys $category}
+							<div class="cat1 all-cat gallery-filter-item" style="display: block;width:30%;">
+								<a style="text-align:center;width:100%;" href="{php echo $this->createMobileUrl('category',array('category_id'=>$category['id']))}" data-id="{php echo $category['id']}" class="button button-blue button-round">{$category['title']}</a>
+							</div>
+							{/loop}
+							{php $categorys = M('category')->getall(array('fid'=>8));}
+							{loop $categorys $category}
+							<div class="cat8 all-cat gallery-filter-item" style="display: block;width:30%;">
+								<a style="text-align:center;width:100%;" href="{php echo $this->createMobileUrl('category',array('category_id'=>$category['id']))}" data-id="{php echo $category['id']}" class="button button-blue button-round" >{$category['title']}</a>
+							</div>
+							{/loop}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<a href="#" class="back-to-top-badge"><i class="fa fa-caret-up"></i>返回顶部</a>
+	</div>
+</body>

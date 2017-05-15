@@ -1,0 +1,16 @@
+<link rel="stylesheet" href="http://cache.amap.com/lbs/static/main1119.css"/>
+<div id="container" style="margin-top:45px;height: 100%"></div>
+<div class="button-group" style="right: 40px;">
+      <input type="button" class="button datepicker" value="选择日期" id="date"/>
+      <input type="button" class="button" value="开始动画" id="start"/>
+      <input type="button" class="button" value="暂停动画" id="pause"/>
+</div>
+{if $list}
+    {template '../new/LocalHisInfo'}
+{else}
+    {template '../new/LocalInfo'}
+{/if}
+<script type="text/javascript" src="http://webapi.amap.com/demos/js/liteToolbar.js"></script>
+<script type="text/javascript" src="http://cache.amap.com/lbs/static/addToolbar.js"></script>
+{php $url=$this->createMobileUrl("funcstudent_card",array("ac"=>'his'));}
+{template '../new/timeDate'}

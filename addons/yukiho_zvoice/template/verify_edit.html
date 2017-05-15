@@ -1,0 +1,84 @@
+{if empty($_W['isajax'])}
+{template 'common/header'}
+{template 'navs'}
+{/if}
+<div class="panel panel-default">
+    <div class="panel-heading">会员审核</div>
+    <div class="panel-body">
+        <form action="" method="post"  class="form-horizontal" enctype="multipart/form-data">
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">问题分类</label>
+                <div class="col-sm-8 col-lg-9 col-xs-12">
+                    <select readonly name="category_id" id="" class="form-control">
+                        <option value="0">请选择</option>
+                        {php $options = M('category')->getall(array('fid'=>0))}
+                        {loop $options $option}
+                        {php $class = M('category')->getall(array('fid'=>$option['id']))}
+                        <option value="{$option['id']}" disabled="disabled" {if $item['category_id']==$option['id']}selected{/if}>{$option['title']}</option>
+                        {loop $class $c}
+                        <option value="{$c['id']}" {if $item['category_id']==$c['id']}selected{/if}>---|{$c['title']}</option>
+                        {/loop}
+                        {/loop}
+                    </select>
+                    <span class="help-block"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">昵称</label>
+                <div class="col-sm-8 col-lg-9 col-xs-12">
+                    <input type="text" name="nickname" readonly placeholder="" value="{$item['nickname']}" class="form-control"/>
+                    <span class="help-block"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">头衔</label>
+                <div class="col-sm-8 col-lg-9 col-xs-12">
+                    <input type="text" readonly name="tags" placeholder="" value="{$item['tags']}" class="form-control"/>
+                    <span class="help-block"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">简介</label>
+                <div class="col-sm-8 col-lg-9 col-xs-12">
+                    <textarea name="desc"  readonly class="form-control" id="" cols="30" rows="10">{$item['desc']}</textarea>
+                    <span class="help-block"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">提问费用</label>
+                <div class="col-sm-8 col-lg-9 col-xs-12">
+                    <input readonly type="text" name="credit" placeholder="" value="{$item['credit']}" class="form-control"/>
+                    <span class="help-block"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">审核状态</label>
+                <div class="col-sm-8 col-lg-9 col-xs-12">
+                    <label class="radio-inline">
+                        <input type="radio" name="status" value="3" {if $item['status']==3}checked="checked"{/if}> 通过
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="status" value="2" {if $item['status']==2}checked="checked"{/if}> 拒绝
+                    </label>
+                    <span class="help-block"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">不通过理由</label>
+                <div class="col-sm-8 col-lg-9 col-xs-12">
+                    <input type="text" name="verifyMsg" placeholder="" value="{$item['verifyMsg']}" class="form-control"/>
+                    <span class="help-block">如果审核不通过，请填写具体理由告知用户</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-md-offset-3 col-lg-offset-2 col-xs-12 col-sm-10 col-md-10 col-lg-11">
+                    <input name="submit" type="submit" value="提交" class="btn btn-primary span3" />
+                    <input type="hidden" name="token" value="{$_W['token']}" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{if empty($_W['isajax'])}
+{template 'common/footer'}
+{/if}

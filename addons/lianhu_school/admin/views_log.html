@@ -1,0 +1,89 @@
+   {template '../admin/head'}
+        {template '../admin/header'}
+        <div class="page-container">
+        {template '../admin/left'}
+            <div class="page-content-wrapper">
+                <div class="page-content">
+                {template '../admin/sidebar'}
+                    <h1 class="page-title"> {$_SESSION['school_name']}
+                            <small> {$title} </small>
+                    </h1>
+                        <div class='row'>
+                                <div class="col-md-12 col-sm-12">
+                                    <div class="portlet box green-turquoise">
+                                        <div class="portlet-title">
+                                            <div class="caption">
+                                                <i class="fa fa-cogs"></i>搜索 
+                                            </div>
+                                        </div>
+                                           <div class="portlet-body form">
+                                               <br>
+                                                <form  method="post" class="form-horizontal">
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-3">开始时间</label>
+                                                            <div class="col-md-4">
+                                                                <input name='begin_time' class="form-control"  id="mask_date"  value="{$_GPC['begin_time']}">
+                                                            </div>
+                                                        </div>	
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-3">结束时间</label>
+                                                            <div class="col-md-4">
+                                                                <input name='end_time' class="form-control"  id="mask_date1" value="{$_GPC['end_time']}">
+                                                            </div>
+                                                        </div>                                                      
+                                                    <div class="form-actions">
+                                                            <div class="row">
+                                                                <div class="col-md-offset-2 col-md-10">
+                                                                     <input type="submit" name="submit" class="btn blue" value="确认搜索">
+                                                                     <button class="btn btn-default" type="button">总记录数：{$result['count']}</button>	
+                                                                     <button class="btn btn-default" name='csv' value='1' >导出csv</button>	
+                                                                </div>
+                                                            </div>
+                                                    </div>   
+                                                </form>
+                                              </div>   
+                                       </div>   
+                                 </div>   
+                                <div class="col-md-12 col-sm-12">
+                                    <div class="portlet box red">
+                                        <div class="portlet-title">
+                                            <div class="caption">
+                                                <i class="fa fa-cogs"></i>查看记录 </div>
+                                        </div>
+                                        <div class="portlet-body">
+                                            <table class="table table-striped table-bordered table-hover table-checkable order-column" id="sample_3">
+                                                <thead>
+                                                    <tr>
+                                                        <th> 年级 </th>
+                                                        <th> 班级 </th>
+                                                        <th> 学生 </th>
+                                                        <th> 时间 </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {loop $list $item}
+                                                        <tr class="odd gradeX">
+                                                            <td>{$item['grade_name']}</td>
+                                                            <td>{$item['class_name']}</td>
+                                                            <td>{$item['student_name']}</td>
+                                                            <td>{$item['add_time']}</td>
+                                                        </tr>                                           
+                                                    {/loop}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <!-- END EXAMPLE TABLE PORTLET-->
+                                </div>                       
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                {template '../admin/right'}
+                </div>
+            {template '../admin/footer'}
+          {if $ac=='list'}
+                <!--筛选表格-->
+                {template '../admin/table_script'}        
+            {/if}
+    </html>

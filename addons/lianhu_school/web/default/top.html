@@ -1,0 +1,28 @@
+					<div class="top-header">
+						<div class="container">
+						<div class="logo">
+							<a href="{php echo $this->createMobileUrl('pcHome',array('school_id'=>$_SESSION['school_id']))}"><h1>{$_SESSION['school_name']}</h1></a>
+						</div>
+					<div class="top-menu">
+							<span class="menu"> </span>
+								<ul class="cl-effect-16">
+								{php $class_pc=D(pc);}
+								{php $nav_list = $class_pc->getNav();}
+								{loop $nav_list $row}
+									<li><a {if $top_nav == $row['info_name']}class="active" {/if} 
+										href="{$row['out_href']}" data-hover="{$row['info_name']}">{$row['info_name']}</a></li>
+								{/loop}
+    							  <div class="clearfix"></div>
+								</ul>
+							</div>
+							<!-- script-for-menu -->
+								<script>
+									$("span.menu").click(function(){
+										$(".top-menu ul").slideToggle("slow" , function(){
+										});
+									});
+								</script>
+								<!-- script-for-menu -->
+							<div class="clearfix"> </div>
+					</div>
+				</div>

@@ -1,0 +1,41 @@
+{template '../xiaoye/newTeaHead'}
+<body>
+<div class="main">
+  <div class="ft">
+    <div class="ft1"><a href="{php echo $this->createMobileUrl("tea_homeWork")}">发布作业</a></div>
+    <div class="ft2"><a href="{php echo $this->createMobileUrl("tea_homeWorkHistory")}">作业记录</a></div>
+  </div>
+  <form method="post">
+  <div class="cn">
+    <div class="z_hcz33">
+        {loop $result $item}
+		        <div class="asd"> <input type='checkbox' name="class_list[]" id='check{$item}' value='{$item}'><label for='check{$item}'>{php echo $this->classGradeName($item)}<br>{php echo $this->className($item);}</label></div>
+        {/loop}
+    </div>
+  </div>
+  <div class="xk">
+	  <div class="xk1">课程</div>
+	  <div class="xl">
+	     <select name='course_id'>
+                        {loop $course_list $row}
+                            <option value='{$row['course_id']}'>{$row['course_name']}</option>
+                        {/loop}
+        </select>
+      </div>
+	</div>
+		<div class="ssc">
+            <span><textarea class="zxx1 mmm" placeholder="请输入详细作业内容。" name="content"></textarea></span>
+       </div>
+    {template '../xiaoye/upTeaImgs'}
+    <div class="qjyy">
+        {template '../xiaoye/only_voice'}
+    </div>
+    <input type="hidden" value="{$token}"  name='token'>
+    <div class="mf"><a href="#"><input type="submit"  name="submit" value="马上发布" /></a></div>   
+  </form>
+    {php $center_class = 'cde'}
+    {template '../xiaoye/newTeaFooter'}
+    {template 'jsweixin'}
+</div>
+</body>
+</html>

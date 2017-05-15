@@ -1,0 +1,160 @@
+@charset "utf-8";
+/* CSS Document */
+* {
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+	font-family: 苹方;
+}
+.all {
+	margin-bottom:120px;
+}
+.head {
+	background: url(../img/head-bk.jpg);
+	width: 980px;
+	height: 426px;
+	margin: 0 auto;
+}
+.QH img
+{
+	float:right;
+	margin-top:30px;
+	margin-right:30px;
+	}
+.L-D {
+	width: 200px;
+	height: 200px;
+	display: block;
+	float: left;
+	margin-left: 60px;
+	margin-top: 116px;
+}
+.L-D-R {
+	width: 280PX;
+	height: 103px;
+	border-left: #fff 2px solid;
+	float: left;
+	margin-top: 160px;
+	margin-left: 43px;
+	color: #fff;
+	list-style: none;
+	line-height: 55px;
+	letter-spacing: 5px;
+}
+.L-D-R li {
+	margin-left: 50px;
+}
+.TZ {
+	width: 980px;
+	height: 120px;
+	background-color: #fafafa;
+	float: left;
+	list-style: none;
+}
+.TZ li {
+	width: 100px;
+	font-size: 44px;
+	color: #333333;
+	margin-top: 30px;
+	margin-left: 37px;
+	float: left;
+}
+.TZ img {
+	margin-top: 20px;
+	float: left;
+}
+.TZ li1 {
+	font-size: 36px;
+	color: #777777;
+	float: right;
+	margin-right: 42px;
+	margin-top: 36px;
+}
+.TZ-B {
+	font-size: 36px;
+	margin-top: 50px;
+	line-height: 30px;
+}
+.TZ-L {
+	float: left;
+}
+.TZ-L img {
+	margin-top: 50px;
+	display: block;
+	margin-left: 37px;
+	float: left;
+}
+.TZ-R {
+	overflow: hidden;
+	width: 740px;
+	height: 261px;
+	margin-left: 25px;
+	float: left;
+	margin-top: 45px;
+}
+.TZ-R P {
+	line-height: 60px;
+	overflow: hidden;
+	font-size: 36px;
+	margin-top: 15px;
+}
+.TZ-SJ p {
+	font-size: 36px;
+	color: #999999;
+	float: right;
+}
+.biaoti1 {
+	float: left;
+	font-weight: 500;
+	font-size: 40px;
+}
+.biaoti2 {
+	float: right;
+}
+.CY li {
+	width: 33%;
+	text-align: center;
+	float: left;
+}
+.CY P {
+	text-align: center;
+	font-size: 44px;
+	margin-top: 34px;
+}
+.CY img {
+
+	margin-top: 70px;
+}
+.CY a {
+	color: #333333;
+	text-decoration: none;
+}
+.caidan {
+	width: 100%;
+	height: 140px;
+	position: relative;
+}
+.caidan ul {
+	margin-top: 10px;
+	bottom: 0px;
+	z-index: 1;
+	overflow: hidden;
+	position: fixed;
+	width: 980px;
+	height: 130px;
+
+	background: #fafafa;
+	border-top: 2px #e5e5e5 double;
+}
+.caidan ul li {
+	text-align: center;
+	width: 245px;
+	height: 130px;
+	float: left;
+	margin-top: 5px;
+	
+}
+.caidan ul li img {
+	width: 120px;
+	height: 120px;
+}

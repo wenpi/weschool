@@ -1,0 +1,112 @@
+{if empty($_W['isajax'])}
+{template 'common/header'}
+{template 'setting_nav'}
+{/if}
+<div class="panel panel-default">
+    <div class="panel-heading">
+        短信接口设置
+    </div>
+    <div class="panel-body">
+        <form action="" method="post"  class="form-horizontal" enctype="multipart/form-data">
+            {php $ali_sms = $item;}
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-2 col-md-2 col-lg-1 control-label">用户注册</label>
+                <div class="col-sm-8 col-lg-9 col-xs-12">
+                    <label class="radio-inline">
+                        <input type="radio" name="user_open" value="1" {if $ali_sms['user_open']==1}checked="checked"{/if}> 开启
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="user_open" value="0" {if $ali_sms['user_open']==0}checked="checked"{/if}> 关闭
+                    </label>
+                    <span class="help-block"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-2 col-md-2 col-lg-1 control-label">短信接口</label>
+                <div class="col-sm-8 col-lg-9 col-xs-12">
+                    <label class="radio-inline">
+                        <input type="radio" name="sms_api_type" value="1" {if $ali_sms['sms_api_type']==1}checked="checked"{/if}> 阿里大鱼
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="sms_api_type" value="2" {if $ali_sms['sms_api_type']==2}checked="checked"{/if}> 聚合短信
+                    </label>
+                    <span class="help-block"></span>
+                </div>
+            </div>
+            <div id="sms_api_type_1" style="display:{if $ali_sms['sms_api_type']==1}block;{else}none;{/if}">
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-2 col-md-2 col-lg-1 control-label">阿里大鱼appkey</label>
+                    <div class="col-sm-8 col-lg-9 col-xs-12">
+                        <input type="text" name="appkey" value="{$ali_sms['appkey']}" class="form-control"/>
+                        <span class="help-block">阿里大鱼appkey</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-2 col-md-2 col-lg-1 control-label">阿里大鱼appsecret</label>
+                    <div class="col-sm-8 col-lg-9 col-xs-12">
+                        <input type="text" name="appsecret" value="{$ali_sms['appsecret']}" class="form-control"/>
+                        <span class="help-block">阿里大鱼appsecret</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-2 col-md-2 col-lg-1 control-label">阿里大鱼身份验证签名</label>
+                    <div class="col-sm-8 col-lg-9 col-xs-12">
+                        <input type="text" name="signname" value="{$ali_sms['signname']}" class="form-control"/>
+                        <span class="help-block">默认为：<a href="http://www.alidayu.com/admin/service/sign">身份验证</a></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-2 col-md-2 col-lg-1 control-label">验证码模板ID</label>
+                    <div class="col-sm-8 col-lg-9 col-xs-12">
+                        <input type="text" name="moban_num" value="{$ali_sms['moban_num']}" class="form-control"/>
+                        <span class="help-block">【签名】尊敬的：#nickname#,恭喜您！您的验证码是#code#，请注意查收！</span>
+                    </div>
+                </div>
+            </div>
+            <div id="sms_api_type_2" style="display:{if $ali_sms['sms_api_type']==2}block;{else}none;{/if}">
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-2 col-md-2 col-lg-1 control-label">APPKEY</label>
+                    <div class="col-sm-8 col-lg-9 col-xs-12">
+                        <input type="text" name="appkey" placeholder="" value="{$ali_sms['appkey']}" class="form-control"/>
+                        <span class="help-block"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-2 col-md-2 col-lg-1 control-label">验证码模板ID</label>
+                    <div class="col-sm-8 col-lg-9 col-xs-12">
+                        <input type="text" name="moban_num" placeholder="" value="{$ali_sms['moban_num']}" class="form-control"/>
+                        <span class="help-block">【济宁智慧圈】尊敬的：#nickname#,恭喜您！您的验证码是#code#，请注意查收！</span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-md-offset-2 col-lg-offset-1 col-xs-12 col-sm-10 col-md-10 col-lg-11">
+                    <input name="submit" type="submit" value="提交" class="btn btn-primary span3" />
+                    <input type="hidden" name="token" value="{$_W['token']}" />
+                </div>
+            </div>
+
+            <script>
+                $('input[name="sms_api_type"]').on('change keyup',function(){
+                    var _value = $(this).val();
+                    if(_value == 0){
+                        $('#sms_api_type_0').show();
+                        $('#sms_api_type_1').hide();
+                        $('#sms_api_type_2').hide();
+                    }else if (_value == 1){
+                        $('#sms_api_type_0').hide();
+                        $('#sms_api_type_1').show();
+                        $('#sms_api_type_2').hide();
+                    }else{
+                        $('#sms_api_type_0').hide();
+                        $('#sms_api_type_1').hide();
+                        $('#sms_api_type_2').show();
+                    }
+                });
+            </script>
+        </form>
+    </div>
+</div>
+{if empty($_W['isajax'])}
+{template 'common/footer'}
+{/if}

@@ -1,0 +1,43 @@
+<script src="{MODULE_URL}/style/js/jquery.min.js"></script>
+  <script>
+        $(function(){
+            home_width_con = $(".homework_img_list_control{$page}");
+            $.each(home_width_con,function(i,e){
+                img_num = $(this).find('.homework_img_list').length;
+                if(img_num){
+                    if(img_num==2){
+                        this_width  = '45%';
+                        this_height = '130px';
+                    }else if(img_num==1){
+                        this_width  = '250px';
+                        this_height = '300px';
+                    }
+                    if(img_num<3){
+                        $(this).find('.homework_img_list').css('height',this_height); 
+                        $(this).find('.homework_img_list').css('width',this_width); 
+                    }
+                }
+            });
+        });
+ </script>
+{loop $list $row}
+    <li class="z_bj" id="list_id_{$row['photo_id']}">
+        <div class="z_bj1">
+            <i class="fa fa-clock-o" aria-hidden="true"></i>
+        </div>
+        <div class="z_bj11">
+            <div class="z_bjt12" style="font-size: 16px;" >{php echo date("m-d H:i",$row['add_time']);}</div>
+            {php $urls =  $this->decodeLineImgsToArr($row['photo_list']);}
+            {if $urls}
+                <div class="z_bjt14 homework_img_list_control{$page} " id="img_list_{$row['photo_id']}">
+                {loop $urls  $val}
+                        <div class="homework_img_list wx_img_list" data-src="{$val}" style='background-image:url({$val})' onclick="displayImage('img_list_{$row['photo_id']}','{$val}')"></div>
+                {/loop}
+                </div>
+            {/if} 
+             <div class="z_bjt15" >
+                    <p style="font-size:16px;">来自{$row['sendname']}{if $row['title']}:{$row['title']}{/if}</p>
+            </div>
+        </div>
+    </li>
+{/loop}

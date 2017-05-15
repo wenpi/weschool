@@ -1,0 +1,258 @@
+{template 'common/header'}
+<link rel="stylesheet" href="{MODULE_URL}public/css/chart.css" />
+<style>
+    .header .header-nav a{
+        margin-right:-3px;
+        margin-left:-3px;
+    }
+</style>
+<div id="panel">
+    <header class="header">
+        <div class="main">
+            <nav class="header-nav">
+                <a class="current" href="{php echo $this->createMobileUrl('task')}">我要答</a>
+                <a class="" href="{php echo $this->createMobileUrl('task_post')}">我要问</a>
+            </nav>
+            <a class="search-btn" href="{php echo $this->createMobileUrl('search')}" id="searchTrigger"></a>
+        </div>
+    </header>
+    <div class="main">
+        {if !empty($task)}
+        <div id="details">
+            <div class="detail-wrap">
+                <div></div>
+                <div class="detail">
+                    <a href="javascript:;" class="asker">
+                        说出您的困惑|说出你的问题
+                    </a>
+                    <p class="question">
+                        {$task['title']}
+                    </p>
+                    <div class="guide">
+                        <a class="btn" onclick="voice.show()" href="javascript:;">我来解答</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <style>
+            .seccondTip{
+                display:inline-block;
+                vertical-align:middle;
+                line-height:5rem;
+                font-size: 1.2rem;
+                color: #F85F48;
+                text-align: center;
+                position: absolute;
+                left: 2.6rem;
+            }
+        </style>
+        <div id="voicePanel" style="display:none;">
+            <div style="margin-top:10px;">
+                <style>
+                    .startIcon{
+                        background-color: red;
+                        width: 6em;
+                        height: 6em;
+                        border-radius: 3em;
+                    }
+                    .active{
+                        background-color:#0a6fe5;
+                    }
+                </style>
+                <a href="javascript:;" class="seccondTip"></a>
+                <div style="text-align: center;">
+                    <button class="startIcon" id="startRecord">
+                        <img style="width: 2.5em;" src="{MODULE_URL}public/img/voice.png" alt=""/>
+                    </button>
+                </div>
+                <span style="margin: 0 auto;display: block;text-align: center;margin-top: 10px;">点击开始录音，最多可录制60"</span>
+                <div style="text-align: center;">
+                    <button class="postVoice" onclick="postVoice()" style="font-size: 15px;background-color: red;color: #fff;padding: 10px 15px;border-radius: 10px;margin-top: 20px;">确认发送</button>
+                    <button class="playVoice" onclick="voice.play();" style="font-size: 15px;background-color: red;color: #fff;padding: 10px 15px;border-radius: 10px;margin-top: 20px;">试听一下</button>
+                    <button class="startRecord" onclick="voice.start();" style="font-size: 15px;background-color: red;color: #fff;padding: 10px 15px;border-radius: 10px;margin-top: 20px;">开始录音</button>
+                    <button class="restart" onclick="voice.stop();" style="font-size: 15px;background-color: #908f8f;color: #fff;padding: 10px 15px;border-radius: 10px;margin-top: 20px;">停止录音</button>
+                    <button class="restart" onclick="voice.restart();" style="font-size: 15px;background-color: #908f8f;color: #fff;padding: 10px 15px;border-radius: 10px;margin-top: 20px;">重新录制</button>
+                    <button class="restart" onclick="voice.close();" style="font-size: 15px;background-color: #908f8f;color: #fff;padding: 10px 15px;border-radius: 10px;margin-top: 20px;">稍后录制</button>
+                </div>
+            </div>
+        </div>
+        <div id="questionLibs">
+            <div class="question-libs">
+                <div class="talk-nav">
+                    <p class="count">
+                        <span>{php echo M('task_answer')->getTotal($task['id'])}</span>
+                        <span>人已答 ・ 听过</span>
+                        <span>{php echo M('task_answer_log')->getTotal($task['id'])}</span>
+                    </p>
+                    <!--<a class="item" href="javascript:;">最新</a>-->
+                    <a class="item current" href="javascript:;">精选</a>
+                </div>
+
+                <ul id="Inquiry">
+                    <style>
+                        .imageview{
+                            width:30%;
+                        }
+                    </style>
+                    {php $images = unserialize($task['images'])}
+                    {loop $images $image}
+                    <img class="imageview" src="{php echo tomedia($image)}" alt=""/>
+                    {/loop}
+                </ul>
+
+                <audio style="display:none;" preload="preload" id="player" src=""></audio>
+                {if !empty($logs['list'])}
+                <div class="question-list" style="margin-bottom:0px;">
+                    {loop $logs['list'] $log}
+                    {php $member = M('member')->getInfo($log['openid'])}
+                    <div class="board">
+                        <a data-id="" href="javascript:;">
+                        <span class="nickname">
+                            {$member['nickname']}｜{$member['desc']}
+                        </span>
+                            <div class="answer">
+                                <div class="avatar" style="position:relative;width:1.85rem;height:1.85rem;border-radius:50%;display:inline-block;">
+                                    <img style="position:relative;width:1.85rem;height:1.85rem;border-radius:50%;display:inline-block;"
+                                         class="avatarImg" src="{php echo $member['avatar']}">
+                                    <span></span>
+                                </div>
+                                <div class="bubble-wrap">
+                                <span class="bubble listen" data-id="{$log['id']}" data-timelong="{$log['timelong']}" data-src="{php echo $log['src']}">
+                                    <span class="bubble-tail"></span>
+                                    <div id="voice">
+                                        <span class="wave3"></span>
+                                    </div>
+                                    <span class="" >免费畅听</span>
+                                </span>
+                                </div>
+                                <div class="duration">
+                                    <span>{php echo $log['timelong']}</span>
+                                    <span>"</span>
+                                </div>
+                                <div class="amount amount{$log['id']}">听过 <span>{php echo M('task_answer_log')->getLogTotal($log['id'])}</span></div>
+                            </div>
+                        </a>
+                    </div>
+                    {/loop}
+                </div>
+                <div class="weui-infinite-scroll" style="padding-bottom: 54px;">
+                    <div class="infinite-preloader"></div>
+                    正在加载...
+                </div>
+                {else}
+                <div style="text-align:center;padding:3.6rem 2.875rem;" data-reactid=".1">
+                    <div data-reactid=".1.0">
+                        <img src="http://hangjia.qiniudn.com/FugCrgkvyNW-neCLtifXyyKnS-07" style="display:inline-block;width:4,5rem;height:4.5rem;margin-bottom:1rem;">
+                    </div>
+                    <p style="font-size:.8rem;color:#999;line-height:1.1rem;margin-bottom:1.65rem;">
+                        还没有人解答，赶紧来发表吧！
+                    </p>
+                    <a style="display:inline-block;line-height:2.2rem;width:8rem;background:#F85F48;border:1px solid #F85F48;font-size:.75rem;color:#fff;text-decoration:none;text-align:center;border-radius:.3rem;" class="startRecord" href="{php echo $_W['siteurl']}" data-reactid=".1.2">
+                        我来帮他解答
+                    </a>
+                </div>
+                {/if}
+            </div>
+        </div>
+        {else}
+        <div style="text-align:center;padding:3.6rem 2.875rem;">
+            <div data-reactid=".1.0">
+                <img src="http://hangjia.qiniudn.com/FugCrgkvyNW-neCLtifXyyKnS-07" style="display:inline-block;width:4,5rem;height:4.5rem;margin-bottom:1rem;"
+                     data-reactid=".1.0.0">
+            </div>
+            <p style="font-size:.8rem;color:#999;line-height:1.1rem;margin-bottom:1.65rem;"
+               data-reactid=".1.1">
+                没有找到
+            </p>
+            <a style="display:inline-block;line-height:2.2rem;width:8rem;background:#F85F48;border:1px solid #F85F48;font-size:.75rem;color:#fff;text-decoration:none;text-align:center;border-radius:.3rem;"
+               href="{php echo $this->createMobileUrl('task_post')}">
+                去发一个
+            </a>
+        </div>
+        {/if}
+    </div>
+    <div class="h44"></div>
+</div>
+
+{template 'common/footerbar'}
+<script>
+    function postVoice(){
+        posting = true;
+        wx.ready(function(){
+            if(!post.localId){
+                $.toast("你说话了么？我怎么没听到！");
+                return '';
+            }
+            wx.uploadVoice({
+                localId: post.localId,
+                isShowProgressTips: 1,
+                success: function (res) {
+                    post.serverId = res.serverId;
+                    post.act = 'answer';
+                    console.log(post);
+                    if(!post.serverId){
+                        $.toast("你说话了么？我怎么没听到！");
+                        return '';
+                    }
+                    $.showLoading("正在发送数据");
+                    $.post("",post,function(data){
+                        if(data.status == 1){
+                            $.hideLoading();
+                            $.toast(data.message,2000,function(){
+                                window.location.href = "{php echo $_W['siteurl']}";
+                            });
+                        }else{
+                            $.toast(data.message,2000,'cancel');
+                            $.hideLoading();
+                        }
+                        posting = false;
+                    },'json');
+                }
+            });
+        });
+    }
+</script>
+
+<script type="text/javascript" src="{MODULE_URL}public/libs/velocity.min.js"></script>
+<script src="{MODULE_URL}public/js/loadmore.js"></script>
+<script>
+    $(function(){
+        var player = document.getElementById('player');
+        function playData(data){
+            console.log(data);
+            $('.wave3').removeClass('voicing');
+            $(data.target).find('.wave3').addClass('voicing');
+
+            player.src = data.src;
+            player.play();
+            var timelong = parseInt(data.timelong) * 1000;
+            if(timelong){
+                setTimeout(function(){
+                    $(data.target).find('.wave3').removeClass('voicing');
+                },timelong);
+            }
+        }
+        $(document.body).on('click','.listen',function(){
+            var src = $(this).data('src');
+            var log_id = $(this).data('id');
+            var timelong = $(this).data('timelong');
+            var target = $(this)[0];
+            console.log(src);
+            if(src){
+                playData({src:src,target:target,timelong:timelong});
+            }
+            $.post("",{act:'listen',log_id:log_id},function(){
+                var _val=$('.amount'+log_id+" span").html();
+                _val = parseInt(_val);
+                $('.amount'+log_id+" span").html(_val);
+            },'json');
+        });
+        function callback(html){
+            $('#questionLibs .question-list').append(html);
+        }
+        initload("",callback);
+        loadmore("",callback);
+    })
+</script>
+{template 'common/footer'}

@@ -1,0 +1,45 @@
+{php $title='与学生账号绑定';}
+{template 'header'}
+{template 'common'}
+
+<link type="text/css" rel="stylesheet" href="{MODULE_URL}images/style.css">
+<link rel="stylesheet" href="{MODULE_URL}template/mobile/style/style_nav.css">
+<div class="head">
+	<span class="title">与学生账号绑定</span>
+</div>
+<form class="form-horizontal" method="post" role="form" action="{php echo $this->createMobileUrl('studentBd', array('submit' => '1'))}">
+	<div class="order-main">
+		<div class="add-address img-rounded" id="" >
+			<div class="add-address-hd">请仔细填写相应资料：</div>
+			<div class="add-address-main">
+				<div class="form-group">
+					<label class="col-sm-3 control-label">学生姓名：</label>
+					<div class="col-sm-9">
+						<input type="text" class="form-control" name='student_name' id='student_name'>
+					</div>
+				</div>
+                {if $config['family_set']!='alone_school'}
+				<div class="form-group">
+					<label class="col-sm-3 control-label">系统编号：</label>
+					<div class="col-sm-9">
+						<input type="text" class="form-control" name='student_passport' id='student_passport'>
+					</div>
+				</div>
+                {else}	
+				<div class="form-group">
+					<label class="col-sm-3 control-label">学生学号：</label>
+					<div class="col-sm-9">
+						<input type="text" class="form-control" name='student_passport' id='student_passport'>
+					</div>
+				</div>                			
+                {/if}
+				<div class="form-group">
+					<div class="col-sm-12">
+							 <button class="button button-raised button-caution" type="submit" ><i class="fa fa-user"></i>&nbsp;&nbsp;绑定</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
+

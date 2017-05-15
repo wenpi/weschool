@@ -1,0 +1,103 @@
+{template 'school/app_header'}
+<link rel="stylesheet" type="text/css" href="{MODULE_URL}/style/css/style.css">
+<link rel="stylesheet" type="text/css" href="{MODULE_URL}/style/css/old_css.css">
+<body>
+  <style>
+    .bg-gradient{
+      background-color: rgba(51,203,213,1);
+      background-image: none;
+    }
+  </style>
+
+  <section class="w-section mobile-wrapper">
+          <div class="page-content" id="main-stack">
+              <div  class="w-nav navbar" data-collapse="all" data-animation="over-left" data-duration="400" data-contain="1" data-easing="ease-out-quint" data-no-scroll="1">
+                <div class="w-container">
+                    <div class="wrapper-mask" data-ix="menu-mask"></div>
+                    <div class="navbar-title" style="z-index: 800">选择要发送的年级、班级</div>
+                    <div class=" navbar-button left" style="z-index: 900" >
+                        <a  href="{php echo $this->createMobileUrl('school_home')}">
+                            <div class="navbar-button-icon smaller icon ion-ios-home-outline" style="color:#fff"></div>
+                        </a>
+                    </div>
+                    
+                    <a  style="z-index: 900;" class="w-inline-block navbar-button right" href="{php echo $this->createMobileUrl('schoolAdminTeaMsgSend')}" data-load="1" data-ix="search-box">
+                        <div class="navbar-button-icon smaller icon ion-ios-reverse-camera-outline"></div>
+                    </a>  
+
+                </div>
+              </div>
+                <div class="body"  style="padding-top:45px;padding-left:20px;padding-right:20px;" >
+                  <form  method="post" action="{php echo $this->createMobileUrl('schoolAdminMsgSend')}">
+                   {loop $grade_list $row}
+                    <div class="w-dropdown dropdown-container" data-delay="0" style="z-index: 1">
+                          <div class="w-dropdown-toggle w-clearfix nav-menu-link dropdown">
+                              <div class="icon-list-menu">
+                                  <input type="checkbox" onclick="checkthis(this,{$row['grade_id']})" name="grade[]" value="{$row['grade_id']}">
+                              </div>
+                              <div class="nav-menu-titles" style="color:#222"> {$row['grade_name']}</div>
+                              <div class="w-icon-dropdown-toggle dropdown-icon" style="color:#222;margin-right: -20px"></div>
+                          </div>
+                          {loop $row['second'] $item}
+                              <nav class="w-dropdown-list drop-down-list">
+                                  <div class="w-clearfix w-inline-block ">
+                                  <div class="icon-list-menu">
+                                      <input type="checkbox"  class='grade_id_{$row['grade_id']}' name="class[]" value="{$item['class_id']}">
+                                  </div>
+                                  <div class="nav-menu-titles" style="color:#666">{$item['class_name']}</div>
+                                  </div>
+                              </nav>
+                          {/loop}
+                        </div>   
+                        <div class="clear:both"></div>
+                      {/loop}
+                      <div class="w-form">
+                          <div class="separator-button-input"></div>
+                          <div>
+                            <label class="label-form" for="full-name-field">通知标题【不填写为默认】</label>
+                              <input class="w-input input-form" id="full-name-field" type="text" name="title"  placeholder="[学生姓名]你好，这是个新的消息" >
+                            <div class="separator-fields"></div>
+                          </div>
+                          <div>
+                            <label class="label-form" for="message">简要</label>
+                              <input class="w-input input-form" id="full-name-field" type="text" name="intro" data-name="intro" >
+                          </div>
+                          <div>
+                            <label class="label-form" for="message">详细内容</label>
+                            <textarea class="w-input input-form textarea" name="content" data-name="content"></textarea>
+                          </div>
+                            {template '../new/upImages'}	
+                            <div>
+                              <div  class='hide' id='voice_value'></div>     
+                              <div  class="button button-primary button-rounded button-small up_button" style='margin:5px 0px 5px 10px;' onclick='chooseVoice()'>开始录音</div>
+                              <div  id='uploadVoice' style='margin-bottom:5px;margin-left:10px;display:inline;' ></div>
+                            </div>
+
+                            <div class="separator-button-input"></div>
+                            <input type="hidden" value="{$token}"  name='token'>
+                            <input class="w-button action-button" type="submit" name="submit" value="提交" data-wait="Please wait...">
+                      </div>               
+            </form>
+        </div>
+      </div>
+  </section>
+  <script>
+    function checkthis(obj,grade_id){
+      if($(obj).prop("checked")){
+        $(".grade_id_"+grade_id).prop("checked",true);
+      }else{
+        $(".grade_id_"+grade_id).prop("checked",false);
+      }
+    }
+  </script>
+  <style>
+  #voice_stop{
+    margin-top:50px;
+  }
+  </style>
+  {template '../new/voice'}
+  {template 'jsweixin'}
+  <link href="{MODULE_URL}style/css/weui.min.css" rel="stylesheet" type="text/css" />
+  {template 'school/app_footer'}
+</body>
+</html>

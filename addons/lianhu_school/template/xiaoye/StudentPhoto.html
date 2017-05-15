@@ -1,0 +1,19 @@
+{template '../xiaoye/newHead'}
+<link href="{MODULE_URL}assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<body>
+<div class="z_main">
+        <div class="header">
+            <span> <a href="{php echo $this->createMobileUrl('home' )}"><i class="fa fa-bars" aria-hidden="true"></i></a> </span>
+            <span> 学生相册</span>
+            <span> <a href="{php echo $this->createMobileUrl('sendStudentPhoto' )}">发布</a> </span>
+        </div> 
+        <ul id="list" style="margin-top:60px;">
+            {template '../xiaoye/student_photo_content'}
+        </ul>
+       <h1 id='add_msg' style="text-align:center;color:#333;font-size:1.5em;margin-top:10px;">...</h1>  
+</div>
+{template 'jsweixin'}
+{template '../xiaoye/student_photo_js'}
+  {template '../xiaoye/newStudentFooter'}
+</body>
+</html>

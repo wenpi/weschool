@@ -1,0 +1,152 @@
+{if empty($_W['isajax'])}
+{template 'common/header'}
+{template 'setting_nav'}
+{/if}
+<div class="panel panel-default">
+    <div class="panel-heading">核心参数设置</div>
+    <div class="panel-body">
+        <form action="" method="post"  class="form-horizontal" enctype="multipart/form-data">
+			<div class="form-group">
+				<label class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">用户最多追问次数</label>
+                <div class="col-sm-8 col-lg-9 col-xs-12">
+                    <input type="text" name="openReask" placeholder="" value="{$item['openReask']}" class="form-control"/>
+                    <span class="help-block">用户可在问题回答后继续追问的最大限制次数，0为不开启追问</span>
+                </div>
+			</div>
+			<div class="form-group">
+				<label class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">开启用户认证</label>
+				<div class="col-sm-8 col-lg-9 col-xs-12">
+					<label class="radio-inline">
+						<input type="radio" name="openVerify" value="1" {if $item['openVerify']==1}checked="checked"{/if}> 开启
+					</label>
+					<label class="radio-inline">
+						<input type="radio" name="openVerify" value="0" {if $item['openVerify']==0}checked="checked"{/if}> 关闭
+					</label>
+					<span class="help-block"></span>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">自动限时免费</label>
+                <div class="col-sm-8 col-lg-9 col-xs-12">
+                    <input type="text" placeholder="单位小时，0为不开启" name="openFree" placeholder="" value="{$item['openFree']}" class="form-control"/>
+                    <span class="help-block">新题发布时间内免费查看答案</span>
+                </div>
+			</div>
+<!--			
+			<div class="form-group">
+				<label class="col-xs-12 col-sm-2 col-md-2 col-lg-1 control-label">认证用户最多可选分类</label>
+                <div class="col-sm-8 col-lg-9 col-xs-12">
+                    <input type="text" name="maxCateSelect" value="{$item['maxCateSelect']}" class="form-control"/>
+                    <span class="help-block">建议1-4之间</span>
+                </div>
+			</div>
+			<div class="form-group">
+				<label class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">开启搜索</label>
+				<div class="col-sm-8 col-lg-9 col-xs-12">
+					<label class="radio-inline">
+						<input type="radio" name="openSearch" value="1" {if $item['openSearch']==1}checked="checked"{/if}> 开启
+					</label>
+					<label class="radio-inline">
+						<input type="radio" name="openSearch" value="0" {if $item['openSearch']==0}checked="checked"{/if}> 关闭
+					</label>
+					<span class="help-block"></span>
+				</div>
+			</div>
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">开启借用支付</label>
+                <div class="col-sm-8 col-lg-9 col-xs-12">
+                    <label class="radio-inline">
+                        <input type="radio" name="open_pay" value="1" {if $item['open_pay']==1}checked="checked"{/if}> 开启
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="open_pay" value="0" {if $item['open_pay']==0}checked="checked"{/if}> 关闭
+                    </label>
+                    <span class="help-block"></span>
+                </div>
+            </div>-->
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">打赏提成</label>
+                <div class="col-sm-8 col-lg-9 col-xs-12">
+                    <input type="text" placeholder="例如80则为80%，80%为回答者的收入，20%为平台收入" name="reward_money" placeholder="" value="{$item['reward_money']}" class="form-control"/>
+                    <span class="help-block">用户对回答者打赏后，回答者的收入比例</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">提问回答提成</label>
+                <div class="col-sm-8 col-lg-9 col-xs-12">
+                    <input type="text" placeholder="例如80则为80%，80%为回答者的收入，20%为平台收入" name="tutor_money" placeholder="" value="{$item['tutor_money']}" class="form-control"/>
+                    <span class="help-block">回答者解答问题后得到的收入比例</span>
+                </div>
+            </div>
+			<!--
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">应用标题</label>
+                <div class="col-sm-8 col-lg-9 col-xs-12">
+                    <input type="text" name="title" placeholder="" value="{$item['title']}" class="form-control"/>
+                    <span class="help-block"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-2 col-md-2 col-lg-1 control-label">主题背景颜色</label>
+                <div class="col-sm-8 col-lg-9 col-xs-12">
+                    {php echo tpl_form_field_color('bg_color',$item['bg_color'])}
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-2 col-md-2 col-lg-1 control-label">主题颜色</label>
+                <div class="col-sm-8 col-lg-9 col-xs-12">
+                    {php echo tpl_form_field_color('color',$item['color'])}
+                </div>
+            </div>-->
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">偷听价格</label>
+                <div class="col-sm-8 col-lg-9 col-xs-12">
+                    <input type="text" placeholder="单位为元" name="listen_price" placeholder="" value="{$item['listen_price']}" class="form-control"/>
+                    <span class="help-block">用户偷听答案需要支付的价格</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">偷听分成</label>
+                <div class="col-sm-8 col-lg-9 col-xs-12">
+                    <div class="input-group">
+                        <span class="input-group-addon">提问者分成</span>
+                        <input type="text" class="form-control" name="listen_get_price" value="{php echo $item['listen_get_price']}">
+                        <span class="input-group-addon">回答者分成</span>
+                        <input type="text" class="form-control" name="listen_get_price2" value="{php echo $item['listen_get_price2']}">
+                    </div>
+                    <span class="help-block">例如80则为80%，除去偷听提问分成和回答者分成剩余的是平台的分成</span>
+                </div>
+            </div>
+			<!--
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">打赏</label>
+                <div class="col-sm-8 col-lg-9 col-xs-12">
+                    <div class="input-group">
+                        <span class="input-group-addon">每</span>
+                        <input type="text" class="form-control" name="shang" value="{php echo $item['shang']}">
+                        <span class="input-group-addon">元，可邀请</span>
+                        <input type="text" class="form-control" name="people" value="{php echo $item['shang']}">
+                        <span class="input-group-addon">人免费收听</span>
+                    </div>
+                    <span class="help-block"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">平台介绍</label>
+                <div class="col-sm-8 col-lg-9 col-xs-12">
+                    {php echo tpl_ueditor('content',$item['content'])}
+                </div>
+            </div>-->
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-md-offset-2 col-lg-offset-1 col-xs-12 col-sm-10 col-md-10 col-lg-11">
+                    <input name="submit" type="submit" value="提交" class="btn btn-primary span3" />
+                    <input type="hidden" name="token" value="{$_W['token']}" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{if empty($_W['isajax'])}
+{template 'common/footer'}
+{/if}

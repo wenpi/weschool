@@ -1,0 +1,35 @@
+<div style="width:100%;height:80px;">
+</div>
+{php $class_mobile = D('mobile');}
+{php $class_mobile->do_schoolAdmin = true;}
+{php $button_list  = $class_mobile->getButtonNav(false,false); }
+<div class="weui_tabbar" style="position:fixed;">
+        {loop $button_list $row}
+            <a href="{if $row['keyword']=='school_home'}
+                        {if $this->school_info['host_url'] }{php echo $this->school_info['host_url'];}{else}{php echo $this->createMobileUrl('wapHome',array('school_id'=>$this->school_info['school_id'] ) )}{/if} 
+                    {elseif !$row['url']}
+                        {php echo $this->createMobileUrl($row['keyword'])}
+                    {else}
+                        {$row['url']}
+                    {/if} " class="weui_tabbar_item weui_bar_item_on">
+                <div class="weui_tabbar_icon">
+                    <img src="{$row['img']}" alt="">
+                </div>
+                <p class="weui_tabbar_label">{$row['name']}</p>
+            </a>        
+        {/loop}
+    </div>
+    <script>
+        function checkThis(id){
+            have_check = $("#check_box_"+id).prop("checked");
+            if(have_check == true){
+                $("#check_box_"+id).prop("checked",false);
+                $("#button_"+id).addClass('button_new');
+            }else{
+                $("#check_box_"+id).prop("checked",true);
+                $("#button_"+id).removeClass("button_new");
+            }
+        }
+    </script>
+    </body>
+    </html>

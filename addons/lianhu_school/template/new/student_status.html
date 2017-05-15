@@ -1,0 +1,25 @@
+  {template '../new/StudentCardLeft'}
+        <div class="body padding" style="padding-top:45px;">
+            <ul class="list list-messages" >
+                <li class="list-item-new" style="margin-top:10px;">
+                    <div class="text-new">
+                        <h2 class="title-new">上课禁用</h2>
+                        <p class="description-new">{if $ext['studyForbidden'] ==0}未启用{else}已启用{/if}</p>
+                        <a class="category-link" style="background-color: {if $ext['studyForbidden'] ==0}rgba(0,204,0,0.8);{else}rgba(255,51,51,0.8);{/if}color: #fff" href="{php echo $this->createMobileUrl("funcstudent_status",array('ac'=>'studyForbidden','studyForbidden'=>$ext['studyForbidden']))}">{if $ext['studyForbidden'] ==0}去启用{else}去关闭{/if}</a>
+                    </div>
+                </li>
+
+                <li class="list-item-new" style="margin-top:10px;">
+                    <div class="text-new">
+                        <h2 class="title-new">通讯状态</h2>
+                        <p class="description-new">{$status}</p>
+                        <a class="category-link" href="javascript:;">{$local}</a><a class="category-link" style="background-color: rgba(255,51,51,0.8);color: #fff" href="{php echo $this->createMobileUrl("funcstudent_status",array('ac'=>'close'))}">去关机</a>
+                    </div>
+                </li>
+            </ul>
+      </div>
+    </div>
+  </section>
+  {template 'school/app_footer'}
+</body>
+</html>

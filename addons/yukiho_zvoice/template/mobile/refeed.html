@@ -1,0 +1,59 @@
+{php $g_title='最近解答'}
+{php $menu='4'}
+{template 'common/header1'}
+{template 'common/menu'}
+		<div id="content" class="snap-content">
+			<div class="content half-bottom half-top">
+				<div class="home-tabs">
+					<a style="width:50%;" class="activate-tab-1" href="{php echo $this->createMobileUrl('focus')}">关注我的</a>
+					<a style="width:50%;" class="activate-tab-2 active-home-tab" href="{php echo $this->createMobileUrl('refeed')}">最近提问</a>
+					<div class="clear"></div>
+				</div>
+			</div>
+			<div class="content">
+				<div class="portfolio-filter">
+					{if !empty($questions['list'])}
+					<div id="append" class="portfolio-filter-wrapper" style="margin-left:5px;">
+						{loop $questions['list'] $li} 							
+						{php $answer = M('answer')->getInfoByQid($li['id'])}
+						{if !empty($answer)}
+						<div class="blog-sidebar-text" onclick="window.location.href='{php echo $this->createMobileUrl('question',array('id'=>$li['id']))}'">
+							<h5>{$li['title']}</h5>
+						</div>
+						<div class="container one-third-responsive">
+							{php $to_member = M('member')->getInfo($li['to_openid'])}
+							<p class="user-list-follow">
+								<a href="{php echo $this->createMobileUrl('tutor',array('openid'=>$to_member['openid']))}">
+									<img src="{php echo $to_member['avatar']}" alt="img">
+									<strong>{$to_member['nickname']}
+										<em class="split-title">{$to_member['tags']}</em>
+									</strong></a> 
+									<a onclick="window.location.href='{php echo $this->createMobileUrl('question',array('id'=>$li['id']))}'" class="listen follow2 button-green">查看解答</a>
+							</p>
+						<div class="decoration"></div>
+						</div>
+						{/if}
+						{/loop}
+					</div>
+					{else}
+					<div class="content" style="margin-top:150px;">
+						<div class="show-no-detection device-detected">
+							<h5>关注您的人最近没有提问过哦</h5>
+							<a href="{php echo $this->createMobileUrl('home')}" class="button-small button-orange button-center" style="margin-top:20px;">返回我的</a>
+						</div>
+					</div>
+					{/if}
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="{MODULE_URL}public/js/loadmore.js"></script>
+	<script>
+	function callback(html){
+		$('#append').append(html);
+	}
+	initload("",callback);
+	loadmore("",callback);
+	</script>
+</body>

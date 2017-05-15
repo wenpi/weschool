@@ -1,0 +1,106 @@
+{template 'common/header'}
+<link rel="stylesheet" href="{MODULE_URL}public/css/question.css" />
+<div id="banner"></div>
+<div id="Questions" class="main" style="margin-bottom:54px;">
+    <div class="weui_search_bar" id="search_bar">
+        <form class="weui_search_outer">
+            <div class="weui_search_inner">
+                <i class="weui_icon_search"></i>
+                <input type="search" class="weui_search_input" id="search_input" placeholder="搜索" required/>
+                <a href="javascript:" class="weui_icon_clear" id="search_clear"></a>
+            </div>
+            <label for="search_input" class="weui_search_text" id="search_text">
+                <i class="weui_icon_search"></i>
+                <span>搜索</span>
+            </label>
+        </form>
+        <a href="javascript:" class="weui_search_cancel" id="search_cancel">取消</a>
+    </div>
+
+    {if !empty($questions['list'])}
+    <ul class="questions" style="margin-bottom:0px;">
+        <!--问答列表-->
+        {loop $questions['list'] $li}
+        {php $to_member = M('member')->getInfo($li['to_openid'])}
+        <li class="a-question">
+            <a class="AQ" href="{php echo $this->createMobileUrl('question',array('id'=>$li['id']))}">
+                <div class="question-content">
+                    <p>{$li['title']}</p>
+                </div>
+                <div>
+                    <span class="question-respondent">
+                        {$to_member['nickname']}｜{$to_member['desc']}
+                </div>
+            </a>
+        </li>
+        {/loop}
+    </ul>
+    <div class="weui-infinite-scroll" style="padding-bottom: 54px;">
+        <div class="infinite-preloader"></div>
+        正在加载...
+    </div>
+    {else}
+    <div style="text-align:center;padding:3.6rem 2.875rem;" data-reactid=".1">
+        <div data-reactid=".1.0">
+            <img src="http://hangjia.qiniudn.com/FugCrgkvyNW-neCLtifXyyKnS-07" style="display:inline-block;width:4,5rem;height:4.5rem;margin-bottom:1rem;">
+        </div>
+        <p style="font-size:.8rem;color:#999;line-height:1.1rem;margin-bottom:1.65rem;">
+            暂无相关信息
+        </p>
+        <a style="display:inline-block;line-height:2.2rem;width:8rem;background:#F85F48;border:1px solid #F85F48;font-size:.75rem;color:#fff;text-decoration:none;text-align:center;border-radius:.3rem;" href="{php echo $_W['siteurl']}" data-reactid=".1.2">
+            刷新看看
+        </a>
+    </div>
+    {/if}
+</div>
+{template 'common/footerbar'}
+<script type="text/javascript" src="{$_W['siteroot']}app/resource/js/lib/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="{MODULE_URL}public/libs/jquery_weui/jquery-weui.js"></script>
+<script>
+    $(function(){
+        var page = 2;
+        var loading = false;
+        var key = '';
+        $('#search_input').on('keyup change',function(){
+            key = $(this).val();
+            $.get("",{key:key},function(html){
+                if(html){
+                    $('#Questions .questions').append(html);
+                    page = page + 1;
+                    loading = false;
+                }else{
+                    loading = false;
+                    $('.weui-infinite-scroll').hide();
+                    $(document.body).destroyInfinite()
+                }
+            },'html');
+        });
+        initload();
+        loadmore();
+
+        function initload(){
+            $(document.body).infinite().on("infinite", function() {
+                loadmore();
+            });
+        }
+
+        function loadmore(){
+            if(loading) return;
+            loading = true;
+            $.get("",{page:page,key:key},function(html){
+                if(html){
+                    $('#Questions .questions').append(html);
+                    page = page + 1;
+                    loading = false;
+                }else{
+                    loading = false;
+                    $('.weui-infinite-scroll').hide();
+                    $(document.body).destroyInfinite()
+                }
+            },'html');
+        }
+
+    });
+</script>
+</body>
+</html>

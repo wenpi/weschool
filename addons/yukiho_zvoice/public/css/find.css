@@ -1,0 +1,249 @@
+.main {
+    margin-bottom: 3rem
+}
+
+.search {
+    box-sizing: border-box;
+    height: 2.7rem;
+    text-align: center;
+    padding-top: .6rem;
+    background: #fff
+}
+
+.search .search-box {
+    background: #fafafa;
+    width: 14rem;
+    height: 1.5rem;
+    line-height: 1.6rem;
+    border-radius: .75rem;
+    border: 1px solid #e5e5e5;
+    font-size: .65rem;
+    color: #999;
+    display: inline-block
+}
+
+.search .search-box .icon {
+    width: .65rem;
+    height: .65rem;
+    vertical-align: middle;
+    margin-right: .25rem
+}
+
+.category-nav {
+    overflow: hidden;
+    background: #fff;
+    margin-bottom: .5rem
+}
+
+.category-nav li {
+    box-sizing: border-box;
+    float: left;
+    height: 4.1rem;
+    width: 25%;
+    padding-top: 2.7rem;
+    text-align: center;
+    font-size: .65rem;
+    background-size: 1.5rem 1.5rem;
+    background-position: center top .9rem;
+    background-repeat: no-repeat;
+    color: #3f3f3f
+}
+
+.album {
+    background: #fff;
+    margin-bottom: .5rem
+}
+
+.album a {
+    display: block
+}
+
+.album .title {
+    height: 2.25rem;
+    line-height: 2.25rem;
+    color: #999;
+    font-size: .7rem;
+    text-align: center;
+    padding: 0
+}
+
+.album .more {
+    height: 2.5rem;
+    line-height: 2.5rem;
+    font-size: .7rem;
+    padding: 0 0 0 .75rem;
+    background-image: url(http://hangjia.qiniudn.com/Fg4L5o46cE8hfflLP6y4_pJj23g7);
+    background-size: .325rem .655rem;
+    background-position: right .75rem center;
+    background-repeat: no-repeat
+}
+
+.album .more a {
+    color: #f85f48
+}
+
+.album li {
+    position: relative;
+    box-sizing: border-box;
+    height: 4.15rem;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 1rem 2.75rem 0 4.15rem;
+    background-size: 2.65rem 2.65rem;
+    background-position: left .75rem center;
+    background-repeat: no-repeat
+}
+
+.album li:last-child {
+    border-bottom: none
+}
+
+.album li .description {
+    font-size: .65rem;
+    line-height: .9rem;
+    color: #999
+}
+
+.album li .avatar {
+    position: absolute;
+    top: .555rem;
+    left: .75rem;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%
+}
+
+.album li .follow {
+    position: absolute;
+    top: 0;
+    right: .75rem;
+    color: #f85f48;
+    font-size: .65rem;
+    text-align: right;
+    padding-top: 1.08rem
+}
+
+.album li .follow .btn-follow {
+    width: .7rem;
+    height: .7rem;
+    display: block;
+    margin: 0 0 .25rem .3rem
+}
+
+.album li .followed {
+    position: absolute;
+    top: 0;
+    right: .75rem;
+    line-height: 3.36rem;
+    color: #999;
+    font-size: .65rem
+}
+
+.album li p {
+    color: #3f3f3f;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: .8rem;
+    line-height: 1.2rem
+}
+
+.album-leader li {
+    height: 4.4rem;
+    padding: .7rem 2.75rem 0 4.15rem
+}
+
+.album-leader li .avatar {
+    top: .875rem;
+    width: 2.65rem;
+    height: 2.65rem
+}
+
+.album-leader li .follow {
+    padding-top: 1.4rem
+}
+
+.album-leader li .follow .btn-follow {
+    width: .7rem;
+    height: .7rem;
+    display: block;
+    margin: 0 0 .25rem .3rem
+}
+
+.album-leader li .followed {
+    line-height: 4.4rem
+}
+
+.loading {
+    text-align: center;
+    padding-top: .2rem;
+    font-size: .65rem;
+    color: #999
+}
+
+.category-banner {
+    height: 2.6rem;
+    line-height: 2.6rem;
+    font-size: .85rem;
+    padding: 0 .75rem;
+    position: relative
+}
+
+.category-banner .category-btn {
+    position: absolute;
+    top: .6rem;
+    right: .5rem;
+    height: 1.35rem;
+    line-height: 1.4rem;
+    border: 1px solid #f85f48;
+    border-radius: .2rem;
+    color: #f85f48;
+    padding: 0 .4rem;
+    font-size: .6rem
+}
+
+.category-banner .category-btn .icon {
+    width: .65rem;
+    height: .65rem;
+    margin-right: .15rem;
+    vertical-align: middle
+}
+
+.category {
+    padding: 0 .6rem;
+    margin-top: 1rem
+}
+
+.category .category-title {
+    font-size: .75rem;
+    line-height: .75rem;
+    color: #999;
+    margin-bottom: .4rem
+}
+
+.category .category-title .icon {
+    width: .75rem;
+    height: .75rem;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: .2rem
+}
+
+.category .category-children {
+    overflow: hidden;
+    background: #fff;
+    border-left: 1px solid #e5e5e5;
+    border-top: 1px solid #e5e5e5
+}
+
+.category .category-children li {
+    box-sizing: border-box;
+    float: left;
+    height: 2rem;
+    width: 25%;
+    line-height: 2rem;
+    text-align: center;
+    font-size: .7rem;
+    border-right: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+    color: #3f3f3f
+}

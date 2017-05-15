@@ -1,0 +1,46 @@
+{template '../xiaoye/head'}
+<script src="{MODULE_URL}/template/xiaoye/js/load.js"></script>
+<body style="background: #fafafa;">
+<div class="z_main">
+  <div class="z_riqi">
+    <div class="z_riqil"> <a href="/">{$get_year}年<br />
+      <span>{$get_month}月</span></a> </div>
+    <div class="z_leftl">
+      <ul>
+            {loop $data_list $key $row}
+                <li {if $key==0} class="z_ri" {/if}>
+                <p  {if $key!=0} class="p2" {/if} >{$row['week']}</p>
+                <p  class="{$row['class_n']}"><a href="{php echo $this->createMobileUrl('card_record',array('week'=>$row['week']) )}" >{$row['date_d']}</a></p>
+                </li>
+            {/loop}
+      </ul>
+    </div>
+  </div>
+  <div class="z_center">
+   {if $re} 
+       {loop $locus_list $row}
+            <div class="z_jin">
+            <div class="z_jin2"> 
+                  <div>打卡时间：<b class="p6">{$row['time']}</b></div> 
+                  <div>信息：<b class="p6">{$row['info']}</b></div> 
+            </div>
+            </div>
+      {/loop}
+   {/if}
+  </div>
+  <style>
+  .z_jin2{
+    min-height: 100px !important;
+    height: auto;
+    line-height: 50px;
+    width: 100%;
+  }
+  .z_jin{
+    overflow: visible;
+  }
+  </style>
+  {template 'jsweixin'}
+  {template '../xiaoye/newStudentFooter'}
+</div>
+</body>
+</html>

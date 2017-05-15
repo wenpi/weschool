@@ -1,0 +1,44 @@
+{template '../xiaoye/newTeaHead'}
+<body>
+	<div class="main">
+	<div class="ft">
+			<div class="ft1"><a href="{php echo $this->createMobileUrl("teaStudentAddWorkRecord",array("sid"=>$_GPC['sid']))}">添加记录</a></div>
+			<div class="ft2"><a href="{php echo $this->createMobileUrl("teaStudentHisWorkRecord",array("sid"=>$_GPC['sid']))}">历史记录</a></div>
+		</div>
+		<ul class="nrgg">
+            {loop $list $row}
+            	{php $teacher=$row['teacher_realname'] ? $row['teacher_realname'] :'管理员';}
+
+                <li class="ggrn">
+                    <div class="gg_t">
+                        <div class="gg_nr">
+                            <div class="gg_n1"><p>{$teacher}</p></div>
+                            <div class="gg_n2">{php echo date("Y-m-d H:i:s",$row['addtime']);}</div>
+                        </div>
+                         {if $row['teacher_id']== $teacher_info['teacher_id']}
+                                <a class="gg_nright" href="{php echo $this->createMobileUrl("teaStudentHisWorkRecord",array("id"=>$row['work_id'],'ac'=>'delete','sid'=>$_GPC['sid']))}"></a>
+                            {/if}
+                    </div>
+                    <div class="ggnr">
+                        <div class="grb"><a href="#">【{$row['class_name']}】{$row['word']}</a></div>
+                        <div class="grr" style="padding-left:10px;">{$row['content']}</div>
+                        {php $urls =  $this->decodeLineImgsToArr($row['img']);}
+                        {if $urls}
+                        <div class="grt">
+                            {loop $urls  $val}
+                            <img src="{$val}"  onclick="displayImage('img_list','{$val}')">
+                            {/loop}
+                        </div>
+                        {/if}  
+                    </div>
+                    <div class="kzk"></div>
+                </li>            
+            {/loop}
+		</ul>
+	<div class="yck">已经全部查看</div>
+    {php $center_class = 'cde'}
+    {template '../xiaoye/newTeaFooter'}
+    {template 'jsweixin'}
+    </div>
+</body>
+</html>

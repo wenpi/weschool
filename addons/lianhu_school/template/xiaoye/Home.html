@@ -1,0 +1,5 @@
+{if  S("system",'getSetContent',array('xiaoye_home',$school_id)) ==1 } 
+	{template '../xiaoye/homeNew'}
+{else}
+	{template '../xiaoye/homeOld'}
+{/if}

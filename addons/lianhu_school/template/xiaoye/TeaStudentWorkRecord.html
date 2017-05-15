@@ -1,0 +1,40 @@
+{template '../xiaoye/newTeaHead'}
+<body>
+	<div class="main">
+		<div class="bl">学生记录-选择学生</div>
+        <form method="post" ><div  class="l_bjpk" >
+              {loop $student_list $row}
+                <input name="student_ids[]" id='sss{$row['student_id']}'  type="checkbox" value="{$row['student_id']}" />
+                <label class="l_sss" for="sss{$row['student_id']}">{$row['student_name']}<a href="{php echo $this->createMobileUrl("teaStudentAddWorkRecord",array("sid"=>$row['student_id']))}">>></a></label>             
+              {/loop}
+              <div class="clear"></div>
+              </div>
+                <div class="fsgg" style="margin-top:20px;">点击学生名字选择学生</div>
+                        <div class="fss1"><p>记录类型</p>
+                            <input type="hidden" name="sid" value="{$student_info['student_id']}">
+                            <select name="record_class_id" id="selectAge">
+                                {loop $recore_class_list $row}
+                                    <option value="{$row['class_id']}">{$row['class_name']}</option>
+                                {/loop}
+                            </select>
+                        </div>
+                        <div class="sfs1"><p> 记录名</p> <input type="text" name="record_title" required></div>
+                        <div class="ssc">
+                            <p>文字描述内容</p>
+                            <span>
+                                <textarea class="zxx1 mmm" placeholder="请输入资料内容" name="record_content" ></textarea>
+                            </span>
+                        </div>
+                        {template '../xiaoye/upTeaImgs'}
+                        <div class="qjyy">
+                        {template '../xiaoye/only_voice'}
+                        </div>
+                <input type="hidden" value="{$token}"  name='token'>
+                <div class="mf"><a href="#"><input type="submit"  name="submit" value="提交" /></a></div>              
+         </form>	
+        {php $center_class = 'cde'}
+        {template '../xiaoye/newTeaFooter'}
+        {template 'jsweixin'}
+    </div>
+</body>
+</html>

@@ -1,0 +1,79 @@
+{template '../xiaoye/newTeaHead'}
+<body>
+	<div class="main">
+        {if $model!='student'}
+            <div class="bl">发布成绩-选择班级</div>
+            <ul class="bll">
+                {loop $result $key $item}
+                <li class="bjlb">
+                    <div class="bl1"><a href="{php echo $this->createMobileUrl("tea_score_in",array("cid"=>$item,'model'=>'student'))}"><p>{php echo $this->classGradeName($item)}</p></a><a href="{php echo $this->createMobileUrl("tea_score_in",array("cid"=>$item,'model'=>'student'))}"><p>{php echo $this->className($item)}</p></a></div>
+                    <div class="bl2"><a href="{php echo $this->createMobileUrl("tea_score_in",array("cid"=>$item,'model'=>'student'))}"><img src="{MODULE_URL}/template/xiaoye/upimg/teacherimg/jt.png"></a></div>
+                </li>
+                {/loop}
+            </ul>        
+        {else}
+		<div class="bl">发布成绩-填写数据</div>
+        <form method="post">
+        <div class="sf1"><p style="width: 36%;">选择课程</p>
+                	<select style="width: 59%" name='course_id' onChange="ajax_up()" id="course_id" >
+						{loop $course_list $row}
+							<option value='{$row['course_id']}'>{$row['course_name']}</option>
+						{/loop}
+					</select>
+          </div>
+            <div class="sf1"><p style="width: 36%;">选择考试记录</p>
+                	<select name='scorejilv_id'  style="width: 59%" onChange="ajax_up()"id="scorejilv_id" >
+						{loop $jilv_list $row}
+							<option value='{$row['scorejilv_id']}'>{$row['scorejilv_name']}</option>
+						{/loop}
+					</select>
+            </div>
+            <ul id='score_list' class="srcj" >
+				{loop $result $key $item}
+						<li  class='cj'>
+						    <div class="cj1">{php echo $this->result_result($item,$model,'name','msg');}</div>
+                            <div class="cj2"><input type="text"   data-id='0' name='score[{$item['student_id']}]'  value=""  placeholder="请填入成绩"></div>
+                        </li>
+				{/loop}
+			</ul>
+            <input type="hidden" value="{$token}"  name='token'>
+            <input type='hidden' value='{$_GPC['cid']}' name='class_id'>
+            <div class="mf"><a href="#"><input type="submit"  name="submit" value="提交" /></a></div>   
+        </form>
+        {/if}
+    </div>
+    {php $center_class = 'cde'}
+    {template '../xiaoye/newTeaFooter'}
+</body>
+{if $model=='student'}
+	<script>
+		$(function(){
+			ajax_up();
+		});
+		function ajax_up(){
+				var cid={$_GPC['cid']};
+				var course_id=$('#course_id').val();
+				var scorejilv_id=$('#scorejilv_id').val();
+				$.ajax({
+					type:'post',
+					url:'{php echo $this->createMobileUrl('ajax',array('ac'=>'student_score_list'))}',
+					data:{cid:cid,course_id:course_id,scorejilv_id:scorejilv_id},
+					dataType:'json',
+					success:function(obj){
+						if(obj.status=='yes'){
+							$("#score_list").find('input').attr("data-id",0);
+							$.each(obj.student_score_list,function(i,e){
+								$('input[name="score['+e.student_id+']"]').val(e.score);
+								$('input[name="score['+e.student_id+']"]').attr("data-id",1);
+							});
+							$.each($("#score_list").find('input'),function(i,e){
+								if($(this).attr('data-id')!=1)
+										$(this).val(0);
+							});
+						}
+					}
+				});								
+		}
+	</script>
+{/if}
+</html>

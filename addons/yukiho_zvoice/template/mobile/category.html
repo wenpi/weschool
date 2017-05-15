@@ -1,0 +1,58 @@
+{template 'common/header1'}
+{template 'common/menu'}
+		<div id="content" class="snap-content">
+			<div class="header-clear"></div>
+			{if !empty($members['list'])}
+			<div class="content">
+				<div class="one-half-responsive">
+					<div class="container heading-style-5">
+						<a class="heading-icon">新用户</a>
+						<div class="line bg-black"></div>
+					</div>
+					<div class="one-third-responsive">
+					{loop $members['list'] $member}
+						<a href="{php echo $this->createMobileUrl('tutor',array('openid'=>$member['openid']))}">
+						<p class="user-list-socials">
+							<img src="{php echo $member['avatar']}" alt="img">
+								<strong>{$member['nickname']}
+									<em>{$member['tags']}</em>
+								</strong>
+								<a onclick="window.location.href='{php echo $this->createMobileUrl('tutor',array('openid'=>$member['openid']))}'" class="icon1 mail-color">主页</a>
+								<a onclick="window.location.href='{php echo $this->createMobileUrl('making',array('openid'=>$member['openid']))}'" class="icon2 phone-color">提问</a>
+						</p></a>
+					{/loop}
+					</div>
+					<div class="footer-clear disabled"></div>
+				</div>
+				<div class="one-half-responsive">
+					<div class="container heading-style-5">
+						<a class="heading-icon">老司机</a>
+						<div class="line bg-black"></div>
+					</div>
+					<div class="one-third-responsive">
+					{loop $members['list'] $member}
+						<a href="{php echo $this->createMobileUrl('tutor',array('openid'=>$member['openid']))}">
+						<p class="user-list-socials">
+							<img src="{php echo $member['avatar']}" alt="img">
+								<strong>{$member['nickname']}
+									<em>{$member['tags']}</em>
+								</strong> 
+								<a onclick="window.location.href='{php echo $this->createMobileUrl('tutor',array('openid'=>$member['openid']))}'" class="icon1 mail-color">主页</a>
+								<a onclick="window.location.href='{php echo $this->createMobileUrl('making',array('openid'=>$member['openid']))}'" class="icon2 phone-color">提问</a>
+						</p></a>
+					{/loop}
+					</div>
+					<div class="footer-clear disabled"></div>
+				</div>
+			</div>
+			{else}
+			<div class="content" style="margin-top:150px;">
+				<div class="show-no-detection device-detected">
+					<h5>还分类下还没有医生哦</h5>
+					<a href="{php echo $this->createMobileUrl('category_all')}" class="button-small button-orange button-center" style="margin-top:20px;">返回分类</a>
+				</div>
+			</div>
+			{/if}
+		</div>
+	</div>
+</body>

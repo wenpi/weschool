@@ -1,0 +1,92 @@
+        {loop $list $row}
+            {if $row['student_send']==1 && $row['student_id']==0}
+                {php $fanid=$this->class_base->mobileGetFanidByUid($row['send_uid']);}
+                {php $teacher_result = $this->findTeacherInfoByMobileUid($row['send_uid']);}
+                {php $student_id  = $class_student->getStudentIdByFanid($fanid,$class_id);}
+                {php $student_info = $class_student->getStudentInfo($student_id);}
+           {/if}
+            {if $row['student_send']==1 && $row['student_id']>0 }
+                {php unset($teacher_result);}
+                {php $student_info = $class_student->getStudentInfo($row['student_id']);}
+           {/if}
+            {if $row['student_send']==0 && $row['teacher_id']>0 }
+                {php $teacher_result = D('teacher')->getTeacherInfo($row['teacher_id']);}
+            {/if}
+            
+      		<ul id='list_id_{$row['send_id']}' class="line_list_content">
+             <li class="box" >
+            		<div class="author">
+                    		<a href="#">
+                                <img src="{if $teacher_result}{php echo D('teacher')->teacherImg($teacher_result['teacher_id']);}{else} {$_W['attachurl']}{$student_info['student_img']}{/if}">
+                            </a>
+                            <p class="author_name"> 
+                                {if  !$teacher_result}
+                                    {$student_info['student_name']}
+                                    {if $row['relation']}（{$row['relation']}）{/if}
+                                {else}
+                                    {$teacher_result['teacher_realname']}(教师)
+                                {/if}
+                            </p>
+                            {if $uid==$row['send_uid']  || $in_type['type']=='teacher' }
+                            {if $in_type['type']!='teacher'}
+                               <span class='no_pass'>{if $row['send_status']==2}审核中{/if}</span>
+                            {/if}
+                            {if $in_type['type']=='teacher' && $row['send_status']==2}
+                               <a href="javascript:;" class="pass " data-send='{$row['send_id']}' id="pass{$row['send_id']}" >
+                                 <i class="fa fa-check" aria-hidden="true" style="color:#00ff00"></i>
+                               </a>                            
+                            {/if}
+                               <a href="javascript:;" class="close delete" data-send='{$row['send_id']}' >
+                                  <img src="{MODULE_URL}/style/images/close.png">
+                               </a>
+                            {/if}
+                    </div>
+                        <div class="topic">
+                            <p>{$row['send_content']}</p>
+                            <div onclick='displayImage(this)'>
+                                {php echo $this->decodeLineImgs($row['send_image']);}
+                                <div class='clear'></div>
+                             </div>
+                            <p class="author_time">{php echo date("m-d H:i",$row['add_time']);}</p>
+                        </div>
+                    <div class="click_hf">
+                        <div class='line_jian_tou'><i class="fa fa-sort-asc"></i></div>
+                        {php $zan_have=$this->zanLine($row['send_id']);}
+                        <a href="javascript:;" class="zan" id="zan_{$row['send_id']}" data-send='{$row['send_id']}' style="{if $zan_have==1}color:#07E{else}color:#333{/if}">
+                            <i class="fa fa-heart-o"></i>
+                       </a>
+                       <span id="like_num_{$row['send_id']}" class='like_name'>{php echo D('line')->getLineZanName($row['send_id']);}
+                       </span>
+                        <div  class='comment huifu' data-id='{$row['send_id']}'><i class="fa fa-comment-o"></i></div>
+                        <div  class='comment_list_line' id="comment_list_line{$row['send_id']}">
+                         {php $comment_list = D('line')->getLineComment($row['send_id']);}
+                         {if $comment_list }
+                            {loop $comment_list $val}
+                                <span>{$val['nickname']}:</span>{$val['comment_text']}<br>
+                            {/loop}
+                         {/if}
+                         </div>
+                    </div>
+            </li>           
+            </ul>      
+        {/loop}
+        <script>
+            $('.zan').on('click',function(){
+                send_id=$(this).attr('data-send');
+                ajaxComment(send_id,1,'line_like','like_num_')
+                $('#zan_'+send_id).css('color','#07E');    
+            });
+            $('.huifu').click(function(){
+                send_id=$(this).attr('data-id');
+                $('#comment_area').show();
+            });            
+            $('.delete').on('click',function(){
+                send_id=$(this).attr('data-send');
+                line_ajax(send_id,'delete');
+            });   
+           $('.pass').on('click',function(){
+                 send_id=$(this).attr('data-send');
+                 line_ajax(send_id,'line_pass');
+            });  
+
+        </script>

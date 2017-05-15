@@ -1,0 +1,63 @@
+{php $g_title='我的'}
+{php $menu='4'}
+{template 'common/header1'}
+{template 'common/menu'}
+<style type="text/css">   
+span.num{  
+    background-color: #f00;  
+    background-image: -webkit-linear-gradient(top, #f00, #600); /* Chrome 10+, Saf5.1+, iOS 5+ */  
+    background-image:    -moz-linear-gradient(top, #f00, #600); /* FF3.6+ */  
+    background-image:     -ms-linear-gradient(top, #f00, #600); /* IE10 */  
+    background-image:      -o-linear-gradient(top, #f00, #600); /* Opera 11.10+ */    
+    color:#fff;  
+    font-family:Verdana;  
+    font-weight:normal;  
+    padding:3px 3px;  
+    border:2px solid #fff;  
+    border-radius:15px;  
+    position:absolute;  
+    margin-top:-40%;  
+    margin-left:15%;  
+	font-size:12px;
+	line-height:1;
+    box-shadow: 0 2px 3px 0px rgba(0,0,0,1);  
+}  
+</style>
+			<div id="content" class="snap-content">
+				<div class="content">
+					{php $member = M('member')->getInfo($_W['openid'])}
+					{if !empty($member['home_cover'])}
+						{php $image = unserialize($member['home_cover'])}
+					{else}
+						{php $image = 'home_cover.jpg'}
+					{/if}
+					<div class="page-profile">
+						<div class="page-profile-header container-fullscreen" style="background-image:url({php echo tomedia($image)})">
+							<img src="{php echo $member['avatar']}" alt="img">
+							<h3>{$member['nickname']}</h3>
+							<div class="overlay bg-black" ></div>
+						</div>
+						<div class="page-profile-followers" style="z-index:99">
+							<a href="{php echo $this->createMobileUrl('answer')}"> <i class="ion-ios-list-outline"></i><!--<span class="num">+3</span>--> 向我提问</a>
+							<a href="{php echo $this->createMobileUrl('focus')}"> <i class="ion-ios-star-outline"></i> 关注我的</a> 
+							<!--<a href="{php echo $this->createMobileUrl('income')}"> <i class="ion-ios-ionic-outline"></i> 我的收入</a>-->
+							<a href="{php echo $this->createMobileUrl('tutor')}"> <i class="ion-ios-home-outline"></i> 我的主页</a>
+						</div>
+						<div class="news-strip">
+							<a href="{php echo $this->createMobileUrl('tutor')}"><i style="float:left;" class="ion-ios-home-outline"></i> 我的主页<i class="fa fa-angle-right"></i></a>
+							<a href="{php echo $this->createMobileUrl('ask')}"><i style="float:left;" class="ion-ios-chatbubble-outline"></i> 我提问的<i class="fa fa-angle-right"></i></a>
+							<a href="{php echo $this->createMobileUrl('follow')}"><i style="float:left;" class="ion-ios-infinite-outline"></i> 我关注的<i class="fa fa-angle-right"></i></a>
+							<a href="{php echo $this->createMobileUrl('visited')}"><i style="float:left;" class="ion-ios-compose-outline"></i> 我{php echo $this->template['learnName']}的<i class="fa fa-angle-right"></i></a>
+						</div>
+						<div class="news-strip" style="padding-top:20px;">
+							<a href="{php echo $this->createMobileUrl('tutor_edit')}"><i style="float:left;" class="ion-ios-color-wand-outline"></i> 修改信息<i class="fa fa-angle-right"></i></a>
+							<a href="{php echo $this->createMobileUrl('home_edit')}"><i style="float:left;" class="ion-ios-heart-outline"></i> 偏好设置<i class="fa fa-angle-right"></i></a>
+							<a href="{php echo $this->createMobileUrl('help')}"><i style="float:left;" class="ion-ios-information-outline"></i>需要帮助？<i class="fa fa-angle-right"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<a href="#" class="back-to-top-badge"><i class="fa fa-caret-up"></i>返回顶部</a>
+	</div>
+</body>

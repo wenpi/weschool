@@ -1,0 +1,151 @@
+   {template '../admin/head'}
+        {template '../admin/header'}
+        <div class="page-container">
+        {template '../admin/left'}
+            <div class="page-content-wrapper">
+                <div class="page-content">
+                    {template '../admin/sidebar'}
+                    <h1 class="page-title"> {php echo $this->school_info['school_name']}</h1>
+                    
+                    <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <div class="portlet light bordered">
+                                    <div class="portlet-title">
+                                        <div class="caption">
+                                            <i class="icon-cursor font-dark hide"></i>
+                                            <span class="caption-subject font-dark bold uppercase">今日进出人数</span>
+                                        </div>
+                                        <div class="actions">
+                                            <a href="{php echo $this->createWebUrl('funcroom_buildingInList',array("id"=>$_GPC['id']));}" class="btn btn-sm btn-circle red easy-pie-chart-reload">
+                                                <i class="fa fa-repeat"></i> 刷新 </a>
+                                        </div>
+                                    </div>
+                                    <div class="portlet-body">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="easy-pie-chart">
+                                                    <div class="number transactions" data-percent="{$in_re['count']}">
+                                                        <span>{$in_re['count']}</span> </div>
+                                                    <a class="title" href="javascript:;"> 进入数
+                                                        <i class="icon-arrow-right"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="margin-bottom-10 visible-sm"> </div>
+                                            <div class="col-md-4">
+                                                <div class="easy-pie-chart">
+                                                    <div class="number visits" data-percent="{$out_re['count']}">
+                                                        <span>{$out_re['count']}</span> </div>
+                                                        <a class="title" href="javascript:;"> 出数
+                                                            <i class="icon-arrow-right"></i>
+                                                        </a>
+                                                </div>
+                                            </div>
+                                            <div class="margin-bottom-10 visible-sm"> </div>
+                                            <div class="col-md-4">
+                                                <div class="easy-pie-chart">
+                                                    <div class="number bounce" data-percent="{$unusual_re['count']}">
+                                                        <span>{$unusual_re['count']}</span></div>
+                                                        <a class="title" href="javascript:;"> 异常
+                                                            <i class="icon-arrow-right"></i>
+                                                        </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                     </div>
+
+                 <div class="row">
+                        <div class="col-md-12">
+                            <div class="note note-success">
+                                <p>{$result['building_num']}{$title}  </p>
+                            </div>
+                            <div class="portlet box green-turquoise">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <i class="fa fa-cogs"></i>{$result['building_num']}{$title}列表 </div>
+                                    <div class="tools">
+                                        <a href="javascript:;" class="collapse"> </a>
+                                    </div>
+                                </div>
+                                <div class="portlet-body flip-scroll">
+                                    <table class="table table-bordered table-striped table-condensed flip-content"  id="sample_3" >
+                                        <thead class="flip-content">
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>宿舍</th>
+                                            <th>学生</th>
+                                            <th>进去详情</th>
+                                            <th></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                            {loop $student_list $item}
+                                                    <tr>
+                                                        <td>{$item['id']}</td>
+                                                        <td>{$item['room_num']}</td>
+                                                        <td>{$item['student_name']}</td>
+                                                        <td>{$item['str']}</td>
+                                                        <td style="text-align: left">
+                                                                <a  href="{php echo $this->createWebUrl('funcroom_building',array("id"=>$item['building_id'],'ac'=>'edit' ) );} " class="btn blue">
+                                                                <i class="fa fa-edit"></i> 编辑 </a>
+                                                                <a  href="{php echo $this->createWebUrl('funcroom_buildingInList',array( "id"=>$item['building_id'] ) );} " class="btn yellow">
+                                                                <i class="fa fa-navicon"></i> 进出详情 </a>
+                                                                <a  href="{php echo $this->createWebUrl('funcroom_building',array("id"=>$item['building_id'],'ac'=>'delete' ) );} " class="btn red">
+                                                                <i class="fa fa-close"></i> 删除 </a>
+                                                        </td>
+                                                    </tr>
+                                            {/loop}                                    
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        </div>
+        </div>
+         {template '../admin/right'}
+        </div>
+         <script src="{MODULE_URL}/assets/global/plugins/jquery-easypiechart/jquery.easypiechart.min.js" type="text/javascript"></script>
+        {template '../admin/footer'}
+        <script>
+            var Dashboard = function() {
+                return {
+                    initEasyPieCharts: function() {
+                        $('.easy-pie-chart .number.transactions').easyPieChart({
+                            animate: 1000,
+                            size: 75,
+                            lineWidth: 3,
+                            barColor: App.getBrandColor('yellow')
+                        });
+                        
+                        $('.easy-pie-chart .number.visits').easyPieChart({
+                            animate: 1000,
+                            size: 75,
+                            lineWidth: 3,
+                            barColor: App.getBrandColor('green')
+                        });
+                        
+                        $('.easy-pie-chart .number.bounce').easyPieChart({
+                            animate: 1000,
+                            size: 75,
+                            lineWidth: 3,
+                            barColor: App.getBrandColor('red')
+                        });
+                    },
+                    init: function() {
+                        this.initEasyPieCharts();
+                    }
+                };
+            }();
+            if (App.isAngularJsApp() === false) {
+                jQuery(document).ready(function() {
+                    Dashboard.init();
+                });
+            }
+        </script>
+             {template '../admin/table_script'}   
+     </body>
+    </html>

@@ -1,0 +1,109 @@
+2016-04-04 07:16:56 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcottz7WIXTv9SPAXKtzm8BZfw8]]></FromUserName>
+<CreateTime>1459725416</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=3&c=mc&a=card&do=notice&]]></EventKey>
+<MenuId>402655615</MenuId>
+</xml>
+
+2016-04-04 07:16:56 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-04 07:16:56 response :
+------------
+
+2016-04-04 19:47:31 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcott9t1KRh_N1guSItSarsFV0c]]></FromUserName>
+<CreateTime>1459770451</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[subscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+
+2016-04-04 19:47:31 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-04 19:47:31 response :
+------------
+
+2016-04-04 19:47:36 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcott9t1KRh_N1guSItSarsFV0c]]></FromUserName>
+<CreateTime>1459770456</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=3&c=mc&a=card&do=notice&]]></EventKey>
+<MenuId>402655615</MenuId>
+</xml>
+
+2016-04-04 19:47:36 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-04 19:47:36 response :
+------------
+
+2016-04-04 20:06:41 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcott9t1KRh_N1guSItSarsFV0c]]></FromUserName>
+<CreateTime>1459771601</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=3&c=entry&eid=2]]></EventKey>
+<MenuId>402655615</MenuId>
+</xml>
+
+2016-04-04 20:06:41 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-04 20:06:41 response :
+------------
+
+2016-04-04 20:07:01 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcott9t1KRh_N1guSItSarsFV0c]]></FromUserName>
+<CreateTime>1459771621</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=3&c=mc&a=card&do=notice&]]></EventKey>
+<MenuId>402655615</MenuId>
+</xml>
+
+2016-04-04 20:07:01 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-04 20:07:01 response :
+------------
+

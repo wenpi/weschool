@@ -1,0 +1,315 @@
+{if $_GPC['print_bd_code']==1}
+	{template '../admin/print_bd_code'}
+    {php exit();}
+{/if}
+   {template '../admin/head'}
+        {template '../admin/header'}
+        <div class="page-container">
+        {template '../admin/left'}
+            <div class="page-content-wrapper">
+                <div class="page-content">
+                {template '../admin/sidebar'}
+                    <h1 class="page-title"> {$_SESSION['school_name']}
+                            <small> {$title} </small>
+                    </h1>
+                {if $ac =='edit'|| $ac=='new' }
+                     <div class="row">
+                        <div class="col-md-12">
+                             <div class="portlet light ">
+                                <div class="portlet-title">
+                                    <div class="caption font-green-haze">
+                                        <i class="fa fa-edit font-green-haze"></i>
+                                        <span class="caption-subject bold uppercase"> {if $ac=='new'}新增老师{else}修改{/if} </span>
+                                        {if $_GPC['text']}
+                                            <br>
+                                            <span class="caption-subject bold uppercase" style="color:#ff0033">【{$_GPC['text']}】</span>
+                                        {/if}
+                                    </div>
+                                    <div class="actions">
+                                        <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="javascript:;" data-original-title="" title=""> </a>
+                                    </div>
+                                </div>
+                                  <div class="portlet-body form">
+                                    <form action="" method="post" class="form-horizontal form" enctype="multipart/form-data" id="form1"  >
+                                        <div class='form-group  form-md-line-input'>
+                                            <label class="col-md-2 control-label"><span class="required" aria-required="true"> * </span>选择其授课的班级</label>
+                                            <div class="col-sm-10">
+                                                {php $grade_id=0;}
+                                                {loop $class_list $row}
+                                                {php $i++;}
+                                                {if $grade_id != $row['grade_id'] } 
+                                                    {php $grade_id=$row['grade_id'];} 
+                                                    {if $i!=1 }
+                                                        <br>
+                                                    {/if} 
+                                                    【{php echo $this->gradeName($grade_id);}】
+                                                {/if}
+                                                <input type='checkbox'
+                                                    onchange='teacher_class_change()'
+                                                    value='{$row['class_id']}' 
+                                                    class='class_s'
+                                                    name='class_s[{$i}]' 
+                                                    {php if(@in_array($row['class_id'],$result['class_s'])) echo 'checked' ;}>
+                                                &nbsp;
+                                                <span onclick='change_check_status("class_s[{$i}]")' class='hover_point' >{$row['class_name']}</span>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                                {/loop}
+                                            </div>	
+                                        </div>	
+                                        <div class='form-group  form-md-line-input'>
+                                            <label class="col-md-2 control-label"><span class="required" aria-required="true"> * </span>授课课程<div class='btn btn-circle blue' onclick="allSelect('box_type')">全选</div></label>
+                                            <div class="col-sm-10" id="course_list">
+                                                {loop $course_list $row}
+                                                <input type='checkbox' class='box_type'  value='{$row['course_id']}' name='course_id[]' {if @in_array($row['course_id'],$result['course_ids']) } checked {/if}>&nbsp;{$row['course_name']}
+                                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                                {/loop}
+                                            </div>	
+                                              
+                                        </div>
+                                        <div class='form-group  form-md-line-input'>
+                                            <label class="col-md-2 control-label">教师标签<div class='btn btn-circle red-haze' onclick="allSelect('box_type_tags')">全选</div></label>
+                                            <div class="col-sm-10" >
+                                                {loop $tag_list $row}
+                                                <input type='checkbox' class="box_type_tags"   value='{$row['tag_id']}' name='teacher_tags[]' {if @in_array($row['tag_id'],$result['teacher_tags']) } checked {/if}>&nbsp;{$row['tag_name']}
+                                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                                {/loop}
+                                            </div>	
+                                        </div>
+                                          {if $ac=='edit'}
+                                                <input type="hidden" name="id"    value='{$result['teacher_id']}' />
+                                                <input type="hidden" name="uid"   value='{$result['uid']}' />
+                                            {/if}
+                                        <div class="form-group  form-md-line-input">
+                                            <label class="col-md-2 control-label"><span class="required" aria-required="true"> * </span>教师姓名</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" name="teacher_realname" id="teacher_realname" class="form-control" value='{$result['teacher_realname']}'required />
+                                            </div>
+                                        </div>
+                                        <div class="form-group  form-md-line-input">
+                                            <label class="col-xs-12 col-sm-3 col-md-2 control-label">教师电话</label>
+                                            <div class="col-sm-2 col-xs-2">
+                                                <input type="number" name="teacher_telphone" id="teacher_telphone" class="form-control" value='{$result['teacher_telphone']}' />
+                                            </div>
+                                             <label class="col-md-1 control-label"  >短信通知</label>
+                                             <div class="col-md-2">
+                                                 <input type="checkbox"  value='1'  {if $result['sms_send']==1} checked {/if}  class="make-switch" name="sms_send" data-on-text="发送" data-off-text="不发送">
+                                             </div>
+                                        </div>
+                                        <div class="form-group  form-md-line-input">
+                                            <label class="col-xs-12 col-sm-3 col-md-2 control-label">教师邮箱</label>
+                                            <div class="col-sm-9 col-xs-8">
+                                                <input type="text" name="teacher_email" id="teacher_email" class="form-control" value='{$result['teacher_email']}' />
+                                            </div>
+                                        </div>								
+                                         <div class="form-group  form-md-line-input">
+                                            <label class="col-xs-12 col-sm-3 col-md-2 control-label">考勤卡</label>
+                                            <div class="col-sm-9 col-xs-8">
+                                                <input type="number" name="rfid" id="rfid" class="form-control" value='{$result['rfid']}' />
+                                            </div>
+                                        </div>	
+
+                                        <div class="form-group  form-md-line-input">
+                                            <label class="col-xs-12 col-sm-3 col-md-2 control-label"><span class="required" aria-required="true"> * </span>教师照片</label>
+                                            <div class="col-sm-9 col-xs-8">
+                                                {php echo tpl_form_field_image('teacher_img',$result['teacher_img']);}
+                                            </div>
+                                        </div>	
+                                        <div class="form-group  form-md-line-input">
+                                            <label class="col-xs-12 col-sm-3 col-md-2 control-label">教师微信二维码</label>
+                                            <div class="col-sm-9 col-xs-8">
+                                                {php echo tpl_form_field_image('weixin_code',$result['weixin_code']);}
+                                            </div>
+                                        </div>					
+                                                    
+                                        <div class='form-group  form-md-line-input'>
+                                            <label class="col-xs-12 col-sm-3 col-md-2 control-label"><span class="required" aria-required="true"> * </span>教师简介</label>
+                                            <div class="col-sm-9 col-xs-12">
+                                                {php echo tpl_ueditor('teacher_introduce',$result['teacher_introduce']);}
+                                            </div>	
+                                        </div>
+                                        
+                                        <div class='form-group  form-md-line-input'>
+                                            <label class="col-xs-12 col-sm-3 col-md-2 control-label"><span class="required" aria-required="true"> * </span>系统账号</label>
+                                            <div class="col-sm-9 col-xs-12">
+                                                {if $ac=='edit'}
+                                                    <input type="text" class="form-control edited" readonly="" value="{$result['passport']}" required>
+                                                {else}
+                                                    <input name='passport' class='form-control' value=''>
+                                                {/if}
+                                            </div>	
+                                        </div>
+                                        <div class='form-group  form-md-line-input'>
+                                            <label class="col-xs-12 col-sm-3 col-md-2 control-label"><span class="required" aria-required="true"> * </span>系统密码</label>
+                                            <div class="col-sm-9 col-xs-12">
+                                                
+                                                <input name='password' class='form-control' value=''>
+                                                <span class="help-block">
+                                                {if $ac=='edit'}
+                                                    留空不修改
+                                                {/if}
+                                                </span>
+                                            </div>	
+                                        </div>								
+                                        {if $ac=='edit'}
+                                            <div class='form-group  form-md-line-input'>
+                                            <label class="col-xs-12 col-sm-3 col-md-2 control-label">状态</label>
+                                            <div class="col-sm-9 col-xs-8">
+                                            <select name='status'  class='form-control' >
+                                                    <option value='1' {if 1 ==$result['status']} selected {/if}>正常</option>
+                                                    <option value='0' {if 0 ==$result['status']} selected {/if}>关闭</option>
+                                            </select>
+                                            </div>							
+                                            </div>
+                                        {/if}
+                                            <div class="form-actions">
+                                                <div class="row">
+                                                    <div class="col-md-offset-2 col-md-10">
+                                                        <input type="submit" name="submit" class="btn blue" value="确认">
+                                                    </div>
+                                                </div>
+                                            </div>  
+
+                                     </form>
+                                  </div>    
+                             </div>            
+                      </div>                 
+                     </div>
+                {/if}
+                {if $ac=='list'}
+                          <div class="portlet light bordered">
+                                            <div class="portlet-title">
+                                                <div class="caption">
+                                                    <i class=" fa fa-paper-plane font-red-sunglo"></i>
+                                                    <span class="caption-subject font-red-sunglo bold uppercase">搜索</span>
+                                                    <span class="caption-helper">给出条件，筛选教师</span>
+                                                </div>
+                                            </div>
+                                            <div class="portlet-body form">
+                                                <form action="./index.php" method="get" class="form-horizontal">
+                                                    	<input type="hidden" name="c" value="site" />
+                                                        <input type="hidden" name="a" value="entry" />
+                                                        <input type="hidden" name="m" value="lianhu_school" />
+                                                        <input type="hidden" name="do" value="teacher" />
+                                                        <input type="hidden" name="ac" value="list" />
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-3">姓名</label>
+                                                            <div class="col-md-4">
+                                                                <input name='teacher_realname' class="form-control"  id='teacher_realname' value="{$_GPC['teacher_realname']}">
+                                                            </div>
+                                                        </div>	
+                                                        <div class="form-group last">
+                                                            <label class="control-label col-md-3">状态</label>
+                                                            <div class="col-md-4">
+                                                                <select class="form-control school_class_list" name="status" >
+                                                                            <option value='0'>全部</option>
+                                                                            <option value="1" {if $_GPC['status'] == '1'} selected {/if} >正常</option>
+                                                                            <option value="2" {if $_GPC['status'] == '2'} selected {/if} >关闭</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    <div class="form-actions">
+                                                            <div class="row">
+                                                                <div class="col-md-offset-2 col-md-10">
+                                                                    <div class="col-md-1"></div>
+                                                                     <input type="submit" name="submit" class="btn blue" value="确认搜索"></button>
+                                                                     <button class="btn btn-default" type="button">总记录数：{$num}</button>		
+                                                                     {if $have_up}
+                                                                         <a href="{php echo $this->createWebUrl('teacher',array('ac'=>'up_to_new') )}"><button class="btn red" type="button">请马上点击此处升级到新的账户体系</button></a>	
+                                                                     {/if}
+                                                                    <button class="btn btn-default" name='print_bd_code' value='1' >统一打印绑定二维码</button>				
+                                                                </div>
+                                                            </div>
+                                                    </div>   
+                                                </form>
+                                              </div>
+                             </div>
+                 <div class="row">
+                        <div class="col-md-12">
+                            <div class="portlet box green-turquoise">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <i class="fa fa-navicon"></i>教师列表 
+                                    </div>
+                                    <div class="tools">
+                                        <a href="javascript:;" class="collapse"> </a>
+                                    </div>
+                                </div>
+                                <div class="portlet-body flip-scroll">
+                                    <table class="table table-bordered table-striped table-condensed flip-content table-light" id="sample_3">
+                                        <thead class="flip-content">
+                                            <tr>
+                                                <th > 教师姓名</th>
+                                                <th class="numeric"> 教师电话 </th>
+                                                <th > 教师账号 </th>
+                                                <th  width='10%'> 教师标签 </th>
+                                                <th  width='10%'> 课程 </th>
+                                                <th  width='10%'> 关联的微信账号 </th>
+                                                <th > 状态 </th>
+                                                <th > 班主任 </th>
+                                                <th > 添加时间 </th>
+                                                <th >  </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        {loop $list $item}
+                                                <tr> 
+                                                    <td>{$item['teacher_realname']}</td>
+                                                    <td>{$item['teacher_telphone']}</td>
+                                                    <td><span class='label label-sm label-success'>{$item['username']}</span></td>
+                                                    <td>{php echo C('teacherTag')->echoTeacherTag($item['teacher_tags']);}</td>
+                                                    <td>{php echo $this->teacherCourse($item['teacher_id'],'echo');}</td>
+                                                    <td>
+                                                        {if $item['uid']}
+                                                        {php $fanid = $this->class_base->mobileGetFanidByUid($item['uid']);}
+                                                        {php echo $this->find_user($fanid);}
+                                                        {/if}
+                                                    </td>
+                                                    <td><span class='label label-sm label-warning'>
+                                                        {if $item['status'] ==1}正常{else}关闭{/if}</span>
+                                                    </td>
+                                                    <td><span class='label label-sm label-info'>
+                                                        {if $result=$this->classHead($item['teacher_id'])}
+                                                            <a class='a_use_title' style="color: #fff" href='' title="{php echo $this->echoArrOne($result,'class_name');}">班主任</a>
+                                                        {else}
+                                                        否
+                                                        {/if}
+                                                        </span>
+                                                        </td>
+                                                    <td>{php echo date("Y-m-d",$item['addtime']);}</td>
+                                                    <td style="text-align:center;">
+                                                            <a href="{php echo $this->createWebUrl('teacher', array('id' => $item['teacher_id'],'ac'=>'edit','aw'=>1 ))}"
+                                                                class="btn purple" >
+                                                                <i class="fa fa-edit"></i>编辑
+                                                            </a>
+                                                            <a href="{php echo $this->createWebUrl('teacher', array('id' => $item['teacher_id'],'ac'=>'delete' ,'aw'=>1  ))}" 
+                                                                onclick="return confirm('此操作不可恢复，确认删除？');return false;" class="btn  btn yellow " >
+                                                                <i class="fa fa-times"></i>删除
+                                                            </a>
+                                                            {if $item['uid']}
+                                                                <a href="{php echo $this->createWebUrl('teacher', array('id' => $item['teacher_id'],'ac'=>'unbundling' ,'aw'=>1  ))}"  class="btn  red" >
+                                                                    <i class="fa fa-trash-o"></i>解绑
+                                                                </a>
+                                                            {else}
+                                                            <a href="{php echo $this->createWebUrl('qrcode', array('id' => $item['teacher_id'], 'op' => 'teacher_bd_qr' ))}" class="btn  green" target="_blank" title="打印绑定二维码"><i class="fa fa-barcode"></i>绑定</a>
+                                                            {/if}
+                                                   </td>
+                                                </tr>
+                                                {/loop}                                          
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {/if}
+        </div>
+        </div>
+         {template '../admin/right'}
+        </div>
+     <script src="{MODULE_URL}/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+     {template '../admin/footer'}
+        {if $ac=='list'}
+            {template '../admin/table_script'}         
+        {/if}
+         </body>
+    </html>

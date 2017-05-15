@@ -1,0 +1,133 @@
+{template 'common/header'}
+<style>
+    .header .header-nav a{
+        margin-right:-3px;
+        margin-left:-3px;
+    }
+</style>
+<div id="panel">
+    <header class="header">
+        <div class="main">
+            <nav class="header-nav">
+                <a class="{if $_GPC['do'] == 'task'}current{/if}" href="{php echo $this->createMobileUrl('task')}">我要答</a>
+                <a class="{if $_GPC['do'] == 'task_post'}current{/if}" href="{php echo $this->createMobileUrl('task_post')}">我要问</a>
+            </nav>
+            <a class="search-btn" href="{php echo $this->createMobileUrl('search')}" id="searchTrigger"></a>
+        </div>
+    </header>
+    <div id="Question">
+        <!--问题表单-->
+        <div class="weui_cells weui_cells_form">
+            <div class="weui_cell">
+                <div class="weui_cell_bd weui_cell_primary">
+                    <textarea class="weui_textarea" name="title" placeholder="向大家提问，等待语音回答" rows="3"></textarea>
+                    <div class="weui_textarea_counter"><span>0</span>/60</div>
+                </div>
+            </div>
+            <div class="weui_cell">
+                <div class="weui_cell_bd weui_cell_primary">
+                    <div class="weui_uploader">
+                        <div class="weui_uploader_hd weui_cell">
+                            <div class="weui_cell_bd weui_cell_primary">问题附件</div>
+                        </div>
+                        <div class="weui_uploader_bd">
+                            <ul class="weui_uploader_files" id="imglist">
+
+                            </ul>
+                            <div class="weui_uploader_input_wrp">
+                                <input class="weui_uploader_input" id="filedata" type="file" accept="image/*" multiple="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <style>
+            .weui_icon_check:before {
+                display: inline-block;
+                content: ' ';
+                color: #fff;
+                font-size: 16px;
+            }
+            .weui_icon_checked:before {
+                display: inline-block;
+                content: '\EA08';
+                color: #fff;
+                font-size: 16px;
+            }
+        </style>
+        <div class="weui_cells_tips">
+            <input type="radio" name="radio1" class="weui_check" checked="checked">
+            <span class="weui_icon_checked" style="background-color: #1ccda6;color: #fff;"></span>
+            公开提问，答案没被偷听一次，您从中分成￥{php echo $this->system['listen_get_price']}
+        </div>
+        <div style="text-align: center;margin-top: 10px;">
+            <button id="postQuestion" style="padding-top: 10px;padding-bottom: 10px;padding-left: 25px;padding-right: 25px;font-size: 14px;background-color: #de2727;color: #fff;border-radius: 1em;font-weight: bold;">写好了</button>
+        </div>
+    </div>
+    <div class="h44"></div>
+    <div class="h44"></div>
+</div>
+
+<script type="text/javascript" src="{$_W['siteroot']}app/resource/js/lib/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="{MODULE_URL}public/libs/jquery_weui/jquery-weui.js"></script>
+<script src="{MODULE_URL}public/libs/upload_file/base64upload.js" type="text/javascript" ></script>
+<script>
+    $('#filedata').localResizeIMG({
+        width: 480,
+        quality: 0.8,
+        success: function (result) {
+            var src = result.base64;
+            var html = '<li class="weui_uploader_file" style="background-image:url('+src+')"><input type="hidden" name="attachnew[]" value="'+src+'"></li>';
+            $('#imglist').append(html);
+            $('.del').click(function(){
+                $(this).parent().remove();
+            });
+        }
+    });
+</script>
+<script>
+    var openid = "{php echo $_W['openid']}";
+    function check(){
+        console.log(openid);
+        if(openid.length<10){
+            $('#panel').hide();
+            $('#code').show();
+        }
+    }
+    check();
+    $('#postQuestion').click(function(){
+        var post = {};
+        post.title = $('textarea[name="title"]').val();
+        post.open = $('input[name="radio1"]').attr('checked');
+        var $attachnew = $('input[name="attachnew[]"]');
+        post.images = [];
+        for(var i=0;i<$attachnew.length;i++){
+            post.images = post.images.concat($($attachnew[i]).val());
+        }
+        post.act = 'post';
+        console.log(post);
+        if(!post.title){
+            $.toast('你写好了啥？我咋没看见？',2000);
+            return ;
+        }
+        $.post("",post,function(data){
+            $.toast('恭喜您发布成功！',2000,function(){
+                window.location.href = "{php echo $_W['siteurl']}";
+            });
+        },'json')
+    });
+    $('.weui_icon_checked').click(function(){
+        var _that = $(this);
+        var check = $('input[name="radio1"]').attr('checked');
+        if(check == 'checked'){
+            _that.removeClass('weui_icon_checked').addClass('weui_icon_check');
+            $('input[name="radio1"]').attr('checked',false);
+        }else{
+            _that.addClass('weui_icon_checked').removeClass('weui_icon_check');
+            $('input[name="radio1"]').attr('checked','true');
+        }
+    });
+</script>
+{template 'common/footerbar'}
+{template 'common/footer'}

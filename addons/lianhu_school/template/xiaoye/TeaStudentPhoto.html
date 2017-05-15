@@ -1,0 +1,39 @@
+{template '../xiaoye/newTeaHead'}
+<body>
+	<div class="main">
+        <div class="bl">学生相册</div>
+        <ul class="bll">
+            {if $model=='class'}
+                {loop $result $item}
+                    <li class="bjlb">
+                        <div class="bl1"><a href="{php echo $this->result_result($item,$model,'url','teaStudentPhoto');}"><p>{php echo $this->classGradeName($item)}</p></a><a href="{php echo $this->result_result($item,$model,'url','teaStudentPhoto');}"><p>{php echo $this->className($item)}</p></a></div>
+                        <div class="bl2"><a href="{php echo $this->result_result($item,$model,'url','teaStudentPhoto');}"><img src="{MODULE_URL}/template/xiaoye/upimg/teacherimg//jt.png"></a></div>
+                    </li>            
+                {/loop}
+            {elseif $model=='student'}
+                {loop $result $item}
+                    <li class="bjlb">
+                            <div class="bl1"><a href="{php echo $this->createMobileUrl("teaStudentPhoto",array("model"=>"someone","sid"=>$item['student_id']) ) ;}"><p>{php echo $this->result_result($item,$model,'name','work');}</p></a></div>
+                            <div class="bl2"><a href="{php echo $this->createMobileUrl("teaStudentPhoto",array("model"=>"someone","sid"=>$item['student_id']) ) ;}"><img src="{MODULE_URL}/template/xiaoye/upimg/teacherimg//jt.png"></a></div>
+                    </li>  
+                {/loop}
+            {else}
+            <div class="fsnr">
+                    <form method="post" >
+                    <div class="fsgg">添加新的相册【{$result['student_name']}】</div>
+                    <div class="sfs1"><p> 记录名</p><input type="text" name="title" required></div>
+                    {template '../xiaoye/upTeaImgs'}
+                    <input type="hidden" name="sid"  class="form-control" value='{$_GPC['sid']}' />
+                    <input type="hidden" value="{$token}"  name='token'>
+                    <div class="mf"><a href="#"><input type="submit"  name="submit" value="提交" /></a></div>
+                    </form>	
+            </div>
+            {/if}
+        </ul>    
+    </div>
+    {php $center_class = 'cde'}
+    {template '../xiaoye/newTeaFooter'}
+    {template 'jsweixin'}
+
+</body>
+</html>

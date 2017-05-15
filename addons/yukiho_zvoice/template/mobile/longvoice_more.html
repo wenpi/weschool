@@ -1,0 +1,54 @@
+{loop $questions['list'] $li}
+<div class="a-question">
+    <div>
+        <a style="overflow:hidden;text-decoration:none;" href="{php echo $this->createMobileUrl('question',array('id'=>$li['id']))}">
+            <div>
+                <p style="font-size:.8rem;line-height:1.1rem;color:#3F3F3F;">
+                    {$li['title']}
+                </p>
+            </div>
+        </a>
+    </div>
+    {php $member = M('member')->getInfo($li['to_openid'])}
+    <div style="overflow:hidden;">
+        <p style="color:#ababab;line-height:1.58;font-size:.65rem;margin:.5rem 0 .25rem;">
+            <span>{$member['nickname']}</span>
+            <span> | </span>
+            <span>{$member['desc']}</span>
+        </p>
+        <div class="avatar"
+             style="position:relative;width:1.85rem;height:1.85rem;border-radius:50%;display:inline-block;float:left;margin-top:.2rem;margin-right:1.05rem;">
+            <img style="position:relative;width:1.85rem;height:1.85rem;border-radius:50%;display:inline-block;"
+                 class="avatarImg" src="{php echo $member['avatar']}"/>
+            <span></span>
+        </div>
+        <input type="hidden" value="nothing"/>
+        <a class="bubble" style="width:10.862068965517242rem;" href="{php echo $this->createMobileUrl('question',array('id'=>$li['id']))}">
+            <span class="bubble-tail"></span>
+            <div>
+                <span class="wave1"></span>
+                <span class="wave2"></span>
+                <span class="wave3"></span>
+            </div>
+            <span>限时免费</span>
+        </a>
+                    <span style="display:block;float:left;line-height:2.2rem;color:#1CCDA6;font-size:.8rem;">
+                        <span>{php echo intval($li['timelong']/60)}</span>
+                        <span>分</span>
+                        <span>{php echo intval($li['timelong']%60)}</span>
+                        <span>秒</span>
+                    </span>
+    </div>
+    <div style="color:#ababab;font-size:.65rem;margin-top:.5rem;overflow:hidden;">
+                    <span style="float:right;">
+                        <i class="like-icon like-icon-gray"></i>
+                        <span> </span><span>{$li['good_num']}</span>
+                    </span>
+                    <span style="float:right;margin-right:.5rem;">
+                        <span>听过 </span>
+                        <span>{$li['listen_num']}</span>
+                    </span>
+        <span>{php echo M('common')->format_create_time($li['create_time'])}</span>
+    </div>
+</div>
+{/loop}

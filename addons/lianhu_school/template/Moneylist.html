@@ -1,0 +1,92 @@
+{template 'common/header'}
+{template 'common'}
+<ul class="nav nav-tabs">
+	<li>
+		<a href="{php echo $this->createWebUrl('money');}">收款项目列表</a>
+	</li>
+	<li class="active" >
+		<a >记录</a>
+	</li> 
+</ul>
+<div class='main'>
+	<div class="panel panel-info">
+	<div class="panel-heading">筛选</div>
+	<div class="panel-body">
+		<form action="./index.php" method="get" class="form-horizontal" role="form">
+			<input type="hidden" name="c" value="site" />
+			<input type="hidden" name="a" value="entry" />
+			<input type="hidden" name="m" value="lianhu_school" />
+			<input type="hidden" name="do" value="moneylist" />
+			<input type="hidden" name="ac" value="list" />
+			<input type="hidden" name="limit_id" value="{$_GPC['limit_id']}" />
+			<div class="form-group">
+				<label class="col-xs-12 col-sm-2 col-md-2 col-lg-1 control-label">年级</label>
+				<div class="col-xs-12 col-sm-8 col-lg-9">
+					<select name='grade_id'>
+						<option value='0'>全部</option>
+						{loop $grade_list $row}
+							<option value='{$row['grade_id']}' {if $_GPC['grade_id'] ==$row['grade_id']} selected {/if}>{$row['grade_name']}</option>
+						{/loop}
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-xs-12 col-sm-2 col-md-2 col-lg-1 control-label">班级</label>
+				<div class="col-xs-12 col-sm-8 col-lg-9">
+					<select name='class_id'>
+						<option value='0'>全部</option>
+						{loop $class_list $row}
+							<option value='{$row['class_id']}' {if $_GPC['class_id'] ==$row['class_id']} selected {/if}>{$row['class_name']}</option>
+						{/loop}
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-xs-12 col-sm-2 col-md-2 col-lg-1 control-label">姓名</label>
+				<div class="col-xs-12 col-sm-8 col-lg-9">
+					<input name='student_name' id='student_name' value="{$_GPC['student_name']}">
+				</div>
+			</div>						
+			<div class="form-group">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<button class="btn btn-default"><i class="fa fa-search"></i> 搜索</button>
+					<button class="btn btn-default" type="button">总金额：{$money}</button>				
+			</div>
+		</form>
+	</div>
+</div>
+	
+	<div class="panel-body table-responsive">
+		<table class="table table-hover">
+			<thead class="navbar-inner">
+				<tr>
+					<th >名称</th>
+					<th >金额</th>
+					<th >支付时间</th>
+					<th >年级名</th>
+					<th >班级名</th>
+					<th >学生名</th>
+					<th >支付人</th>
+					<th >状态</th>
+				</tr>
+			</thead>			
+			<tbody>
+				{loop $list $row}
+					<tr>
+						<td>{$row['limit_name']}</td>
+						<td>{$row['limit_much']}</td>
+						<td>{php echo date("Y-m-d H:i:s",$row['addtime'])}</td>
+						<td>{php echo $this->gradeName($row['grade_id']);}</td>
+						<td>{php echo $this->className($row['class_id']);}</td>
+						<td>{$row['student_name']}</td>
+						<td>{$row['nickname']}</td>
+						<td>{if $row['status']==1}已支付{else}未支付{/if}</td>
+					</tr>
+				{/loop}
+				
+			</tbody>
+		</table>
+		{$pager}	
+</div>

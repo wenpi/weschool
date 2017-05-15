@@ -1,0 +1,33 @@
+2016-04-02 10:27:32 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcott02Ec-7lwLaH7453SEawwSw]]></FromUserName>
+<CreateTime>1459564052</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[http://www.9kpu.com/app/index.php?i=3&c=mc&a=card&do=notice&]]></EventKey>
+<MenuId>402655615</MenuId>
+</xml>
+
+2016-04-02 10:27:32 params :
+------------
+Array:
+rule : -2 ;
+module :  ;
+message : Array ;
+
+2016-04-02 10:27:32 response :
+------------
+
+2016-04-02 20:33:59 trace :
+------------
+String:
+<xml><ToUserName><![CDATA[gh_2157a6c86a35]]></ToUserName>
+<FromUserName><![CDATA[oEcott5VfUhgQL_XEf4B6Zy_egNQ]]></FromUserName>
+<CreateTime>1459600439</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[unsubscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+

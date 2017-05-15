@@ -1,0 +1,135 @@
+   {template '../admin/head'}
+        {template '../admin/header'}
+        <div class="page-container">
+        {template '../admin/left'}
+            <div class="page-content-wrapper">
+                <div class="page-content">
+                {template '../admin/sidebar'}
+                    <h1 class="page-title"> {$_SESSION['school_name']}
+                            <small> {$title} </small>
+                    </h1>
+                {if $op =='edit'|| $op =='new' }
+                     <div class="row">
+                        <div class="col-md-12">
+                             <div class="portlet light ">
+                                <div class="portlet-title">
+                                    <div class="caption font-green-haze">
+                                        <i class="icon-settings font-green-haze"></i>
+                                        <span class="caption-subject bold uppercase">	{if $ac=='new'}新增站内信{else}修改{/if} </span>
+                                    </div>
+                                    <div class="actions">
+                                        <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="javascript:;" data-original-title="" title=""> </a>
+                                    </div>
+                                </div>
+                                  <div class="portlet-body form">
+                                    <form action="" method="post" class="form-horizontal form" enctype="multipart/form-data" id="form1"  >
+               
+                                            <div class="form-group form-md-line-input">
+                                                <label class="col-md-2 control-label"><span class="required" aria-required="true"> * </span>公告标题</label>
+                                                <div class="col-md-10">
+                                                 		<input type="text" name="msg_title" id="msg_title" class="form-control" value='{$result['msg_title']}' required/>
+                                                        {if $op=='edit'}
+                                                          <input type="hidden" name="id"  class="form-control" value='{$result['msg_id']}' />
+                                                        {/if}
+                                                    <div class="form-control-focus"> </div>
+                                                </div>
+                                            </div>    
+                                            
+                                            <div class="form-group form-md-line-input">
+                                                <label class="col-md-2 control-label"><span class="required" aria-required="true"> * </span>封面图</label>
+                                                <div class="col-md-10">
+                                                    {php echo tpl_form_field_image('img',$result['img']);}
+                                                </div>
+                                            </div> 
+
+                                            <div class="form-group  form-md-line-input ">
+                                                <label class="col-md-2 control-label"><span class="required" aria-required="true"> * </span>公告详细内容</label>
+                                                <div class="col-sm-10">
+                                                    {php echo tpl_ueditor('msg_content',$result['msg_content']);}
+                                                </div>
+                                            </div>															
+                                            {if $op=='edit'}
+                                                <div class='form-group  form-md-line-input '>
+                                                <label class="col-md-2 control-label"><span class="required" aria-required="true"> * </span>公告可见状态</label>
+                                                <div class="col-sm-10">
+                                                <select name='status' class='form-control'>
+                                                        <option value='1' {if 1 ==$result['status']} selected {/if}>正常</option>
+                                                        <option value='0' {if 0 ==$result['status']} selected {/if}>关闭</option>
+                                                </select>
+                                                </div>							
+                                                </div>
+                                            {/if}                                            
+                                            <div class="form-actions">
+                                                <div class="row">
+                                                    <div class="col-md-offset-2 col-md-10">
+                                                        <input type="submit" name="submit" class="btn blue" value="确认">
+                                                    </div>
+                                                </div>
+                                            </div>                                                                                
+                                    </form>
+                                  </div>    
+                             </div>            
+                      </div>                 
+                     </div>
+                {/if}
+                {if $op=='display'}
+                 <div class="row">
+                        <div class="col-md-12">
+                            <div class="note note-success">
+                                <p> 公告列表 </p>
+                            </div>
+                            <div class="portlet box green-turquoise">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <i class="fa fa-cogs"></i>公告列表 </div>
+                                    <div class="tools">
+                                        <a href="javascript:;" class="collapse"> </a>
+                                    </div>
+                                </div>
+                                <div class="portlet-body flip-scroll">
+                                    <table class="table table-bordered table-striped table-condensed flip-content" id="sample_3">
+                                        <thead class="flip-content">
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>标题</th>
+                                                <th>添加时间</th>
+                                                <th>状态</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {loop $list $item}
+                                            <tr>
+                                                <td>{$item['msg_id']}</td>
+                                                <td>{$item['msg_title']}</td>
+                                                <td>{if $item['add_time']}{php echo date("Y-m-d H:i:s",$item['add_time'])}{else}{php echo date("Y-m-d H:i:s",$item['addtime'])}{/if}</td>
+                                                <td>
+                                                    {if $item['status'] ==1}正常{else}关闭{/if}
+                                                </td>
+                                                </td>
+                                                <td style="text-align:right;">
+                                                    <a href="{php echo $this->createWebUrl('neimsg', array('id' => $item['msg_id'],'op'=>'edit'))}" class="btn blue"  >
+                                                        <i class="fa fa-pencil"></i>编辑</a>
+                                                    <a href="{php echo $this->createWebUrl('neimsg', array('id' => $item['msg_id'], 'op'=>'delete'))}" onclick="return confirm('此操作不可恢复，确认删除？');return false;" class="btn red"  >
+                                                        <i class="fa fa-times"></i>删除</a>
+                                                </td>
+                                            </tr>
+                                            {/loop}
+                                        </tbody>                                       
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {/if}
+        </div>
+        </div>
+         {template '../admin/right'}
+        </div>
+     {template '../admin/footer'}
+     {if $op=='display'}
+        {php $order_self='[-1,"desc"]';}
+        {template '../admin/table_script'}   
+     {/if}
+         </body>
+    </html>

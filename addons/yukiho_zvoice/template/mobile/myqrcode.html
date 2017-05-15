@@ -1,0 +1,18 @@
+{template 'common/header'}
+{php $member = M('member')->getInfo($_W['openid'])}
+<div>
+    <div style="display:block;text-align:center;padding-left:.875rem;padding-right:.9rem;padding-bottom:3rem;">
+        <div class="avatar" style="position:relative;width:3rem;height:3rem;border-radius:50%;display:inline-block;margin-top:2.9rem;">
+            <img style="position:relative;width:3rem;height:3rem;border-radius:50%;display:inline-block;" class="avatarImg" src="{$member['avatar']}"/>
+            <span></span>
+        </div>
+        <h1 style="margin-top:.5rem;font-weight:normal;font-size:.9rem;line-height:.9rem;">{$member['nickname']}</h1>
+        <p style="margin-top:.5rem;font-weight:normal;font-size:.75rem;line-height:.75rem;color:#999999;">{$member['tags']}</p>
+        <p style="margin-top:.75rem;text-align:center;font-weight:normal;font-size:.75rem;line-height:1.05rem;">{$member['desc']}</p>
+        <p>
+            <img src="{php echo M('common')->createQr($_W['siteroot'].'app/'.$this->createMobileUrl('tutor',array('openid'=>$_W['openid'])))}" style="margin-top:.75rem;margin-bottom:.5rem;width:9rem;height:9rem;"/></p>
+        <span></span>
+        <p style="color:#f85f48;font-size:.7rem;line-height:.7rem;">微信扫码，来「{php echo $this->system['title']}」向我提问</p></div>
+</div>
+{template 'common/footerbar'}
+{template 'common/footer'}

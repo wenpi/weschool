@@ -1,0 +1,97 @@
+{if empty($_W['isajax'])}
+{template 'common/header'}
+{template 'navs'}
+{/if}
+<div class="panel panel-default">
+    <div class="panel-heading">回答信息</div>
+    <div class="panel-body">
+        <form action="" method="post"  class="form-horizontal" enctype="multipart/form-data">
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">问题选择</label>
+                <div class="col-sm-8 col-lg-9 col-xs-12">
+                    <select name="question_id" id="" class="form-control">
+                        <option value="0">请选择</option>
+                        {php $options = M('question')->getall()}
+                        {loop $options $option}
+                        <option value="{$option['id']}" {if $item['question_id']==$option['id']}selected{/if}>{$option['title']}</option>
+                        {/loop}
+                    </select>
+                    <span class="help-block"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">类型</label>
+                <div class="col-sm-8 col-lg-9 col-xs-12">
+                    <select name="mode" id="" class="form-control">
+                        <option value="0" {if $item['mode']==0}selected{/if}>语音回答</option>
+						<option value="1" {if $item['mode']==1}selected{/if}>图文回答</option>
+                    </select>
+                    <span class="help-block"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">内容</label>
+                <div class="col-sm-8 col-lg-9 col-xs-12">
+                    <textarea name="contents"  class="form-control" id="" cols="30" rows="10">{$item['contents']}</textarea>
+                    <span class="help-block"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">用户</label>
+                <div class="col-sm-8 col-lg-9 col-xs-12">
+                    <input type="text" name="openid" data-name="member" data-href="{php echo $this->createWebUrl('member_select')}"  readonly="readonly" placeholder="" value="{$item['openid']}" class="form-control open_modal"/>
+                    <span class="help-block"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-md-offset-2 col-lg-offset-2 col-xs-12 col-sm-10 col-md-10 col-lg-11">
+                    <input name="submit" type="submit" value="提交" class="btn btn-primary span3" />
+                    <input type="hidden" name="token" value="{$_W['token']}" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{if empty($_W['isajax'])}
+<script>
+    require(['util'],function(util){
+        $('input[name="isfree"]').on('change keyup',function(){
+            var _val = $(this).val();
+            if(_val == 1){
+                $('#isfree').show();
+            }else{
+                $('#isfree').hide();
+            }
+        });
+        $('body').on('click','.open_modal',function(){
+            var _that = $(this);
+            var title = '';
+            var url = $(this).data('href');
+            var name = $(this).data('name');
+            $.get(url,function(data){
+                var content = data;
+                var footer = '<button class="btn btn-danger close2">关闭</button>';
+                var options = {containerName:''+name};
+                var model = name+'_modal';
+                eval(model+'=util.dialog(title, content, footer,options);');
+                eval(model+'.show();');
+                eval(model+'.removeClass("fade");');
+                eval(model+'.find(".close2").click(function(){'+model+'.hide();})');
+                eval(model+'.find(".select").click(function(){var openid = $(this).data("openid");select(openid)})');
+                eval(model+'.find("#search").on("keyup change",function(){var key = $(this).val();search(key)})');
+                function search(key){
+                    $.post("{php echo $this->createWebUrl('member_select')}",{key:key},function(html){
+                        eval(model+'.find("tbody").html(html)');
+                        eval(model+'.find(".select").click(function(){var openid = $(this).data("openid");select(openid)})');
+                    },'html');
+                }
+                function select(openid){
+                    _that.val(openid);
+                    eval(model+'.hide();');
+                }
+            },'html');
+        });
+    });
+</script>
+{template 'common/footer'}
+{/if}

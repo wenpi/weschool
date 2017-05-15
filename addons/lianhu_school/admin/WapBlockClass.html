@@ -1,0 +1,109 @@
+   {template '../admin/head'}
+        {template '../admin/header'}
+        <div class="page-container">
+        {template '../admin/left'}
+            <div class="page-content-wrapper">
+                <div class="page-content">
+                {template '../admin/sidebar'}
+                    <h1 class="page-title"> {$_SESSION['school_name']}
+                            <small> {$title} </small>
+                    </h1>
+                {if $ac =='edit'|| $ac=='new' }
+                     <div class="row">
+                        <div class="col-md-12">
+                             <div class="portlet light ">
+                                <div class="portlet-title">
+                                    <div class="caption font-green-haze">
+                                        <i class="icon-settings font-green-haze"></i>
+                                        <span class="caption-subject bold uppercase"> {if $ac=='new'}新增{else}修改{/if} </span>
+                                    </div>
+                                    <div class="actions">
+                                        <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="javascript:;" data-original-title="" title=""> </a>
+                                    </div>
+                                </div>
+                                  <div class="portlet-body form">
+                                    <form action="" method="post" class="form-horizontal form" enctype="multipart/form-data" id="form1"  >
+                                            <div class="form-group form-md-line-input">
+                                                <label class="col-md-2 control-label"><span class="required" aria-required="true"> * </span>分类名</label>
+                                                    <div class="col-md-10">
+                                                        <input type="text" class="form-control"   value="{$result['class_name']}" name='class_name' required >
+                                                        <div class="form-control-focus"> </div>
+                                                    </div>
+                                            </div>   
+                                           <div class='form-group form-md-line-input ' >
+                                                <label class=" col-md-2 control-label"><span style='color:red'>*</span>状态</label>
+                                                <div class="col-sm-10 ">
+                                                <select name='status' class="form-control" >
+                                                        {php echo S('fun','statusOut',array($result['status']))}
+                                                </select>
+                                                </div>							
+                                            </div>
+                                            <div class="form-actions">
+                                                <div class="row">
+                                                    <div class="col-md-offset-2 col-md-10">
+                                                        <input type="submit" name="submit" class="btn blue" value="确认">
+                                                    </div>
+                                                </div>
+                                            </div>                                                                                
+                                    </form>
+                                  </div>    
+                             </div>            
+                      </div>                 
+                     </div>
+                {/if}
+                {if $ac=='list'}
+                 <div class="row">
+                        <div class="col-md-12">
+                            <div class="portlet box green-turquoise">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <i class="fa fa-cogs"></i>移动端积木分类列表 </div>
+                                    <div class="tools">
+                                        <a href="javascript:;" class="collapse"> </a>
+                                    </div>
+                                </div>
+                                <div class="portlet-body flip-scroll">
+                                    <table class="table table-bordered table-striped table-condensed flip-content">
+                                        <thead class="flip-content">
+                                            <tr>
+                                                <th>分类名</th>
+                                                <th>状态 </th>
+                                                <th>添加时间 </th>
+                                                <th> </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                         {loop $list $item}
+                                            <tr class="success">
+                                                <td>{$item['class_name']}</td>
+                                                <td>{php echo S('fun','statusTable',array($item['status']))} </td>
+                                                <td>{php echo date("Y-m-d H:i:s",$item['add_time'])}</td>
+                                                <td style="text-align:center;" >
+                                                        <div class="btn-group btn-group-solid">
+                                                            <a href="{php echo $this->createWebUrl('WapBlockClass', array('id' => $item['class_id'],'ac'=>'edit' ))}"
+                                                                class="btn purple" >
+                                                                <i class="fa fa-pencil"></i>编辑
+                                                            </a>
+                                                            <a href="{php echo $this->createWebUrl('WapBlockClass', array('id' => $item['class_id'],'ac'=>'delete'  ))}" 
+                                                                onclick="return confirm('此操作不可恢复，确认删除？');return false;" class="btn  btn yellow " >
+                                                                <i class="fa fa-times"></i>删除
+                                                            </a>
+                                                        </div>
+                                                   </td>
+                                            </tr>
+                                       {/loop}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                {/if}
+        </div>
+        </div>
+         {template '../admin/right'}
+        </div>
+        {template '../admin/footer'}
+      </body>
+    </html>

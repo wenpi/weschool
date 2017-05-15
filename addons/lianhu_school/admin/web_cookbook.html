@@ -1,0 +1,84 @@
+   {template '../admin/head'}
+        {template '../admin/header'}
+        <div class="page-container">
+        {template '../admin/left'}
+            <div class="page-content-wrapper">
+                <div class="page-content">
+                {template '../admin/sidebar'}
+                    <h1 class="page-title"> {$_SESSION['school_name']}
+                            <small> {$title} </small>
+                    </h1>
+            <!--结束公共头部-->
+                 <div class="row">
+                        <div class="col-md-12">
+                            <div class="note note-success">
+                                <p> 校园食谱 </p>
+                            </div>
+                               <div class="portlet light ">
+                                <div class="portlet-title">
+                                    <div class="caption font-green-haze">
+                                        <i class="icon-settings font-green-haze"></i>
+                                        <span class="caption-subject bold uppercase">一周食谱</span>
+                                    </div>
+                                    <div class="actions">
+                                        <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="javascript:;" data-original-title="" title=""> </a>
+                                    </div>
+                                </div>
+                                  <div class="portlet-body form">
+                                     <form action="" method="post" class="form-horizontal form" enctype="multipart/form-data" id="form1" >
+                                    {if $mu_str != 'xiaoye'}
+                                                <div class="form-group form-md-line-input">
+                                                    <label class="col-md-1 control-label"></label>
+                                                    <div class="col-md-10">
+                                                        {php echo tpl_ueditor("cookBook",$result['cookbooK_breakfast'])}
+                                                    </div>
+                                                </div>    
+                                                                               
+                                    {else}
+                                      <div class="portlet-body flip-scroll"   >
+                                        <table class="table table-bordered table-striped table-condensed flip-content" style="text-align: center">
+                                            <thead class="flip-content">
+                                                <tr>
+                                                    <th width='10%'> 日期</th>
+                                                    {loop $cookbook_class_arr $row}
+                                                    <th>{$row}</th>
+                                                    {/loop}
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {loop $out_times $row}
+                                                    <tr>
+                                                        <td class="font-red" >{$row['date']}</td>
+                                                        {loop $cookbook_class_arr $val}
+                                                            <td>
+                                                                <input type="text" class="form-control" name = "cookbook[{$val}][{$row['unix']}]" value="{php echo C('cookbook')->getCookbookText($val,$row['unix']);}"  >
+                                                                {php echo tpl_form_field_multi_image('img['.$val.']['.$row["unix"].']', C('cookbook')->getCookbookImg($val,$row['unix']) );}
+                                                            </td>
+                                                        {/loop}
+                                                    </tr>
+                                                {/loop}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>                                   
+                                    {/if}
+                            <div class="form-actions">
+                                <div class="row">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        <input type="submit" name="submit" class="btn blue" value="确认提交">
+                                    </div>
+                                </div>
+                            </div>                                    
+                            </form>
+                                  </div>
+                        </div>
+                    </div>                   
+                </div>
+            <!--开始公共尾部-->
+              </div>
+            </div>
+         {template '../admin/right'}
+        </div>
+     {template '../admin/footer'}
+    </body>
+    </html>

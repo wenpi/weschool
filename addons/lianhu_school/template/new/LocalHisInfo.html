@@ -1,0 +1,53 @@
+<script>
+    var marker, lineArr = [];
+	var map = new AMap.Map("container", {
+        resizeEnable: true,
+        center: [{$list[0]['Lng']},{$list[0]['Lat']}],
+        zoom: 17
+    });
+    marker = new AMap.Marker({
+        map: map,
+        position: [{$list[0]['Lng']},{$list[0]['Lat']}],
+        icon: "{php echo displayImg($student_info['student_img']);}",
+        offset: new AMap.Pixel(-12, -20),
+        autoRotation: true
+    });
+    {loop $list $row}
+    lineArr.push([{$row['Lng']}, {$row["Lat"]}]);
+    {/loop}
+    // 绘制轨迹
+    var polyline = new AMap.Polyline({
+        map: map,
+        path: lineArr,
+        strokeColor: "#00A",  //线颜色
+        // strokeOpacity: 1,     //线透明度
+        strokeWeight: 3,      //线宽
+        // strokeStyle: "solid"  //线样式
+    });
+    var passedPolyline = new AMap.Polyline({
+        map: map,
+        // path: lineArr,
+        strokeColor: "#F00",  //线颜色
+        // strokeOpacity: 1,     //线透明度
+        strokeWeight: 3,      //线宽
+        // strokeStyle: "solid"  //线样式
+    });
+
+    marker.on('moving',function(e){
+        passedPolyline.setPath(e.passedPath);
+    })
+    map.setFitView();
+
+    AMap.event.addDomListener(document.getElementById('start'), 'click', function() {
+        marker.moveAlong(lineArr, 2000);
+    }, false);
+    AMap.event.addDomListener(document.getElementById('pause'), 'click', function() {
+        marker.pauseMove();
+       }, false);
+    AMap.event.addDomListener(document.getElementById('resume'), 'click', function() {
+        marker.resumeMove();
+    }, false);
+    AMap.event.addDomListener(document.getElementById('stop'), 'click', function() {
+        marker.stopMove();
+    }, false);
+</script>

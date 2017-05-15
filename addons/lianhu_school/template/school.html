@@ -1,0 +1,163 @@
+{template 'common/header'}
+{template 'common'}
+<ul class="nav nav-tabs">
+	<li {if $op == 'list' }class="active"{/if}>
+	<a href="{php echo $this->createWebUrl('school')}">学校列表</a>
+	</li>
+	{if $ac=='edit'}
+		<li {if $op == 'edit'} class="active"{/if}>
+		<a href="#">编辑学校</a>
+		</li> 
+	{/if}
+	<li {if $op == 'new'}class="active"{/if}>
+	<a href="{php echo $this->createWebUrl('school', array('op' => 'new'))}">新增学校</a>
+	</li>
+
+</ul>
+{if  $op=='list'}
+	<div class="panel panel-default">
+		<div class="panel-body table-responsive">
+			<table class="table table-hover">
+				<thead class="navbar-inner">
+					<tr>
+						<th >学校ID</th>
+						<th >学校</th>
+						<th >学校类型</th>
+						<th >状态</th>
+						<th >模板</th>
+						<th >班级圈</th>
+						<th >班级公告</th>
+						<th >操作</th>
+					</tr>
+				</thead>
+				<tbody>
+				{loop $list $item}
+				<tr>
+					<td>{$item['school_id']}</td>
+					<td>{$item['school_name']}{if $_SESSION['school_id']==$item['school_id']}【登陆状态】{/if}</td>
+					<td>{if $item['school_type']==0}未设置{else}{php echo S('school','getSchoolTypeName',array($item['school_type']) );} {/if}</td>
+					<td>{if $item['status'] ==1}正常{else}注销{/if}</td>
+                    <td>{if $item['mu_str']}{$item['mu_str']}{else}默认{/if}</td>
+					<td>{if $item['line_status'] ==1}<code>不审核</code>{else}审核{/if}</td>
+					<td>{if $item['class_notice_status'] ==1}<code>不审核</code>{else}审核{/if}</td>
+					<td>
+						<a href="{php echo $this->createWebUrl('school', array('op' => 'edit','sid'=>$item['school_id']))}" class="btn btn-success btn-sm">编辑</a>
+						<a href="{php echo $this->createWebUrl('school', array('op' => 'select','sid'=>$item['school_id']))}" class="btn btn-success btn-sm">登入</a>
+					</td>
+				</tr>
+				{/loop}
+				</tbody>
+			</table>
+		</div>
+	</div>	
+{/if}
+{if $op=='new' || $op=='edit'}
+	<div class="main">
+	<form action="" method="post" class="form-horizontal form" enctype="multipart/form-data" id="form1">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				{if $ac=='new'}新增学校{else}修改{/if}
+			</div>
+			<div class="panel-body">
+				<div class="tab-content">
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span>学校名</label>
+					<div class="col-sm-9 col-xs-8">
+						<input type="text" name="school_name" id="school_name" class="form-control" value='{$result['school_name']}' />
+						{if $ac=='edit'}
+						<input type="hidden" name="sid"  class="form-control" value='{$result['school_id']}' />
+						{/if}
+					</div>
+				</div>
+                    <div class='form-group'>
+                        <label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span>选择学校类型</label>
+                        <div class="col-sm-9 col-xs-8">
+                        <select name='school_type'>
+                            {loop $type_list $row}
+                                <option value='{$row['id']}' {if $row['id'] == $result['school_type']} selected {/if}>{$row['name']}</option>
+                            {/loop}
+                        </select>
+                        </div>	
+                    </div>			
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span>模板（不填写为默认）</label>
+					<div class="col-sm-9 col-xs-8">
+						<input type="text" name="mu_str" id="mu_str" class="form-control" value='{$result['mu_str']}' />
+					</div>
+				</div>                
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span>状态</label>
+					<div class="col-sm-9 col-xs-8">
+						<input type="radio" name="status"   value='1' {if $op=='new'} checked {else} {if $result['status']==1} checked {/if} {/if} />正常&nbsp;&nbsp;
+						<input type="radio" name="status"   value='0' {if $op=='edit'} {if $result['status']==0} checked {/if}  {/if}/>注销
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span>班级圈</label>
+					<div class="col-sm-9 col-xs-8">
+						<input type="radio" name="line_status"   value='1' {if $result['line_status']==1} checked {/if}  /><code>不审核</code>
+						<input type="radio" name="line_status"   value='2' {if $result['line_status']==2} checked {/if}  />需审核
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span>班级公告</label>
+					<div class="col-sm-9 col-xs-8">
+						<input type="radio" name="class_notice_status"   value='1' {if $result['class_notice_status']==1} checked {/if}  /><code>不审核</code>
+						<input type="radio" name="class_notice_status"   value='2' {if $result['class_notice_status']==2} checked {/if}  />需审核
+					</div>
+				</div>				
+				</div>
+			</div>
+		<div class="panel panel-default">
+			<div class="panel-heading">学校基本设置</div>
+			<div class="panel-body">
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label">学校微官网地址</label>
+					<div class="col-sm-9 col-xs-12">
+						<input type="text" name="host_url" class="form-control" value="{$result['host_url']}" />
+					</div>
+				</div>				
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label">在校时间（学校配置用）</label>
+					<div class="col-sm-9 col-xs-12">
+						<input type='text' value='{$result['on_school']}' name='on_school' placeholder="5"> 天制&nbsp;&nbsp;
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label">周几课程开始（给培训学校用：周一开始上课的学校可以不填写。）</label>
+					<div class="col-sm-9 col-xs-12">
+						周<input type='text' value='{$result['begin_day']}' name='begin_day' placeholder="6"> 开始上课&nbsp;&nbsp;
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label">上下午课时配置（上几节课，配置后请勿随便修改）</label>
+					<div class="col-sm-9 col-xs-12">
+						上午：<input type="text" name="am_much" class="form-control" value="{$result['am_much']}" />
+						下午：<input type="text" name="pm_much" class="form-control" value="{$result['pm_much']}" />
+						晚上：<input type="text" name="ye_much" class="form-control" value="{$result['ye_much']}" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label">班级圈类别</label>
+					<div class="col-sm-9 col-xs-12">
+						每个不同的类别以||分开
+						<textarea name='line_type' class='form-control'>{if $result['line_type'] }{$result['line_type']}{else}班级活动||班级公告||日常点滴||重要事务{/if}</textarea>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label">预约类别</label>
+					<div class="col-sm-9 col-xs-12">
+						每个不同的类别以||分开
+						<textarea name='appointment' class='form-control'>{if $result['appointment'] }{$result['appointment']}{else}课程预约||兴趣小组||集体活动{/if}</textarea>
+					</div>
+				</div>
+			</div>
+		</div>			
+		</div>		
+		<div class="form-group col-sm-12">
+			<input type="submit" name="submit" value="提交" class="btn btn-primary col-lg-1" />
+		</div>
+	</form>
+</div>		
+{/if}

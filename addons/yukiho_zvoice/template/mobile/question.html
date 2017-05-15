@@ -1,0 +1,592 @@
+{php $g_title='问题内容'}
+{php $menu='2'}
+{template 'common/header1'} 
+{template 'common/menu'}
+		<style type="text/css">
+		.imagesShowArea{ 
+			float:left;
+			width:20%;
+			height:50px;
+			padding-left:3px;
+		} 
+		.imagesUploadArea{ 
+			float:left;
+			width:20%;
+			height:50px;
+		} 
+		.images-content{ 
+			position: absolute; 
+			z-index: 1;
+			color: #fff; 
+			background: rgba(0,0,0,.7); 
+			overflow: hidden; 
+			margin-top:-15px;
+			opacity:0.8;filter:alpha(opacity=80);
+			width:50px;
+			line-height:15px;
+			font-size:12px;
+			padding-left:15px;
+		} 
+		</style> 
+		<div id="content" class="snap-content">
+			<div class="content">
+				<div class="one-half-responsive">
+					<em class="speach-left-title"><img src="{php echo $member['avatar']}" alt="img">{$member['nickname']}提问：<a style="color:#cacaca;float:right;"><i class="fa fa-cny"></i> {$question['credit']}&nbsp;&nbsp;&nbsp;<i class="fa fa-clock-o"></i> {php echo date('Y-m-d',$question['create_time'])}</a></em>
+					<p style='margin-bottom:5px;font-size:15px;' class="speach-left ">
+						{$question['title']}
+						{if !empty($question['images'])}
+						<a class='lookImage' style='display:block;'>
+							{php $images = unserialize($question['images'])}
+							{loop $images $image}
+							<img class="imagesShowArea" id="img" src="{php echo tomedia($image)}">
+							{/loop}
+						</a>
+						{/if}
+					</p>
+					{php $listen_log = M('listen_log')->getOpenid($question['id'],$_W['openid'])}
+					{if (empty($listen_log) || $listen_log['status'] == 0) && $question['to_openid']!=$_W['openid'] && $question['openid']!=$_W['openid']}
+						{php $to_user = M('member')->getInfo($question['to_openid'])}
+						<div class="clear"></div>
+						<a href="{php echo $this->createMobileUrl('tutor',array('openid'=>$to_user['openid']))}"><em class="speach-right-title"><img src="{php echo $to_user['avatar']}" alt="img">{php echo $to_user['nickname']}{php echo $this->template['authname']}</em></a>
+						<p style="margin-bottom:5px;font-size:15px;" class="listen speach-right"><i class="fa fa-clock-o"></i> {php echo $this->template['authname']}已经作出回答，支付后就可以查看所有解答内容。</p>
+						<div class="clear"></div>
+						<a id="payBtn" data-qid="{$question['id']}" style="margin-left:10px;margin-right:0px;width:93%" href="#" class="button button-green button-round"><i class="fa fa-check"></i> {php echo $this->system['listen_price']}元开始{php echo $this->template['learnName']}</a>
+					{else}
+						{php $answers = M('answer')->getall(array('question_id'=>$question['id']))}
+						{php $ans_index=0}
+						{loop $answers $answer}
+						{php $ans_index=$ans_index+1}
+						{if !empty($answer)}
+							{php $user = M('member')->getInfo($answer['openid'])}
+							<!--回答-->
+							{if $question['to_openid']==$answer['openid']}
+								<div class="clear"></div>
+								{if $answer['mode']=='0'}
+									<a href="{php echo $this->createMobileUrl('tutor',array('openid'=>$user['openid']))}"><em class="speach-right-title"><img src="{php echo $user['avatar']}" alt="img">{php echo $user['nickname']}{php echo $this->template['authname']}的解答</em></a>
+									{php $pWidth = $answer['timelong']/60*100}
+									<p style="font-size:15px;margin-bottom:5px;width:{$pWidth}%;min-width:50%;" data-id="{$answer['id']}" data-timelong="{$answer['timelong']}" style="font-size:15px;" class="listen speach-right green-bubble">
+									{if $question['isfree'] ==1}
+									<i class="playStatus fa fa-clock-o"></i> <d>{php echo $this->template['limitFree']}{php echo $this->template['learnName']}
+									{else if ($question['openid']==$_W['openid'] || $question['to_openid'] == $_W['openid'])}
+									<i class="playStatus fa fa-play"></i> <d>点击播放解答
+									{else}
+										<i class="playStatus fa fa-play"></i> <d>点击播放解答
+									{/if}
+									{$answer['timelong']}''</d></p>
+									<div class="clear"></div>
+									{if $ans_index==1}
+										<p style='margin-bottom:-5px;z-index:999;margin-top:-5px;' class="speach-status"><a id='showReward'><i class="fa fa-cny"></i>{php echo $this->template['rewardName']}</a>&nbsp;&nbsp;&nbsp;{php echo M('listen_log')->gettotal($question['id'])}人已{php echo $this->template['learnName']}</p>
+
+									{/if}
+								{else}
+									{php $user = M('member')->getInfo($answer['openid'])}
+									<a href="{php echo $this->createMobileUrl('tutor',array('openid'=>$user['openid']))}"><em class="speach-right-title"><img src="{php echo $user['avatar']}" alt="img">{php echo $user['nickname']}{php echo $this->template['authname']}的解答</em></a>
+									{php $pWidth = $answer['timelong']/60*100}
+									<p style="margin-bottom:5px;font-size:15px;" class="listen speach-right">					
+									{if !empty($answer['contents'])}
+										{$answer['contents']}
+									{/if}
+									{if !empty($answer['images'])}
+									<a class='lookImage' style='display:block;'>
+										{php $images = unserialize($answer['images'])}
+										{loop $images $image}
+										<img class="imagesShowArea" id="img" src="{php echo tomedia($image)}">
+										{/loop}
+									</a>
+									{/if}
+									<div class="clear"></div>
+									{if $ans_index==1}
+										<p style='margin-bottom:-5px;z-index:999;margin-top:-5px;' class="speach-status"><a id='showReward'><i class="fa fa-cny"></i>{php echo $this->template['rewardName']}</a>&nbsp;&nbsp;&nbsp;{php echo M('listen_log')->gettotal($question['id'])}人已{php echo $this->template['learnName']}</p>
+									{/if}
+								{/if}
+								<div class="clear"></div>	
+								<form method="post"  style='display:none' id="rewardForm" class="contactForm">
+									<fieldset>
+										<div style="width:100%;"  class="formFieldWrap">
+											<label class="field-title contactNameField" for="contactNameField">请选择{php echo $this->template['rewardName']}金额：<span></span></label>
+											<div class="portfolio-filter-categories2">
+												<a data-id="1" class="filter-category">1元</a>
+												<a data-id="5" class="filter-category">5元</a>
+												<a data-id="10" class="filter-category">10元</a>
+												<a data-id="20" class="filter-category">20元</a>
+												<a data-id="50" class="filter-category">50元</a>
+												<a data-id="100" class="filter-category">100元</a>
+											</div>
+										</div>	
+										<div style="margin-top:10px;" class="formSubmitButtonErrorsWrap contactFormButton">
+											<input type="button" class="buttonWrap button button-green contactSubmitButton"
+												id="rewardBtn" value="开始{php echo $this->template['rewardName']}">
+										</div>					
+									</fieldset>
+								</form>
+							{/if}
+							<!--追问-->
+							{if $question['openid']==$answer['openid']}
+								{if $answer['mode']=='0'}
+									<em class="speach-left-title"><img src="{php echo $member['avatar']}" alt="img">{$member['nickname']}追问：</em>
+									{php $pWidth = $answer['timelong']/60*100}
+									<p style="font-size:15px;margin-bottom:5px;width:{$pWidth}%;min-width:45%;" data-id="{$answer['id']}" data-timelong="{$answer['timelong']}" style="font-size:15px;" class="listen speach-left green-bubble">
+									<d><i class="playStatus fa fa-play"></i> <d>点击播放追问 {$answer['timelong']}''</d></p>
+									<div class="clear"></div>
+								{else}
+									{php $user = M('member')->getInfo($answer['openid'])}
+									<a href="{php echo $this->createMobileUrl('tutor',array('openid'=>$user['openid']))}"><em class="speach-left-title"><img src="{php echo $user['avatar']}" alt="img">{php echo $user['nickname']}追问：</em></a>
+									{php $pWidth = $answer['timelong']/60*100}
+									<p style="margin-bottom:5px;font-size:15px;" class="listen speach-left">					
+									{if !empty($answer['contents'])}
+										{$answer['contents']}
+									{/if}
+									{if !empty($answer['images'])}
+									<a class='lookImage' style='display:block;'>
+										{php $images = unserialize($answer['images'])}
+										{loop $images $image}
+										<img class="imagesShowArea" id="img" src="{php echo tomedia($image)}">
+										{/loop}
+									</a>
+									{/if}
+									<div class="clear"></div>
+								{/if}
+							{/if}
+								
+							{if empty($answers)}
+							{php $user = M('member')->getInfo($question['to_openid'])}
+								<a href="{php echo $this->createMobileUrl('tutor',array('openid'=>$user['openid']))}"><em class="speach-right-title"><img src="{php echo $user['avatar']}" alt="img">{php echo $user['nickname']}{php echo $this->template['authname']}</em></a>
+								<p style="margin-bottom:0px;font-size:15px;" class="listen speach-right"><i class="fa fa-clock-o"></i> 等待{php echo $this->template['authname']}解答...</p>
+								<div class="clear"></div>
+							{/if}
+						{/if}
+					{/loop}
+				{/if}
+				</div>	
+				{if $question['openid']!=$_W['openid'] && $question['to_openid']!=$_W['openid']}
+				<div class="decoration"></div>
+				<div class="blog-sidebar-categories full-bottom" style="margin:10px;" >
+					<div class="blog-sidebar-text">
+						<h5 style="font-weight:600;">更多{php echo $this->template['authname']}解答:</h5>
+					</div>
+					<div class="blog-sidebar-categories" >
+						{loop $randoms $li}
+						<a href="{php echo $this->createMobileUrl('question',array('id'=>$li['id']))}"><div style="font-size:15px;width:95%" class="split-title">{$li['title']}</div><i class="fa fa-angle-right"></i></a>
+						{/loop}
+					</div>
+				</div>
+				{/if}
+				
+				{php $leftTime = M('answer')->getLeftAskTime($question['id'])}
+				{if $question['to_openid']==$_W['openid'] || (!empty($answers) && $this->system['openReask']>0 && $question['openid']==$_W['openid'] && !empty($leftTime) && $leftTime>0)}
+				<div class="clear"></div>	
+				<div class="content half-bottom half-top">
+					<div class="home-tabs">
+						<a style="width:50%;" data-mode='voice' class="answer-mode activate-tab-1 active-home-tab">语音</a>
+						<a style="width:50%;" data-mode='text' class="answer-mode activate-tab-2">图文</a>
+						<div class="clear"></div>
+					</div>
+				</div>
+				<form method="post" action="" id="contactForm" class="contactForm" enctype="multipart/form-data">
+					<input type="hidden" name="MAX_FILE_SIZE" value="2000000">
+					<input type="hidden" id="ans_mode" value="voice">					
+					<fieldset>
+						<div class='mode' id='voice'></br>
+							<div class="formFieldWrap">
+								<div class="or-buttons-style-1">
+									{if $question['to_openid']==$_W['openid']}
+										<a id="record1" style="margin-left:10px;margin-right:0px;width:93%" href="#" class="button button-blue button-round"><i class="fa fa-microphone"></i> 用60秒语音解答问题</a>
+									{else}
+										<a id="record1" style="margin-left:10px;margin-right:0px;width:93%" href="#" class="button button-blue button-round"><i class="fa fa-microphone"></i> 还可以追问{$leftTime}次</a>
+									{/if}
+									<a id="record3" style="display:none;margin-top:10px;margin-left:10px;margin-right:0px;width:45%" href="#" class="button button-green button-round"><i class='fa fa-check'></i> 提交</a>
+									<a id="record2" style="display:none;margin-top:10px;margin-left:10px;margin-right:0px;width:45%" href="#" class="button button-orange button-round"></a>
+								</div>
+							</div>	
+						</div>		
+						<div id='text' class='mode' style='display:none;'>
+							<div class="clear"></div>
+							<div class="formTextareaWrap">
+								<label class="field-title contactMessageTextarea"
+									for="contactMessageTextarea">文字说明： <span>150字以内</span></label>
+								<textarea placeholder="请输入解答内容，进行文字补充说明..." id="contents" name="contents" class="contactTextarea"></textarea>
+							</div>
+							<div class="formFieldWrap">
+								<label class="field-title contactNameField" for="contactNameField">图片说明：<span>上传图片进行补充说明</span></label>
+								<span id='imagesTr' style="width:100%;border:0px" type="text" class="contactField requiredField">
+									<div class='imagesUploadIcon' style="float:left;height:50px;width:50px;border: 1px dotted #cacaca">
+										<a style='padding:6px;'>+添加</a>
+									</div>
+								</span>
+							</div>
+							<div class="clear"></div>
+							<div style='margin-top:20px;' class="formSubmitButtonErrorsWrap contactFormButton">
+								<input type="button" class="buttonWrap button button-green contactSubmitButton" id="save" value="解答完毕">
+							</div>	
+						</div>
+					</fieldset>
+				</form>
+				{/if}
+			</div>
+		</div>
+		<audio id="player" autoplay preload src=""></audio>
+	</div>
+	<script src="{MODULE_URL}public/libs/upload_file/mobileBUGFix.mini.js" type="text/javascript" ></script>
+	<script src="{MODULE_URL}public/libs/upload_file/base64upload.js" type="text/javascript" ></script>
+	<script src="{MODULE_URL}public/libs/upload_file/exif.js" type="text/javascript" ></script>
+
+	<script>
+
+	var images = {
+		localId: [],
+		serverId: []
+	};
+	
+	$("#imagesTr").delegate(".imagesUploadIcon,.imagesUploadArea","click",function(){
+		var that =$(this);
+		
+		// 删除已上传的图片
+		if(that.data('edit')=='1'){
+			that.remove();
+			$(".imagesUploadIcon").show();
+			return false;
+		}
+		
+		images.localId = [];
+		var canChooseCount = 5;
+		$('.imagesUploadArea').each(function(){
+			if($(this).data('edit')=='1') canChooseCount--;
+		});
+		wx.chooseImage({
+			count: canChooseCount,
+			sizeType: ['original', 'compressed'],
+			sourceType: ['album', 'camera'],
+			success: function (res) {
+			images.localId = res.localIds;
+			if (images.localId.length == 0) {
+				warn('请先使用 chooseImage 接口选择图片');
+				return;
+			}
+			if(images.localId.length > 5) {
+				warn('最多支持5张照片,请重新选择');
+				images.localId = [];
+				return;
+			}
+			var i = 0, length = images.localId.length;
+			images.serverId = [];
+			$('.imagesUploadDesc').hide();
+			function upload() {
+				wx.uploadImage({
+					localId: images.localId[i],
+					success: function (res) {			
+						$('.imagesUploadIcon').before('<div align="left" class="imagesUploadArea" data-sid="'+res.serverId+'" data-edit="1">'
+							+'<img id="imagePreview" src="'+images.localId[i]+'" style="width:50px;height:50px;"><span class="images-content">删除<span></div>');			
+						i++;
+						if (i < length) {
+							upload();
+						}
+						var count = 0;
+						$('.imagesUploadArea').each(function(){
+							if($(this).data('edit')=='1'){
+								count++;
+							}
+						});
+						if(count>=5){
+							$(".imagesUploadIcon").hide();
+						}
+					},
+					fail: function (res) {
+						warn(JSON.stringify(res));
+					}
+				});
+			}
+			upload();
+		  }
+		});
+	});
+	
+    $('.filter-category').click(function(){
+		$('.filter-category').removeClass("selected-filter");
+        $(this).addClass("selected-filter");
+    });
+    $('.answer-mode').click(function(){
+		$('.answer-mode').removeClass("active-home-tab");
+        $(this).addClass("active-home-tab");
+		$('.mode').hide();
+		$('#'+$(this).data('mode')).show();	
+		$('#ans_mode').val($(this).data('mode'));
+    });
+	$(".imagesShowArea").click(function(){
+        var imgArray = [];
+        var curImageSrc = $(this).attr('src');
+        var oParent = $(this).parent();
+        if (curImageSrc) {
+			oParent.find("img").each(function(i){ 
+				imgArray.push($(this).attr('src'));
+			});
+            wx.previewImage({
+                current: curImageSrc,
+                urls: imgArray
+            });
+        }
+	});
+	
+	$("#record1").click(voice.start);
+    $('#showReward').click(function(){
+		if($('#rewardForm').is(":hidden")){
+			$('#rewardForm').show();
+			$(this).html('<i class="fa fa-close"></i>取消');
+		}else{
+			$('#rewardForm').hide();
+			$(this).html('<i class="fa fa-cny"></i>{php echo $this->template['rewardName']}');
+		}
+    });
+    $('#rewardBtn').click(function(){
+		_that = $(this);
+		var credit = $('.selected-filter').data('id');
+		if(!credit){
+			warn('请选择{php echo $this->template['rewardName']}金额');
+			return ;
+		}
+		_that.attr("disabled","disabled");
+		_that.val("正在开启支付...");
+		$.post("",{act:'reward',credit:credit},function(data){
+			if(data.status == 8){
+				warn(data.message,function(){});
+				_that.val("开始{php echo $this->template['rewardName']}");
+				_that.removeAttr("disabled");
+				return '';
+			}
+			wx.chooseWXPay({
+				timestamp: data.timeStamp,
+				nonceStr: data.nonceStr,
+				package: data.package,
+				signType: data.signType,
+				paySign: data.paySign,
+				success: function (res) {
+					if(res.errMsg == 'chooseWXPay:ok') {
+						data.act == 'paySuccess';
+						$.post("",{act:'reward_success',reward_id:data.reward_id},function(d){
+							window.location.href = "{php echo $_W['siteurl']}";
+						},'json');
+					}else{
+						_that.val("开始{php echo $this->template['rewardName']}");
+						_that.removeAttr("disabled");
+						window.location.href = "{php echo $_W['siteurl']}";
+					}
+				},cancel:function(res){
+					$('#rewardForm').hide();
+					_that.val("开始{php echo $this->template['rewardName']}");
+					_that.removeAttr("disabled");
+					$('#showReward').html('<i class="fa fa-cny"></i>{php echo $this->template['rewardName']}');
+				}
+			});
+		},'json');
+	});
+	
+	// 语音模式
+    $('#record3').click(function(){
+		_b = $(this);
+        posting = true;
+        wx.ready(function(){
+            if(!post.localId){
+                warn("请先录音");
+                return '';
+            }
+            wx.uploadVoice({
+                localId: post.localId,
+                isShowProgressTips: 1,
+                success: function (res) {
+                    post.serverId = res.serverId;
+                    post.act = 'reanswer';
+					post.mode = $("#ans_mode").val();
+                    if(!post.serverId){
+                       warn("请先录音");
+                        return '';
+                    }
+					_b.attr("disabled", "disabled");
+					_b.html("稍等");
+					console.log(post);
+                    $.post("{php echo $this->createMobileUrl('answer_detail',array('id'=>$question['id']))}",post,function(data){
+                        if(data.status == 1){
+                            bingo(data.message,function(){
+                                window.location.href = "{php echo $this->createMobileUrl('question',array('id'=>$question['id']))}";
+                            });
+                        }else{
+							_b.removeAttr("disabled", "disabled");
+							_b.html("提交");
+                            error(data.message,2000,'cancel');
+                        }
+                        posting = false;
+                    },'json');
+                }
+            });
+        });
+    });
+	
+	
+	// 图文模式
+    $('#save').click(function(){
+		_b = $(this);
+        post.act = 'reanswer';
+		post.mode = $("#ans_mode").val();
+		post.contents = $("#contents").val();
+        if(!post.contents){
+            warn("请先填写解答内容");
+            return '';
+        }
+        post.images = [];
+		$('.imagesUploadArea').each(function(){
+			if($(this).data('edit')=='1'){
+				post.images = post.images.concat($(this).data('sid'));
+			}
+		});
+		//post.images = images.serverId[0];
+		_b.attr("disabled", "disabled");
+		_b.html("稍等");
+		console.log(post);
+		$.post("{php echo $this->createMobileUrl('answer_detail',array('id'=>$question['id']))}",post,function(data){
+			
+			console.log(data);
+			if(data.status == 1){
+				bingo(data.message,function(){
+					window.location.href = "{php echo $this->createMobileUrl('question',array('id'=>$question['id']))}";
+				});
+			}else{
+				_b.removeAttr("disabled", "disabled");
+				_b.html("提交");
+				warn(data.message);
+			}
+		},'json');
+    });
+	
+    var player = document.getElementById('player');
+    function playData(data){
+	
+        player.src = data.src;
+        player.play();
+		
+        var timelong = parseInt(data.timelong) * 1000;
+		var count = data.timelong;
+		var playStatus = $(data.target).find('.playStatus');
+		var timer = window.setInterval(function(){
+			if((count--)>1){
+				playStatus.removeClass('fa-play').addClass('fa-pause');
+				playStatus.next().html(" 语音播放中..."+count+"''");
+			}else{
+				clearInterval(timer);
+				playStatus.removeClass('fa-pause').addClass('fa-play');
+				playStatus.next().html(" 再放一次 "+data.timelong+"''");
+			}
+		},1000);
+		
+		/**
+        setTimeout(function(){
+			$('#playStatus').removeClass('fa-pause').addClass('fa-play');
+			$('#playStatus').next().html(" 再放一次");
+        },timelong);*/
+    }
+	
+    $('#payBtn').click(function(){
+		var dd = {};
+        var target = $(this);
+		target.html('正在召唤管理员...');
+        $.get("",{id:$(this).data('qid'),act:'repay'},function(data){
+            wx.ready(function(){
+                wx.chooseWXPay({
+                    timestamp: data.timeStamp,
+                    nonceStr: data.nonceStr,
+                    package: data.package,
+                    signType: data.signType,
+                    paySign: data.paySign,
+                    success: function (res) {
+                        if(res.errMsg == 'chooseWXPay:ok') {
+                            data.act == 'paySuccess';
+                            $.post("",{act:'paySuccess',listen_id:data.listen_id},function(d){
+                                if(d.status == 1){
+									window.location.reload();
+                                }else{
+                                    warn('支付失败！',function(){});
+                                }
+                            },'json');
+                        }else{
+                            warn('微信支付未配置成功！');
+                        }
+                    }, cancel:function(res){
+						target.html("重新尝试支付");
+					}, error:function(res){
+						target.html("重新尝试支付");
+					}
+                });
+            });
+        },'json');
+    });
+	
+    $('.listen').click(function(){
+		var dd = {};
+        var target = $(this);
+        var timelong = $(this).data('timelong');
+        $.get("",{answer_id:$(this).data('id'),act:'src'},function(data){
+            if(data.status == 8){
+				dd.status = 2;
+                warn(data.message,function(){});
+                return '';
+            }
+            if(data.status == 0){
+				dd.status = 1;
+                dd.target = target;
+                dd.src = data.src;
+                dd.timelong = timelong;
+                return '';
+            }
+            if(!data.listen_id){
+				dd.status = 2;
+                warn('listen_id为空');
+                return '';
+            }
+            if(!data.answer_id){
+				dd.status = 2;
+				warn('answer_id为空');
+                return '';
+            }
+            wx.ready(function(){
+                wx.chooseWXPay({
+                    timestamp: data.timeStamp,
+                    nonceStr: data.nonceStr,
+                    package: data.package,
+                    signType: data.signType,
+                    paySign: data.paySign,
+                    success: function (res) {
+                        if(res.errMsg == 'chooseWXPay:ok') {
+                            data.act == 'paySuccess';
+                            $.post("",{act:'paySuccess',listen_id:data.listen_id,answer_id:data.answer_id},function(d){
+                                if(d.status == 1){
+									dd.status = 1;
+                                    dd.target = target;
+                                    dd.src = d.src;
+                                    dd.timelong = timelong;
+                                    return '';
+                                }else{
+									dd.status = 2;
+                                    warn('系统错误',function(){});
+                                }
+                            },'json');
+                        }else{
+							dd.status = 2;
+                            window.location.href = "{php echo $_W['siteurl']}";
+                        }
+                    }, cancel:function(res){
+						target.find('.playStatus').next().html("重试一下");
+					}
+                });
+            });
+        },'json');
+		target.find('.playStatus').next().html("数据搬运中...");
+		var timer1 = window.setInterval(function(){
+			if(dd.status>0){
+				clearInterval(timer1);
+				if(dd.status==1){
+					playData(dd);
+				}else{
+					target.find('.playStatus').next().html("重试一下");
+				}
+			}
+		},1000);
+    });
+	</script>
+</body>

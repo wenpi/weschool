@@ -1,0 +1,58 @@
+{template 'school/app_header'}
+<body>
+  <section class="w-section mobile-wrapper">
+    <div class="page-content" id="main-stack">
+      <div class="w-nav navbar" style="height:45px;padding-top:0"  data-collapse="all" data-animation="over-left" data-duration="400" data-contain="1" data-easing="ease-out-quint" data-no-scroll="1">
+        <div class="w-container">
+          <div class="wrapper-mask" data-ix="menu-mask"></div>
+          <div class="navbar-title">在线报修</div>
+          {if $in_type['type']=='teacher'}
+            <a href="{php echo $this->createMobileUrl('teain')}">
+          {else}
+            <a href="{php echo $this->createMobileUrl('home')}">
+          {/if}
+          <div class="w-nav-button navbar-button left" id="menu-button" data-ix="hide-navbar-icons">
+            <div class="navbar-button-icon home-icon">
+              <div class="bar-home-icon top"></div>
+              <div class="bar-home-icon middle"></div>
+              <div class="bar-home-icon bottom"></div>
+            </div>
+          </div>
+          </a>
+          <a class="w-inline-block navbar-button right" href="{php echo $this->createMobileUrl('sendRepair')}">
+            <div class="navbar-button-icon icon ion-ios-plus-empty"></div>
+          </a>
+        </div>
+      </div>
+      <div class="body"   style="padding-top:45px;">
+        <ul class="list list-messages">
+          {if !$list}
+            <div class="middle_botton">暂无数据</div>
+          {else}
+            {loop $list $row}
+                <li class="list-message" data-ix="list-item">
+                    <a class="w-clearfix w-inline-block" href="{php echo $this->createMobileUrl('lookMyRepair',array("id"=>$row['repair_id']) )}" data-load="1">
+                    <div class="w-clearfix column-left">
+                        <div class="image-message">
+                            {if $row['img_list']}
+                                <img src="{php echo $this->imgFrom($row['img_list'][0]);}">
+                            {/if}
+                        </div>
+                    </div>
+                    <div class="column-right">
+                        <div class="message-title">{$row['repair_title']}</div>
+                        <div class="message-text"> {$row['repair_content']}</div>
+                        <div class="message-text" style="color:#ff0033">{if $row['do_status']}{$row['do_status']}{else}暂无回复{/if}</div>
+                    </div>
+                    </a>
+                </li>
+            {/loop}
+            {/if}
+        </ul>
+      </div>
+    </div>
+
+  </section>
+{template 'school/app_footer'}
+</body>
+</html>

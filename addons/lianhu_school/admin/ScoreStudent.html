@@ -1,0 +1,247 @@
+   {template '../admin/head'}
+        {template '../admin/header'}
+        <div class="page-container">
+        {template '../admin/left'}
+            <div class="page-content-wrapper">
+                <div class="page-content">
+                {template '../admin/sidebar'}
+                    <h1 class="page-title"> {$_SESSION['school_name']}
+                            <small> {$title} </small>
+                    </h1>
+                <div class='row'>
+                    {if $ac=='list'}
+                            <div class="col-md-12 col-sm-12">
+                                    <div class="panel panel-info">
+                                    <div class="panel-heading">筛选</div>
+                                    <div class="panel-body">
+                                        <form action="./index.php" method="get" class="form-horizontal" role="form">
+                                            <input type="hidden" name="c" value="site" />
+                                            <input type="hidden" name="a" value="entry" />
+                                            <input type="hidden" name="m" value="lianhu_school" />
+                                            <input type="hidden" name="do" value="scoreStudent" />
+                                                <div class="form-group">
+                                                    <label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span>选择年级</label>
+                                                    <div class="col-sm-9 col-xs-8">
+                                                        <select name='gid' id="grade_id" class='form-control'>
+                                                            {loop $grade $row}
+                                                                    <option value='{$row['grade_id']}' {if $row['grade_id']==$gid } selected {/if}>{$row['grade_name']}</option>
+                                                            {/loop}
+                                                        </select>
+                                                    </div>
+                                                </div>			
+                                                <div class="form-group">
+                                                    <label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span>选择班级</label>
+                                                    <div class="col-sm-9 col-xs-8">
+                                                        <select name='class_id' id="class_id" class='form-control'>
+                                                            <option value='0'>不选择</option>
+                                                            {loop $class_list $row}
+                                                                    <option value='{$row['class_id']}' {if $row['class_id']==$_GPC['class_id'] } selected {/if}>{$row['class_name']}</option>
+                                                            {/loop}
+                                                        </select>
+                                                    </div>
+                                                </div>	
+                                                <div class="form-group">
+                                                    <label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span>选择考试</label>
+                                                    <div class="col-sm-9 col-xs-8">
+                                                        <select name='jilv_id' id="jilv_id" class='form-control'>
+                                                            {loop $score_jilv_list $row}
+                                                                    <option value='{$row['scorejilv_id']}'  {if $row['scorejilv_id']==$ji_lv_id } selected {/if}>{$row['scorejilv_name']}</option>
+                                                            {/loop}
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">选择课程</label>
+                                                    <div class="col-sm-9 col-xs-8">
+                                                        <select name='course_id' id="course_id" class='form-control'>
+                                                        <option value='0'>全部</option>
+                                                            {loop $new_out_course_arr $row}
+                                                                    <option value='{$row['course_id']}'  {if $row['course_id']==$_GPC['course_id'] } selected {/if}>{$row['course_name']}</option>
+                                                            {/loop}
+                                                        </select>
+                                                    </div>
+                                                </div>	
+
+                                            <div class="form-group">
+                                                <div class="col-sm-5 col-xs-5"></div>
+                                                    <button class="btn btn-default"><i class="fa fa-search"></i> 搜索</button>
+                                                    <button class="btn btn-default" type="button">总记录数：{$total}</button>
+                                                    <input type='submit'name='excel' class="btn btn-default" type="button" value='导出'>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="portlet box red">
+                                            <div class="portlet-title">
+                                                <div class="caption">
+                                                    <i class="fa fa-cogs"></i>成绩统计 </div>
+                                            </div> 
+                                </div> 
+                                    <div class="portlet-body">
+                                        <table class="table table-striped table-bordered table-hover table-checkable order-column table-light"  id="sample_3" >
+                                            <thead class="navbar-inner">
+                                                <tr>
+                                                    <th style="width:50px;">学生</th>
+                                                    <th style="width:60px">班级</th>
+                                                    {loop $out_course_arr $row}
+                                                    <th style="width:50px;">{$row['course_name']}</th>
+                                                    {/loop}
+                                                    <th style="width:50px;">总分</th>
+                                                    <th style="width:50px;">排名</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>各科总分：</td>
+                                                    <td></td>
+                                                    {loop $out_course_arr $row}
+                                                        <td >{$course_all[$row['course_id']]}</td>
+                                                    {/loop}
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+
+                                                {loop $out_list $key  $item}
+                                                    <tr>
+                                                        <td>{$item['student_name']}</td>
+                                                        <td>{$item['class_name']}</td>
+                                                            {loop $out_course_arr $row}
+                                                                <td>{if $item['course_ids'][$row['course_id']]>0 } {$item['course_ids'][$row['course_id']]} {else}0{/if}</td>
+                                                            {/loop}
+                                                        <td> <span class="label label-sm label-info">{$item['all_score']}</span></td>
+                                                        <td><span class="label label-sm label-success">{php echo $key+1}</span></td>
+                                                    </tr>
+                                                {/loop}
+                                            </tbody>
+                                        </table>
+                                    </div>                               
+                            </div>   
+                            {$pager}
+                            <script>
+                                    var html="<option value='0'>不选择</option>";
+                                    $(function(){
+                                        {if $_GPC['class_id'] && $_GPC['jilv_id']}
+                                            ajax_up({$_GPC['class_id']},{$_GPC['jilv_id']});
+                                        {/if}
+
+                                        {if $_GPC['class_id'] && !$_GPC['jilv_id']}
+                                            ajax_up({$_GPC['class_id']},0);
+                                        {/if} 
+                                        {if !$_GPC['class_id'] && !$_GPC['jilv_id']}
+                                            ajax_up(0,0);
+                                        {/if}
+                                    {if !$_GPC['class_id'] && $_GPC['jilv_id']}
+                                            ajax_up(0,{$_GPC['jilv_id']});
+                                        {/if}                                                      
+                                        $('#grade_id').change(function(){
+                                            ajax_up(0,0);
+                                        });
+                                    });
+                                    function ajax_up(first_class_id,first_jilv_id){
+                                            var gid=$('#grade_id').val();
+                                            $.ajax({
+                                                type:'post',
+                                                url:'{php echo $this->createWebUrl('ajax',array('ac'=>'class_list'))}',
+                                                data:{gid:gid},
+                                                dataType:'json',
+                                                success:function(obj){
+                                                    $('#class_id').html(" ");
+                                                    $('#class_id').html(html);
+                                                    if(obj.success){
+                                                        $.each(obj.list,function(i,e){
+                                                            if(first_class_id>0 && first_class_id==e.class_id){
+                                                                $('#class_id').append("<option value='"+e.class_id+"' selected >"+e.class_name+"</option>");
+                                                            }else{
+                                                                $('#class_id').append("<option value='"+e.class_id+"'>"+e.class_name+"</option>");
+                                                            }
+                                                        });
+                                                    }
+                                                }
+                                            });	
+
+                                            $.ajax({
+                                                type:'post',
+                                                url:'{php echo $this->createWebUrl('ajax',array('ac'=>'jilv_list'))}',
+                                                data:{gid:gid},
+                                                dataType:'json',
+                                                success:function(obj){
+                                                    $('#jilv_id').html(" ");
+                                                    if(obj.success){
+                                                        $.each(obj.list,function(i,e){
+                                                            if(first_jilv_id>0 && first_jilv_id==e.scorejilv_id){
+                                                                $('#jilv_id').append("<option value='"+e.scorejilv_id+"' selected >"+e.scorejilv_name+"</option>");
+                                                            }else{
+                                                                $('#jilv_id').append("<option value='"+e.scorejilv_id+"'>"+e.scorejilv_name+"</option>");
+                                                            }                               
+                                                        });
+                                                    }
+                                                }
+                                            });
+                                            
+                                    }
+                            </script>
+                            
+                        {/if}
+                        {if $ac=='new' || $ac=='edit'}
+                            <div class="main">
+                            <form action="" method="post" class="form-horizontal form" enctype="multipart/form-data" id="form1">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        {if $ac=='create'}新增{else}修改{/if}
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="tab-content">
+                                        <div class="form-group">
+                                            <label class=" col-md-2 control-label"><span style='color:red'>*</span>记录（如：月考，期中考试等）</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" name="scorejilv_name" id="scorejilv_name" class="form-control" value='{$result['scorejilv_name']}' />
+                                                {if $op=='edit'}
+                                                <input type="hidden" name="jilv_id"  class="form-control" value='{$result['scorejilv_id']}' />
+                                                {/if}
+                                            </div>
+                                        </div>
+                                        <div class='form-group'>
+                                            <label class=" col-md-2 control-label"><span style='color:red'>*</span>选择年级</label>
+                                            <div class="col-sm-10">
+                                                {if  $op=='edit'}
+                                                {loop $grade_list $row}
+                                                    {if $row['grade_id'] ==$result['grade_id']} {$row['grade_name']} {/if}
+                                                {/loop}
+                                                {else}
+                                                    <select name='grade_id' class="form-control">
+                                                {loop $grade_list $row}
+                                                            <option value='{$row['grade_id']}' {if $row['grade_id'] ==$result['grade_id']} selected {/if}>{$row['grade_name']}</option>
+                                                {/loop}
+                                                    </select>
+                                                {/if}
+
+                                            </div>	
+                                        </div>
+                                            <div class='form-group'>
+                                            <label class=" col-md-2 control-label"><span style='color:red'>*</span>状态</label>
+                                            <div class="col-sm-10">
+                                            <select name='status'  class="form-control" >
+                                                    <option value='1' {if 1 ==$result['status']} selected {/if}>正常</option>
+                                                    <option value='3' {if $result['status']==3 } selected {/if}>关闭</option>
+                                            </select>
+                                            </div>							
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>		
+                                <div class="form-group col-sm-12">
+                                    <input type="submit" name="submit" value="提交" class="btn btn-primary col-lg-1" />
+                                </div>
+                            </form>
+                        </div>		
+                        {/if}                        
+                    </div>
+                </div>
+              </div>
+            </div>
+     {template '../admin/right'}
+     </div>
+     {template '../admin/footer'}
+     {template '../admin/table_script'}         
+    </body>
+    </html>

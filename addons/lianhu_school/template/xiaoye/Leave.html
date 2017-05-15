@@ -1,0 +1,59 @@
+{template '../xiaoye/newHead'}
+<div class="z_main">
+    <div class="headqj">
+        <a href="{php echo $this->createMobileUrl('leave')}" class="pp"><p>请假申请</p></a>
+        <a href="{php echo $this->createMobileUrl('leaveRecord')}"><p>申请记录</p></a>
+    </div>
+	<div class="sq">
+       <form action="" method="post" class="form-horizontal form" id="form1" >
+		<div class="tz-mn"></div>
+            <div class="sq-t">
+                <p class="sq-t1">开始时间</p>
+                <input type="datetime-local"   name="time_date_begin"  class="sq-t2"  value="{php echo date("Y-m-d",time())}T{php echo date("H:i:s",time())}"  step="1" >
+                <img src=" {MODULE_URL}/template/xiaoye/img/jt-x-h.png" >
+		    </div>
+            <div class="sq-t">
+                <p class="sq-t1">结束时间</p>
+                <input type="datetime-local"  name='time_date_end'    class="sq-t2"  value="{php echo date("Y-m-d",time())}T{php echo date("H:i:s",time())}"  step="1" >
+                <img src=" {MODULE_URL}/template/xiaoye/img/jt-x-h.png" >
+            </div>
+				<div class="tz-mn"></div>
+				<div class="sq-t">
+                    <p class="sq-t1">请假类型</p>
+                    <img src=" {MODULE_URL}/template/xiaoye/img/jt-x-h.png">
+                    <select class="sq-t3" name="leave_type">
+                        {loop $cclass_leave->leave_type $key $row}
+                            <option value ="{$key}">{$row}</option>
+                        {/loop}
+                    </select>
+        		</div>
+                <div class="sq-t">
+                    <p class="sq-t1">请假原因</p>
+                </div>
+                
+                <div class="qjyy">
+                    <textarea name="leave_reason" required placeholder="请说明您的请假原因" ></textarea>
+                </div>
+                <div class="sq-t">
+                    <p class="sq-t1">语音验证</p>
+                </div>                
+                <div class="qjyy">
+                    {template '../xiaoye/only_voice'}
+                </div>
+                <div class="z_dpt5">
+                    <input type="hidden" value="{$token}"  name='token'>
+                    <input type="submit" name="submit_weixin"  value="发送">
+                </div>
+       </form>
+	</div>
+</div>
+
+    <style>
+        .voice_display{
+            font-size: 1em;
+        }
+    </style>
+    {template 'jsweixin'}
+    {template '../xiaoye/newStudentFooter'}
+</body>
+</html>

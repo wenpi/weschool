@@ -1,0 +1,51 @@
+{template '../xiaoye/newTeaHead'}
+<body>
+	<div class="main">
+        <div class="bl">班级公告-{if $ac == 'edit'}编辑{else}发送{/if}</div>
+        <form method="post">
+        <div class="fsx">
+            {if $ac == 'edit'}
+                    <div class="f_hcz33">
+                        <input type=checkbox id='check{$result['class_id']}' value='{$result['class_id']}' name="have[]"  checked ><label for='check{$result['class_id']}'><a href="{php echo $this->createMobileUrl('Tea_lineHistory',array('cid'=>$result['class_id']))}">{php echo $this->classGradeName($result['class_id'])}{php echo $this->className($item['class_id'])} [记录]</a></label>
+                    </div>
+            {else}
+                {loop $list $item}
+                    <div class="f_hcz33">
+                        <input type=checkbox id='check{$item['class_id']}' value='{$item['class_id']}' name="have[]" ><label for='check{$item['class_id']}'><a href="{php echo $this->createMobileUrl('Tea_lineHistory',array('cid'=>$item['class_id']))}">{$item['grade_name']}{$item['class_name']} [记录]</a></label>
+                    </div>
+                {/loop}
+            {/if}
+        
+        </div>
+        <div class="fsnr">
+            <div class="fs1 ttt"><p>标题</p><input style="width: 80%;" type="text" name='line_title' value="{$result['line_title']}" ></div>
+            <div class="fs1"><p>类型</p>
+                <select name='line_type'  class="bba" style="width: 80%!important;" id="selectAge" >
+							{loop $line_type_cfg  $key $row}
+								<option value='{$key}' {if $result['line_type']==$key} selected {/if}>{$row}</option>
+							{/loop}
+                </select>
+            </div>
+            <div class="ssc">
+                 <p class="ooo">详细内容</p>
+                 <span><textarea class="zxx1 mmm" placeholder="请输入资料内容"  name='line_content'>{$result['line_content']}</textarea></span>
+             </div>
+            {if $ac=='new' || $ac=='list'}
+            {template '../xiaoye/upTeaImgs'}
+            <div class="qjyy">
+                {template '../xiaoye/only_voice'}
+            </div>
+                <input type="hidden" value="new"  name='ac'>
+            {else}
+                <input type="hidden" value="edit"  name='ac'>
+            {/if}
+            <input type="hidden" value="{$token}"  name='token'>
+            <div class="mf"><a href="#"><input type="submit"  name="submit" value="提交" /></a></div>   
+            </form>
+    </div>
+    {php $center_class = 'cde'}
+    {template '../xiaoye/newTeaFooter'}
+    {template 'jsweixin'}
+    </div>
+</body>
+</html>

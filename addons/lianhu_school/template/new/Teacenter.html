@@ -1,0 +1,79 @@
+{template '../new/head'}
+<script src="{MODULE_URL}/web/default/js/jquery.min.js"> </script>
+<body>
+<div class="weui_dialog_alert" id="weui_dialog_alert" style="display: none" >
+    <div class="weui_mask" onclick="$('#weui_dialog_alert').hide();"></div>
+    <div class="weui_dialog"  >
+        <div class="weui_dialog_hd"><strong class="weui_dialog_title">切换身份</strong></div>
+        <div class="weui_dialog_bd">
+                <div class="weui_cells weui_cells_access">
+                    {loop $teacher_list $row}
+                    <a class="weui_cell " href="{php echo $this->createMobileUrl('teacenter',array('teacher_id'=>$row['teacher_id']) );}" >
+                        <div class="weui_cell_bd weui_cell_primary">
+                            <p {if $row['teacher_id'] == $result['teacher_id'] } style="color:#ff0033" {/if}> {$row['teacher_realname']}</p>
+                        </div>
+                    </a>
+                    {/loop}
+                </div>
+        </div>
+            <div class="weui_dialog_ft">
+                <br>
+            </div>        
+    </div>
+</div>
+
+<style>
+    .course{
+        display: inline-block;
+        text-overflow: ellipsis;
+        white-space:nowrap;
+        height: 20px; line-height: 20px;overflow: hidden; max-width: 75%;margin-left: 15%;
+    }
+</style>
+<div class="m-box" >
+    <div class='plus_student'>
+        <a href="{php echo $this->createMobileUrl('teacher');}"> <i class="fa fa-plus" style="color:#fff"></i> </a>
+    </div>
+
+    <div class="m-img " style="background-image:url({$_W['attachurl']}{php echo D('adv')->getAdvInfoKeyWord('teacher_top_img'); });"  ></div>
+    <div class="m-title">
+        <div class="m-masker" align="left" style="margin-left: 6%; margin-top: -13%; background-color:rgba(0,0,0,0); "> 
+            <div class="weui-avatar">
+                <img class="weui-avatar-img1_1" src="{$_W['attachurl']}{$result['teacher_img']}" />
+            </div>
+         </div>
+        <div class="m-masker" style="left: 18%; margin-top: -4.5%; background-color:rgba(0,0,0,0);" onclick="$('#weui_dialog_alert').show();"> 
+            <span class="f25" style="margin-left: -18%;"   > {$result['teacher_realname']}  <span class=" f-white f12">切换</span> </span> 
+            <br />
+            <div style=" margin-left: 22%;"><hr /></div>
+            <span class="weui_btn_primary f-white f12 course" >&nbsp;{php echo $this->teacherCourse($result['teacher_id'],'echo')}&nbsp;</span>
+            <span>&nbsp;{$class_s}</span> 
+        </div>
+    </div> 
+</div>
+
+{php $class_mobile = D('mobile');}
+{php $index_list   = $class_mobile->getIndexNav(false); }
+{loop $index_list $row}
+    {if $row['top']['name']}
+            <div class="weui_cells_title">{$row['top']['name']}</div>
+    {/if}
+    <div class="weui_grids">
+    {loop $row['list'] $val}
+    {php $params = json_decode($val['dis_three'],1);}
+        {php $params["token"] = $token;}
+        <a href="{if $val['url']}{$val['url']}{else}{php echo $this->createMobileUrl($val['keyword'],$params)}{/if}" class="weui_grid js_grid" 
+            {if $val['keyword']=='tea_school_free'}
+                onclick=" if(!confirm('该操作会通知您所有班级的学生家长，该学生已经放学！')){return false;}"
+            {/if} >
+            <div class="weui_grid_icon">
+                <i class="{$val['dis_two']} {$row['top']['dis_one']} f30" style="{$row['top']['dis_two']}"></i>
+            </div>
+            <p class="weui_grid_label">
+               {$val['name']}
+            </p>
+        </a>    
+    {/loop}
+</div>
+{/loop}
+{template '../new/tea_footer'}

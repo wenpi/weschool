@@ -1,0 +1,322 @@
+   {template '../admin/head'}
+        {template '../admin/header'}
+        <div class="page-container">
+        {template '../admin/left'}
+            <div class="page-content-wrapper">
+                <div class="page-content">
+                {template '../admin/sidebar'}
+                    <h1 class="page-title"> {$_SESSION['school_name']}
+                            <small> {$title} </small>
+                    </h1>
+                {if $ac =='edit'|| $ac=='new' }
+                     <div class="row">
+                        <div class="col-md-12">
+                             <div class="portlet light ">
+                                <div class="portlet-title">
+                                    <div class="caption font-green-haze">
+                                        <i class="icon-settings font-green-haze"></i>
+                                        <span class="caption-subject bold uppercase"> {if $ac=='new'}新增{else}编辑{/if}</span>
+                                    </div>
+                                    <div class="actions">
+                                        <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="javascript:;" data-original-title="" title=""> </a>
+                                    </div>
+                                </div>
+                                  <div class="portlet-body form">
+                                    <form action="" method="post" class="form-horizontal form" enctype="multipart/form-data" id="form1"  >
+
+                                              <div class="form-group form-md-line-input">
+                                                <label class="col-md-2 control-label"><span class="required" aria-required="true"> * </span>命名</label>
+                                                <div class="col-md-10">
+                                                    <input type="text" class="form-control"  placeholder="命名" value="{$result['info_name']}" name='info_name' required >
+                                               		{if $ac=='edit'}
+					                                	<input type="hidden" name="id"  class="form-control" value='{$result['info_id']}' />
+						                            {/if}
+                                                    <div class="form-control-focus"> </div>
+                                                </div>
+                                             </div> 
+
+                                             <div class="form-group form-md-line-input">
+                                                <label class="col-md-2 control-label">调用功能关键词</label>
+                                                <div class="col-md-10">
+                                                    <input type="text" class="form-control"   value="{$result['fun_name']}" name='fun_name'   >
+                                                    <div class="form-control-focus"> </div>
+                                                    <span class="help-block">与跳转地址互斥</span>
+                                                </div>
+                                            </div>                                                                                         
+                                            <div class="form-group form-md-line-input">
+                                                <label class="col-md-2 control-label"><span class="required" aria-required="true"> * </span>跳转地址</label>
+                                                <div class="col-md-10">
+                                                    <input type="text" class="form-control"  placeholder="带有http://" value="{$result['info_url']}" name='info_url'   >
+                                                    <div class="form-control-focus"> </div>
+                                                </div>
+                                            </div> 
+
+                                              <div class="form-group form-md-line-input">
+                                                <label class="col-md-2 control-label"><span class="required" aria-required="true"> * </span>排序</label>
+                                                <div class="col-md-10">
+                                                    <input type="text" class="form-control"  placeholder="排序" value="{$result['sort']}" name='sort' required >
+                                                    <div class="form-control-focus"> </div>
+                                                    <span class="help-block">越大越靠前</span>
+                                                </div>
+                                            </div>   
+                                           <div class="form-group form-md-radios form-md-line-input  ">
+                                            <label class="col-md-2 control-label"  >状态</label>
+                                            <div class="md-radio-inline">
+                                                <div class="md-radio">
+                                                    <input type="radio"  id="radiol" class="md-radiobtn"  name="status"   value='1' {if $result['status']==1} checked {/if}  />
+                                                    <label for="radiol">
+                                                        <span></span>
+                                                        <span class="check"></span>
+                                                        <span class="box"></span>正常</label>
+                                                </div>
+                                                <div class="md-radio">
+                                                  <input type="radio"   id='radiol1' class="md-radiobtn" name="status"   value='2' {if $result['status']==2} checked {/if} />
+                                                    <label for="radiol1">
+                                                        <span></span>
+                                                        <span class="check"></span>
+                                                        <span class="box"></span>删除</label>
+                                                </div>
+                                            </div>
+                                        </div>  
+                                            <div class="form-actions">
+                                                <div class="row">
+                                                    <div class="col-md-offset-2 col-md-10">
+                                                        <input type="submit" name="submit" class="btn blue" value="确认">
+                                                    </div>
+                                                </div>
+                                            </div>                                                                                
+                                    </form>
+                                  </div>    
+                             </div>            
+                      </div>                 
+                     </div>
+                {/if}
+                {if $ac=='list'}
+                 <div class="row">
+                        <div class="col-md-12">
+                            <div class="note note-success">
+                                <p> pc官网首页编辑 </p>
+                            </div>
+                            <div class="portlet box green-turquoise">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <i class="fa fa-cogs"></i>首页轮播图[最多4个] </div>
+                                    <div class="tools">
+                                        <a href="{php echo $this->createWebUrl("web_pc_index",array('ac'=>'new','op'=>'lunbo'))}" style='color:#fff'><i class="fa fa-plus"></i></a>
+                                        <a href="javascript:;" class="collapse"> </a>
+                                    </div>
+                                </div>
+                                <div class="portlet-body flip-scroll">
+                                    <table class="table table-bordered table-striped table-condensed flip-content">
+                                        <thead class="flip-content">
+                                            <tr>
+                                                <th> 标题   </th>
+                                                <th> 图片   </th>
+                                                <th> 调用功能<br>会替代URL </th>
+                                                <th> URL </th>
+                                                <th> 简单内容 </th>
+                                                <th> 排序 </th>
+                                                <th> 添加时间 </th>
+                                                <th>  </th>
+                                            </tr>
+                                        </thead> 
+                                        <tbody>
+                                         {loop $lb_list $item}
+                                            <tr>
+                                                <td> {$item['info_name']} </td>
+                                                <td> {$item['fun_name']}</td>
+                                                <td> {$item['fun_name']}</td>
+                                                <td> {$item['info_url']}</td>
+                                                <td> {$item['content']}</td>
+                                                <td> {$item['sort']}</td>
+                                                <td> {php echo date("Y-m-d H:i:s" ,$item['add_time']) }</td>
+                                                <td><a  href="{php echo $this->createWebUrl('web_pc_index', array('ac' => 'edit','op'=>'lunbo','id'=>$item['info_id'] ))}" class="btn btn-outline btn-circle btn-sm purple">
+                                                            <i class="fa fa-edit"></i> 编辑 </a>
+                                                </td>                          
+                                            </tr>
+                                        	{/loop}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            
+                            <div class="portlet box green-turquoise">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <i class="fa fa-cogs"></i>轮播图下位[最多4个] </div>
+                                    <div class="tools">
+                                        <a href="{php echo $this->createWebUrl("web_pc_index",array('ac'=>'new','op'=>'lunbo_next'))}" style='color:#fff'><i class="fa fa-plus"></i></a>
+                                        <a href="javascript:;" class="collapse"> </a>
+                                    </div>
+                                </div>
+                                <div class="portlet-body flip-scroll">
+                                    <table class="table table-bordered table-striped table-condensed flip-content">
+                                        <thead class="flip-content">
+                                            <tr>
+                                                <th> 标题   </th>
+                                                <th> 调用功能<br>会替代URL </th>
+                                                <th> URL </th>
+                                                <th> 简单内容 </th>
+                                                <th> 排序 </th>
+                                                <th> 添加时间 </th>
+                                                <th>  </th>
+                                            </tr>
+                                        </thead> 
+                                        <tbody>
+                                         {loop $lb_next_list $item}
+                                            <tr>
+                                                <td> {$item['info_name']} </td>
+                                                <td> {$item['fun_name']}</td>
+                                                <td> {$item['info_url']}</td>
+                                                <td> {$item['content']}</td>
+                                                <td> {$item['sort']}</td>
+                                                <td> {php echo date("Y-m-d H:i:s" ,$item['add_time']) }</td>
+                                                <td><a  href="{php echo $this->createWebUrl('web_nav', array('ac' => 'edit','op'=>'lunbo_next','id'=>$item['info_id'] ))}" class="btn btn-outline btn-circle btn-sm purple">
+                                                            <i class="fa fa-edit"></i> 编辑 </a>
+                                                </td>                          
+                                            </tr>
+                                        	{/loop}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div class="portlet box green-turquoise">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <i class="fa fa-cogs"></i>中间区1[最多4个] </div>
+                                    <div class="tools">
+                                        <a href="{php echo $this->createWebUrl("web_pc_index",array('ac'=>'new','op'=>'middle_one'))}" style='color:#fff'><i class="fa fa-plus"></i></a>
+                                        <a href="javascript:;" class="collapse"> </a>
+                                    </div>
+                                </div>
+                                <div class="portlet-body flip-scroll">
+                                    <table class="table table-bordered table-striped table-condensed flip-content">
+                                        <thead class="flip-content">
+                                            <tr>
+                                                <th> 标题   </th>
+                                                <th> 图片   </th>
+                                                <th> 调用功能<br>会替代URL </th>
+                                                <th> URL </th>
+                                                <th> 简单内容 </th>
+                                                <th> 排序 </th>
+                                                <th> 添加时间 </th>
+                                                <th>  </th>
+                                            </tr>
+                                        </thead> 
+                                        <tbody>
+                                         {loop $middle_one_list $item}
+                                            <tr>
+                                                <td> {$item['info_name']} </td>
+                                                <td> {$item['info_name']} </td>
+                                                <td> {$item['fun_name']}</td>
+                                                <td> {$item['info_url']}</td>
+                                                <td> {$item['content']}</td>
+                                                <td> {$item['sort']}</td>
+                                                <td> {php echo date("Y-m-d H:i:s" ,$item['add_time']) }</td>
+                                                <td><a  href="{php echo $this->createWebUrl('web_nav', array('ac' => 'edit','op'=>'lunbo_next','id'=>$item['info_id'] ))}" class="btn btn-outline btn-circle btn-sm purple">
+                                                            <i class="fa fa-edit"></i> 编辑 </a>
+                                                </td>                          
+                                            </tr>
+                                        	{/loop}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div class="portlet box green-turquoise">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <i class="fa fa-cogs"></i>中间区2[最多4个] </div>
+                                    <div class="tools">
+                                        <a href="{php echo $this->createWebUrl("web_pc_index",array('ac'=>'new','op'=>'middle_one'))}" style='color:#fff'><i class="fa fa-plus"></i></a>
+                                        <a href="javascript:;" class="collapse"> </a>
+                                    </div>
+                                </div>
+                                <div class="portlet-body flip-scroll">
+                                    <table class="table table-bordered table-striped table-condensed flip-content">
+                                        <thead class="flip-content">
+                                            <tr>
+                                                <th> 标题   </th>
+                                                <th> 图片   </th>
+                                                <th> 调用功能<br>会替代URL </th>
+                                                <th> URL </th>
+                                                <th> 简单内容 </th>
+                                                <th> 排序 </th>
+                                                <th> 添加时间 </th>
+                                                <th>  </th>
+                                            </tr>
+                                        </thead> 
+                                        <tbody>
+                                         {loop $middle_one_list $item}
+                                            <tr>
+                                                <td> {$item['info_name']} </td>
+                                                <td> {$item['info_name']} </td>
+                                                <td> {$item['fun_name']}</td>
+                                                <td> {$item['info_url']}</td>
+                                                <td> {$item['content']}</td>
+                                                <td> {$item['sort']}</td>
+                                                <td> {php echo date("Y-m-d H:i:s" ,$item['add_time']) }</td>
+                                                <td><a  href="{php echo $this->createWebUrl('web_nav', array('ac' => 'edit','op'=>'lunbo_next','id'=>$item['info_id'] ))}" class="btn btn-outline btn-circle btn-sm purple">
+                                                            <i class="fa fa-edit"></i> 编辑 </a>
+                                                </td>                          
+                                            </tr>
+                                        	{/loop}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div class="portlet box green-turquoise">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <i class="fa fa-cogs"></i>中间区3[1标题+4图] </div>
+                                    <div class="tools">
+                                        <a href="{php echo $this->createWebUrl("web_pc_index",array('ac'=>'new','op'=>'middle_one'))}" style='color:#fff'><i class="fa fa-plus"></i></a>
+                                        <a href="javascript:;" class="collapse"> </a>
+                                    </div>
+                                </div>
+                                <div class="portlet-body flip-scroll">
+                                    <table class="table table-bordered table-striped table-condensed flip-content">
+                                        <thead class="flip-content">
+                                            <tr>
+                                                <th> 标题   </th>
+                                                <th> 图片   </th>
+                                                <th> 调用功能<br>会替代URL </th>
+                                                <th> URL </th>
+                                                <th> 简单内容 </th>
+                                                <th> 排序 </th>
+                                                <th> 添加时间 </th>
+                                                <th>  </th>
+                                            </tr>
+                                        </thead> 
+                                        <tbody>
+                                         {loop $middle_one_list $item}
+                                            <tr>
+                                                <td> {$item['info_name']} </td>
+                                                <td> {$item['info_name']} </td>
+                                                <td> {$item['fun_name']}</td>
+                                                <td> {$item['info_url']}</td>
+                                                <td> {$item['content']}</td>
+                                                <td> {$item['sort']}</td>
+                                                <td> {php echo date("Y-m-d H:i:s" ,$item['add_time']) }</td>
+                                                <td><a  href="{php echo $this->createWebUrl('web_nav', array('ac' => 'edit','op'=>'lunbo_next','id'=>$item['info_id'] ))}" class="btn btn-outline btn-circle btn-sm purple">
+                                                            <i class="fa fa-edit"></i> 编辑 </a>
+                                                </td>                          
+                                            </tr>
+                                        	{/loop}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                {/if}
+        </div>
+        </div>
+         {template '../admin/right'}
+         </div>
+         {template '../admin/footer'}
+         </body>
+    </html>

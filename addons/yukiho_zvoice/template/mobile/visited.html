@@ -1,0 +1,62 @@
+{php $g_title='我'.$this->template['learnName'].'的'}
+{php $menu='4'}
+{template 'common/header1'}
+{template 'common/menu'}
+		<div id="content" class="snap-content">
+			<div class="content">
+				<div class="portfolio-filter">
+					<div class="portfolio-filter-categories">
+						<a href="{php echo $this->createMobileUrl('visited')}" class="filter-category {if $cid=='0'}selected-filter{/if}">全部</a>
+						{php $category = M('category')->getMyList()}
+						{loop $category $c}
+						<a href="{php echo $this->createMobileUrl('visited',array('cid'=>$c['id']))}" class="filter-category {if $cid == $c['id']}selected-filter{/if}">{$c['title']}</a>
+						{/loop}
+					</div>
+					{if !empty($logs['list'])}
+					<div id="append" class="portfolio-filter-wrapper" style="margin-left:5px;">
+						{loop $logs['list'] $log}
+						{php $li = M('question')->getInfo($log['question_id'])}
+						<div class="blog-sidebar-text" onclick="window.location.href='{php echo $this->createMobileUrl('question',array('id'=>$li['id']))}'">
+							<h5>{$li['title']}</h5>
+						</div>
+						<div class="container one-third-responsive">
+							{php $to_member = M('member')->getInfo($li['to_openid'])}
+							<p class="user-list-follow">
+								<a href="{php echo $this->createMobileUrl('tutor',array('openid'=>$to_member['openid']))}">
+									<img src="{php echo $to_member['avatar']}" alt="img">
+									<strong>{$to_member['nickname']}
+										<em class="split-title">{$to_member['tags']}</em>
+									</strong></a> 							
+									{php $answer = M('answer')->getInfoByQid($li['id'])}
+									{if !empty($answer)}
+										<a onclick="window.location.href='{php echo $this->createMobileUrl('question',array('id'=>$li['id']))}'" class="listen follow2 button-green">查看解答</a>
+									{else}
+										<a onclick="window.location.href='{php echo $this->createMobileUrl('question',array('id'=>$li['id']))}'" class="listen follow2 button-orange">等待解答</a>
+									{/if}
+							</p>
+						<div class="decoration"></div>
+						</div>
+						{/loop}
+					</div>
+					{else}
+					<div class="content" style="margin-top:150px;">
+						<div class="show-no-detection device-detected">
+							<h5>您还没有学习过哦</h5>
+							<a href="{php echo $this->createMobileUrl('index')}" class="button-small button-orange button-center" style="margin-top:20px;">开始学习</a>
+						</div>
+					</div>
+					{/if}
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="{MODULE_URL}public/js/loadmore.js"></script>
+	<script>
+	function callback(html){
+		$('#append').append(html);
+	}
+	initload("{php echo $this->createMobileUrl('visited',array('cid'=>$cid))}",callback);
+	loadmore("{php echo $this->createMobileUrl('visited',array('cid'=>$cid))}",callback);
+	</script>
+</body>

@@ -1,0 +1,17 @@
+{template '../xiaoye/newTeaHead'}
+<body>
+	<div class="main">
+		<div class="bl">班级列表-管理的班级圈</div>
+        <ul class="bll">
+            {loop $list['list_all'] $item}
+                <li class="bjlb">
+                    <div class="bl1"><a href="{php echo $this->createMobileUrl("line",array("class_id"=>$item['class_id']))}"><p>{$item['grade_name']}</p></a><a href="{php echo $this->createMobileUrl("line",array("class_id"=>$item['class_id']))}"><p>{$item['class_name']}</p></a></div>
+                    <div class="bl2"><a href="{php echo $this->createMobileUrl("line",array("class_id"=>$item['class_id']))}"><img src="{MODULE_URL}/template/xiaoye/upimg/teacherimg/jt.png"></a></div>
+                </li>     
+            {/loop}
+        </ul>
+    </div>
+    {php $center_class = 'cdc'}
+    {template '../xiaoye/newTeaFooter'}
+</body>
+</html>

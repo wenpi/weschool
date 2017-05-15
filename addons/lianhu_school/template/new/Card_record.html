@@ -1,0 +1,87 @@
+{template '../new/head'}
+<script type='text/javascript' src='{MODULE_URL}/style/js/jquery.min.js'></script>
+<body  ng-controller='ShowController'>
+<div class='class_week'>
+    <div class="title">选择时间</div>
+    <div>
+        <ul>
+            {loop $data_list $row}
+                <a href="{php echo $this->createMobileUrl('card_record',array('week'=>$row['week']) )}">
+                <li class="{$row['class']}">星期<br>{$row['week']}<br>{$row['date']}</li>
+                </a>
+            {/loop}
+            <div class='clear'></div>
+        </ul>
+    </div>
+</div>
+{if $sign_average_temp}
+<div class="class_week">
+    <div class="sign_average_temp">
+        今日平均体温：<span>{$sign_average_temp}</span>
+        </div>
+        <div class='clear'></div>
+    </div>
+</div>
+{/if}
+   {if $in_result} 
+   <div class="class_week">
+         <div class="title">进校打卡</div>
+       {loop $in_result $row}
+
+         <div>
+             <span class="card_time">
+                 {if !$row['play_card_time']}{php echo date("H:i:s",$row['add_time'])} {else}{php echo date("H:i:s",$row['play_card_time'])}{/if}
+             </span>
+             <img src='{$row['img_url']}' onclick="displayImage('{$row['img_url']}')">
+             {if $row['img_url2']}
+                <img src='{$row['img_url2']}' onclick="displayImage('{$row['img_url2']}')">
+             {/if}
+         </div> 
+    {/loop}
+    </div> 
+{/if}
+{if $out_result} 
+   <div class="class_week">
+         <div class="title">离校打卡</div>
+        {loop $out_result $row}
+         <div>
+             <span class="card_time">
+                 {if !$row['play_card_time']}{php echo date("H:i:s",$row['add_time'])} {else}{php echo date("H:i:s",$row['play_card_time'])}{/if}
+             </span>
+             <img src='{$row['img_url']}' onclick="displayImage('{$row['img_url']}')">
+             {if $row['img_url2']}
+                <img src='{$row['img_url2']}' onclick="displayImage('{$row['img_url2']}')">
+             {/if}
+         </div> 
+        {/loop}
+    </div> 
+{/if}
+{if $other_result} 
+   <div class="class_week">
+         <div class="title">异常打卡</div>
+        {loop $other_result $row}
+         <div>
+             <span class="card_time">
+                 {if !$row['play_card_time']}{php echo date("H:i:s",$row['add_time'])} {else}{php echo date("H:i:s",$row['play_card_time'])}{/if}
+             </span>
+             <img src='{$row['img_url']}' onclick="displayImage('{$row['img_url']}')">
+              {if $row['img_url2']}
+                <img src='{$row['img_url2']}' onclick="displayImage('{$row['img_url2']}')" >
+             {/if}
+         </div> 
+        {/loop}
+    </div> 
+{/if}
+<script>
+    function displayImage(src){
+        var img_urls    = [];
+        img_urls[0] = src;
+        img_urls.pop()
+        wx.previewImage({
+            current: src,
+            urls: img_urls
+        });
+    }
+</script>
+{template 'jsweixin'}
+{template '../new/footer'}

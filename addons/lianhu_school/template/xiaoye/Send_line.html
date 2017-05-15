@@ -1,0 +1,20 @@
+{template '../xiaoye/newHead'}
+<body>
+<div class="z_main">
+    <form  enctype="multipart/form-data" id="new_article" method="post" class="post-form" > 
+        <textarea class="z_xas"  name="content"  placeholder="分享一件新鲜事..." required="" ></textarea>
+        {template '../xiaoye/upimg'}
+        <input  type="submit"  name="submit" id="pingl3" value="发布"  class="pinglun44">
+    </form>
+</div>
+{template 'jsweixin'}
+{if $in_type['type']=='teacher'}
+    <link href="{MODULE_URL}/template/xiaoye/css/teacher.css" rel="stylesheet">
+    {php $center_class = 'cdc'}
+    {template '../xiaoye/newTeaFooter'}
+{else}
+    {php $footer_center='cdc'}
+    {template '../xiaoye/newStudentFooter'}
+{/if}
+</body>
+</html>

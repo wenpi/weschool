@@ -1,0 +1,120 @@
+{template '../xiaoye/newTeaHead'}
+<link href="{MODULE_URL}style/css/weui.min.css" rel="stylesheet" type="text/css" />
+<body>
+	<div class="main">
+        <ul class="zy" id="homework_list">
+            <li class="zyy">
+                <div class="zy1"><a href="#">{$record_re['record_intro']}</a></div>
+                <div class="zyy2">{$record_re['record_content']}</div>
+            </li>
+            <div class="kkz"></div>
+        </ul>
+        <ul class="nrgg">
+            {loop $list $row}
+                <li class="ggrn">
+                    <div class="gg_t">
+                        <div class="gg_tx"><img src="{php echo $this->imgFrom($row['student_img']);}"></div>
+                        <div class="gg_nr">
+                            <div class="gg_n1"><p>{$row['student_name']}</p></div>
+                        </div>
+                        <div class="action_reply">
+                        {if $look == 1}
+                                {if $row['look_content']}
+                                <span onclick="findLookInfo({$row['look_id']})">
+                                    详情
+                               </span>
+                               {else}
+                                <span>
+                                    无回复
+                               </span>                              
+                               {/if}
+                            {else}
+                                <span onclick="reSend({$rid},{$row['student_id']},this)">
+                                    重发
+                                </span>
+                        {/if}
+                        </div>
+                    </div>
+                    <div class="kzk"></div>
+                </li>
+            {/loop}
+        </ul>
+        {php $center_class = 'cde'}
+        {template '../xiaoye/newTeaFooter'}
+        {template 'jsweixin'}
+    </div>
+    <div class="weui_dialog_alert" style="display:none" id="weui_dialog_alert" >
+        <div class="weui_mask" ></div>
+        <div class="weui_dialog" >
+            <div class="weui_dialog_hd"><strong class="weui_dialog_title">提示消息</strong></div>
+            <div class="weui_dialog_bd">
+                    <div class="weui_cells weui_cells_access" id="weui_content">
+                        
+                    </div>
+            </div>
+                <div class="weui_dialog_ft">
+                <br>
+            </div>        
+        </div>
+    </div>
+<div class="weui_dialog_alert" style="display:none" id="weui_dialog_alert_content" >
+    <div class="weui_mask" ></div>
+    <div class="weui_dialog" style="top: 50%;overflow-y: auto;bottom: 20%;height: 80%;" >
+        <div class="weui_dialog_hd"><strong class="weui_dialog_title">回复详情</strong></div>
+        <div class="weui_dialog_bd">
+                <div class="weui_cells weui_cells_access" id="msg_replay">
+                    <p class="images"></p>
+                    <p class="voice"></p>
+                    <p class="text"></p>
+                </div>
+        </div>
+            <div class="weui_dialog_ft">
+            <br>
+        </div>        
+    </div>
+</div>
+</body>
+<script>
+    $(function(){
+        $("#weui_dialog_alert").click(function(){
+            $(this).hide();
+        });
+        $("#weui_dialog_alert_content").click(function(){
+            $(this).hide();
+        });        
+    });
+    function reSend(rid,student_id,obj){
+        $.ajax({
+        url:"{php echo $this->createMobileUrl('ajax',array('ac'=>'tea_re_send'))}",
+        type:'post',
+        data:{rid:rid,student_id:student_id},
+        dataType:'json',
+        success:function(json){
+            if(json.errcode==1){
+                $("#weui_dialog_alert").show();
+                $("#weui_content").html(json.text);
+            }else{
+                $(obj).html('成功');
+                $(obj).css("background-color","#33cc00");
+            }
+        }
+        });       
+    }
+    function findLookInfo(look_id){
+        $.ajax({
+            url:'{php echo $this->createMobileUrl('ajax')}',
+            type:'post',
+            data:{ac:'look_info',look_id:look_id},
+            dataType:'json',
+            success:function(obj){
+                if(obj.errcode==0){
+                    $("#weui_dialog_alert_content").show();
+                    $("#msg_replay").find('.text').html(obj.text);
+                    $("#msg_replay").find('.voice').html(obj.voice);
+                    $("#msg_replay").find('.images').html(obj.imgs);
+                }
+            }    
+        });        
+    }
+</script>
+</html>

@@ -1,0 +1,38 @@
+{template '../xiaoye/newTeaHead'}
+<body>
+	<div class="main">
+		<ul class="kcc">
+            {php $count = count($re['weeks']);}
+            {loop $list $row}
+                {if $row['new'] == $now_week}
+        			<li class="kcl llv"  style="width:{php echo 100/$count}%"><a href="{php echo $this->createMobileUrl("Tea_today_course",array('week'=>$row['old']))}">周{$row['new']}</a></li>
+                {else}
+        			<li class="kcl"  style="width:{php echo 100/$count}%"><a href="{php echo $this->createMobileUrl("Tea_today_course",array('week'=>$row['old']))}">周{$row['new']}</a></li>
+                {/if}
+            {/loop}
+		</ul>
+
+        {loop $class_courses $key  $row}
+		    <div class="jrbj">{php echo $this->classGradeName($key)}-{php echo $this->className($key) }</div>
+             <div class="kzzz"></div>
+                   <ul class="kbb">
+                            {loop $row $key $rw}
+                                    <li class="kbbb">
+                                        <div class="kb1">
+                                            <p class="pp1">第{$rw['day_sort']}节</p>
+                                            <p class="pp2">{$time_result['begin_time'][$rw['day_sort']]}-{$time_result['end_time'][$rw['day_sort']]}</p>
+                                        </div>
+                                        <div class="kb2">{php echo D("course")->courseName($rw['course_id'])}</div>
+                                    </li>
+                                {php $course_do = true;}
+                            {/loop}     
+                             {if !$course_do}
+                                <div class="kb2">无</div>
+                            {/if}          
+                 </ul>
+        {/loop}
+		{php $center_class = 'cde'}
+		{template '../xiaoye/newTeaFooter'}
+    </div>
+</body>
+</html>

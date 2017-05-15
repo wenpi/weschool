@@ -1,0 +1,47 @@
+{php $page_title = '考试成绩';}
+{template '../new/head'}
+  <link rel="apple-touch-icon"  href="{MODULE_URL}/style/app/images/logo.ico">
+  <link rel="stylesheet" href="{MODULE_URL}template/mobile/style/style_nav.css">
+  <script type='text/javascript' src='{MODULE_URL}/style/js/jquery.min.js'></script>
+<body>
+<div class="container" id="container">
+<div class="cell">
+<div class="hd">
+    <h1 class="page_title">考试成绩</h1>
+</div>
+</div>
+<div class="weui_cells weui_cells_access">
+        {loop $list $row}
+        <a class="weui_cell" href="{php echo $this->createMobileUrl('score',array('ac'=>'listall','op'=>$row['scorejilv_id']))}">
+            <div class="weui_cell_bd weui_cell_primary">
+                <p>{$row['scorejilv_name']}</p>
+            </div>
+            <div class="weui_cell_ft">
+            </div>
+        </a>
+        {/loop}
+</div>
+    {if $ac=='listall'}
+        <div class="weui_cells weui_cells_form">
+                <div class="weui_cell weui_cell_warn">
+                    <div class="weui_cell_hd"><label for="" class="weui_label">总分：</label></div>
+                    <div class="weui_cell_bd weui_cell_primary">
+                        <input class="weui_input" value="{$all_score}分" readonly >
+                    </div>
+                    <div class="weui_cell_ft">
+                    </div>
+                </div>
+                 {loop $score_list $row}
+                <div class="weui_cell">
+                    <div class="weui_cell_hd"><label for="" class="weui_label">{$row['course_name']}</label></div>
+                    <div class="weui_cell_bd weui_cell_primary">
+                        <input class="weui_input" readonly value="{$row['score']}分">
+                    </div>
+                </div>
+                {/loop}
+
+            </div>
+    {/if}
+</div>
+{template 'jsweixin'}
+{template '../new/footer'}

@@ -1,0 +1,41 @@
+{template 'common/header1'}
+{template 'common/menu'}
+		<div id="content" class="snap-content">
+			<div class="header-clear"></div>
+			{if !empty($members['list'])}
+			<div class="content">
+			
+				<div class="one-half-responsive">
+					<div class="container heading-style-5"></div>
+					<div class="one-third-responsive">
+					{loop $members['list'] $member}
+						<a href="{php echo $this->createMobileUrl('tutor',array('openid'=>$member['openid']))}">
+						<p class="user-list-socials">
+							<img src="{php echo $member['avatar']}" alt="img">
+								<strong>{$member['nickname']}
+									<em>{$member['tags']}</em>
+								</strong> 
+								<a href="#" class="icon1 phone-color">提问</a>
+								{php $check = M('follow')->check($member['openid'])}
+								{if empty($check)}
+								<a href="{php echo $this->createMobileUrl('question',array('id'=>$li['id']))}" class="icon2 facebook-color">关注</a>
+								{/if}
+						</p></a>
+						<div class="decoration"></div>
+					{/loop}
+					</div>
+					<div class="footer-clear disabled"></div>
+				</div>
+			</div>
+			{else}
+			<div class="content" style="margin-top:150px;">
+				<div class="show-no-detection device-detected">
+					<h5>您还没有提过问题哦</h5>
+					<a href="{php echo $this->createMobileUrl('members')}" class="button-small button-red button-center" style="margin-top:20px;">开始提问</a>
+				</div>
+			</div>
+			{/if}
+		</div>
+		<a href="#" class="back-to-top-badge"><i class="fa fa-caret-up"></i>Back to top</a>
+	</div>
+</body>

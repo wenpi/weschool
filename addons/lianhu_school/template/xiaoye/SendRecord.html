@@ -1,0 +1,38 @@
+{template '../xiaoye/newHead'}
+<script>
+    $( function(){
+        $( 'audio' ).audioPlayer();
+    });
+</script>
+<div class="z_main">
+	<div class="TP">
+		<p>{if $record_re['record_title']} {$record_re['record_title']} {else}{$record_re['record_intro']}{/if}</p>
+			<p1> 发布时间:{if $record_re['add_time']}{php echo date("m-d H:i:s",$record_re['add_time'])}{else}{php echo date("m-d H:i:s",$record_re['addtime'])}{/if}</p1>
+	</div>
+    <div class="head-solid" style="margin-bottom:5px;"></div>
+      <div class="z_dp" >       
+               <p>{if !$record_re['record_content']} {php echo Htmlspecialchars_decode($record_re['record_intro']);} {else} {php echo Htmlspecialchars_decode($record_re['record_content']);} {/if}</p>
+                {if $record_re['voice']}
+                    <div id="">
+                        <audio preload="auto" controls  src="{php echo $this->imgFrom($record_re['voice']);}">
+                        </audio>
+		            </div>
+                {/if}   	
+                {php $imgs =  $this->decodeLineImgsToArr($record_re['imgs']);}
+                 {if $imgs}
+                        <div class="z_dpt3" id="img_list">
+                            {loop $imgs  $val}
+                                <img src="{$val}" onclick="displayImage('img_list','{$val}')">
+                            {/loop}
+                        </div>            
+                {/if}           
+            {php $type = 1;}
+            {template '../xiaoye/reply_new'}
+	</div>
+    {php $footer_type = 'center';}
+     {template '../xiaoye/newStudentFooter'}
+    {php $not_hidden='yes';}
+    {template 'jsweixin'}
+</div>
+</body>
+</html>

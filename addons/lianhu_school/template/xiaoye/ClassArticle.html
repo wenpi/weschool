@@ -1,0 +1,41 @@
+{template '../xiaoye/newHead'}
+<script>
+    $( function(){
+        $( 'audio' ).audioPlayer();
+    });
+</script>
+    <div class="z_main">
+        <div class="TP">
+                <p>{$info['line_title']}</p>
+                <p1>发布:{$info['teacher_realname']}&nbsp;&nbsp;时间:{$info['time_date']}</p1>
+        </div>
+        <div class="head-solid"></div>
+        <div class="z_dp" id='z_dp'>
+                {if $info['voice']}
+                    <div id="">
+                        <audio preload="auto" controls  src="{php echo $this->imgFrom($info['voice'])}" >
+                        </audio>
+                    </div>                
+                {/if}
+                    {php $urls =  $this->decodeClassMsgImgsToArr($info['imgs']);}
+                    {if $urls}
+                       <div class="z_dpt3" id="img_list">
+                            {loop $urls  $val}
+                            <img src="{$val}" style="margin-top:10px;" onclick="displayImage('img_list','{$val}')">
+                            {/loop}
+                       </div>
+                   {/if}           
+                <div>
+                    <p>{php echo htmlspecialchars_decode($info['line_content'])}</p>
+                </div>
+        </div>
+    </div>
+    {template '../xiaoye/newStudentFooter'}
+    {template 'jsweixin'}
+    <script>
+        $(".z_dp").find('img').click(function(){
+            displayImage("z_dp",$(this).attr("src"));
+        });
+    </script>
+</body>
+</html>

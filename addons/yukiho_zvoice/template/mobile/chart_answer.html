@@ -1,0 +1,130 @@
+{template 'common/header'}
+<link rel="stylesheet" href="{MODULE_URL}public/css/question_detail.css" />
+<style>.active{color:#fff !important;background-color:red !important;}</style>
+<audio id="player" autoplay preload src=""></audio>
+<div class="main">
+
+</div>
+
+{/if}
+
+{template 'common/footerbar'}
+<script type="text/javascript" src="{$_W['siteroot']}app/resource/js/lib/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="{MODULE_URL}public/libs/jquery_weui/jquery-weui.js"></script>
+<script>
+    wx.ready(function(){
+        var timelong = 0;
+        var recording = false;
+        var localId = null;
+        var post = {};
+
+        function show(){
+            $.modal({
+                title: "语音录制中",
+                text: "<span class='time_run'>1s</span>",
+                buttons: [
+                    {
+                        text: "我录好了",
+                        className: "default",
+                        onClick: function(){
+                            wx.stopRecord({
+                                success: function (res) {
+                                    localId = res.localId;
+                                    recording = false;
+                                    post.timelong = timelong;
+                                    post.localId = localId;
+                                }
+                            });
+                            return false;
+                        }
+                    }
+                ]
+            });
+        }
+
+        function play(){
+            wx.playVoice({
+                localId: localId,
+                success: function(e) {
+                    playing = true;
+                }
+            });
+            wx.onVoicePlayEnd({
+                complete: function(e) {
+                    playing = false;
+                }
+            });
+        }
+
+        function restart(){
+            timelong = 0;
+            recording = false;
+            start();
+        }
+        function timer(){
+            setTimeout(function(){
+                timelong = timelong + 1;
+                $('.time_run').html(timelong+'s');
+                if(recording){
+                    timer();
+                }
+            },1000);
+        }
+        function start(){
+            wx.startRecord({
+                cancel: function() {
+                    $.toast("你拒绝了录音");
+                    return ;
+                },
+                success: function() {
+                    recording = true;
+                    show();
+                    timer();
+                }
+            });
+            wx.onVoiceRecordEnd({
+                complete: function(e) {
+                    localId = e.localId;
+                    recording = false;
+                }
+            });
+        }
+        var posting = false;
+        $('#postVoice').click(function(){
+            $.showLoading("正在发送数据");
+            posting = true;
+
+            wx.uploadVoice({
+                localId: post.localId,
+                isShowProgressTips: 1,
+                success: function (res) {
+                    post.serverId = res.serverId;
+                    post.act = 'answer';
+                    $.post("",post,function(data){
+                        if(data.status == 1){
+                            $.toast(data.message,2000,function(){
+                                window.location.href = "{php echo $_W['siteurl']}";
+                            });
+                        }else{
+                            $.toast(data.message,2000,'cancel');
+                        }
+                        posting = false;
+                    },'json');
+                }
+            });
+
+        });
+
+        $('#playVoice').click(function(){
+            play();
+        });
+
+        $('#restart').click(function(){
+            restart();
+        });
+        $('#startRecord').click(function(){
+            start();
+        });
+    });
+</script>
+{template 'common/footer'}

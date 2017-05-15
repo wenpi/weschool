@@ -1,0 +1,49 @@
+{template '../new/head'}
+<body  ng-controller='ShowController'>
+<style>
+    .course{
+        display: inline-block;
+        text-overflow: ellipsis;
+        white-space:nowrap;
+        height: 20px; line-height: 20px;overflow: hidden; max-width: 75%;margin-left: 15%;
+    }
+</style>
+<div class="m-box" >
+    <div class="m-img blur" style="background-image:url({$_W['attachurl']}{php echo D('adv')->getAdvInfoKeyWord('adminSchool_top_img'); });"  ></div>
+    <div class="m-title">
+        <div class="m-masker" align="left" style="margin-left: 6%; margin-top: -13%; background-color:rgba(0,0,0,0); "> 
+            <div class="weui-avatar">
+                <img class="weui-avatar-img1_1" src = "{php echo $this->imgFrom($have_school_admin['info']['admin_img']);}" />
+            </div>
+         </div>
+        <div class="m-masker" style="left: 18%; margin-top: -4.5%; background-color:rgba(0,0,0,0);"> 
+            <span class="f25" style="margin-left: -18%;" ng-click="toggleMenu()"  >{$student_name}</span> 
+            <br />
+            <div style=" margin-left: 22%;"><hr /></div>
+            <span >{$_SESSION['school_name']}</span> 
+        </div>
+    </div> 
+</div>
+
+{php $class_mobile = D('mobile');}
+{php $class_mobile->do_schoolAdmin = true;}
+{php $index_list   = $class_mobile->getIndexNav(false); }
+{loop $index_list $row}
+    {if $row['top']['name']}
+            <div class="weui_cells_title">{$row['top']['name']}</div>
+    {/if}
+<div class="weui_grids">
+    {loop $row['list'] $val}
+    {php $params = json_decode($val['dis_three'],1);}
+        <a href="{if $val['url']}{$val['url']}{else}{php echo $this->createMobileUrl($val['keyword'],$params)}{/if}" class="weui_grid js_grid" >
+            <div class="weui_grid_icon">
+                <i class="{$val['dis_two']} {$row['top']['dis_one']} f30" style="{$row['top']['dis_two']}"></i>
+            </div>
+            <p class="weui_grid_label">
+               {$val['name']}
+            </p>
+        </a>    
+    {/loop}
+</div>
+{/loop}
+{template '../new/schoolAdmin_footer'}

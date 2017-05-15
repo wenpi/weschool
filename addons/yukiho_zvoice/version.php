@@ -1,0 +1,1 @@
+<?php if(!defined('VERSION')) {define('VERSION','6.9.3');}

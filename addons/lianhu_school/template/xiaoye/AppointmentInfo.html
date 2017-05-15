@@ -1,0 +1,14 @@
+{template '../xiaoye/newHead'}
+		<div class="z_main" >
+			<div class="tx-t"  >
+				<p1>{$result['course_name']}</p1>
+				<div style="clear:both"></div>
+			</div>
+			<div class="tx-m" id = 'html_content' >
+				{php echo htmlspecialchars_decode($result['course_content']);}
+				<div style="clear:both"></div>
+			</div>
+		</div>
+		{template '../xiaoye/newStudentFooter'}
+	</body>
+</html>

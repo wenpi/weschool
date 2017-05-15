@@ -1,0 +1,47 @@
+{template '../xiaoye/newHead'}
+
+<div class="z_main">
+    <div class="MD" id='list'>
+          {loop $list $row}
+                <li class="dpl">
+                    <div class="WZ" >
+                         <p style="width: 100%">
+                            <span class="just_list">{$row['info']['activity_name']}</span>
+                            <span class="just_list address">({$row['info']['activity_address']})</span>
+                            <span class="just_list  address time"><b style="color:#ff0033">活动时间：</b>{php echo date("Y-m-d H:i:s",$row['info']['add_time'])}</span>
+                            <span class="just_list  address time"><b style="color:#ff0033">签到时间：</b>{php echo date("Y-m-d H:i:s",$row['add_time'])}</span>
+                        </p>
+                    </div>
+                    <div style="clear:both"></div>
+                </li>
+            {/loop} 
+    </div>
+    {if !$list}
+          <h1 id='add_msg' style="text-align:center;color:#333;font-size:1em;margin-top:10px;">暂无信息</h1>  
+    {/if}
+<style>
+    .just_list{
+        display: inline-block;
+        width: 100%;
+        text-align: left;
+        text-indent: 10px;
+        font-size: 1em;
+        color:#333;
+        line-height: 30px;
+    }
+    .WZ{
+        width: 100%;
+    }
+    .dpl{
+        height: 100% !important;
+    }
+    .address{
+        color:#888;
+        font-size: 0.8em;
+    }
+
+</style>
+</div>
+{template '../xiaoye/newStudentFooter'}
+</body>
+</html>

@@ -1,0 +1,37 @@
+{loop $list $row}
+	<div class="qj">
+		<div class="qj-t">
+		<p>申请人:{$student_name}{$row['relation']}</p>
+        {if $row['leave_status'] ==2}<img src=" {MODULE_URL}/template/xiaoye/upimg/leave_pass.png">{elseif  $row['leave_status'] ==1}<img src=" {MODULE_URL}/template/xiaoye/upimg/leave_wait.png">{elseif  $row['leave_status'] !=1} <img src=" {MODULE_URL}/template/xiaoye/upimg/leave_done.png">{/if}
+		</div>
+		<div class="qj-m">
+			    <p1>请假时间:{php echo date("m-d H:i",$row['time_date_begin'])}-{php echo date("m-d H:i",$row['time_date_end'])}</p1>
+		</div>
+		<div class="qj-b">
+		        <p>申请内容:【{php echo $cclass_leave->leave_type[$row['leave_type']];}】{$row['leave_reason']}</p>       
+		</div>
+           {if $row['leave_voice']}
+           <div style="clear: both"></div>
+            <div class="YY">
+                <div id="">
+                <audio preload="auto" controls src=" {php echo  $this->imgFrom($row['leave_voice']);}">
+                </audio> 
+                </div>
+            </div>    
+            {/if}   
+	</div>
+    {if  $row['leave_status'] !=1 }
+        <div class="qj-mm">
+            <div class="qj-mm1">
+                <p1>{$row['teacher']}回复：</p1>
+                {if $row['reply_time']}
+                    <p2>{php echo date("Y-m-d H:i",$row['reply_time'])}</p2>
+                {/if}
+            </div>
+            <div class="qj-mm2">
+            <p>{$row['teacher_text']}</p>
+            </div>
+        </div>
+    {/if}
+	<div class="tz-mm"></div>
+{/loop}

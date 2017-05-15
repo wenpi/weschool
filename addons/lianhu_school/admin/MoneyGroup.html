@@ -1,0 +1,91 @@
+   {template '../admin/head'}
+        {template '../admin/header'}
+        <div class="page-container">
+        {template '../admin/left'}
+            <div class="page-content-wrapper">
+                <div class="page-content">
+                    {template '../admin/sidebar'}
+                    <h1 class="page-title"> {php echo $this->school_info['school_name']}</h1>
+                    
+                    <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <div class="portlet light bordered">
+                                    <div class="portlet-title">
+                                        <div class="caption">
+                                            <i class="icon-cursor font-dark hide"></i>
+                                            <span class="caption-subject font-dark bold uppercase">添加收费组</span>
+                                        </div>
+                                    </div>
+                                    <div class="portlet-body form">
+                                        <form action="" method="post" class="form-horizontal form" enctype="multipart/form-data" id="form1"  >
+                                                <div class="form-group form-md-line-input">
+                                                    <label class="col-md-2 control-label"><span class="required" aria-required="true"> * </span>收费组</label>
+                                                    <div class="col-md-10">
+                                                        <input type="text" class="form-control"  placeholder="收费组" name='group_name' required >
+                                                        <div class="form-control-focus"> </div>
+                                                    </div>
+                                                </div>                
+                                                <div class="form-actions">
+                                                    <div class="row">
+                                                        <div class="col-md-offset-2 col-md-10">
+                                                            <input type="hidden" name="token" value="{$token}" >
+                                                            <input type="submit" name="submit" class="btn blue" value="确认">
+                                                        </div>
+                                                    </div>
+                                                </div>                                                                                
+                                        </form>
+                                        <p class="font-red-mint">
+                                            1.同一个收费组内，用户只需支付其中一项；<br>
+                                            2.未支付时该组内收费项目都会列出；<br>
+                                            3.已支付的项目可以关闭，但是删除后会判断用户未支付组中任何一项
+                                        </p>
+                                    </div> 
+                                </div>
+                            </div>
+
+                        <div class="col-md-6">
+                            <div class="portlet box green-turquoise">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <i class="fa fa-cogs"></i>收费组列表 </div>
+                                    <div class="tools">
+                                        <a href="javascript:;" class="collapse"> </a>
+                                    </div>
+                                </div>
+                                <div class="portlet-body flip-scroll">
+                                    <table class="table table-bordered table-striped table-condensed flip-content" >
+                                        <thead class="flip-content">
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>组名</th>
+                                            <th>状态</th>
+                                            <th>添加时间</th>
+                                            <th></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                            {loop $list $item}
+                                                    <tr>
+                                                        <td>{$item['group_id']}</td>
+                                                        <td>{$item['group_name']}</td>
+                                                        <td>{php echo statusTable($item['status'])}</td>
+                                                        <td>{php echo timeToStr($item['add_time'])}</td>
+                                                        <td style="text-align: left">
+                                                                <a  href="{php echo $this->createWebUrl('moneyGroup',array("id"=>$item['group_id'],'ac'=>'delete' ) );} " class="btn red">
+                                                                <i class="fa fa-close"></i> 删除 </a>
+                                                        </td>
+                                                    </tr>
+                                            {/loop}                                    
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        </div>
+        </div>
+         {template '../admin/right'}
+        </div>
+        {template '../admin/footer'}
+     </body>
+    </html>

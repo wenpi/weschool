@@ -1,0 +1,20 @@
+        <div class="w-form">
+          <form  method="post" action="{php echo $this->createMobileUrl('funcstudent_number',array('ac'=>"edit"))}">
+            <div class="separator-button-input"></div>
+            {loop $list $row}
+                <div>
+                    <label class="label-form" for="full-name-field">亲情号码{$row['Index']}：姓名</label>
+                    <input class="w-input input-form"  type="text" name="userName[]" value="{$row['UserName']}">
+                    <div class="separator-fields"></div>
+                </div>            
+                <div>
+                    <label class="label-form" for="full-name-field">亲情号码{$row['Index']}：号码</label>
+                    <input class="w-input input-form"  type="text" name="telNumber[]" value="{$row['TelNumber']}">
+                    <div class="separator-fields"></div>
+                </div>  
+            {/loop}
+            <div class="separator-button-input"></div>
+             <input type="hidden" value="{$token}"  name='token'>
+             <input class="w-button action-button" type="submit" name="submit" value="提交" data-wait="Please wait...">
+          </form>
+        </div>

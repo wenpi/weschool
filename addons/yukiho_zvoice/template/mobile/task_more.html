@@ -1,0 +1,15 @@
+{loop $list['list'] $li}
+{php $member = M('member')->getInfo($li['openid'])}
+<li class="a-question">
+    <a class="AQ" href="{php echo $this->createMobileUrl('task_answer',array('id'=>$li['id']))}">
+        <div class="question-content">
+            <p>{$li['title']}</p>
+        </div>
+        <div>
+                    <span class="question-respondent">
+                        {$member['nickname']}｜{$member['desc']}
+                    </span>
+        </div>
+    </a>
+</li>
+{/loop}

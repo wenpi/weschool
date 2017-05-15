@@ -1,0 +1,136 @@
+   {template '../admin/head'}
+   {template '../admin/header'}
+    <div class="page-container">
+        {template '../admin/left'}
+        <div class="page-content-wrapper">
+	    <div class="page-content">
+         {template '../admin/sidebar'}
+             <h1 class="page-title"> {$_SESSION['school_name']}
+                    <small> {$title} </small>
+              </h1>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <a class="dashboard-stat dashboard-stat-v2 blue" href="#">
+                                <div class="visual">
+                                    <i class="fa fa-comments"></i>
+                                </div>
+                                <div class="details">
+                                    <div class="number">
+                                        <span data-counter="counterup" data-value="{$send_num}">{$send_num}</span>
+                                    </div>
+                                    <div class="desc">  {if $teacher_web}发送总教师数{else}发送总学生数{/if}</div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <a class="dashboard-stat dashboard-stat-v2 red" href="#">
+                                <div class="visual">
+                                    <i class="fa fa-bar-chart-o"></i>
+                                </div>
+                                <div class="details">
+                                    <div class="number">
+                                        <span data-counter="counterup" data-value="{$look_num_info['count']}">{$look_num_info['count']}</span></div>
+                                    <div class="desc"> 总查看数 </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <a class="dashboard-stat dashboard-stat-v2 green" href="#">
+                                <div class="visual">
+                                    <i class="fa fa-shopping-cart"></i>
+                                </div>
+                                <div class="details">
+                                    <div class="number">
+                                        <span data-counter="counterup" data-value="{$reply_num_info['count']}">{$reply_num_info['count']}</span>
+                                    </div>
+                                    <div class="desc"> 有内容回复数</div>
+                                </div>
+                            </a>
+                        </div>
+                    <div class="clearfix"></div>
+                         <div class="col-md-12 col-sm-12">
+                            <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                            <div class="portlet box red">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <i class="fa fa-cogs"></i>详细列表 </div>
+                                </div>
+                                <div class="portlet-body">
+                                    <table class="table table-striped table-bordered table-hover table-checkable order-column" id="sample_3">
+                                        <thead>
+                                            <tr>
+                                                <th>  {if $teacher_web}教师{else}学生{/if} </th>
+                                                <th> 状态 </th>
+                                                <th> 时间 </th>
+                                                <th>  </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {loop $list $row}
+                                                <tr class="odd gradeX">
+                                                    <td> {$row['student_name']} </td>
+                                                    <td> {$row['status']} </td>
+                                                    <td> {$row['add_time']} </td>
+                                                    <td>
+                                                        {if $row['look_id'] && $row['look_content']}
+                                                            <button  class="btn btn-outline btn-circle btn-sm purple" onclick="lookInfo({$row['look_id']})">  
+                                                                <i class="fa fa-edit"></i> 查看回复详情 
+                                                            </button>
+                                                        {elseif $row['look_id']}
+                                                            无回复
+                                                        {/if}
+                                                    </td>
+                                                </tr>                                           
+                                            {/loop}
+ 
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- END EXAMPLE TABLE PORTLET-->
+                        </div>                   
+
+                    </div>
+                </div>
+             </div>
+            <!-- BEGIN QUICK SIDEBAR -->
+          {template '../admin/right'}
+          {template '../admin/modals'}
+        </div>
+     {template '../admin/footer'}
+    <script>
+    function lookInfo(look_id){
+        $.ajax({
+            url:'{php echo $this->createWebUrl('ajax')}',
+            type:'post',
+            data:{ac:'look_info',look_id:look_id},
+            dataType:'json',
+            success:function(obj){
+                if(obj.errcode==0){
+                    $("#msg_replay").find('.text').html(obj.text);
+                    $("#msg_replay").find('.voice').html(obj.voice);
+                    $("#msg_replay").find('.images').html(obj.imgs);
+                    showModel('msg_replay');
+                }
+            }    
+        });
+    }
+    function reSend(rid,student_id){
+        $.ajax({
+            url:'{php echo $this->createWebUrl('ajax')}',
+            type:'post',
+            data:{ac:'reSend',rid:rid,student_id:student_id},
+            dataType:'json',
+            success:function(obj){
+                if(obj.errcode==0){
+                    $("#modal_notice").find('.modal-body').html("发送成功");
+                    showModel('modal_notice');
+                }
+            }    
+        });
+    }
+    </script>
+    <!--筛选表格-->
+    {template '../admin/table_script'}           
+    </body>
+    </html>

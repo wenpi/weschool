@@ -1,0 +1,272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="format-detection" content="telephone=no">
+	<title>填写问题</title>
+	<script type="text/javascript" src="{MODULE_URL}assets/scripts/jquery.js"></script>
+	<script type="text/javascript" src="{MODULE_URL}assets/scripts/elink-framework.js"></script>
+	<script type="text/javascript" src="{MODULE_URL}assets/scripts/noty/packaged/jquery.noty.packaged.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.1.0.js"></script>
+	<style type="text/css">*{font-family:"Microsoft YaHei",Arial,Helvetica,sans-serif,"宋体";}</style>
+    <script>
+        var jssdkconfig = {php echo json_encode($_W['account']['jssdkconfig']);} || {};
+        // 是否启用调试
+        jssdkconfig.debug = false;
+
+        jssdkconfig.jsApiList = [
+            'checkJsApi',
+            'onMenuShareTimeline',
+            'onMenuShareAppMessage',
+            'onMenuShareQQ',
+            'onMenuShareWeibo',
+            'hideMenuItems',
+            'showMenuItems',
+            'hideAllNonBaseMenuItem',
+            'showAllNonBaseMenuItem',
+            'translateVoice',
+            'startRecord',
+            'stopRecord',
+            'onRecordEnd',
+            'playVoice',
+            'pauseVoice',
+            'stopVoice',
+            'uploadVoice',
+            'downloadVoice',
+            'chooseImage',
+            'previewImage',
+            'uploadImage',
+            'downloadImage',
+            'getNetworkType',
+            'openLocation',
+            'getLocation',
+            'hideOptionMenu',
+            'showOptionMenu',
+            'closeWindow',
+            'scanQRCode',
+            'chooseWXPay',
+            'openProductSpecificView',
+            'addCard',
+            'chooseCard',
+            'openCard',
+			'translateVoice',
+            'openAddress'
+        ];
+        wx.config(jssdkconfig);
+        var _TUTOR_URL = "{php echo $this->createMobileUrl('tutor')}";
+        var _follow = "{php echo intval($_W['fans']['follow'])}";
+        var _openid = "{php echo $_W['openid']}";
+		console.log(_openid);
+		console.log(jssdkconfig);
+        var _qrcode = "{php echo $_W['account']['qrcode']}";
+    </script>
+    <script src="{MODULE_URL}public/libs/jquery_weui/js/swiper.js"></script>
+	<style type="text/css">
+		textarea,select,input{-webkit-appearance: none; -moz-appearance: none; -o-appearance: none; appearance: none;}
+		li{list-style:none}
+	</style>
+</head> 
+<body bgcolor="#efeef3" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<div align="center">
+    <div>
+		<div style="z-index:-10px;background-color:#63afa5;position:absolute;height:240px;width:100%;">
+			<li style="height:100%;">
+				
+			<li>
+		</div>
+		
+		<div style="z-index:-10px;position:absolute;left:15%;top:20px">
+			<li>
+				<img src="{MODULE_URL}assets/images/pictures/yisheng.png" style="height:100px">
+			<li>
+		</div>
+		<div style="z-index:100px;border-radius:5px;background-color:#FFF;position:absolute;left:5%;height:240px;width:90%;top:120px;">
+			<li style="height:100%;">
+				<textarea name="title" placeholder="请输入述题目内容，也可以拍照上传题目照片，更容易获得{php echo $this->template['authname']}的专业回答。支付{$member['credit']}元向{$member['nickname']}{php echo $this->template['authname']}提问，超过24小时未回答，将按支付路径全额退款。" style="padding:20px 10% 10px 10%;width:80%;height:120px;border:none;font-size:1em;"></textarea>
+				<div style="border-color: blue rgb(25%,35%,45%) #909090 red;border-width:1px;">
+				<table style="width:90%">
+					<tr>
+					<td onclick="openFile();" align="center" style="border:1px dashed #DCDCDC; height:50px;">
+						<img id="imagePreview" src="{MODULE_URL}assets/images/pictures/tianjia.jpg" style="height:50px;">
+					</td>
+					<input style="display:none;" onchange="selectFileImage(this);" id="images" name="images" type="file" accept="image/*">
+					</tr>
+				</table>
+				</div>
+			<li>
+		</div>
+		<div style="z-index:100px;border-radius:5px;position:absolute;left:5%;width:90%;top:400px">
+	        <input id="postQuestion" style="border:none;;margin:0 0 30px 0;background:#63afa5;border-radius:5px;line-height:40px;font-size:18px;color:#FFF;width:100%;height:40px;text-align:center"  value="写好了" type=submit>
+	    </div>
+    </div>
+	<script src="{MODULE_URL}public/libs/upload_file/mobileBUGFix.mini.js" type="text/javascript" ></script>
+	<script src="{MODULE_URL}public/libs/upload_file/base64upload.js" type="text/javascript" ></script>
+	<script src="{MODULE_URL}public/libs/upload_file/exif.js" type="text/javascript" ></script>
+	<script>
+	var imagePath;
+	var timerId;
+	
+	function openFile(){
+		$('#images').click();
+	}
+	
+	function selectFileImage(fileObj) {  
+		var file = fileObj.files['0'];  
+		//图片方向角 added by lzk  
+		var Orientation = null;  
+		if (file) {  
+			var rFilter = /^(image\/jpeg|image\/png)$/i; // 检查图片格式  
+			if (!rFilter.test(file.type)) {  
+				//showMyTips("请选择jpeg、png格式的图片", false);  
+				return;  
+			}  
+			// var URL = URL || webkitURL;  
+			//获取照片方向角属性，用户旋转控制  
+			EXIF.getData(file, function() {  
+			   // alert(EXIF.pretty(this));  
+				EXIF.getAllTags(this);   
+				//alert(EXIF.getTag(this, 'Orientation'));   
+				Orientation = EXIF.getTag(this, 'Orientation');  
+				//return;  
+			});  
+			  
+			var oReader = new FileReader();  
+			oReader.onload = function(e) {  
+				//var blob = URL.createObjectURL(file);  
+				//_compress(blob, file, basePath);  
+				var image = new Image();  
+				image.src = e.target.result;  
+				image.onload = function() {  
+					var expectWidth = this.naturalWidth;  
+					var expectHeight = this.naturalHeight;  
+					  
+					if (this.naturalWidth > this.naturalHeight && this.naturalWidth > 800) {  
+						expectWidth = 800;  
+						expectHeight = expectWidth * this.naturalHeight / this.naturalWidth;  
+					} else if (this.naturalHeight > this.naturalWidth && this.naturalHeight > 1200) {  
+						expectHeight = 1200;  
+						expectWidth = expectHeight * this.naturalWidth / this.naturalHeight;  
+					}  
+					//alert(expectWidth+','+expectHeight);  
+					var canvas = document.createElement("canvas");  
+					var ctx = canvas.getContext("2d");  
+					canvas.width = expectWidth;  
+					canvas.height = expectHeight;  
+					ctx.drawImage(this, 0, 0, expectWidth, expectHeight);  
+					var base64 = null;  
+					var mpImg = new MegaPixImage(image);  
+						mpImg.render(canvas, {  
+							maxWidth: 800,  
+							maxHeight: 1200,  
+							quality: 0.8,  
+							orientation: Orientation  
+						}); 
+					base64 = canvas.toDataURL("image/jpeg", 0.8);  
+					  
+					//uploadImage(base64);  
+					$("#imagePreview").attr("src", '{MODULE_URL}assets/images/pictures/ok.jpg');  
+					//$("#imagePreview").attr("src", base64);  
+					//$("#imagePreview").css("width", "100%");  
+					imagePath = '';
+					// 异步上传图片，加快访问速度
+					var post = {};
+					post.act = "post_question_images";
+					post.images = base64;
+					$.post("",post,function(data){
+						imagePath = data.path;
+					},'json');
+				};  
+			};  
+			oReader.readAsDataURL(file);  
+		}  
+	}  
+	
+	/**
+	$('#images1').localResizeIMG({
+        quality: 0.2,
+        success: function (result) {
+			$("#preview").show();
+			$("#imagePreview").attr("src",result.base64);
+			imagePath = '';
+            //$('#attach').val(result.base64);
+			// 异步上传图片，加快访问速度
+			var post = {};
+			post.act = "post_question_images";
+			post.images = result.base64;
+			$.post("",post,function(data){
+				imagePath = data.path;
+			},'json');
+        }
+    });*/
+	
+    $('#postQuestion').click(function(){
+		_q = $(this);
+		var post = {};
+		post.title = $('textarea[name="title"]').val();
+		post.open = $('input[name="radio1"]').attr('checked');
+		post.act = 'post_question';
+		{if '1' == $this->system['openSearch']}
+		post.isfree = '1';
+		{/if}
+		if(!post.title){
+			warn('您还没有填写内容哦');
+			return ;
+		}
+		_q.attr("disabled","disabled");
+		_q.val("正在召唤管理员...");
+		timerId = setInterval(function(){
+			if ($('#images').val()=='' || imagePath !== ''){ 
+				clearInterval(timerId);
+				_q.val("正在聚集能量...");
+				post.images = imagePath;
+				$.post("",post,function(data){
+					if(data.status == 8){
+						warn(data.message,2000,function(){
+							_q.val("写好了");
+							_q.removeAttr("disabled","disabled");
+						});
+						return '';
+					}
+					if(data.status == 2){
+						$.post("",{act:'post_question_success',question_id:data.question_id},function(d){
+							
+						},'json');
+						bingo('提交成功',function(){
+							window.location.href = "{php echo $this->createMobileUrl('ask')}";
+						});
+					}else{
+						_q.val("正在开启支付传送门...");
+						wx.ready(function(){
+							wx.chooseWXPay({
+								timestamp: data.timeStamp,
+								nonceStr: data.nonceStr,
+								package: data.package,
+								signType: data.signType,
+								paySign: data.paySign,
+								success: function (res) {
+									if(res.errMsg == 'chooseWXPay:ok') {
+										$.post("",{act:'post_question_success',question_id:data.question_id},function(d){},'json');                                    
+										bingo('提交成功',function(){
+											window.location.href = "{php echo $this->createMobileUrl('ask')}";
+										});
+									}else{
+										window.location.href = "{php echo $_W['siteurl']}";
+									}
+								},cancel:function(res){
+									_q.val("写好了");
+									_q.removeAttr("disabled");
+								}
+							});
+						});
+					}
+				},'json');
+			}
+		},1000);
+    });
+	</script>
+</body>
+</html>

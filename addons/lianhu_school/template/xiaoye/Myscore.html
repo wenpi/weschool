@@ -1,0 +1,41 @@
+{template '../xiaoye/newHead'}
+	<div class="z_main">		
+		<div class="z_tx2">
+		<div id="firstpane" class="menu_list">
+			{loop $out_list $row}
+				<h3 class="menu_head current">
+					<div class="z_tx28">{$row['begin']}-{$row['end']}&nbsp;学年度成绩</div>
+					<div class="z_tx23"><img src="{MODULE_URL}/template/xiaoye/img/jiantou.png"></div>
+				</h3>
+				<div style="display:block" class="menu_body">
+				<div class="kss-m">
+					{loop $row['records'] $val}
+						<a href="{php echo $this->createMobileUrl('score',array('ac'=>'listall','op'=>$val['scorejilv_id']))}">
+						<div >{$val['scorejilv_name']}</div>
+						</a>
+					{/loop}
+					</div>
+				</div>
+			{/loop}
+</div>
+<script>
+$(document).ready(function(){
+	$("#firstpane .menu_body:eq(0)").show();
+	$("#firstpane h3.menu_head").click(function(){
+		$(this).addClass("current").next("div.menu_body").slideToggle(300).siblings("div.menu_body").slideUp("slow");
+		$(this).siblings().removeClass("current");
+	});
+	$("#secondpane .menu_body:eq(0)").show();
+	$("#secondpane h3.menu_head").mouseover(function(){
+		$(this).addClass("current").next("div.menu_body").slideDown(500).siblings("div.menu_body").slideUp("slow");
+		$(this).siblings().removeClass("current");
+	});
+});
+</script>
+<!-- 代码部分end -->	
+		</div>
+		<div class="z_cc"></div>
+       {template '../xiaoye/newStudentFooter'}
+	</div>
+</body>
+</html>

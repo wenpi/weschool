@@ -1,0 +1,16 @@
+{php $page_title = '校园食谱';}
+{template '../new/head'}
+  <link rel="apple-touch-icon"  href="{MODULE_URL}/style/app/images/logo.ico">
+  <link rel="stylesheet" href="{MODULE_URL}template/mobile/style/style_nav.css">
+  <script type='text/javascript' src='{MODULE_URL}/style/js/jquery.min.js'></script>
+<body>
+<div class="container" id="container">
+    <div class="cell">
+    <div class="hd">
+        <h1 class="page_title">校园食谱</h1>
+    </div>
+    </div>
+		{php  echo htmlspecialchars_decode($result['cookbooK_breakfast']); }
+</div>
+{template 'jsweixin'}
+{template '../new/footer'}

@@ -1,0 +1,57 @@
+{loop $questions['list'] $li}
+{php $to_member = M('member')->getInfo($li['to_openid'])}
+{if !empty($li['isfree'])}
+<div class="blog-sidebar-text" onclick="window.location.href='{php echo $this->createMobileUrl('question',array('id'=>$li['id']))}'">
+	{php $quser = M('member')->getInfo($li['openid'])}
+	<h5 style="font-size:15px;">{$li['title']}</h5>
+</div>
+<div class="container one-third-responsive">
+	{php $answers = M('answer')->getList(1," AND question_id = :question_id",array(':question_id'=>$li['id']),1)}
+	{loop $answers['list'] $ans}
+	{php $user = M('member')->getInfo($ans['openid'])}
+	<p class="user-list-follow">
+		<a href="{php echo $this->createMobileUrl('tutor',array('openid'=>$to_member['openid']))}">
+			<img src="{php echo $to_member['avatar']}" alt="img">
+			<strong>{$to_member['nickname']}
+				<em class="split-title">{$to_member['tags']}</em>
+			</strong></a> 
+			<a data-id="{$ans['id']}" data-timelong="{$ans['timelong']}" data-question_id="{$li['id']}" class="listen follow2 button-orange">
+				<span class="tip">{php echo $this->template['limitFree']} {$ans['timelong']}''</span>
+			</a>
+	</p>
+	{/loop}
+<div class="decoration"></div>
+</div>
+{else}
+
+<div class="blog-sidebar-text" onclick="window.location.href='{php echo $this->createMobileUrl('question',array('id'=>$li['id']))}'">
+	{php $quser = M('member')->getInfo($li['openid'])}
+	<h5 style="font-size:15px;">{$li['title']}</h5>
+</div>
+<div class="container one-third-responsive">
+	{php $answers = M('answer')->getList(1," AND question_id = :question_id",array(':question_id'=>$li['id']),1)}
+	{loop $answers['list'] $ans}
+	{php $user = M('member')->getInfo($ans['openid'])}
+	<p class="user-list-follow">
+		<a href="{php echo $this->createMobileUrl('tutor',array('openid'=>$to_member['openid']))}">
+			<img src="{php echo $to_member['avatar']}" alt="img">
+			<strong>{$to_member['nickname']}
+				<em class="split-title">{$to_member['tags']}</em>
+			</strong></a> 
+			<a data-id="{$ans['id']}" data-timelong="{$ans['timelong']}" data-question_id="{$li['id']}" class="listen follow2 button-green">
+			{php $listen_log = M('listen_log')->getOpenid($li['id'],$_W['openid'])}
+			{if empty($listen_log) || $listen_log['status'] == 0}
+				{if ($li['openid']==$_W['openid'] || $li['to_openid'] == $_W['openid'])}
+				<span class="tip">播放解答 {$ans['timelong']}''</span>
+				{else}
+				<span class="tip">{php echo $this->system['listen_price']}元{php echo $this->template['learnName']} {$ans['timelong']}''</span>
+				{/if}
+			{else}
+				<span>播放解答 {$ans['timelong']}''</span>
+			{/if}</a>
+	</p>
+	{/loop}
+<div class="decoration"></div>
+</div>
+{/if}
+{/loop}

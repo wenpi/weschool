@@ -1,0 +1,41 @@
+{template '../xiaoye/head'}
+<body>
+<div class="z_main">
+ <div class="head-kc">
+     {php $count = count($out_weeks);}
+        {loop $out_weeks $row}
+                <a style="width:{php echo 100/$count}%" href="{php echo $this->createMobileUrl('syllabus',array("week"=>$row) )}" {if $now_week == $row} class="pp" {/if}><p>周{php echo $cclass_week->weeks[$row];}</p></a>
+        {/loop}
+ </div>
+{loop $ams $row}
+    <div class="KC">
+        <li>
+        <p>第{$row['sort']}节<br />
+            <span>{$row['times']}</span></p>
+        </li>
+        <div class="KR">
+        <p>{$row['course']}<!--（{$row['teacher']}）--></p>
+        </div>
+    </div>
+{/loop}
+<div class="WXX">
+	<p class="WXX-1">午休</p>
+    <p class="WXX-2"></p>
+</div>
+{loop $pms $row}
+    <div class="KC">
+        <li>
+        <p>第{$row['sort']}节<br />
+            <span>{$row['times']}</span></p>
+        </li>
+        <div class="KR">
+        <p>{$row['course']}<!--（{$row['teacher']}）--></p>
+        </div>
+    </div>
+{/loop}
+
+</div>
+{php $footer_type = 'center';}
+{template '../xiaoye/footer'}
+</body>
+</html>

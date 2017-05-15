@@ -1,0 +1,39 @@
+{template '../new/head'}
+<script type='text/javascript' src='{MODULE_URL}/style/js/jquery.min.js'></script>
+<body ontouchstart >
+<div class="container" id="container">
+    <div class="article">
+    <div class="bd">
+        <article class="weui_article"> 
+            <h1>{$result['title']}</h1>
+            <h3 style="color:#777">发布时间：{php echo date("Y-m-d H:i:s",$result['add_time'])}</h3>
+            {if $result['imgs']}
+                {php $imgs = unserialize($result['imgs']);}
+                {if $imgs}
+                     {php $img_list =S("fun",'decodeImgs',array($imgs ,$this->module['config']['qiniu_url'] )); }
+                     {loop $img_list $row}
+                        <img src='{$row}' style="width:90%;margin-left:5%;margin-top:10px;">
+                     {/loop}
+                {/if}               
+            {/if}
+            {if $result['img']}
+                <img src='{php echo $this->imgFrom($result['img'])}' style="width:90%;margin-left:5%;margin-top:10px;">
+            {/if}
+            {if $result['voice']}
+                <br>
+                <br>
+                <div style="width:100%;text-align:center">
+                    {php echo  $this->echoVoiceUrl($result['voice']);}
+                </div>    
+                <br>
+            {/if}            
+            <section>
+                    {php echo htmlspecialchars_decode($result['content']);}
+            </section>
+        </article>
+    </div>
+    </div>
+    </div>
+
+	{template 'jsweixin'}
+    {template '../new/tea_footer'}

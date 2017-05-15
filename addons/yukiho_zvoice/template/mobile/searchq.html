@@ -1,0 +1,181 @@
+{php $g_title='搜索结果'}
+{php $menu='2'}
+{template 'common/header1'}
+{template 'common/menu'}
+		<div id="content" class="snap-content">
+			<div class="content">
+				<div class="portfolio-filter">
+					{if !empty($questions['list'])}
+					<div class="portfolio-filter-wrapper" style="margin-left:5px;">
+						{loop $questions['list'] $li}
+						{php $to_member = M('member')->getInfo($li['to_openid'])}
+						{if !empty($li['isfree'])}
+						<div class="blog-sidebar-text">
+							<h5>{$li['title']}</h5>
+						</div>
+						<div class="container one-half-responsive">
+							<em class="speach-left-title">{$to_member['nickname']}{if !empty($to_member['tags'])}｜{$to_member['tags']}{/if}：</em>
+							{php $answers = M('answer')->getList(1," AND question_id = :question_id",array(':question_id'=>$li['id']),3)}
+							{loop $answers['list'] $ans}
+							{php $user = M('member')->getInfo($ans['openid'])}
+							<p data-id="{$ans['id']}" data-question_id="{$li['id']}" 
+								class="speach-left blue-bubble" style="width:{if $ans['timelong']>15}{php echo $ans['timelong']/0.6}{else}27{/if}%;">
+								<span class="wave1"></span>
+								<span class="wave2"></span>
+								<span class="wave3"></span>
+								<span>限时免费听</span>
+							</p>{php echo $ans['timelong']}秒
+							{/loop}
+						<div class="decoration"></div>
+						</div>
+						{else}
+						
+						<div class="blog-sidebar-text" onclick="window.location.href='{php echo $this->createMobileUrl('question',array('id'=>$li['id']))}'">
+							<h5>{$li['title']}</h5>
+						</div>
+						<div class="container one-third-responsive">
+							{php $answers = M('answer')->getList(1," AND question_id = :question_id",array(':question_id'=>$li['id']),3)}
+							{loop $answers['list'] $ans}
+							{php $user = M('member')->getInfo($ans['openid'])}
+							<p class="user-list-follow">
+								<a href="{php echo $this->createMobileUrl('tutor',array('openid'=>$to_member['openid']))}">
+									<img src="{php echo $to_member['avatar']}" alt="img">
+									<strong>{$to_member['nickname']}
+										<em class="split-title">{$to_member['tags']}</em>
+									</strong></a> 
+									<a data-id="{$ans['id']}" data-question_id="{$li['id']}" class="listen follow2 button-green">
+									<span class="wave1"></span>
+									<span class="wave2"></span>
+									{php $listen_log = M('listen_log')->getOpenid($li['id'],$_W['openid'])}
+									{if empty($listen_log) || $listen_log['status'] == 0}
+										{if ($li['openid']==$_W['openid'] || $li['to_openid'] == $_W['openid'])}
+										<span class="tip"></span>点击播放
+										{else}
+										<span class="tip">{php echo $this->system['listen_price']}元旁听</span>
+										{/if}
+									{else}
+									<span>点击播放</span>
+									{/if}</a>
+							</p>
+							{/loop}
+						<div class="decoration"></div>
+						</div>
+						{/if}
+						{/loop}
+					</div>
+					{else}
+					<div class="content" style="margin-top:150px;">
+						<div class="show-no-detection device-detected">
+							<h5>暂时还没有解答哦</h5>
+							<a href="{php echo $this->createMobileUrl('find')}" class="button-small button-orange button-center" style="margin-top:20px;">寻找老师</a>
+						</div>
+					</div>
+					{/if}
+				</div>
+			</div>
+		</div>
+		<div class="footer-menu-controls light-footer-menu" style="-webkit-transform:inherit;">
+			<div class="column" style="z-index:9999;">
+				<div id="sb-search" class="sb-search">
+					<form id="sb-form" action="{php echo $this->createMobileUrl('searchq')}" method="post">
+						<input class="sb-search-input" placeholder="搜索题目内容..." type="text" name="key" id="search">
+						<input class="sb-search-submit" type="submit">
+						<a id="sb-icon-search" class="sb-icon-search footer-menu-open" style="filter:alpha(opacity=50); -moz-opacity:0.5; -khtml-opacity: 0.58; opacity: 0.5; transform: translateX(0px); transition: all 250ms ease;"><i class="fa fa-search bg-blue-dark"></i></a>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<audio controls="controls" id="player" style="display:none;" autoplay preload="auto"></audio>
+	<link rel="stylesheet" type="text/css" href="{MODULE_URL}/assets/search/css/component.css">
+	<script src="{MODULE_URL}/assets/search/js/classie.js"></script>
+	<script src="{MODULE_URL}/assets/search/js/uisearch.js"></script>
+	<script>
+		new UISearch( document.getElementById( 'sb-search' ) );
+	</script>
+	<script>
+    var player = document.getElementById('player');
+    function playData(data){
+        console.log(data);
+        $('.wave3').removeClass('voicing');
+        $(data.target).find('.wave3').addClass('voicing');
+        player.src = data.src;
+        player.play();
+        var timelong = parseInt(data.timelong) * 1000;
+        setTimeout(function(){
+            $(data.target).find('.wave3').removeClass('voicing');
+        },timelong);
+    }
+    $(document.body).on('click','.listen',function(){
+        var question_id = $(this).data('question_id');
+        var target = $(this)[0];
+        var timelong = $(this).data('timelong');
+        if(!question_id){
+            warn('question_id为空');
+            return '';
+        }
+        $.get("{php echo $this->createMobileUrl('question')}&id="+question_id,{answer_id:$(this).data('id'),act:'src'},function(data){
+            if(data.status == 8){
+                bingo(data.message,function(){});
+                return '';
+            }
+            if(data.status == 0){
+                var d = {};
+                d.target = target;
+                d.src = data.src;
+                d.timelong = timelong;
+                playData(d);
+                return '';
+            }
+            if(!data.listen_id){
+                warn('listen_id为空');
+                return '';
+            }
+            if(!data.answer_id){
+                warn('answer_id为空');
+                return '';
+            }
+            wx.ready(function(){
+                wx.chooseWXPay({
+                    timestamp: data.timeStamp,
+                    nonceStr: data.nonceStr,
+                    package: data.package,
+                    signType: data.signType,
+                    paySign: data.paySign,
+                    success: function (res) {
+                        if(res.errMsg == 'chooseWXPay:ok') {
+                            data.act == 'paySuccess';
+                            $.post("{php echo $this->createMobileUrl('question')}&id="+question_id,{act:'paySuccess',listen_id:data.listen_id,answer_id:data.answer_id},function(d){
+                                if(d.status == 1){
+                                    var dd = {};
+                                    dd.target = target;
+                                    dd.src = d.src;
+                                    dd.timelong = timelong;
+                                    $(target).find('tip').html('点击播放');
+                                    playData(dd);
+                                    return '';
+                                }else{
+                                    warn('系统错误',2000,'cancel');
+                                }
+                            },'json');
+                        }else{
+                            window.location.href = "{php echo $_W['siteurl']}";
+                        }
+                    }
+                });
+            });
+        },'json');
+    });
+</script>
+<script type="text/javascript" src="{MODULE_URL}public/libs/velocity.min.js"></script>
+<script src="{MODULE_URL}public/js/loadmore.js"></script>
+<script>
+    $(function(){
+        function callback(html){
+            $('#Questions .questions').append(html);
+        }
+        initload("{php echo $this->createMobileUrl('get_index_more')}",callback);
+        loadmore("{php echo $this->createMobileUrl('get_index_more')}",callback);
+    })
+</script>
+</body>

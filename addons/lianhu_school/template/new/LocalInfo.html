@@ -1,0 +1,96 @@
+<script>
+    var map = new AMap.Map('container',{
+        resizeEnable: true,
+        zoom: 16,
+        center: [{$result['Lng']},{$result['Lat']}]
+    });
+    map.plugin(["AMap.ToolBar"], function() {
+            map.addControl(new AMap.ToolBar());
+    });
+
+    
+    //实例化信息窗体
+    var title = '<span style="font-size:16px;color:green;">{$status}</span>',
+    content   = [];
+    content.push("电量：{$result["Battery"]}%");
+    content.push("经度：{$result["Lng"]}");
+    content.push("纬度：{$result["Lat"]}");
+    content.push("速度：{$speed}");
+    content.push("定位方式：{$local}");
+    content.push("定位时间：{$time_date}");
+    content.push("地点：{$result["Address"]}");
+    var infoWindow = new AMap.InfoWindow({
+        isCustom: true,  //使用自定义窗体
+        content: createInfoWindow(title, content.join("<br/>")),
+        offset: new AMap.Pixel(16, -35)
+    });
+    //构建自定义信息窗体
+    function createInfoWindow(title, content) {
+        var info = document.createElement("div");
+        info.className = "info";
+
+        //可以通过下面的方式修改自定义窗体的宽高
+        //info.style.width = "400px";
+        // 定义顶部标题
+        var top = document.createElement("div");
+        var titleD = document.createElement("div");
+        var closeX = document.createElement("img");
+        top.className = "info-top";
+        titleD.innerHTML = title;
+        closeX.src = "http://webapi.amap.com/images/close2.gif";
+        closeX.onclick = closeInfoWindow;
+
+        top.appendChild(titleD);
+        top.appendChild(closeX);
+        info.appendChild(top);
+
+        // 定义中部内容
+        var middle = document.createElement("div");
+        middle.className = "info-middle";
+        middle.style.backgroundColor = 'white';
+        middle.innerHTML = content;
+        info.appendChild(middle);
+
+        // 定义底部内容
+        var bottom = document.createElement("div");
+        bottom.className = "info-bottom";
+        bottom.style.position = 'relative';
+        bottom.style.top = '0px';
+        bottom.style.margin = '0 auto';
+        info.appendChild(bottom);
+        return info;
+    }
+    //关闭信息窗体
+    function closeInfoWindow() {
+        map.clearInfoWindow();
+    }
+    function addMarker() {
+        map.clearMap();
+        var marker = new AMap.Marker({
+            map: map,
+            position: [{$result['Lng']}, {$result['Lat']}],
+            icon: new AMap.Icon({            
+                size:   new AMap.Size(30, 30),  //图标大小
+                image: "{php echo displayImg($student_info['student_img']);}",
+                imageOffset: new AMap.Pixel(0, 0)
+            })   
+        });
+        //鼠标点击marker弹出自定义的信息窗体
+        AMap.event.addListener(marker, 'click', function() {
+            infoWindow.open(map, marker.getPosition());
+        });        
+    }
+    //添加marker标记
+    addMarker();
+    //
+    var circle = new AMap.Circle({
+        center: new AMap.LngLat("{$result['Lng']}", "{$result['Lat']}"),// 圆心位置
+        radius: 300, //半径
+        strokeColor: "#ff0033", //线颜色
+        strokeOpacity: 1, //线透明度
+        strokeWeight: 1, //线粗细度
+        fillColor: "#ee2200", //填充颜色
+        fillOpacity: 0.35//填充透明度
+    });
+    circle.setMap(map);
+</script>

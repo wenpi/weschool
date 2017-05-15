@@ -1,0 +1,29 @@
+{php $g_title='帮助手册'}
+{php $menu='4'}
+{template 'common/header1'}
+{template 'common/menu'}
+		{php $help = M('setting')->getSetting('help')}
+		<div id="content" class="snap-content">
+			<div class="container" style="margin-right:15px;margin-left:15px;">
+				<div class="toggle active-toggle">
+					<a href="#" class="toggle-title">{$help['title1']}<i class="fa fa-plus"></i></a>
+					<div class="toggle-content" style="display: none;">
+						<p>{$help['content1']}</p>
+					</div>
+				</div>
+				<div class="toggle">
+					<a href="#" class="toggle-title">{$help['title2']}<i class="fa fa-plus"></i></a>
+					<div class="toggle-content" style="display: none;">
+						<p>{$help['content2']}</p>
+					</div>
+				</div>
+				<div class="toggle">
+					<a href="#" class="toggle-title">{$help['title3']}<i class="fa fa-plus"></i></a>
+					<div class="toggle-content" style="display: none;">
+						<p>{$help['content3']}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>

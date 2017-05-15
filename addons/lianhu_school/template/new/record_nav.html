@@ -1,0 +1,21 @@
+	<link rel="stylesheet" href="{MODULE_URL}template/mobile/style/swiper-3.3.1.min.css">
+    <script src="{MODULE_URL}template/mobile/style/swiper-3.3.1.min.js"></script> 
+    <div id="header" class="swiper-container-horizontal swiper-container-free-mode">
+    <div id="top-line"></div>
+    <div class="swiper-wrapper">
+    {loop $list $row}
+              <div class="swiper-slide">
+                    <a href="{php echo $this->createMobileUrl('record',array('op'=>$row['class_id']));}">
+                        <span   style="{if $class_id==$row['class_id']}color:#009ffb;{/if}"> {$row['class_name']} </span>
+                    </a>
+                </li>
+				 </div>
+     {/loop}
+  </div>
+</div>
+<script> 
+var mySwiper = new Swiper('#header',{
+    freeMode : true,
+    slidesPerView : 'auto',
+})
+</script>

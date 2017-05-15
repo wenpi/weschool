@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>班级圈-{$class_name}-{$_SESSION['school_name']}</title>
+    {template 'common'}
+    <link rel="stylesheet" href="{MODULE_URL}style/css/buttons.css">
+    <link rel="stylesheet" href="{MODULE_URL}style/css/app.min.css">
+    <link rel="stylesheet" href="{MODULE_URL}style/css/style_nav.css">
+    <link rel="stylesheet" href="{MODULE_URL}style/css/line_css.css">
+    <link href="{MODULE_URL}assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+     <script src="{MODULE_URL}style/js/modernizr.js"></script>
+     <script src="{MODULE_URL}style/js/jquery.lazyload.js"></script>
+     <script src="{MODULE_URL}style/js/main.js"></script>
+</head>
+<body   style='background:#fff' >
+    <div class="top-wrap" style='position:fixed'>
+	<div class="fn-clear tr-box top" >
+       <div class='fn-left fn-text-center'>评论</div>
+          <a href="#cd-nav" class="cd-nav-trigger" style='color:#fff;float: left;top: 0px;height: 38px;width: 20px;'>Menu<span></span> </a>
+          {if $op=='list' }
+             <a href="{php echo $this->createMobileUrl('send_line');}" style='color:#fff'> <div class='fn-right fn-text-center' style='margin-right:50px;'  ><i class="fa fa-plus"></i>&nbsp;&nbsp;&nbsp;</div>
+             </a>
+          {/if}
+     </div>
+     </div>
+    <section style='background:#fff;'>
+    <div class="wrap" id="list" style="margin-top:40px;">
+      		<ul >
+            <li class="box" >
+            		<div class="author">
+                    		<a href="#"><img src="{$row['avatar']}"></a>
+                            <p class="author_name">{$row['nickname']}</p>
+                            <p class="author_time">时间：{php echo date("m-d H:i",$row['add_time']);}</p>
+                             {if $uid==$row['send_uid'] }<a href="javascript:;" class="close delete" data-send='{$row['send_id']}' ><img src="{MODULE_URL}/style/images/close.png"></a>{/if}
+                    </div>
+                        <div class="topic">
+                            <p>{$row['send_content']}</p>
+                            <div onclick='displayImage(this)'>
+                                {php echo $this->decodeLineImgs($row['send_image']);}
+                                <div class='clear'></div>
+                             </div>
+                        </div>
+                    <div class="click_hf">
+                        {php $zan_have=$this->zanLine($row['send_id']);}
+                        <a href="javascript:;" class="zan" id="zan_{$row['send_id']}" data-send='{$row['send_id']}' style="{if $zan_have==1}color:#ff0033{else}color:#333{/if}">
+                            <i class="fa fa-heart"></i>
+                       </a>
+                        <span id="like_num_{$row['send_id']}">{$row['send_like']}</span>
+                        <a  class="huifu" href="{php echo $this->createMobileUrl('send_comment',array('send_id'=>$row['send_id']))}"><img src="{MODULE_URL}/style/images/huifu.png"></a>
+                    </div>
+            </li>           
+            </ul>   
+            <div class='comment_list'>
+             <ul>
+                 {loop $list $row}
+                    <li> <b>{$row['nickname']}:&nbsp;&nbsp;</b>{$row['comment_text']}</li>
+                 {/loop}
+                 </ul>   
+             </div>   
+     <form enctype="multipart/form-data" id="new_article" method="post" class="post-form" > 
+        <div class='form-group' style='margin-bottom:10px;'>
+        <textarea id="addtext" name="comment_text" maxlength="1000" rows="2"  style='height:70px;' placeholder="评论..." required=""></textarea>
+        </div>
+        <div class="article_sub" style='margin-bottom:20px;'>
+            <input type='hidden' value='post' name='op'>
+            <button type="submit" class="add-article">评论</button>
+        </div>
+    </form>  
+             
+    </div>
+    </section>
+{template 'right_nav'}
+<script type="text/javascript">
+  $(function() {
+  $("img.lazy").lazyload({
+			 effect: "fadeIn",
+			 placeholder: "{MODULE_URL}/style/images/data.png",
+			 threshold :200
+			 });
+  });
+  function displayImage(obj){
+      var img_urls=[];
+      var img_current='';
+        if($(obj).find('.lazy').length>0){
+             img_current=$(obj).find('.lazy').attr('src');
+             img_urls=[img_current];
+        }
+        if($(obj).find('div').length>0){
+                img_current=$(obj).find('div').eq(0).attr('data-img');
+                $.each($(obj).find('div'),function(i,e){
+                    img_urls.push($(this).attr('data-img'));
+                });
+        }
+        img_urls.pop()
+        wx.previewImage({
+        current: img_current,
+        urls: img_urls
+        });
+  }
+$(function(){
+    $('.zan').on('click',function(){
+        send_id=$(this).attr('data-send');
+        line_ajax(send_id,'like');
+    });
+     $('.delete').on('click',function(){
+        send_id=$(this).attr('data-send');
+        line_ajax(send_id,'delete');
+    });   
+});
+</script>
+</body>
+{template 'jsweixin'}
+</html>

@@ -1,0 +1,331 @@
+<?php defined('IN_IA') or exit('Access Denied');?>   <?php (!empty($this) && $this instanceof WeModuleSite || 1) ? (include $this->template('../admin/head', TEMPLATE_INCLUDEPATH)) : (include template('../admin/head', TEMPLATE_INCLUDEPATH));?>
+        <?php (!empty($this) && $this instanceof WeModuleSite || 1) ? (include $this->template('../admin/header', TEMPLATE_INCLUDEPATH)) : (include template('../admin/header', TEMPLATE_INCLUDEPATH));?>
+        <link href="<?php echo MODULE_URL;?>/assets/global/plugins/codemirror/lib/codemirror.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo MODULE_URL;?>/assets/global/plugins/codemirror/theme/neat.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo MODULE_URL;?>/assets/global/plugins/codemirror/theme/ambiance.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo MODULE_URL;?>/assets/global/plugins/codemirror/theme/material.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo MODULE_URL;?>/assets/global/plugins/codemirror/theme/neo.css" rel="stylesheet" type="text/css" />
+
+        <div class="page-container">
+        <?php (!empty($this) && $this instanceof WeModuleSite || 1) ? (include $this->template('../admin/left', TEMPLATE_INCLUDEPATH)) : (include template('../admin/left', TEMPLATE_INCLUDEPATH));?>
+            <div class="page-content-wrapper">
+                <div class="page-content">
+                <?php (!empty($this) && $this instanceof WeModuleSite || 1) ? (include $this->template('../admin/sidebar', TEMPLATE_INCLUDEPATH)) : (include template('../admin/sidebar', TEMPLATE_INCLUDEPATH));?>
+                    <h1 class="page-title"> <?php  echo $_SESSION['school_name'];?>
+                            <small> <?php  echo $title;?> </small>
+                    </h1>
+                <?php  if($ac =='edit'|| $ac=='new' ) { ?>
+                     <div class="row">
+                        <div class="col-md-12">
+                             <div class="portlet light ">
+                                <div class="portlet-title">
+                                    <div class="caption font-green-haze">
+                                        <i class="icon-settings font-green-haze"></i>
+                                        <span class="caption-subject bold uppercase"> <?php  if($ac=='new') { ?>新增<?php  } else { ?>修改<?php  } ?> </span>
+                                    </div>
+                                    <div class="actions">
+                                        <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="javascript:;" data-original-title="" title=""> </a>
+                                    </div>
+                                </div>
+                                  <div class="portlet-body form">
+                                    <form action="" method="post" class="form-horizontal form" enctype="multipart/form-data" id="form1"  >
+                                            <div class="form-group form-md-line-input">
+                                                <label class="col-md-2 control-label"><span class="required" aria-required="true"> * </span>名称</label>
+                                                    <div class="col-md-10">
+                                                        <input type="text" class="form-control"   value="<?php  echo $result['block_name'];?>" name='block_name' required >
+                                                        <?php  if($ac=='edit') { ?>
+                                                            <input type="hidden" name="id"  class="form-control" value='<?php  echo $result['block_id'];?>' />
+                                                        <?php  } ?>
+                                                        <div class="form-control-focus"> </div>
+                                                    </div>
+                                            </div> 
+                                            <div class="form-group form-md-line-input">
+                                                <label class="col-md-2 control-label"><span class="required" aria-required="true"> * </span>简介</label>
+                                                    <div class="col-md-10">
+                                                        <input type="text" class="form-control"   value="<?php  echo $result['block_intro'];?>" name='block_intro' required >
+                                                        <div class="form-control-focus"> </div>
+                                                    </div>
+                                            </div> 
+                                            <div class="form-group form-md-line-input">
+                                                    <label class=" col-md-2 control-label">分类</label>
+                                                    <div class="col-sm-10">
+                                                        <select name='class_id'  class="form-control" >
+                                                            <?php  if(is_array($class_list)) { foreach($class_list as $row) { ?>
+                                                               <option value='<?php  echo $row['class_id'];?>' <?php  if($row['class_id'] == $result['class_id']) { ?> selected <?php  } ?>><?php  echo $row['class_name'];?></option>
+                                                            <?php  } } ?>
+                                                        </select>                       
+                                                    </div>
+                                            </div>                                                                                          
+
+                                           <div class='form-group form-md-line-input ' >
+                                                <label class=" col-md-2 control-label">状态</label>
+                                                <div class="col-sm-10 ">
+                                                <select name='status' class="form-control" >
+                                                        <?php  echo S('fun','statusOut',array($result['status']))?>
+                                                </select>
+                                                </div>							
+                                            </div>
+                                            <div class='form-group form-md-line-input ' >
+                                                <label class=" col-md-2 control-label"><span style='color:red'>*</span>html代码<b class="font-red">[请确认是一个独立的块]</b></label>
+                                                <div class="col-sm-10 ">
+                                                        <textarea id="code_editor_demo_html" name="block_html" ><?php  echo $result['block_html'];?></textarea>
+                                                        <span class="font-red" >1.如果需要加载另外的css,js请尽量使用大公司的仓库<br>
+                                                        2.演示使用图片请使用http://，保证可以看到效果<br>
+                                                        3.{ AUI_URL }[没有空格]指向本网站域名+/addons/lianhu_school
+                                                        </span>
+                                                </div>							
+                                            </div> 
+                                            <div class='form-group form-md-line-input ' >
+                                                <label class=" col-md-2 control-label"><span style='color:red'>*</span>css代码<b class="font-red">[请不要加"style"标签，应加上您的特定标示免得冲突]</b></label>
+                                                <div class="col-sm-10 ">
+                                                        <textarea id="code_editor_demo_css" name="block_css"><?php  echo $result['block_css'];?></textarea>
+                                                </div>							
+                                            </div> 
+
+                                            <div class='form-group form-md-line-input ' >
+                                                <label class=" col-md-2 control-label"><span style='color:red'>*</span>js代码<b class="font-red">[请不要加"script"标签，应加上您的特定标示免得冲突]</b></label>
+                                                <div class="col-sm-10 ">
+                                                    <textarea id="code_editor_demo_js" name="block_js"><?php  echo $result['block_js'];?></textarea>
+                                                </div>							
+                                            </div>
+                                            <div class="form-actions">
+                                                <div class="row">
+                                                    <div class="col-md-offset-2 col-md-10">
+                                                        <input type="submit" name="submit" class="btn blue" value="确认">
+                                                    </div>
+                                                </div>
+                                            </div>                                                                                
+                                    </form>
+                                  </div>    
+                             </div>            
+                      </div>                 
+                     </div>
+                <?php  } ?>
+                <?php  if($ac=='list') { ?>
+                 <div class="row">
+                        <div class="col-md-4">
+                              <div class="portlet box green">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <i class="fa fa-flag"></i>基础组件列表<a target="_blank" href="<?php  echo $_W['siteroot'].'app/'.$this->createMobileUrl('wapBlockView',array('ac'=>'basic') )?>">查看基础页</a> </div>
+                                    <div class="tools">
+                                        <a href="javascript:;" class="collapse"> </a>
+                                    </div>
+                                </div>
+                                <div class="portlet-body flip-scroll">
+                                    <table class="table table-bordered table-striped table-condensed flip-content">
+                                        <thead class="flip-content">
+                                            <tr>
+                                                <th>组件名</th>
+                                                <th>说明</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td> jQuery.min.js [默认加载]</td>
+                                                <td> 路径：/style/js/jQuery.min.js </td>
+                                                <td>版本：3.0.1</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>AUI</td>
+                                                <td>版本：2.0  路径：/style/aui  <a href='http://www.auicss.com//'> 访问官网 </a> </td>
+                                                <td>使用的前段框架</td>
+                                            </tr>
+                                            <tr>
+                                                <td> aui.2.0.css [默认加载]</td>
+                                                <td> 路径：/style/aui/css/aui.2.0.css </td>
+                                                <td>aui加载文件之一</td>
+                                            </tr>
+                                            <tr>
+                                                <td> api.js [默认加载] </td>
+                                                <td> 路径：/style/aui/script/api.js</td>
+                                                <td>aui加载文件之一</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="font-red"> aui-dialog.js </td>
+                                                <td> 路径：/style/aui/script/aui-dialog.js</td>
+                                                <td>未加载</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="font-red"> aui-popup.js </td>
+                                                <td> 路径：/style/aui/script/aui-popup.js</td>
+                                                <td>未加载</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="font-red"> aui-pull-refresh.js </td>
+                                                <td> 路径：/style/aui/script/aui-pull-refresh.js</td>
+                                                <td>未加载</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="font-red"> aui-range.js </td>
+                                                <td> 路径：/style/aui/script/aui-range.js</td>
+                                                <td>未加载</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="font-red"> aui-scroll.js </td>
+                                                <td> 路径：/style/aui/script/aui-scroll.js</td>
+                                                <td>未加载</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="font-red"> aui-skin.js </td>
+                                                <td> 路径：/style/aui/script/aui-skin.js</td>
+                                                <td>未加载</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="font-red"> aui-slide.js </td>
+                                                <td> 路径：/style/aui/script/aui-slide.js</td>
+                                                <td>未加载</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="font-red"> aui-tab.js </td>
+                                                <td> 路径：/style/aui/script/aui-tab.js</td>
+                                                <td>未加载</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="font-red"> aui-pull-refresh.css </td>
+                                                <td> 路径：/style/aui/css/aui-pull-refresh.css</td>
+                                                <td>未加载</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="font-red"> aui-skin-night.css </td>
+                                                <td> 路径：/style/aui/css/aui-skin-night.css</td>
+                                                <td>未加载</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="font-red"> aui-skin.css </td>
+                                                <td> 路径：/style/aui/css/aui-skin.css</td>
+                                                <td>未加载</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="font-red"> aui-slide.css </td>
+                                                <td> 路径：/style/aui/css/aui-slide.css</td>
+                                                <td>未加载</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>                          
+                        </div>
+                        <div class="col-md-7">
+                            <div class="portlet box green">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <i class="fa fa-flag"></i>移动端积木列表 </div>
+                                    <div class="tools">
+                                        <a href="javascript:;" class="collapse"> </a>
+                                    </div>
+                                </div>
+                                <div class="portlet-body flip-scroll">
+                                    <table class="table table-bordered table-striped table-condensed flip-content">
+                                        <thead class="flip-content">
+                                            <tr>
+                                                <th>积木名</th>
+                                                <th>说明</th>
+                                                <th>状态 </th>
+                                                <th style="text-align:center;"> </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                         <?php  if(is_array($class_list)) { foreach($class_list as $item) { ?>
+                                            <tr class="success">
+                                                <td class="bg-red-thunderbird bg-font-red-thunderbird" ><?php  echo $item['class_name'];?></td>
+                                                <td></td>
+                                                <td><?php  echo S('fun','statusTable',array($item['status']))?> </td>
+                                                <td><a  href="<?php  echo $this->createWebUrl('WapBlockClass', array('ac' => 'edit','id'=>$item['class_id'] ))?>" class="btn btn-outline btn-circle btn-sm purple">
+                                                            <i class="fa fa-edit"></i> 编辑 </a>
+                                            </tr>
+
+                                            <?php  if(is_array($item['list'])) { foreach($item['list'] as $val) { ?>
+                                              <tr >
+                                                <td> <?php  echo $val['block_name'];?></td>
+                                                <td> <?php  echo $val['block_intro'];?></td>
+                                                <td> <?php  echo S('fun','statusTable',array($val['status']))?> </td>
+                                                <td  >
+                                                        <div class="btn-group btn-group-solid">
+                                                            <a href="<?php  echo $this->createWebUrl('WapBlock', array('id' => $val['block_id'],'ac'=>'edit' ))?>"
+                                                                class="btn purple" >
+                                                                <i class="fa fa-pencil"></i>编辑
+                                                            </a>
+                                                            <a href="<?php  echo $_W['siteroot'].'app/'.$this->createMobileUrl('wapBlockView', array('id' => $val['block_id'],'ac'=>'some'  ))?>" 
+                                                              class="btn  btn yellow " target="_blank">
+                                                                <i class="fa fa-firefox"></i>效果
+                                                            </a>
+                                                        </div>
+                                                </td>                          
+                                             </tr>                                          
+                                            <?php  } } ?>
+                                        	<?php  } } ?>
+                                             <tr class="success">
+                                                <td class="bg-red-thunderbird bg-font-red-thunderbird" >当前积木综合查看</td>
+                                                <td></td>
+                                                <td> </td>
+                                                <td><a   target="_blank" href="<?php  echo $_W['siteroot'].'app/'.$this->createMobileUrl('wapBlockView', array('ids'=>'1,2,3,4,5,6,7,8,9'))?>" class="btn btn-outline btn-circle btn-sm purple">
+                                                            <i class="fa fa-edit"></i> 查看 </a>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                <?php  } ?>
+        </div>
+        </div>
+         <?php (!empty($this) && $this instanceof WeModuleSite || 1) ? (include $this->template('../admin/right', TEMPLATE_INCLUDEPATH)) : (include template('../admin/right', TEMPLATE_INCLUDEPATH));?>
+        </div>
+     <?php (!empty($this) && $this instanceof WeModuleSite || 1) ? (include $this->template('../admin/footer', TEMPLATE_INCLUDEPATH)) : (include template('../admin/footer', TEMPLATE_INCLUDEPATH));?>
+        <script src="<?php echo MODULE_URL;?>assets/global/plugins/codemirror/lib/codemirror.js" type="text/javascript"></script>
+        <script src="<?php echo MODULE_URL;?>assets/global/plugins/codemirror/mode/javascript/javascript.js" type="text/javascript"></script>
+        <script src="<?php echo MODULE_URL;?>assets/global/plugins/codemirror/mode/htmlmixed/htmlmixed.js" type="text/javascript"></script>
+        <script src="<?php echo MODULE_URL;?>assets/global/plugins/codemirror/mode/css/css.js" type="text/javascript"></script>
+        <script>
+            var ComponentsCodeEditors = function () {
+                    var handleDemo1 = function () {
+                        var myTextArea = document.getElementById('code_editor_demo_js');
+                        var myCodeMirror = CodeMirror.fromTextArea(myTextArea, {
+                            lineNumbers: true,
+                            matchBrackets: true,
+                            styleActiveLine: true,
+                            theme:"ambiance",
+                            mode: 'javascript'
+                        });
+                    }
+                    var handleDemo2 = function () {
+                        var myTextArea = document.getElementById('code_editor_demo_css');
+                        var myCodeMirror = CodeMirror.fromTextArea(myTextArea, {
+                            lineNumbers: true,
+                            matchBrackets: true,
+                            styleActiveLine: true,
+                            theme:"material",
+                            mode: 'css'
+                        });
+                    }
+                    var handleDemo3 = function () {
+                        var myTextArea = document.getElementById('code_editor_demo_html');
+                        var myCodeMirror = CodeMirror.fromTextArea(myTextArea, {
+                            lineNumbers: true,
+                            matchBrackets: true,
+                            styleActiveLine: true,
+                            theme:"material",
+                            mode: 'html'
+                        });
+                    }                    
+                    return {
+                        //main function to initiate the module
+                        init: function () {
+                            handleDemo1();
+                            handleDemo2();
+                            handleDemo3();
+                        }
+                    };
+                }();
+                jQuery(document).ready(function() {    
+                ComponentsCodeEditors.init(); 
+                });
+        </script>
+      </body>
+    </html>

@@ -1,0 +1,238 @@
+body{
+    background-color:#fff;
+    width: 100%;
+}
+.navbar{
+    height:45px;
+    padding-top:0;
+    background-color:rgba(51,203,215,0.7) !important;
+}
+.navbar-button{
+    color:#fff;
+}
+.bar-home-icon{
+    color:#fff;
+    background-color:#fff;
+}
+.page-content{
+    background-color:#fff;
+}
+.background_img{
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	background-position: center;
+}
+.caidan ul {
+    margin-top: 10px;
+    bottom: 0px;
+    z-index: 1;
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    height: 60px;
+    background: #fafafa;
+    border-top: 2px #e5e5e5 double;
+}
+.caidan ul li{
+    width: 25%;
+    height: 60px;
+}
+.caidan ul li img{
+    width: 40px;
+    height: 40px;
+}
+.up_button{
+
+}
+.button{
+     background-color:rgba(51,203,215,0.7);
+}
+.title_new_edit{
+    color:rgb(51,203,215);
+}
+.line_list{
+     width: 100%;
+     padding-left: 20px;
+     color: #666;
+     border-bottom: 1px solid #eee;
+}
+.in{
+    color:#ff0033;
+}
+.all_height{ height: 100%;}
+.tscore_head{text-align: center;width: 100%;color: #fff;margin-top: 7%;font-size: 1.1em;letter-spacing: 1px;}
+.tscore_img{
+    background-image: url('../images/jifen.png'); 
+    margin: 10% auto;
+    width:360px;
+    height:180px;
+    padding-top: 120px;
+    background-position: center;
+    background-size: 100% 100%;
+    text-align: center;
+    line-height:30px;
+    color: #fff;
+    font-size: 1.3em;
+}
+.tscore_bottom{
+    width: 100%;
+    height: 100px;
+    margin-top:10%;
+    color:#fff;
+}
+.tscore_bottom span{
+    display: inline-block;
+    width: 49%;
+    text-align: center;
+    height: 50px;
+}
+.tscore_bottom span:first-child{
+    border-right: 1px solid #fff;
+}
+.tscore_bottom span:last-child{
+    position: relative;
+}
+.tscore_re{
+    width: 100%;
+    text-align: center;
+}
+.tscore_re a{
+    width:30%;
+    height: 30px;
+    border: 1px solid #fff;
+    color:#fff;
+    line-height: 30px;
+    display: block;
+    margin: auto;
+    float: left;
+    margin-left:2%;
+}
+.tscore_text{
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    font-size: 0.8em;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.tscore_list{
+    width: 100%;
+    height:180px;
+    background-color:#ccccff;
+    color:#fff;
+}
+.left_info{
+    width: 95%;
+    margin-left: 5%;
+    padding-top:10px;
+}
+.middle_info{
+    background-image: url("../images/jifen2.png");
+    width: 168px;
+    height: 150px;
+    margin:auto;
+    position: relative;
+    top:-20px;
+    background-position: center;
+    background-size: 100% 100%;
+    text-align: center;
+    line-height: 150px;
+    font-size: 1.5em;
+}
+.tscore_info_head{
+    width: 100%;
+    background-color: #eee;
+    height: 40px;
+    line-height: 40px;
+    font-size: 0.8em;
+    padding-left: 10px;
+}
+.tscore_info_list li{
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid #eee;
+    color:#666;
+    font-size: 0.8em;
+    padding-left:15px;
+}
+.tscore_info_list li span{
+    color: #ff0033;
+    display: inline-block;
+    width: 30px;
+    height: 20px;
+    border: 1px solid #ff0033;
+    border-radius: 5px;
+    line-height: 20px;
+    text-align: center;
+    margin-top: 10px;
+    float: right;
+    margin-right: 20px;
+}
+.tscore_info_head span{
+    color: #ff0033;
+}
+.list_img{
+    width: 45px;
+    height: 45px;
+}
+.message_plus{
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 2em;
+    float: left;
+    margin-top:5px;
+    margin-right: 5px;
+}
+.other_type_msg{
+    position: fixed;
+    bottom: 0px;
+    z-index: 999;
+    width: 100%;
+    height: 150px;
+    background-color: #f2f2f2;
+    display: none;
+}
+.close_msg{
+    position: absolute;
+    right: 3px;
+    width: 20px;
+    height: 20px;
+    font-size: 1.8em;
+    top: -9px;
+}
+.other_type_msg ul{
+    list-style: none;
+    padding-left: 0px;
+}
+.other_type_msg ul li:first-child{
+    margin-left: 20px;
+}
+.other_type_msg ul li{
+    width: 50px;
+    height: 50px;
+    float: left;
+    margin-top:10px;
+    border: 1px solid #ccc;
+    color: #777;
+    border-radius: 10px;
+    line-height: 50px;
+    font-size: 32px;
+    text-align: center;
+    margin-left: -30px;
+}
+
+.other_type_msg  span{
+    font-size: 14px;
+    display:block;
+    float: left;
+    width: 50px;
+    text-align: center;
+    position: relative;
+    top:65px;
+    left: -50px;
+}
+.clear{
+    clear: both;
+}

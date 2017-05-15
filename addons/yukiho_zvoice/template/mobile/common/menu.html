@@ -1,0 +1,11 @@
+<body class="dual-sidebar">
+	<div id="footer-fixed" class="footer-menu footer-light">
+        {php $footerbars = M('quickmenu')->getall();}
+        {loop $footerbars $footer}
+        {php $menus = $this->getMenus()}
+        {php $menu = $menus[$footer['ido']]}
+		<a href="{php echo $footer['link']}" class="{if $_GPC['do']==$footer['ido']}active-footer-item{/if} footer-mobile"><i class="{php echo $footer['icon']}"></i>{$footer['title']}</a>
+        {/loop}
+	</div>
+	<div class="gallery-fix"></div>
+	<div class="all-elements">

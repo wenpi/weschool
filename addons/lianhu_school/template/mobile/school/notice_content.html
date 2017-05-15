@@ -1,0 +1,52 @@
+{template 'school/app_header'}
+<body>
+  <section class="w-section mobile-wrapper">
+    <div class="page-content" id="main-stack">
+      <div class="w-nav navbar" data-collapse="all" data-animation="over-left" data-duration="400" data-contain="1" data-easing="ease-out-quint" data-no-scroll="1">
+        <div class="w-container">
+          <div class="wrapper-mask" data-ix="menu-mask"></div>
+          <div class="navbar-title">{$simple_title}</div>
+          <a class="w-inline-block navbar-button" href="{php echo $this->createMobileUrl("school_notice")}" data-load="1">
+            <div class="navbar-button-icon icon ion-ios-close-empty"></div>
+          </a>
+        </div>
+      </div>
+      <div class="body">
+        <div class="news-container item-new">
+        <div>
+            {if $result['img']}
+                        <div class="image-new" style="background-image:url({$_W['attachurl']}{$result['img']})"></div>
+            {/if}
+            <div class="text-new no-borders">
+              <div class="separator-fields"></div>
+              <h2 class="title-new">{$result['msg_title']}</h2>
+              <div class="separator-fields"></div>
+              <p class="description-new">
+                  {php echo htmlspecialchars_decode($result['msg_content']);}
+              </p>
+              <div class="w-clearfix">
+                <div class="w-widget w-widget-facebook social-block">
+                  <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Ffacebook.com%2Fsensationhemes&amp;layout=button_count&amp;locale=en_US&amp;action=like&amp;show_faces=false&amp;share=false" scrolling="no" frameborder="0" allowtransparency="true" style="border: none; overflow: hidden; width: 92px; height: 20px;"></iframe>
+                </div>
+                <div class="w-widget w-widget-twitter social-block">
+                  <iframe src="https://platform.twitter.com/widgets/tweet_button.html#url=http%3A%2F%2Fsensationthemes.com&amp;counturl=sensationthemes.com&amp;text=Check%20out%20this%20site&amp;count=horizontal&amp;size=m&amp;dnt=true" scrolling="no" frameborder="0" allowtransparency="true" style="border: none; overflow: hidden; width: 110px; height: 20px;"></iframe>
+                </div>
+                <div class="w-widget w-widget-gplus social-block">
+                  <div class="g-plusone" data-href="http://sensationthemes.com" data-size="medium" data-annotation="bubble" data-width="120" data-recommendations="false" id="___plusone_2" style="width: 90px; height: 20px; text-indent: 0px; margin: 0px; padding: 0px; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; background: transparent;"></div>
+                </div>
+              </div>
+              <div class="separator-bottom"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="page-content loading-mask" id="new-stack">
+      <div class="loading-icon">
+        <div class="navbar-button-icon icon ion-load-d"></div>
+      </div>
+    </div>
+  </section>
+{template 'school/app_footer'}
+</body>
+</html>

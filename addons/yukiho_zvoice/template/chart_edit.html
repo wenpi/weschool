@@ -1,0 +1,93 @@
+{if empty($_W['isajax'])}
+{template 'common/header'}
+{template 'navs'}
+{/if}
+<div class="panel panel-default">
+    <div class="panel-heading">
+        添加专题讨论
+    </div>
+    <div class="panel-body">
+        <form action="" method="post"  class="form-horizontal" enctype="multipart/form-data">
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-2 col-md-2 col-lg-1 control-label">标题</label>
+                <div class="col-sm-8 col-lg-9 col-xs-12">
+                    <input type="text" name="title" placeholder="" value="{$item['title']}" class="form-control"/>
+                    <span class="help-block"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-2 col-md-2 col-lg-1 control-label">正方观点</label>
+                <div class="col-sm-8 col-lg-9 col-xs-12">
+                    <input type="text" name="option1" placeholder="" value="{$item['option1']}" class="form-control"/>
+                    <span class="help-block"></span>
+                </div>
+            </div>            
+			<div class="form-group">
+                <label class="col-xs-12 col-sm-2 col-md-2 col-lg-1 control-label">反方观点</label>
+                <div class="col-sm-8 col-lg-9 col-xs-12">
+                    <input type="text" name="option2" placeholder="" value="{$item['option2']}" class="form-control"/>
+                    <span class="help-block"></span>
+                </div>
+            </div>    
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-2 col-md-2 col-lg-1 control-label">主题缩略图</label>
+                <div class="col-sm-8 col-lg-9 col-xs-12">
+                    {php echo tpl_form_field_image('image',$item['image'])}
+                    <span class="help-block"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-2 col-md-2 col-lg-1 control-label">简介</label>
+                <div class="col-sm-8 col-lg-9 col-xs-12">
+                    <textarea name="description"  class="form-control" id="" cols="30" rows="10">{$item['description']}</textarea>
+                    <span class="help-block"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-2 col-md-2 col-lg-1 control-label">回答权限设置</label>
+                <div class="col-sm-8 col-lg-9 col-xs-12">
+                    {php $groups = M('mc_groups')->getall();}
+                    {loop $groups $group}
+                    <label class="checkbox-inline">
+                        <input type="checkbox" name="user_group[]" {if in_array($group['groupid'],$item['user_group'])}checked="checked"{/if} value="{$group['groupid']}">{$group['title']}
+                    </label>
+                    {/loop}
+                    <span class="help-block"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-2 col-md-2 col-lg-1 control-label">必须关注</label>
+                <div class="col-sm-8 col-lg-9 col-xs-12">
+                    <label class="radio-inline">
+                        <input type="radio" name="follow" value="1" {if $item['follow']==1}checked="checked"{/if}> 开启
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="follow" value="0" {if $item['follow']==0}checked="checked"{/if}> 关闭
+                    </label>
+                    <span class="help-block"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-2 col-md-2 col-lg-1 control-label">开启</label>
+                <div class="col-sm-8 col-lg-9 col-xs-12">
+                    <label class="radio-inline">
+                        <input type="radio" name="status" value="1" {if $item['status']==1}checked="checked"{/if}> 开启
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="status" value="0" {if $item['status']==0}checked="checked"{/if}> 关闭
+                    </label>
+                    <span class="help-block"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-md-offset-2 col-lg-offset-1 col-xs-12 col-sm-10 col-md-10 col-lg-11">
+                    <input name="submit" type="submit" value="提交" class="btn btn-primary span3" />
+                    <input type="hidden" name="token" value="{$_W['token']}" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{if empty($_W['isajax'])}
+{template 'common/footer'}
+{/if}

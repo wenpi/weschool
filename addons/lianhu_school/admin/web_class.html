@@ -1,0 +1,287 @@
+   {template '../admin/head'}
+        {template '../admin/header'}
+        <div class="page-container">
+        {template '../admin/left'}
+            <div class="page-content-wrapper">
+                <div class="page-content">
+                {template '../admin/sidebar'}
+                    <h1 class="page-title"> {$_SESSION['school_name']}
+                            <small> {$title} </small>
+                    </h1>
+                {if $ac =='edit'|| $ac=='new' }
+                     <div class="row">
+                        <div class="col-md-12">
+                             <div class="portlet light ">
+                                <div class="portlet-title">
+                                    <div class="caption font-green-haze">
+                                        <i class="fa fa-edit font-green-haze"></i>
+                                        <span class="caption-subject bold uppercase"> {if $ac=='new'}新增班级{else}修改{/if} </span>
+                                    </div>
+                                    <div class="actions">
+                                        <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="javascript:;" data-original-title="" title=""> </a>
+                                    </div>
+                                </div>
+                                  <div class="portlet-body form">
+                                    <form action="" method="post" class="form-horizontal form" enctype="multipart/form-data" id="form1"  >
+                                              <div class="form-group form-md-line-input">
+                                                <label class="col-md-2 control-label"><span class="required" aria-required="true"> * </span>班级名</label>
+                                                    <div class="col-md-10">
+                                                        <input type="text" class="form-control"  placeholder="班级名" value="{$result['class_name']}" name='class_name' required >
+                                                        {if $ac=='edit'}
+                                                            <input type="hidden" name="id"  class="form-control" value='{$result['class_id']}' />
+                                                        {/if}
+                                                        <div class="form-control-focus"> </div>
+                                                    </div>
+                                            </div>
+                                               <div class="form-group form-md-line-input">
+                                                <label class="col-md-2 control-label">班级公告分类</label>
+                                                    <div class="col-md-10">
+                                                        <input type="text" class="form-control"  placeholder="班级公告||班级食谱||班级相册" value="{$result['msg_class']}" name='msg_class'   >
+                                                        <div class="form-control-focus"> </div>
+                                                        <span class="help-block">默认使用学校统一设置班级公告分类，每个不同的类别以||分开【最佳三个分类】</span>
+                                                    </div>
+                                            </div>       
+                                             <div class="form-group form-md-line-input"  id='mutex_content'>
+                                                    <label class=" col-md-2 control-label"><span style='color:red'>*</span>课程</label>
+                                                    <div class="col-sm-10">
+                                                        {if $ac=='edit'}
+                                                            {php $result['course_arr'] = unserialize($result['course_ids']);}
+                                                        {/if}
+                                                             <select name="course_s[]" id='pre-selected-options'  multiple="multiple" class="multi-select"  >
+                                                                {loop $course_list $vo}
+                                                                       {if !in_array($vo['course_id'],$result['course_arr'])}
+                                                                           <option value='{$vo['course_id']}'> {$vo['course_name']}</option>
+                                                                       {else}
+                                                                           <option value='{$vo['course_id']}' selected> {$vo['course_name']}</option>
+                                                                       {/if}
+                                                                {/loop}
+                                                          </select>
+                                                    </div>
+                                            </div>
+
+                                     	    
+                                            <div class='form-group form-md-line-input '>
+                                                <label class="col-md-2 control-label"><span style='color:red'>*</span>监控视频</label>
+                                                <div class="col-sm-10">
+                                                    {if $ac=='edit'}
+                                                        {php $result['video_arr']=unserialize($result['video_ids']);}
+                                                    {/if}
+                                                    <select name="video_s[]" id='pre-selected-options-2'  multiple="multiple" class="multi-select"  >
+                                                                {loop $video_list $vo}
+                                                                       {if !in_array($vo['video_id'],$result['video_arr'])}
+                                                                           <option value='{$vo['video_id']}'> {$vo['video_name']}</option>
+                                                                       {else}
+                                                                           <option value='{$vo['video_id']}' selected> {$vo['video_name']}</option>
+                                                                       {/if}
+                                                                {/loop}
+                                                   </select>
+                                                </div>	
+                                            </div>        
+
+                                            <div class='form-group form-md-line-input '>
+                                                <label class="col-md-2 control-label"><span style='color:red'>*</span>选择年级</label>
+                                                <div class="col-sm-10">
+                                                <select name='grade_id' class="form-control">
+                                                    {loop $grade_list $row}
+                                                        <option value='{$row['grade_id']}' {if $row['grade_id'] ==$result['grade_id']} selected {/if}>{$row['grade_name']}</option>
+                                                    {/loop}
+                                                </select>
+                                                </div>	
+                                            </div>
+                                            {if   Au('src/codeShop')->getCode('xuznfenqu')  }
+                                                {php $num = Au("fenqu/action")->checkNoUseChannel();}
+                                                    <div class='form-group form-md-line-input '>
+                                                        <label class="col-md-2 control-label">选择频道</label>
+                                                        <div class="col-sm-10">
+                                                        <select name='channel_id' class="form-control">
+                                                            {if $result['channel_id'] }
+                                                                <option value='{$result['channel_id']}' selected>{$result['channel_id']}</option>
+                                                            {/if}
+                                                            
+                                                            {loop $num $row}
+                                                                <option value='{$row}' >{$row}</option>
+                                                            {/loop}
+                                                        </select>
+                                                        </div>	
+                                                    </div>             
+                                                    <div class="form-group form-md-line-input">
+                                                        <label class="col-md-2 control-label">播报内容</label>
+                                                            <div class="col-md-10">
+                                                                <input type="text" class="form-control"  value="{$result['channel_content']}" name='channel_content'  >
+                                                                <div class="form-control-focus"> </div>
+                                                            </div>
+                                                    </div>
+                                                    <div class="form-group form-md-line-input">
+                                                        <label class="col-md-2 control-label">播报备注</label>
+                                                            <div class="col-md-10">
+                                                                <input type="text" class="form-control" value="{$result['channel_intro']}" name='channel_intro'  >
+                                                                <div class="form-control-focus"> </div>
+                                                            </div>
+                                                    </div>                                                                                                                                
+                                            {/if}
+
+
+                                            {if $ac=='edit'}
+                                                <div class='form-group form-md-line-input '>
+                                                    <label class=" col-md-2 control-label"><span style='color:red'>*</span>班主任</label>
+                                                    <div class="col-sm-10">
+                                                    <select name='teacher_id' class="form-control" >
+                                                        {loop $list_teacher $row}
+                                                            <option value='{$row['teacher_id']}' {if $row['teacher_id']==$result['teacher_id']} selected {/if}>{$row['teacher_realname']}</option>
+                                                        {/loop}
+                                                    </select>
+                                                    </div>							
+                                                </div>
+                                                <div class="form-group  form-md-line-input">
+                                                    <label class="col-md-2 control-label"  >学生刷卡消息是否推送给班主任</label>
+                                                    <div class="col-md-10">
+                                                        <input type="checkbox"  value='1'  {if $result['student_in_send']==1} checked {/if}  class="make-switch" name="student_in_send" data-on-text="发送" data-off-text="不发送">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group form-md-line-input">
+                                                    <label class="col-md-2 control-label" for="form_control_1">班级圈页首图【980*400】</label>
+                                                    <div class="col-md-10">
+                                                        {php echo upImg('line_img',$result['line_img'] ,$this);}
+                                                    </div>
+                                                </div>                                 
+                                                <div class='form-group form-md-line-input ' >
+                                                <label class=" col-md-2 control-label"><span style='color:red'>*</span>状态</label>
+                                                <div class="col-sm-10 ">
+                                                <select name='status' class="form-control" >
+                                                        <option value='1' {if 1 ==$result['status']} selected {/if}>正常</option>
+                                                        <option value='3' {if 3 ==$result['status']} selected {/if}>关闭</option>
+                                                </select>
+                                                </div>							
+                                                </div>
+                                            {/if}
+
+                                            <div class="form-actions">
+                                                <div class="row">
+                                                    <div class="col-md-offset-2 col-md-10">
+                                                        <input type="submit" name="submit" class="btn blue" value="确认">
+                                                    </div>
+                                                </div>
+                                            </div>                                                                                
+                                    </form>
+                                  </div>    
+                             </div>            
+                      </div>                 
+                     </div>
+                {/if}
+                {if $ac=='list'}
+                          <div class="portlet light bordered">
+                                            <div class="portlet-title">
+                                                <div class="caption">
+                                                    <i class="fa fa-paper-plane font-red-sunglo"></i>
+                                                    <span class="caption-subject font-red-sunglo bold uppercase">搜索</span>
+                                                    <span class="caption-helper">给出条件，筛选班级</span>
+                                                </div>
+                                            </div>
+                                            <div class="portlet-body form">
+                                                <!-- BEGIN FORM-->
+                                                <form action="./index.php" method="get" class="form-horizontal">
+                                                    	<input type="hidden" name="c" value="site" />
+                                                        <input type="hidden" name="a" value="entry" />
+                                                        <input type="hidden" name="m" value="lianhu_school" />
+                                                        <input type="hidden" name="do" value="class" />
+                                                        <input type="hidden" name="ac" value="list" />
+                                                        <input type="hidden" name="aw" value="1" />
+                                                        <div class="form-group ">
+                                                          <label class="control-label col-md-3">年级</label>
+                                                             <div class="col-md-4">
+                                                                        <select name="grade_id" class="form-control">
+                                                                            <option value='0'>全部</option>
+                                                                            {loop $grade_list $row}
+                                                                                <option value='{$row['grade_id']}' {if $_GPC['grade_id'] ==$row['grade_id']} selected {/if}>{$row['grade_name']}</option>
+                                                                            {/loop}
+                                                                         </select>
+                                                             </div>
+                                                        </div>
+                                                         <div class="form-group last">
+                                                          <label class="control-label col-md-3">状态</label>
+                                                             <div class="col-md-4">
+                                                                        <select name="status" class="form-control">
+                                                                            <option value='0'>全部</option>
+                                                                            <option value="1" {if $_GPC['status'] == '1'} selected{/if}>正常</option>
+                                                                            <option value="3" {if $_GPC['status'] == '3'} selected{/if}>关闭</option>
+                                                                        </select>
+                                                             </div>
+                                                        </div>                                                       
+                                                    <div class="form-actions">
+                                                            <div class="row">
+                                                                <div class="col-md-offset-2 col-md-10">
+                                                                    <input type="submit" name="submit" class="btn blue" value="确认搜索"></button>
+                                                                </div>
+                                                            </div>
+                                                    </div>   
+                                                </form>
+                                              </div>
+                             </div>
+                 <div class="row">
+                        <div class="col-md-12">
+                            <div class="portlet box green-turquoise">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <i class="fa fa-cogs"></i>班级列表 </div>
+                                    <div class="tools">
+                                        <a href="javascript:;" class="collapse"> </a>
+                                    </div>
+                                </div>
+                                <div class="portlet-body flip-scroll">
+                                    <table class="table table-bordered table-striped table-condensed flip-content table-light"  id="sample_3">
+                                        <thead class="flip-content">
+                                            <tr>
+                                                <th> 班级</th>
+                                                <th> 班主任 </th>
+                                                <th> 学生数 </th>
+                                                <th> 有绑定的学生数（主） </th>
+                                                <th> 年级 </th>
+                                                <th> 状态 </th>
+                                                <th>  </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                         {php $class_student= D('student');}
+                                         {loop $list $item}
+                                            <tr>
+                                                <td>  {$item['grade_name']}&nbsp;  <i class="fa fa-toggle-right"></i>&nbsp;{$item['class_name']} </td>
+                                                <td>  <span class="label label-sm label-info">{$item['teacher_realname']}</span>  </td>
+                                                <td>  {php echo $this->classStudentNum($item['class_id']);} </td>
+                                                {php $class_student->_set('class_id',$item['class_id']);}
+                                                {php $info = $class_student->getGradeClassStudent();}
+                                                <td> {$info['bangding_count']}</td>
+                                                <td> <a  class="label label-sm label-success" href="{php echo $this->createWebUrl('class',array('grade_id'=>$item['grade_id'],'aw'=>1 ))}">{$item['grade_name']}</a> </td>
+                                                <td> <span class='label label-sm label-warning'>	{if $item['status'] ==1}正常{else}关闭{/if} </span></td>
+                                                <td>
+                                                        <a  href="{php echo $this->createWebUrl('class', array('ac' => 'edit','id'=>$item['class_id'],'aw'=>1))}" class="btn blue">
+                                                                    <i class="fa fa-edit"></i> 编辑 </a>
+                                                        <a href="{php echo $this->createWebUrl('class', array('ac' => 'delete','id'=>$item['class_id'] ,'aw'=>1 ))}" 
+                                                            onclick="return confirm('此操作不可恢复，确认删除？');"
+                                                            class="btn red" title="删除"><i class="fa fa-trash-o"></i>
+                                                            删除
+                                                        </a>  
+                                                </td>                          
+                                            </tr>
+                                        	{/loop}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                {/if}
+        </div>
+        </div>
+         {template '../admin/right'}
+        </div>
+        <script src="{MODULE_URL}/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+        {template '../admin/footer'}     
+        {if $ac=='list'}
+            {php $order_self = "[0,asc]"}
+            {template '../admin/table_script'}         
+        {else}
+            {template '../admin/mutilSelect'}
+        {/if}
+        </body>
+    </html>

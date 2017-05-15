@@ -1,0 +1,12 @@
+{loop $themes['list'] $theme}
+<li style="background-image:url({php echo tomedia($theme['image'])});">
+    <a href="{php echo $this->createMobileUrl('themes_detail',array('id'=>$theme['id']))}">
+        <p>{$theme['title']}</p>
+        <p class="description">
+            <span>{$theme['desc']}</span>
+            <span>{php echo M('themes_answer')->getTotal($theme['id'])}</span>
+            <span>人</span>
+        </p>
+    </a>
+</li>
+{/loop}

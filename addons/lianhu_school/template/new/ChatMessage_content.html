@@ -1,0 +1,47 @@
+          {loop $out_list $row}
+                <li class=" list-chat {if $row['type']=='main' } right {/if}" data-ix="list-item">
+                 {if $row['type']=='other' }
+                    <div class=" column-left chat">
+                        <div class="image-message chat">
+                            <div data-src='left' style="background-image: url({if $row['teacher_id']} {$teacher_img} 
+                            {elseif  $row['to_teacher_id']&& $_GPC['type'] =='teacher' }  
+                                {$to_teacher_img}
+                            {elseif $row['to_student_id']}
+                                {$to_student_img}
+                            {else}
+                                {$student_img}
+                             {/if});width: 100%;height: 100%;background-size: 100%">
+                             </div>
+                        </div>
+                    </div>                
+                  {/if}
+                <div class="w-clearfix column-right chat {if $row['type']=='main' } right {/if} " >
+                    {if $row['teacher_id'] && !$_GPC['o_id']}
+                            <div class="chat-time  {if $row['type']=='main' } right  {/if}" style="width: 100%; {if $row['type']=='main' } text-align: right; {/if} color:#666" >{$teacher_name}</div>
+                    {elseif $row['to_teacher_id'] && $_GPC['type'] =='teacher' }
+
+                            <div class="chat-time  {if $row['type']=='main' } right  {/if}" style="width: 100%; {if $row['type']=='main' } text-align: right; {/if} color:#666" > {if $row['type']!='main' }{$to_teacher_name}{/if}</div>
+                            
+                    {elseif $row['to_student_id']}
+                            <div class="chat-time  {if $row['type']=='main' } right  {/if}" style="width: 100%; {if $row['type']=='main' } text-align: right; {/if} color:#666" >
+                        {if $row['type']!='main' }
+                                {$to_student_name}[{php $fanid = D('base')->mobileGetFanidByUid($row['mobile_uid']);}{php echo D('student')->getRelation($row['to_student_id'],$fanid);}]</div>
+                        {/if}
+                    {else}
+                            <div class="chat-time  {if $row['type']=='main' } right {/if}" style=" width: 100%; {if $row['type']=='main' } text-align: right; {/if} color:#666" >{$student_name}[{$row['relation']}]</div>
+                    {/if}
+                        {loop $row['display_content'] $k $val}
+                            <div class="chat-text  {if $row['type']=='main' } right {/if}"  {if  $k =='voice'} style="width: 130px;overflow: hidden"{/if}>
+                            {if  $k =='img'}
+                                <img src="{php echo $this->imgFrom($val)}" style="height: auto;"  onclick="displayImageThis('{php echo $this->imgFrom($val)}')" >
+                            {elseif $k =='text'}
+                                {$val}
+                            {elseif $k =='voice'}
+                                <audio preload="auto"  style="width: 100px;overflow: hidden" controls   src="{php echo $this->imgFrom($val)}" ></audio>
+                            {/if}
+                            </div>
+                        {/loop}
+                    <div class="chat-time  {if $row['type']=='main' } right {/if}">{php echo date("m-d H:i",$row['add_time'])}</div>
+                </div>
+                </li>          
+          {/loop}

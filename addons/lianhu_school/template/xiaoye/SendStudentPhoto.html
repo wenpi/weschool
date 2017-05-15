@@ -1,0 +1,14 @@
+{template '../xiaoye/newHead'}
+<body>
+    <div class="z_main">
+        <form  enctype="multipart/form-data" id="new_article" method="post" class="post-form" > 
+            <input name="title" placeholder="此处输入标题" style="height: 50px;" class="z_xas"  >
+            {php $video='no'}
+            {template '../xiaoye/upimg'}
+            <input  type="submit"  name="submit" id="pingl3" value="发布"  class="pinglun44">
+        </form>
+    </div>
+    {template 'jsweixin'}
+   {template '../xiaoye/newStudentFooter'}
+</body>
+</html>

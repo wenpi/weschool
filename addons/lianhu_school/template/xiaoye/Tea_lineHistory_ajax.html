@@ -1,0 +1,23 @@
+		{loop $list $item}
+            <li class="ggrn" id="line_{$item['line_id']}">
+                <div class="gg_t">
+                    <div class="gg_tx"><div style="background-image:url({php echo D('teacher')->teacherImg($item['teacher_id']);});" class="line_head_imghistory"></div></div>
+                    <div class="gg_nr">
+                        <div class="gg_n1"><p>{if $item['teacher_realname']}{$item['teacher_realname']}{else}管理员{/if}</p></div>
+                        <div class="gg_n2">{php echo date("Y-m-d H:i:s",$item['addtime'])}</div>
+                    </div>
+                </div>
+                <div class="ggnr">
+                    <div class="grb"><a href="#">【{$line_type_cfg[$item['line_type']]}】{$item['line_title']}</a></div>
+                    <div class="grr"><a href="#">{php echo $this->clear_html_short($item['line_content']);} </a></div>
+                    <div class="grc">
+                    <div class="grc1"><img src="{MODULE_URL}/template/xiaoye/upimg/teacherimg/ck.png"><p>{$item['line_look']}</p></div>
+                        <div class="yz2">
+                                <div class="yzz  gggg"><a href="javascript:;" onclick="deleteThis('{$item['line_id']}','line')">删除</a></div>
+                                <div class="yzz lv gggg"><a href="{php echo $this->createMobileUrl('Tea_line',array('ac'=>'edit','lid'=>$item['line_id']))}">编辑</a></div>
+                                </div>
+                    </div>
+                </div>
+                <div class="kzk"></div>
+            </li>        
+        {/loop}

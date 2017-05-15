@@ -1,0 +1,87 @@
+{template 'common/header'}
+{template 'common'}
+<ul class="nav nav-tabs">
+	<li {if  $ac == 'list'}class="active"{/if}>
+    	<a href="{php echo $this->createWebUrl('msg',array('que_num'=>$que_num));}">消息队列处理界面（直到提示完成请勿关闭）</a>
+	</li>
+</ul>
+<div class="main">
+	<div class="panel-body table-responsive">
+		<table class="table table-hover">
+			<thead class="navbar-inner">
+				<tr>
+					<th>昵称</th>
+					<th>手机号</th>
+					<th>发送类别</th>
+					<th>添加时间</th>
+					<th>结束时间</th>
+					<th>状态</th>
+				</tr>
+			</thead>
+			<tbody id="queue_line">
+				{loop $list $item}
+                {php $result=mc_fansinfo($item['openid']);}
+				<tr data-id='{$item['queue_id']}' data-status='{$item['queue_status']}'>
+					<td>{$result['nickname']}</td>
+					<td>{$item['mobile']}</td>
+                    <td>{if $item['queue_type']== 1}模板消息{/if}{if $item['queue_type']== 2}客服消息{/if}{if $item['queue_type']== 3}短信{/if}</td>
+					<td>{php echo date("Y-m-d H:i:s",$item['add_time']);}</td>
+					<td class='end_time'>{if $item['end_time'] }{php echo date("Y-m-d H:i:s",$item['end_time']);}{/if}</td>
+					<td class='status'>{if $item['queue_status'] ==1}未发送{/if}{if $item['queue_status'] ==2}已经发送{/if}{if $item['queue_status'] ==3}<span style='color:#ff0033'>发送失败</span>{/if}</td>
+				</tr>
+				{/loop}
+			</tbody>
+		</table>
+	</div>
+</div>
+<script>
+    var page=0;
+    var xid=0;
+    var count={$count};
+    $(function(){
+      if(count>0){
+        if(confirm("确认将进入发送进程，未发送完请勿关闭此网页")){
+              xid=setInterval("getNextSend()",1000);
+          }
+      }else{
+          alert("没有需要发送的");
+          return false;  
+    }
+    });
+    function getNextSend(){
+       var send=false;
+       all_list=$('#queue_line').find("tr");
+       $.each(all_list,function(i,e){
+           if($(this).attr('data-status')==1){
+               ajaxUp($(this).attr("data-id"),$(this));
+               send=true;
+               return false;
+           }
+       });
+       if(!send){
+           clearInterval(xid);
+           alert("已经全部发送完毕！");     
+       }
+    }
+    function ajaxUp(queue_id,obj){
+        $.ajax({
+          type:"POST",
+          url:'{php echo $this->createWebUrl("ajax");}',            
+          async:'false',
+          dataType:'json',
+          data:{queue_id:queue_id,ac:'send_msg_line'},
+          success:function(dataJson){
+              changeStatus(dataJson.status,dataJson.end_time,obj);
+          } 
+      });
+    }    
+    function changeStatus(status,end_time,obj){
+        obj.find(".end_time").html(end_time);     
+        obj.attr('data-status',status);
+        if(status==2){
+            obj.find(".status").html('发送成功');     
+       }else if(status==3){
+            obj.find(".status").html('<span style="color:#ff0033">发送失败</span>'); 
+       }
+    }
+</script>

@@ -1,0 +1,147 @@
+{php $g_title='信息修改'}
+{php $menu='4'}
+{template 'common/header1'} 
+{template 'common/menu'}
+		<div id="content" class="snap-content">
+			<div class="content">
+				<div class="one-half-responsive">
+					<div class="container heading-style-5"></div>
+				</div>
+				<form method="post" action="" id="contactForm" class="contactForm" enctype="multipart/form-data">
+					<input type="hidden" name="MAX_FILE_SIZE" value="2000000">
+					<fieldset>
+						<div class="formFieldWrap" style="padding-bottom:5px;">
+							<label class="field-title contactNameField" for="contactNameField">我喜欢的类目: <span>显示所选类目</span></label>
+							<div class="portfolio-filter-categories2">
+								{php $category = M('category')->getMySettingList()}
+								{loop $category $c}
+								<a id="{$c['id']}" class="subject filter-category {if !empty($c['checked'])}selected-filter{/if}">{$c['title']}</a>
+								{/loop}
+							</div>
+						</div>
+						<div class="formFieldWrap">
+							<label class="field-title contactNameField" for="contactNameField">主页封面设置：<span>建议宽高比为4:3</span></label>
+							<span onclick="openFile();" style="border: 1px dotted #cacaca" type="text" name="credit" id="credit" class="contactField requiredField"><a style="font-size:15px;padding-left:37%;color:#666;">+ 添加图片</a></span>
+							<input onchange="selectFileImage(this);"  style="display:none;" id="home_cover" name="home_cover" type="file" accept="image/*" class="contactField">
+						</div>
+						<input type="hidden" id="status" value="{$member['status']}" />
+						<input type="hidden" name="token" value="{$_W['token']}" />
+						<div class="formSubmitButtonErrorsWrap contactFormButton">
+							<input type="button" class="buttonWrap button button-green contactSubmitButton"
+								id="save" value="保存信息">
+						</div>					
+						<div class="clear"></div>
+						<div class="formTextareaWrap" id="imagePreviewDiv" style="display:none">
+							<label class="field-title contactMessageTextarea"
+								for="contactMessageTextarea">图片预览： <span>仅仅是预览而已</span></label>
+							<img id="imagePreview"></img>
+						</div>
+					</fieldset>
+				</form>
+			</div>
+		</div>
+	</div>
+	<script src="{MODULE_URL}public/libs/upload_file/mobileBUGFix.mini.js" type="text/javascript" ></script>
+	<script src="{MODULE_URL}public/libs/upload_file/base64upload.js" type="text/javascript" ></script>
+	<script src="{MODULE_URL}public/libs/upload_file/exif.js" type="text/javascript" ></script>
+	<script>
+	var imagePath;
+	
+	function openFile(){
+		$('#home_cover').click();
+	}
+	
+	function selectFileImage(fileObj) {  
+		var file = fileObj.files['0'];  
+		//图片方向角 added by lzk  
+		var Orientation = null;  
+		if (file) {  
+			var rFilter = /^(image\/jpeg|image\/png)$/i; // 检查图片格式  
+			if (!rFilter.test(file.type)) {  
+				//showMyTips("请选择jpeg、png格式的图片", false);  
+				return;  
+			}  
+			// var URL = URL || webkitURL;  
+			//获取照片方向角属性，用户旋转控制  
+			EXIF.getData(file, function() {  
+			   // alert(EXIF.pretty(this));  
+				EXIF.getAllTags(this);   
+				//alert(EXIF.getTag(this, 'Orientation'));   
+				Orientation = EXIF.getTag(this, 'Orientation');  
+				//return;  
+			});  
+			  
+			var oReader = new FileReader();  
+			oReader.onload = function(e) {  
+				//var blob = URL.createObjectURL(file);  
+				//_compress(blob, file, basePath);  
+				var image = new Image();  
+				image.src = e.target.result;  
+				image.onload = function() {  
+					var expectWidth = this.naturalWidth;  
+					var expectHeight = this.naturalHeight;  
+					  
+					if (this.naturalWidth > this.naturalHeight && this.naturalWidth > 800) {  
+						expectWidth = 800;  
+						expectHeight = expectWidth * this.naturalHeight / this.naturalWidth;  
+					} else if (this.naturalHeight > this.naturalWidth && this.naturalHeight > 1200) {  
+						expectHeight = 1200;  
+						expectWidth = expectHeight * this.naturalWidth / this.naturalHeight;  
+					}  
+					//alert(expectWidth+','+expectHeight);  
+					var canvas = document.createElement("canvas");  
+					var ctx = canvas.getContext("2d");  
+					canvas.width = expectWidth;  
+					canvas.height = expectHeight;  
+					ctx.drawImage(this, 0, 0, expectWidth, expectHeight);  
+					var base64 = null;  
+					var mpImg = new MegaPixImage(image);  
+						mpImg.render(canvas, {  
+							maxWidth: 800,  
+							maxHeight: 1200,  
+							quality: 0.8,  
+							orientation: Orientation  
+						}); 
+					imagePath = canvas.toDataURL("image/jpeg", 0.8);  
+					  
+					$("#imagePreview").attr("src", imagePath);  
+					$("#imagePreview").css("width", "100%");  
+					$("#imagePreviewDiv").show(); 
+				};  
+			};  
+			oReader.readAsDataURL(file);  
+		}  
+	}  
+	
+    $('.filter-category').click(function(){
+        if($(this).hasClass("selected-filter")){
+			$(this).removeClass("selected-filter");
+		}else{
+			$(this).addClass("selected-filter");
+		}
+    });
+	/**
+    $('#home_cover').localResizeIMG({
+        quality: 0.8,
+        success: function (result) {
+            $('#attach').val(result.base64);
+        }
+    });*/
+    var post = {};
+    $('#save').click(function(){
+		var subjects = '';		
+		$(".selected-filter").each(function(){
+			subjects += $(this).attr("id")+",";
+		});
+        post.subjects = subjects;
+        post.image = imagePath;
+        $.post('',post,function(data){
+			console.log(data.message);
+            bingo(data.message,function(){
+				window.location.href = "{php echo $this->createMobileUrl('home')}";
+            });
+        },'json');
+        return false;
+    });
+	</script>
+</body>

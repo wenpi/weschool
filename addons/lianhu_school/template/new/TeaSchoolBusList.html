@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>{$page_title}-{$_SESSION['school_name']}</title>
+    {template 'common'}
+    {template 'tea_common'}
+    <link href="{MODULE_URL}style/css/line_css.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="{MODULE_URL}template/mobile/style/style_nav.css">
+</head>
+<div class="top-wrap">
+        <div class="fn-clear tr-box top bg_yellow" >
+            <div class='text_center white'>{$page_title}</div>
+        </div>
+ </div>  
+<div class="main" style='margin-bottom:60px;'>
+		<div class="panel-body table-responsive">
+            <table class="table table-hover">
+                <thead class="navbar-inner">
+                    <tr>
+                        <th>校车列表</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {loop $device_list $item}
+                        <tr>
+                            <td style="    border-bottom: 1px dashed #ccc;"><a href="{php echo  $this->createMobileUrl('TeaSchoolBus',array('id'=>$item['device_id']))}">{$item['device_name']}</a></td>
+                        </tr>
+                    {/loop}
+                </tbody>
+            </table>
+	</div>
+</div>
+<link href="{MODULE_URL}style/css/weui.min.css" rel="stylesheet" type="text/css" />
+{template '../new/tea_footer'}

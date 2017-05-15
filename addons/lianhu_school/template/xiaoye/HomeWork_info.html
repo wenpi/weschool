@@ -1,0 +1,38 @@
+{template '../xiaoye/newHead'}
+<script>
+    $( function(){
+        $( 'audio' ).audioPlayer();
+    });
+</script>
+    <div class="z_main">
+        <div class="TP">
+                <p>{php echo date("Y-m-d",$re['add_time']);}日{php echo $this->courseName($re['course_id']);}作业</p>
+                <p1>发布:{if $re['teacher_realname']}{$re['teacher_realname']}{else}管理员{/if}</p1>
+        </div>
+        <div class="head-solid"></div>
+        <div class="z_dp">
+                {if $re['voice']}
+                    <div id="">
+                        <audio preload="auto" controls src="{php echo $this->imgFrom($re['voice'])}">
+                        </audio>
+                    </div>                
+                {/if}
+                <div>
+                    <p>{php echo myHtmlspecialchars_decode($re['content'])}</p>
+                </div>
+                <div class="z_dpt3" id="img_list">
+                    {php $urls =  $this->decodeLineImgsToArr($re['img']);}
+                        {if $urls}
+                            {loop $urls  $val}
+                            <img src="{$val}"  onclick="displayImage('img_list','{$val}')">
+                            {/loop}
+                        {/if}           
+                </div>
+
+        </div>
+    </div>
+    {php $footer_type = 'center';}
+     {template '../xiaoye/newStudentFooter'}
+    {template 'jsweixin'}
+</body>
+</html>

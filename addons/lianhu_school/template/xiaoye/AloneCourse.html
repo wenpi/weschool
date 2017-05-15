@@ -1,0 +1,63 @@
+{template '../xiaoye/newHead'}
+<body>
+	<div class="z_main">
+		<div class="z_tx2">
+        {loop $list $row}
+            <div id="firstpane{$row['class_id']}" class="menu_list">
+                <h3 class="menu_head current">
+                    <div class="z_tx21"><img src="{MODULE_URL}/template/xiaoye/img/js.png"></div>
+                    <div class="z_tx22">{$row['class_name']}</div>
+                    <div class="z_tx23"><img src="{MODULE_URL}/template/xiaoye/img/jiantou.png"></div>
+                </h3>
+                <div  class="menu_body">
+                    <ul class="z_txx">
+                        {loop $row['course_list'] $val}
+                            <li>
+                                <div class="z_txx1"><img src="{php echo $this->imgFrom($val['img'])}"></div>
+                                <div class="z_txx2"><a href="{php echo $this->createMobileUrl('courseScanInfo',array('course_id'=>$val['course_id']))}"  style="color:#666" >{$val['course_name']}</a></div>
+                                {if $val['use_num']}
+                                    <div class="z_txx3" style="color:#999" >课时数：{$val['use_num']}</div>
+                                {elseif $val['buy_end']<$now_time}
+                                    <div class="z_txx3" style="color:#999" >已过时</div>
+                                {elseif $val['max_student_num'] <= $val['have_in']}
+                                    <div class="z_txx3" style="color:#999" >已满员</div>
+                                {else}
+                                    <div class="z_txx3"><a href="{$val['buy_url']}" style="color:#ff0033">[{$val['price']}元]去购买</a></div>
+                                {/if}
+                            </li>
+                        {/loop}
+                    </ul>
+                </div>
+            </div>       
+        {/loop}
+<style>
+    .z_txx2{
+        width: 40%;
+        overflow:hidden;
+    }
+    .z_txx3{
+        width: 100px;
+        text-align: center;
+        font-weight: 700;
+    }
+</style>
+<script>
+    $(document).ready(function(){
+        {php $g = 0;}
+        {loop $list $row}
+            {if $g==0}
+                $("#firstpane{$row['class_id']} .menu_body:eq(0)").show();
+            {/if}
+            
+            $("#firstpane{$row['class_id']} h3.menu_head").click(function(){
+                $(this).addClass("current").next("div.menu_body").slideToggle(300).siblings("div.menu_body").slideUp("slow");
+                $(this).siblings().removeClass("current");
+            });
+            {php $g++;}
+        {/loop}
+    });
+</script>
+</div>
+{template '../xiaoye/newStudentFooter'}
+</body>
+</html>

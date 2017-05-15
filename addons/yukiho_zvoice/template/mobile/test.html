@@ -1,0 +1,11 @@
+{template 'common/header'}
+
+<script>
+    navigator.getMedia = (navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia);
+    navigator.getMedia({video:true,audio:true},function(stream){
+        console.log(stream);
+    },function(code){
+        console.log(code);
+    });
+</script>
+{template 'common/footer'}

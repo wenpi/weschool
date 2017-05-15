@@ -1,0 +1,110 @@
+<ul class="nav nav-tabs">
+	<li {if $method == 'list'}class="active" {/if}>
+		<a href="{php echo $this->createWebUrl('systemFix',array('ac'=>'school_type_set','method'=>'list') )}">列表</a>
+	</li>
+	<li {if $method == 'edit'} class="active" {/if}>
+		<a href="{php echo $this->createWebUrl('systemFix',array('ac'=>'school_type_set','method'=>'edit') )}">编辑</a>
+	</li>
+	<li {if $method == 'new'} class="active" {/if}>
+		<a href="{php echo $this->createWebUrl('systemFix',array('ac'=>'school_type_set','method'=>'new') )}">新增</a>
+	</li>
+</ul>
+{if $method=='list'}
+<div class="main">
+	<div class="panel panel-info">
+	<div class="panel-heading">筛选</div>
+	<div class="panel-body">
+		<form action="{php echo $this->createWebUrl('systemfix',array('ac'=>'school_type_set'))}" method="post" class="form-horizontal" role="form">
+			<input type="hidden" name="method" value="list" />
+			<div class="form-group">
+				<label class="col-xs-12 col-sm-2 col-md-2 col-lg-1 control-label">学校类型</label>
+				<div class="col-xs-12 col-sm-8 col-lg-9">
+					<select name='school_type_id'>
+						<option value='0'>全部</option>
+						{loop $type_list $row}
+							<option value='{$row['id']}' {if $_GPC['school_type_id'] ==$row['id']} selected {/if}>{$row['name']}</option>
+						{/loop}
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<button class="btn btn-default"><i class="fa fa-search"></i> 搜索</button>
+			</div>
+		</form>
+	</div>
+</div>
+<div class="panel panel-default">
+	<div class="panel-body table-responsive">
+		<table class="table table-hover">
+			<thead class="navbar-inner">
+				<tr>
+					<th>学校类型</th>
+					<th>年级名</th>
+					<th>入学年份数</th>
+					<th>时间</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				{loop $list $item}
+				<tr>
+					<td>{php echo S("school","getSchoolTypeName",array($item['school_type']));}</td>
+					<td>{$item['grade_name']}</td>
+					<td>{$item['grade_sort']}</td>
+	                <td>{php echo date("Y-m-d H:i:s",$item['add_time']);}</td>
+					<td >
+						<a href="{php echo $this->createWebUrl('systemfix', array('id' => $item['type_id'],'method'=>'edit','ac'=>'school_type_set'))}"
+                            class="btn btn-default btn-sm" data-toggle="tooltip" data-placement="top" title="编辑"><i class="fa fa-pencil"></i></a>&nbsp;&nbsp;
+					</td>
+				</tr>
+				{/loop}
+			</tbody>
+		</table>
+	</div>
+	</div>
+</div>
+{/if}
+{if $method=='new' || $method=='edit'}
+	<div class="main">
+	<form action="" method="post" class="form-horizontal form" enctype="multipart/form-data" id="form1">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				{if $ac=='new'}新增{else}修改{/if}
+			</div>
+			<div class="panel-body">
+				<div class="tab-content">
+                    <div class='form-group'>
+                        <label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span>选择年级</label>
+                        <div class="col-sm-9 col-xs-8">
+                        <select name='school_type_id'>
+                            {loop $type_list $row}
+                                <option value='{$row['id']}' {if $row['id'] == $result['school_type']} selected {/if}>{$row['name']}</option>
+                            {/loop}
+                        </select>
+                        </div>	
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span>年级名</label>
+                        <div class="col-sm-9 col-xs-8">
+                            <input type="text" name="grade_name" class="form-control" value='{$result['grade_name']}'/>
+                            {if $ac=='edit'}
+                            <input type="hidden" name="id"  class="form-control" value='{$result['type_id']}' />
+                            {/if}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span>入学年份数（数字越大越靠近毕业）</label>
+                        <div class="col-sm-9 col-xs-8">
+                            <input type="number" name="grade_sort" class="form-control" value='{$result['grade_sort']}' placeholder="数字"/>
+                        </div>
+                    </div>                              
+				</div>
+			</div>
+		</div>		
+		<div class="form-group col-sm-12">
+			<input type="submit" name="submit" value="提交" class="btn btn-primary col-lg-1" />
+		</div>
+	</form>
+</div>		
+{/if}

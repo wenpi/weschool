@@ -1,0 +1,10 @@
+<ul class="nav nav-tabs">
+    <li {if $_GPC['do']=="question"}class="active"{/if}>
+        <a href="{php echo $this->createWebUrl('question')}">问题管理</a>
+    </li>
+    {if !empty($question_id)}
+    <li {if $_GPC['do']=="listen_log"}class="active"{/if}>
+        <a href="{php echo $this->createWebUrl('listen_log',array('question_id'=>$question_id))}">偷听记录</a>
+    </li>
+    {/if}
+</ul>
