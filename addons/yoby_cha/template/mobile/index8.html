@@ -43,13 +43,17 @@ $("#search_show").hide();
  });
    
 	$('#f').submit(function(){
-  var touser = $('#search_input').val();
+  var touser = $('#search').val();
   if(empty(touser)){
     $.alert("亲,查找关键字不能为空");
     return false;
+  }else{
+   $('#f').submit();
   }
 });   
-   
+  $('#search').focus(function(){
+  $(this).val("");
+  }); 
 });
 
 
@@ -67,42 +71,34 @@ $("#search_show").hide();
                
             </div>
         </div>
-
-<div  id='search-fixed'>
-        
-        <div class="weui_search_bar" id="search_bar">
-            <form id="f" class="weui_search_outer" action="{$_W['siteroot']}app/index.php" method="get">
-                <div class="weui_search_inner">
-                    <i class="weui_icon_search"></i>
-                    <input type="search" class="weui_search_input" id="search_input"  name="keyword" placeholder='<?php
+       
+<div class="weui_cells_title ">
+ <form id="f" class="" action="{$_W['siteroot']}app/index.php" method="get">
+      <div class="searchbar row ">
+        <div class="search-input col-90">
+          <input type="search" id='search' name="keyword" value="{$_GPC['keyword']}" placeholder='<?php
 foreach($info as $k1){
   if($k1['isok']==1){
 echo $k1['title']." ";
 }
 }
-?>' value="{$_GPC['keyword']}" />
-                    <input type="hidden" name="c" value="entry" />    		
+?>' style="border:1px solid #04be02;opacity:0.5"/>
+          
+        </div>
+                <input type="hidden" name="c" value="entry" />    		
 		<input type="hidden" name="do" value="index" />
 		<input type="hidden" name="i" value="{$_GPC['i']}" />
 		<input type="hidden" name="m" value="yoby_cha" />
 		<input type="hidden" name="id" value="{$id}" />
-                    <a href="javascript:" class="weui_icon_clear" id="search_clear"></a>
-                </div>
-                <label for="search_input" class="weui_search_text" id="search_text">
-                    <i class="weui_icon_search"></i>
-                    <span><?php
-foreach($info as $k1){
-  if($k1['isok']==1){
-echo $k1['title']." ";
-}
-}
-?></span>
-                </label>
-            </form>
-            <a href="javascript:" class="weui_search_cancel" id="search_cancel">取消</a>
+        <div class="col-10" style="margin-left:0px;">
+        <button style="border-radius:1px;"  class="weui_btn weui_btn_mini weui_btn_primary"><i class=" weui_icon_search f32  search-ff"></i></button>
         </div>
-        
-    </div> 
+      </div>
+ </form>
+</div>
+
+ 
+
     {if !empty($row['is_m'])}
     <div class="bd" style="margin-top:10px">
    <div class='row '>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns="http://www.we7.cc" versionCode="0.6">
+	<application setting="true">
+		<name><![CDATA[微查询]]></name>
+		<identifie><![CDATA[yoby_cha]]></identifie>
+		<version><![CDATA[4.1]]></version>
+		<type><![CDATA[customer]]></type>
+		<ability><![CDATA[可以用来自定义查询模块]]></ability>
+		<description><![CDATA[可以用来自定义查询模块]]></description>
+		<author><![CDATA[Yoby]]></author>
+		<url><![CDATA[http://bbs.we7.cc/]]></url>
+	</application>
+	<platform>
+		<subscribes>
+		</subscribes>
+		<handles>
+		<message type="qr" />
+			<message type="click" />
+			<message type="text" />
+		</handles>
+		<rule embed="true" />
+		<card embed="false" />
+	</platform>
+	<bindings>
+		<menu>
+			<entry title="查询数据" do="index" state="" direct="false" />
+		</menu>
+	</bindings>
+	<install><![CDATA[
+	CREATE TABLE `ims_yoby_cha_data` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `cid` int(10) DEFAULT NULL,
+  `title` varchar(100) DEFAULT NULL,
+  `bl` text,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+CREATE TABLE `ims_yoby_cha_reply` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `rid` int(10) DEFAULT NULL,
+  `tb` int(10) DEFAULT NULL,
+  `hd_title` varchar(100) DEFAULT NULL,
+  `hd_desc` varchar(100) DEFAULT NULL,
+  `hd_img` varchar(300) DEFAULT NULL,
+   `is_show` tinyint(1) DEFAULT '0',
+    `is_m` tinyint(1) DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+CREATE TABLE `ims_yoby_cha_table` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '被导入表',
+  `weid` int(10) DEFAULT NULL,
+  `title` varchar(200) DEFAULT NULL,
+  `desc` varchar(1000) DEFAULT NULL,
+  `createtime` int(10) DEFAULT NULL,
+  `s` text COMMENT '存储所有自定义字段',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+	]]></install>
+	<uninstall><![CDATA[
+	DROP TABLE IF EXISTS `ims_yoby_cha_data`;
+	DROP TABLE IF EXISTS `ims_yoby_cha_reply`;
+	DROP TABLE IF EXISTS `ims_yoby_cha_table`;
+	]]></uninstall>
+	<upgrade><![CDATA[upgrade.php]]></upgrade>
+</manifest>

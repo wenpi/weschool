@@ -6,6 +6,12 @@
  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
  <base href="{$yobyurl}">
   <link rel="stylesheet" href="weui/weuix.min.css"/>
+  <style>
+  .weui_icon_search::before {
+    color: #04be02;
+    font-size: 20px;
+}
+  </style>
  <script src="weui/zepto.js"></script>
 <script>
  $(function(){
@@ -75,7 +81,7 @@ $("#search_show").hide();
 <div class="weui_cells_title ">
  <form id="f" class="" action="{$_W['siteroot']}app/index.php" method="get">
       <div class="searchbar row ">
-        <div class="search-input col-90">
+        <div class="search-input col-100">
           <input type="search" id='search' name="keyword" value="{$_GPC['keyword']}" placeholder='<?php
 foreach($info as $k1){
   if($k1['isok']==1){
@@ -90,10 +96,14 @@ echo $k1['title']." ";
 		<input type="hidden" name="i" value="{$_GPC['i']}" />
 		<input type="hidden" name="m" value="yoby_cha" />
 		<input type="hidden" name="id" value="{$id}" />
-        <div class="col-10" style="margin-left:0px;">
-        <button style="border-radius:1px;"  class="weui_btn weui_btn_mini weui_btn_primary"><i class=" weui_icon_search f32  search-ff"></i></button>
-        </div>
+       
+        
+        
       </div>
+     <div class="searchbar row " style="height:40px;margin:0 auto;width:99%;text-align:center; ">
+   
+     <button style="border-radius:1px;margin:0 auto;"  class="weui_btn weui_btn_mini weui_btn_plain_primary f20"><i class=" weui_icon_search"></i>搜索</button>
+     </div> 
  </form>
 </div>
 
@@ -252,7 +262,7 @@ document.querySelector('#qr').onclick = function () {
       scanType: ["qrCode","barCode"],
       success: function (res) {
       var result = res.resultStr;
-      var urlx = "http://weixin.yoby123.cn/app/index.php?keyword="+urlencode(result)+"&c=entry&do=index&i={$weid}&m=yoby_cha&id={$id}";
+      var urlx = "{$_W['siteroot']}app/index.php?keyword="+urlencode(result)+"&c=entry&do=index&i={$weid}&m=yoby_cha&id={$id}";
       window.location.href=urlx;
       }
     });

@@ -128,7 +128,12 @@ $info = json_decode(pdo_fetchcolumn('SELECT s FROM ' . tablename('yoby_cha_table
 $list = pdo_fetchall("SELECT *  FROM ".tablename('yoby_cha_data')." WHERE cid = $cid $condition ORDER BY id DESC LIMIT ".($pindex - 1) * $psize.','.$psize);//分页
 			$total = pdo_fetchcolumn('SELECT COUNT(*) FROM ' . tablename('yoby_cha_data') . " WHERE cid = $cid $condition ");
 			$pager = pager($total, $pindex, $psize);
-			}
+			}/*else{
+			$list = pdo_fetchall("SELECT *  FROM ".tablename('yoby_cha_data')." WHERE cid = $cid $condition ORDER BY id DESC LIMIT ".($pindex - 1) * $psize.','.$psize);//分页
+			$total = pdo_fetchcolumn('SELECT COUNT(*) FROM ' . tablename('yoby_cha_data') . " WHERE cid = $cid $condition ");
+			$pager = pager($total, $pindex, $psize);
+			
+			}*/
 if(!is_weixin() ){die('<script type="text/javascript">alert("调皮,怎么在电脑上打开呢!");</script>');}			
 include $this->template('index');
 
