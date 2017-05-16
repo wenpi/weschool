@@ -24,6 +24,7 @@
     <bindings>
         <menu>
             <entry title="查询数据" do="index" state="" direct="false"/>
+            <entry title="项目管理" do="project" state="" direct="false"/>
         </menu>
     </bindings>
     <install><![CDATA[
@@ -60,17 +61,22 @@ CREATE TABLE `ims_yoby_cha_project` (
   `title` varchar(64) NOT NULL DEFAULT '',
   `desc` varchar(255) NOT NULL DEFAULT '',
   `timecreate` int(10) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`projectid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
 CREATE TABLE `ims_yoby_cha_user` (
   `uid` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `passwd` varchar(64) NOT NULL DEFAULT '',
   `title` varchar(64) NOT NULL DEFAULT '',
-  `character` varchar(16) NOT NULL DEFAULT 'USER'
+  `character` varchar(16) NOT NULL DEFAULT 'USER',
+  PRIMARY KEY (`uid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
 CREATE TABLE `ims_yoby_cha_rule` (
   `uid` int(10) NOT NULL DEFAULT 0,
   `type` varchar(8) NOT NULL DEFAULT '',
-  `value` text NOT NULL
+  `value` text NOT NULL,
+  PRIMARY KEY (`uid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 	]]></install>
