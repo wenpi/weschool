@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns="http://www.we7.cc" versionCode="0.6">
-	<application setting="true">
-		<name><![CDATA[微查询]]></name>
-		<identifie><![CDATA[yoby_cha]]></identifie>
-		<version><![CDATA[4.1]]></version>
-		<type><![CDATA[customer]]></type>
-		<ability><![CDATA[可以用来自定义查询模块]]></ability>
-		<description><![CDATA[可以用来自定义查询模块]]></description>
-		<author><![CDATA[Yoby]]></author>
-		<url><![CDATA[http://bbs.we7.cc/]]></url>
-	</application>
-	<platform>
-		<subscribes>
-		</subscribes>
-		<handles>
-		<message type="qr" />
-			<message type="click" />
-			<message type="text" />
-		</handles>
-		<rule embed="true" />
-		<card embed="false" />
-	</platform>
-	<bindings>
-		<menu>
-			<entry title="查询数据" do="index" state="" direct="false" />
-		</menu>
-	</bindings>
-	<install><![CDATA[
+    <application setting="true">
+        <name><![CDATA[微查询]]></name>
+        <identifie><![CDATA[yoby_cha]]></identifie>
+        <version><![CDATA[4.1]]></version>
+        <type><![CDATA[customer]]></type>
+        <ability><![CDATA[可以用来自定义查询模块]]></ability>
+        <description><![CDATA[可以用来自定义查询模块]]></description>
+        <author><![CDATA[Yoby]]></author>
+        <url><![CDATA[http://bbs.we7.cc/]]></url>
+    </application>
+    <platform>
+        <subscribes>
+        </subscribes>
+        <handles>
+            <message type="qr"/>
+            <message type="click"/>
+            <message type="text"/>
+        </handles>
+        <rule embed="true"/>
+        <card embed="false"/>
+    </platform>
+    <bindings>
+        <menu>
+            <entry title="查询数据" do="index" state="" direct="false"/>
+        </menu>
+    </bindings>
+    <install><![CDATA[
 	CREATE TABLE `ims_yoby_cha_data` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `cid` int(10) DEFAULT NULL,
@@ -54,11 +54,30 @@ CREATE TABLE `ims_yoby_cha_table` (
   `s` text COMMENT '存储所有自定义字段',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+CREATE TABLE `ims_yoby_cha_project` (
+  `projectid` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(64) NOT NULL DEFAULT '',
+  `desc` varchar(255) NOT NULL DEFAULT '',
+  `timecreate` int(10) NOT NULL DEFAULT 0,
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+CREATE TABLE `ims_yoby_cha_user` (
+  `uid` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `passwd` varchar(64) NOT NULL DEFAULT '',
+  `title` varchar(64) NOT NULL DEFAULT '',
+  `character` varchar(16) NOT NULL DEFAULT 'USER'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+CREATE TABLE `ims_yoby_cha_rule` (
+  `uid` int(10) NOT NULL DEFAULT 0,
+  `type` varchar(8) NOT NULL DEFAULT '',
+  `value` text NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
 	]]></install>
-	<uninstall><![CDATA[
+    <uninstall><![CDATA[
 	DROP TABLE IF EXISTS `ims_yoby_cha_data`;
 	DROP TABLE IF EXISTS `ims_yoby_cha_reply`;
 	DROP TABLE IF EXISTS `ims_yoby_cha_table`;
 	]]></uninstall>
-	<upgrade><![CDATA[upgrade.php]]></upgrade>
+    <upgrade><![CDATA[upgrade.php]]></upgrade>
 </manifest>
