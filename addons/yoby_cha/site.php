@@ -275,24 +275,24 @@ class Yoby_chaModuleSite extends WeModuleSite
 
             if (isset($_GPC['delete'])) {
                 $ids = implode(",", $_GPC['delete']);
-                $sqls = "delete from  " . tablename('yoby_cha_project') . "  where id in(" . $ids . ")";
+                $sqls = "delete from  " . tablename('yoby_cha_project') . "  where projectid in(" . $ids . ")";
                 pdo_query($sqls);
                 message('删除成功！', referer(), 'success');
             }
             $id = intval($_GPC['id']);
-            $row = pdo_fetch("SELECT id FROM " . tablename('yoby_cha_project') . " WHERE id = :id", array(':id' => $id));
+            $row = pdo_fetch("SELECT projectid FROM " . tablename('yoby_cha_project') . " WHERE projectid = :id", array(':projectid' => $id));
             if (empty($row)) {
                 //dump($_GPC);
-                message('数据已经被删除！', $this->createWebUrl('index', array('op' => 'display')), 'error');
+                message('数据已经被删除！', $this->createWebUrl('project', array('op' => 'display')), 'error');
             }
-            pdo_delete('yoby_cha_project', array('id' => $id));
+            pdo_delete('yoby_cha_project', array('projectid' => $id));
             message('删除成功！', referer(), 'success');
 
         } else if ('display' == $op) {//显示
             $pindex = max(1, intval($_GPC['page']));
             $psize = 20;//每页显示
 
-            $list = pdo_fetchall("SELECT *  FROM " . tablename('yoby_cha_project') . " where weid=$weid  ORDER BY id DESC LIMIT " . ($pindex - 1) * $psize . ',' . $psize);//分页
+            $list = pdo_fetchall("SELECT *  FROM " . tablename('yoby_cha_project') . " where weid=$weid  ORDER BY projectid DESC LIMIT " . ($pindex - 1) * $psize . ',' . $psize);//分页
             $total = pdo_fetchcolumn('SELECT COUNT(*) FROM ' . tablename('yoby_cha_project') . "  where weid=$weid");
             $pager = pagination($total, $pindex, $psize);
             include $this->template('project');
