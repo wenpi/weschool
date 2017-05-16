@@ -6,6 +6,7 @@
  */
 // ini_set("display_errors",1);
 // error_reporting(E_ALL^E_NOTICE);
+@session_start();
 defined('IN_IA') || exit('Access Denied');
 require('money.php');
 require("myclass/autoLoad.php");
@@ -36,7 +37,6 @@ class Lianhu_schoolModuleSite extends WeModuleSite {
 
 	public function __construct(){
 		global $_W ,$_GPC;
-		@session_start();
         //注册表前缀
 		$this->buildSetting();
         $table_pe = tablename('lianhu');

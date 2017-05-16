@@ -47,6 +47,7 @@
                         continue;
                     }
                 }
+                D("sendAlone")->teacherAdd($value,$record_id);
                 $record_url = $_W['siteroot'].'app/'.$this->createMobileUrl("TeaSendRecord",array('record_id'=>$record_id,'teacher_id'=>$value ));
                 $title      = $_GPC['title'];
                 $openid     = $class_teacher->getTeacherOpenid($value);

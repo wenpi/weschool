@@ -35,7 +35,7 @@
         <a href="<?php  echo $this->createMobileUrl('teacher');?>"> <i class="fa fa-plus" style="color:#fff"></i> </a>
     </div>
 
-    <div class="m-img " style="background-image:url(<?php  echo $_W['attachurl'];?><?php  echo D('adv')->getAdvInfoKeyWord('teacher_top_img'); ?>);"  ></div>
+    <div class="m-img " style="background-image:url(<?php  $this->imgFrom( D('adv')->getAdvInfoKeyWord('teacher_top_img') ); ?>);"  ></div>
     <div class="m-title">
         <div class="m-masker" align="left" style="margin-left: 6%; margin-top: -13%; background-color:rgba(0,0,0,0); "> 
             <div class="weui-avatar">

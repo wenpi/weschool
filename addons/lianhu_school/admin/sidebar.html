@@ -40,7 +40,7 @@
                                 <ul class="dropdown-menu pull-right" role="menu">
                                     {loop $top_action $row}
                                         <li>
-                                            <a href="{php echo $this->createWebUrl($row['action'],$row['arr']);}">
+                                            <a href="{if $row['action']} {php echo $this->createWebUrl($row['action'],$row['arr']);} {/if}">
                                             <i class="icon-bell"></i> {$row['action_name']}</a>
                                         </li>
                                     {/loop}

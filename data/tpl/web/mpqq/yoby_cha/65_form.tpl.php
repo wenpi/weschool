@@ -1,0 +1,75 @@
+<?php defined('IN_IA') or exit('Access Denied');?><input type="hidden" name="reply_id" value="<?php  echo $reply['id'];?>" />
+<?php  load()->func('tpl');?>
+<div class="panel panel-default">
+	<div class="panel-heading">
+       设置
+    </div>
+    <div class="panel-body">
+     
+        <div class="form-group">
+        	<label class="col-xs-12 col-sm-3 col-md-2 control-label">选择要查询的表</label>
+        	<div class="col-sm-9 col-xs-12">
+
+<select name="tb"  class="form-control">
+			<option value=''> -请选择- </option>
+			<?php  $cate1 = pdo_fetchall("SELECT * FROM ".tablename('yoby_cha_table')." where weid=$weid");?>
+			<?php  if(is_array($cate1)) { foreach($cate1 as $catelist1) { ?>
+					<option value="<?php  echo $catelist1['id'];?>" <?php  if($reply['tb']==$catelist1['id']) { ?>selected<?php  } ?>><?php  echo $catelist1['title'];?></option>
+					<?php  } } ?>
+			</select>
+
+				<span class="help-block">必须选择</span>
+        	</div>
+    </div>
+   
+       <div class="form-group">
+        	<label class="col-xs-12 col-sm-3 col-md-2 control-label">单图文标题</label>
+        	<div class="col-sm-9 col-xs-12">
+         		<input type="text" value="<?php  echo $reply['hd_title'];?>" class="form-control" name="hd_title" >
+				<span class="help-block">用于图文标题</span>
+        	</div>
+    </div>
+ 	<div class="form-group">
+        <label class="col-xs-12 col-sm-3 col-md-2 control-label">单图文图片</label>
+        <div class="col-sm-9 col-xs-12">
+         	<?php  echo tpl_form_field_image('hd_img',$reply['hd_img']);?>
+			<span class="help-block">用于单图文回复的显示 700*300</span>
+        </div>
+    </div>
+      <div class="form-group">
+        <label class="col-xs-12 col-sm-3 col-md-2 control-label">单图文描述</label>
+        <div class="col-sm-9 col-xs-12">
+ 			<textarea style="height:150px;" name="hd_desc" class="form-control" cols="60"><?php  echo $reply['hd_desc'];?></textarea>
+			<div class="help-block">用于图文显示的描述</div>
+        </div>
+    </div>   
+   		<div class="form-group">
+				<label class="col-xs-12 col-sm-3 col-md-2 control-label">是否启用精确查询</label>
+				<div class="col-sm-9">
+					<label for="define2" class="radio-inline" >
+						
+						<input type="radio" value="1" name="is_show" id="define2"  autocomplete="off" <?php  if($reply['is_show']==1) { ?> checked<?php  } ?>> 是
+					</label>&nbsp;&nbsp;&nbsp;
+					<label for="system1" class="radio-inline" >
+						<input type="radio" value="0" name="is_show" id="system1"   autocomplete="off" <?php  if($reply['is_show']==0) { ?> checked<?php  } ?>> 否
+					</label>				
+					<span class="help-block">默认是模糊查询,只要和查询字符有一个匹配就能查询到;精确查询是完全匹配才会查询到,使用时候注意区分</span>
+				</div>
+			</div> 
+  		<div class="form-group">
+				<label class="col-xs-12 col-sm-3 col-md-2 control-label">是否启用扫码</label>
+				<div class="col-sm-9">
+					<label for="define3" class="radio-inline" >
+						
+						<input type="radio" value="1" name="is_m" id="define3"  autocomplete="off" <?php  if($reply['is_m']==1) { ?> checked<?php  } ?>> 是
+					</label>&nbsp;&nbsp;&nbsp;
+					<label for="system4" class="radio-inline" >
+						<input type="radio" value="0" name="is_m" id="system4"   autocomplete="off" <?php  if($reply['is_m']==0) { ?> checked<?php  } ?>> 否
+					</label>				
+					<span class="help-block">扫码主要争对图书条码做关键字,其他符合唯一的字段做关键字,默认不启用</span>
+				</div>
+			</div>   
+     
+</div>
+</div>
+

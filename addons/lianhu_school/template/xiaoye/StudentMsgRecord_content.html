@@ -1,0 +1,17 @@
+ {loop $list $row}
+            <li class="dpl" style="height:auto;">
+                    <div class="WX"> <a href="{php echo $this->createMobileUrl('sendRecord',array('record_id'=>$row['record_id'],'student_id'=>$row['student_id']));}">
+                        <div  style="width:60px;height: 60px;border-radius: 50%;  background-image: url({$row['admin_img']})" class="background_img"></div>
+                    </a></div>
+                    <div class="WZ" >
+                       <a href="{php echo $this->createMobileUrl('sendRecord',array('record_id'=>$row['record_id'],'student_id'=>$row['student_id']));}">
+                            <p><span class="W-1">{$row['record_title']}{if !$row['record_title']}{$row['record_intro']}{/if}</span>
+                            <span class="W-2">({$row['time_date']})</span>
+                        </p>
+                            <p class="W-3">&nbsp;&nbsp;&nbsp;&nbsp;{php echo $this->clear_html_short($row['record_content']);}</p>
+                        </a>
+                    </div>
+                    <div class="clear"></div>
+                </li>
+
+    {/loop}

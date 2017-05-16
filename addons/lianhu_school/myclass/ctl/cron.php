@@ -61,7 +61,6 @@ class cron {
        $need_list = array_unique($card_by_self_all_uniacid);
        return $need_list;
     }
-    
     //修复没有uniacid 
     public function fixUniacid(){
         $begin_time   = time()-24*3600;
@@ -81,8 +80,72 @@ class cron {
             }
         }
     }
-    
-    //自动复发
+    //找出需要发送的学校
+    public function getCourseTeacher(){
+        global $_W;
+        $list       = D("school")->getActiveSchool();
+        $school_ids = D("school")->needSendMsgToTeacher($list);
+        if($school_ids){
+            foreach ($school_ids as $key => $value) {
+                C("teacher")->use_class->school_id = $value;
+                $list = C("teacher")->getAllList();
+                foreach ($list as $key => $value) {
+                    $teacher_ids[] = $value['teacher_id'];
+                }
+            }
+        }
+        return $teacher_ids;
+    }
+    public function getTeacherCourse($teacher_id,$class_site){
+        global $_W;
+        $teacher_info               = D("teacher")->edit(array("teacher_id"=>$teacher_id));
+        $time_result 				= pdo_fetch("select * from ".tablename('lianhu_set')." where keyword='course_time' and school_id=".$teacher_info['school_id']."  order by set_id  desc ");
+        $time_result['content'] 	= unserialize($time_result['content']);
+        $time_result['begin_time'] 	= $time_result['content']['begin_time'];
+        $time_result['end_time'] 	= $time_result['content']['end_time'];
+        $today  = $class_site->decodeTodayWeek();
+        $tomorr = $today==7 ? 1:$today+1;
+        $teacher_class = D("newSyllabus")->getTeacherSyllabus($teacher_info['teacher_id'],$tomorr);
+        if($teacher_class){
+        $teacher_class = sortArr($teacher_class,'day_sort','min');
+            foreach ($teacher_class as $key => $value) {
+                $class_courses[$value['class_id']][] = $value;
+            }
+            foreach ($class_courses as $key => $value) {
+                $name = $class_site->classGradeName($key).'-'.$class_site->className($key);
+                foreach ($value as $k => $v) {
+                    if($v['tea_room_id']){
+                        $address = "在".D("teaRoom")->getTeaNum($v['tea_room_id']);
+                    }else{
+                        $address = false;
+                    }
+                    $str .= $name."第".$v['day_sort']."节，在".$time_result['begin_time'][$v['day_sort']]."-".$time_result['end_time'][$v['day_sort']]."间，".$address."上".D("course")->courseName($rw['course_id'])."\r\n";
+                }
+            }
+            D("school") ->school_id    = $teacher_info['school_id'];
+            $result 	               = D("school")->getSchoolInfo();   
+            $_SESSION['school_name']   = $result['school_name'];
+            $class_msg = D("msg");
+            $class_msg->in_class_base  = $class_site->class_base;
+            $mu_info   = $class_msg->decodeSchoolMsg("明天上课提醒","系统",$str,'');
+            $record_url = $_W['siteroot'].'/app/index.php?i='.$_W['uniacid'].'&c=entry&week='.$tomorr.'&do=Tea_today_course&m=lianhu_school&teacher_id='.$teacher_id;
+            $openid     = D("teacher")->getTeacherOpenid($teacher_id);
+            if($openid){
+                D("msg")->insertMsgQueueMu($openid,$mu_info['data'],$mu_info['mu_id'],$record_url,$que_num);                   
+            }
+        }
+    }
+    //处理
+    public function doSendToTeacher($class_site){
+        $teacher_ids = $this->getCourseTeacher();
+        if($teacher_ids){
+            foreach ($teacher_ids as $key => $value) {
+                $this->getTeacherCourse($value,$class_site);
+            }
+        }
+    }
+    /*
+    自动复发
     public function reSendMsgQueue($class_site){
         exit();
         global $_W;
@@ -158,8 +221,8 @@ class cron {
                 }
             }
         }      
-
     }
+    */
 
 
 }

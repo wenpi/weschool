@@ -9,7 +9,7 @@
             array('fun_str'=>'teaBuilding','fun_name'=>'教学楼管理'),
     );
     $top_action = array(
-            array('action_name'=>'教学楼管理' ),
+            array('action_name'=>'教学楼管理' ,'action'=>'teaBuilding'),
             array('action_name'=>'添加楼栋','action'=>'teaBuilding','arr'=>array('ac'=>'new') ),
     );
     $class_building = D("teaBuilding");

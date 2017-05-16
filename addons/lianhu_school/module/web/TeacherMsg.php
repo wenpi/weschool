@@ -50,6 +50,7 @@
                 $record_id              = $class_sendRecord->dataAdd($in);
                 foreach ($teacher_id_arr as $key => $value) {
                     $record_url         = $_W['siteroot'].'app/'.$this->createMobileUrl("TeaSendRecord",array('record_id'=>$record_id,'teacher_id'=>$value));
+                    D("sendAlone")->teacherAdd($value,$record_id);
                     $openid = $class_teacher->getTeacherOpenid($value);
                     //openid不存在的情况
                     if(!$openid){

@@ -122,6 +122,7 @@
                     unset($in);
                     foreach ($student_list as $key => $value) {
                         $record_url    = $_W['siteroot'].'app/'.$this->createMobileUrl("sendRecord",array('record_id'=>$record_id,'student_id'=>$value['student_id']) );
+                        D("sendAlone")->studentAdd($value['student_id'],$record_id);
                         #遍历and发送
                         $openids       = $class_student->returnEfficeOpenid($value,3);
                         $set_title     = false;

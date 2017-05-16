@@ -40,7 +40,7 @@
                                 <ul class="dropdown-menu pull-right" role="menu">
                                     <?php  if(is_array($top_action)) { foreach($top_action as $row) { ?>
                                         <li>
-                                            <a href="<?php  echo $this->createWebUrl($row['action'],$row['arr']);?>">
+                                            <a href="<?php  if($row['action']) { ?> <?php  echo $this->createWebUrl($row['action'],$row['arr']);?> <?php  } ?>">
                                             <i class="icon-bell"></i> <?php  echo $row['action_name'];?></a>
                                         </li>
                                     <?php  } } ?>

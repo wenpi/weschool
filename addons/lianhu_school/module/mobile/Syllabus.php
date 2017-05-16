@@ -50,7 +50,10 @@
 				$ams[$do]['course']  = $info['course_special'] == 1 ? "自习":"休息";
 			}else{
 				$ams[$do]['course']  = $this->courseName( $info['course_id']);
-				$ams[$do]['teacher'] = $this->teacherName($info['teacher_id']);			
+				$ams[$do]['teacher'] = $this->teacherName($info['teacher_id']);	
+				if($info['tea_room_id']){
+					$ams[$do]["room"] = D("teaRoom")->getTeaNum($info['tea_room_id']);
+				}		
 			}
 		}
 		if($key<$pm_much){
@@ -62,7 +65,10 @@
 				$pms[$do]['course']  = $info['course_special'] == 1 ? "自习":"休息";
 			}else{
 				$pms[$do]['course']  = $this->courseName( $info['course_id']);
-				$pms[$do]['teacher'] = $this->teacherName($info['teacher_id']);			
+				$pms[$do]['teacher'] = $this->teacherName($info['teacher_id']);		
+				if($info['tea_room_id']){
+					$pms[$do]["room"] = D("teaRoom")->getTeaNum($info['tea_room_id']);
+				}		
 			}	
 		}
 		if($key<$ye_much){
@@ -74,7 +80,10 @@
 				$yms[$do]['course']  = $info['course_special'] == 1 ? "自习":"休息";
 			}else{
 				$yms[$do]['course']  = $this->courseName( $info['course_id']);
-				$yms[$do]['teacher'] = $this->teacherName($info['teacher_id']);			
+				$yms[$do]['teacher'] = $this->teacherName($info['teacher_id']);	
+				if($info['tea_room_id']){
+					$yms[$do]["room"] = D("teaRoom")->getTeaNum($info['tea_room_id']);
+				}			
 			}					
 		}
 

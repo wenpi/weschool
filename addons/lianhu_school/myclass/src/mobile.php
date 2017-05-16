@@ -159,6 +159,13 @@ class mobile{
                         'font'          =>'fa fa-circle-o-notch',
                         'img'           => MODULE_URL.'template/xiaoye/img/CY-6.png',
                         'keyword'       =>'line',
+                    ),
+                     array(
+                        'desc'          =>5,
+                        'name'          =>'消息记录',
+                        'font'          =>'fa fa-circle-o-notch',
+                        'img'           => MODULE_URL.'template/xiaoye/img/CY-6.png',
+                        'keyword'       =>'studentMsgRecord',
                     )
                 )
             ),
@@ -378,6 +385,13 @@ class mobile{
                         'name'=>'消息发送',
                         'font'=>'fa fa-send-o',
                         'keyword'=>'tea_msg',
+                        'img'    => MODULE_URL.'template/xiaoye/upimg/teacherimg/cy5.png',                   
+                    ),
+                    array(
+                        'desc'=>5,
+                        'name'=>'消息记录',
+                        'font'=>'fa fa-send-o',
+                        'keyword'=>'TeaMsgRecord',
                         'img'    => MODULE_URL.'template/xiaoye/upimg/teacherimg/cy5.png',                   
                     )
                 )

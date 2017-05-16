@@ -43,10 +43,13 @@
 	if($ac=='new'){
 		if($_GPC['submit'] && $_GPC['token'] == $_COOKIE['form_token'] ){
 			if($mu_str=='xiaoye'){
-				$class_ids = $_GPC['have'];
+				$class_ids   = $_GPC['have'];
 			}else{
 				$class_ids[] = $_GPC['cid'];
 			}
+			if(!$class_ids){
+				$this->myMessage('请选择需要发送的班级',$this->createMobileUrl("teain"),'错误');	
+			} 
 			foreach ($class_ids as $cid) {
 				$in['class_id'] 	= $cid;
 				$in['line_title'] 	= $_GPC['line_title'];

@@ -99,6 +99,7 @@
                                                                 <th style="text-align:center"> 节数 </th>
                                                                 <th style="text-align:center"> 课程 </th>
                                                                 <th style="text-align:center"> 教师 </th>
+                                                                <th style="text-align:center"> 教室 </th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
@@ -129,12 +130,25 @@
                                                                                         {/loop}
                                                                                     </select>
                                                                             </td>
+                                                                            <td> 
+                                                                                <input name="search" data-sid = 'sid{$g}{$i}' onblur="searchThis(this)" placeholder="搜索" class='form-control'>
+                                                                                 <select name='aroom_id[{$g}][{$i}]' id='sid{$g}{$i}' class='form-control'>
+                                                                                     <option value='0'>无</option>
+                                                                                   {loop $build_list $row}
+                                                                                        <option value='{$row['building_id']}' disabled >{$row['building_name']}</option>
+                                                                                        {loop $row['sec'] $vvl}
+                                                                                            <option  class='select_could' value='{$vvl['room_id']}' {if $vvl['room_id']== $info['tea_room_id']} selected {/if}> &nbsp;&nbsp;&nbsp;&nbsp;{$row['building_name']}- {$vvl['room_num']}</option>
+                                                                                        {/loop}
+                                                                                    {/loop}
+                                                                                 </select>
+                                                                            </td>
                                                                         </tr>
                                                                             {/if}
                                                                         {php $i++;}
                                                                     {/loop}
                                                                {/if}  
                                                                 <tr>
+                                                                    <td> </td>
                                                                     <td> </td>
                                                                     <td> </td>
                                                                     <td> </td>
@@ -168,12 +182,25 @@
                                                                                         {/loop}
                                                                                     </select>
                                                                             </td>
+                                                                            <td> 
+                                                                                 <input name="search" data-sid = 'psid{$g}{$i}' onblur="searchThis(this)" placeholder="搜索" class='form-control'>
+                                                                                 <select name='proom_id[{$g}][{$i}]' id='psid{$g}{$i}' class='form-control'>
+                                                                                     <option value='0'>无</option>
+                                                                                   {loop $build_list $row}
+                                                                                        <option value='{$row['building_id']}' disabled >{$row['building_name']}</option>
+                                                                                        {loop $row['sec'] $vvl}
+                                                                                            <option  class='select_could' value='{$vvl['room_id']}' {if $vvl['room_id']== $info['tea_room_id']} selected {/if}> &nbsp;&nbsp;&nbsp;&nbsp;{$row['building_name']}- {$vvl['room_num']}</option>
+                                                                                        {/loop}
+                                                                                    {/loop}
+                                                                                 </select>
+                                                                            </td>
                                                                         </tr>
                                                                             {/if}
                                                                         {php $i++;}
                                                                     {/loop}
                                                                {/if} 
                                                                    <tr>
+                                                                    <td> </td>
                                                                     <td> </td>
                                                                     <td> </td>
                                                                     <td> </td>
@@ -205,6 +232,18 @@
                                                                                             <option value='{$vs['teacher_id']}'  {if $info['teacher_id'] ==$vs['teacher_id']}  selected {/if}  >{$vs['teacher_realname']}</option>
                                                                                         {/loop}
                                                                                     </select>
+                                                                            </td>
+                                                                            <td> 
+                                                                                 <input name="search" data-sid = 'ysid{$g}{$i}' onblur="searchThis(this)" placeholder="搜索" class='form-control'>
+                                                                                 <select name='yroom_id[{$g}][{$i}]' id='ysid{$g}{$i}' class='form-control'>
+                                                                                     <option value='0'>无</option>
+                                                                                   {loop $build_list $row}
+                                                                                        <option value='{$row['building_id']}' disabled >{$row['building_name']}</option>
+                                                                                        {loop $row['sec'] $vvl}
+                                                                                            <option  class='select_could' value='{$vvl['room_id']}' {if $vvl['room_id']== $info['tea_room_id']} selected {/if}> &nbsp;&nbsp;&nbsp;&nbsp;{$row['building_name']}- {$vvl['room_num']}</option>
+                                                                                        {/loop}
+                                                                                    {/loop}
+                                                                                 </select>
                                                                             </td>
                                                                         </tr>
                                                                             {/if}
@@ -342,11 +381,32 @@
             </div>	
             {/if}
                 </div>
-                <!--end row-->
                 </div>
                 </div>
                   {template '../admin/right'}
             </div>
+            <script>
+                function searchThis(obj){
+                    var search_name = $(obj).val();
+                    
+                    var search_id   = $(obj).attr("data-sid");
+                    if(!search_name){
+                        $("#"+search_id).find("option").show();
+                        return false;
+                    }
+                    option_list     = $("#"+search_id).find("option[class='select_could']");
+                    $("#"+search_id).find("option").hide();
+                    $.each(option_list,function(i,e){
+                        de = $(this).html().indexOf(search_name);
+                        console.log(de);
+                        if(de>0){
+                            $(this).show();
+                            $(this).prop("selected",true);
+
+                        }
+                    });
+                }
+            </script>
             {template '../admin/footer'}
            </body>
           </html>

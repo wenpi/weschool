@@ -11,9 +11,9 @@ class Lianhu_schoolModuleProcessor extends WeModuleProcessor {
     public $table_pe;
     
     public function __construct(){
-        $table_pe=tablename('lianhu');
-        $table_pe=trim($table_pe,'`');
-        $table_pe=str_ireplace('lianhu','',$table_pe); 
+        $table_pe = tablename('lianhu');
+        $table_pe = trim($table_pe,'`');
+        $table_pe = str_ireplace('lianhu','',$table_pe); 
         $this->table_pe=$table_pe;
     }
 	public function respond() {

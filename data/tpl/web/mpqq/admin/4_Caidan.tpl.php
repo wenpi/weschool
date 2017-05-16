@@ -19,7 +19,7 @@
                              <div class="portlet light ">
                                 <div class="portlet-title">
                                     <div class="caption font-green-haze">
-                                        <i class="icon-settings font-green-haze"></i>
+                                        <i class=" fa fa-plus  font-green-haze"></i>
                                         <span class="caption-subject bold uppercase"> <?php  if($ac=='new') { ?>新增<?php  } else { ?>修改<?php  } ?> </span>
                                     </div>
                                     <div class="actions">
@@ -88,7 +88,7 @@
                 <?php  if($ac=='list') { ?>
                  <div class="row">
                         <div class="col-md-8">
-                            <div class="portlet box green">
+                            <div class="portlet box green-turquoise ">
                                 <div class="portlet-title">
                                     <div class="caption">
                                         <i class="fa fa-flag"></i>菜单分类列表 </div>
@@ -96,8 +96,8 @@
                                         <a href="javascript:;" class="collapse"> </a>
                                     </div>
                                 </div>
-                                <div class="portlet-body flip-scroll">
-                                    <table class="table table-bordered table-striped table-condensed flip-content">
+                                <div class="portlet-body flip-scroll ">
+                                    <table class="table table-bordered table-striped table-condensed flip-content table-light"  >
                                         <thead class="flip-content">
                                             <tr>
                                                 <th>名</th>
@@ -110,11 +110,11 @@
                                         <tbody>
                                          <?php  if(is_array($class_list)) { foreach($class_list as $item) { ?>
                                             <tr class="success">
-                                                <td class="bg-red-thunderbird bg-font-red-thunderbird" ><?php  echo $item['class_name'];?></td>
+                                                <td><?php  echo $item['class_name'];?></td>
                                                 <td></td>
                                                 <td> <i class="<?php  echo $item['class_font'];?>"></i></td>
-                                                <td><?php  echo S('fun','statusTable',array($item['status']))?> </td>
-                                                <td><a  href="<?php  echo $this->createWebUrl('caidanClass', array('ac' => 'edit','id'=>$item['class_id'] ))?>" class="btn btn-outline btn-circle btn-sm purple">
+                                                <td> <span class="label label-sm label-warning" > <?php  echo S('fun','statusTable',array($item['status']))?></span> </td>
+                                                <td> <a   class="btn btn-outline btn-circle btn-sm my_btn_class " href="<?php  echo $this->createWebUrl('caidanClass', array('ac' => 'edit','id'=>$item['class_id'] ))?>" >
                                                             <i class="fa fa-edit"></i> 编辑 </a>
                                             </tr>
                                                 <?php  if(is_array($item['list'])) { foreach($item['list'] as $val) { ?>
@@ -122,14 +122,12 @@
                                                     <td> <?php  echo $val['caidan_name'];?></td>
                                                     <td> <?php  echo $val['caidan_url'];?></td>
                                                     <td> <i class="<?php  echo $val['caidan_font'];?>"></i></td>
-                                                    <td> <?php  echo S('fun','statusTable',array($val['status']))?>  </td>
+                                                    <td><span class="label label-sm label-warning" > <?php  echo S('fun','statusTable',array($val['status']))?> </span> </td>
                                                     <td>
-                                                            <div class="btn-group btn-group-solid">
                                                                 <a href="<?php  echo $this->createWebUrl('caidan', array('id' => $val['caidan_id'],'ac'=>'edit' ))?>"
-                                                                    class="btn purple" >
-                                                                    <i class="fa fa-pencil"></i>编辑
+                                                                    class="btn btn-outline btn-circle btn-sm my_btn_class " >
+                                                                    <i class="fa fa-edit"></i> 编辑
                                                                 </a>
-                                                            </div>
                                                     </td>                          
                                                 </tr>                                          
                                                 <?php  } } ?>

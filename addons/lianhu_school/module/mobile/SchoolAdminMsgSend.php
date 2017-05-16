@@ -42,6 +42,7 @@
             unset($in);
             foreach ($student_list as $key => $value) {
                 $url = $_W['siteroot'].'app/'.$this->createMobileUrl("sendRecord",array('record_id'=>$record_id,'student_id'=>$value['student_id']) );
+                D("sendAlone")->studentAdd($value['student_id'],$record_id);
                 #遍历and发送
                 if($_GPC['title']){
                     $title = $_GPC['title'];

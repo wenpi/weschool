@@ -18,7 +18,7 @@ class teacher extends common{
     //获取该学校的所有教师
     public function getAllList(){
         $this->use_class->each_page = 10000;
-        $where[":status"] = 1;
+        $where[":status"]           = 1;
         $re = $this->use_class->getList($where);
         return $re['list'];
     }

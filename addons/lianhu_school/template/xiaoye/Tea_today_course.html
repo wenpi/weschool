@@ -21,6 +21,9 @@
                                         <div class="kb1">
                                             <p class="pp1">第{$rw['day_sort']}节</p>
                                             <p class="pp2">{$time_result['begin_time'][$rw['day_sort']]}-{$time_result['end_time'][$rw['day_sort']]}</p>
+                                            {if $rw['tea_room_id']}
+                                                <p class="pp2"> {php echo D("teaRoom")->getTeaNum($rw['tea_room_id']);}</p>
+                                            {/if}
                                         </div>
                                         <div class="kb2">{php echo D("course")->courseName($rw['course_id'])}</div>
                                     </li>

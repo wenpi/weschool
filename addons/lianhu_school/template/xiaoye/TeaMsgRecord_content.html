@@ -1,0 +1,11 @@
+{loop $list $row}
+            <li class="zyy">
+                <div class="zy1"><a href="{php echo $this->createMobileUrl("TeaSendRecord",array("teacher_id"=>$row['teacher_id'],'record_id'=>$row['record_id']) )}">
+                    {php echo date("m月d日H时",$row['add_time'])}：{$row['record_intro']}</a></div>
+            </li>
+            <div class="kkz"></div>
+
+{/loop}
+
+
+        

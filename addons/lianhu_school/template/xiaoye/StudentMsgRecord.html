@@ -1,0 +1,48 @@
+{template '../xiaoye/newHead'}
+<div class="z_main">
+    <div class="MD" id='list'>
+        {template '../xiaoye/StudentMsgRecord_content'}
+    </div>
+    {if $list}
+          {if count($list)==10}
+              <h1 id='add_msg' style="text-align:center;color:#333;font-size:1em;margin-top:10px;">...</h1>  
+          {else}
+              <h1 id='add_msg' style="text-align:center;color:#333;font-size:1em;margin-top:10px;">已经全部加载完！</h1>  
+          {/if}
+    {else}
+          <h1 id='add_msg' style="text-align:center;color:#333;font-size:1em;margin-top:10px;">暂无信息</h1>  
+    {/if}
+</div>
+{template '../xiaoye/newStudentFooter'}
+<script>
+    var pager    = 1;
+    var send_id  = '';
+    var content  = '';    
+    $(function(){
+        $(window).scroll(function(){
+        if ($(document).height() - $(this).scrollTop() - $(this).height() < 100){
+            if(pager==0){
+                return false;
+            }
+            pager++;       
+            $.ajax({
+                url:'{php echo $this->createMobileUrl('studentMsgRecord')}',
+                type:'post',
+                data:{page:pager,op:'{$op}',ac:'ajax'},
+                dataType:'text',
+                async:'false',
+                success:function(html){
+                    if(html =='done' ){
+                        $("#add_msg").html("已经全部加载完！");
+                        pager = 0;
+                    }else{
+                        $('#list').append(html);   
+                    }
+                }
+            });
+        }
+        });
+    });
+</script>
+</body>
+</html>

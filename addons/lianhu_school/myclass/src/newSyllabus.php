@@ -83,6 +83,7 @@ class newSyllabus extends common{
                         $in['course_id']    = D("course")->courseNameToCourseId($row);
                     }
                     $in['teacher_id']   = $content['teacher_am'][$k][$g];
+                    $in['tea_room_id']  = $content['aroom_id'][$k][$g];
                     $this->add($in);
                 }
                 foreach ($content['pm'][$k] as $g => $row) {
@@ -96,6 +97,7 @@ class newSyllabus extends common{
                         $in['course_id']    = D("course")->courseNameToCourseId($row);
                     }
                     $in['teacher_id']   = $content['teacher_pm'][$k][$g];
+                    $in['tea_room_id']  = $content['proom_id'][$k][$g];
                     $this->add($in);                  
                 }
                 foreach ($content['ye'][$k] as $g => $row) {
@@ -109,6 +111,7 @@ class newSyllabus extends common{
                         $in['course_id']    = D("course")->courseNameToCourseId($row);
                     }
                     $in['teacher_id']   = $content['teacher_ye'][$k][$g];
+                    $in['tea_room_id']  = $content['yroom_id'][$k][$g];
                     $this->add($in);                  
                 }                
             }

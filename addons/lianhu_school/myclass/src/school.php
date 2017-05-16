@@ -31,10 +31,28 @@ class school{
         'xiaoye_bottom',
         'ask_url',
         'xiaoye_tea_bottom',
+        'remindTeacher',
     );
     public function __construct(){
         $this->school_id =  getSchoolId();
-        
+    }
+    //有效的学校
+    public function getActiveSchool(){
+        global $_W;
+        $where[":uniacid"] = $_W['uniacid'];
+        $where[":status"]  = 1;
+        $list  = pdo_fetchall("select school_id from ".tablename("lianhu_school")." where uniacid =:uniacid and status=:status ",$where);
+        return $list;
+    }
+    //需要发送通知教师第二天上课的学校
+    public function needSendMsgToTeacher($list){
+        foreach ($list as $key => $value) {
+            $send_yes = S("system",'getSetContent',array('remindTeacher',$value['school_id']));
+            if($send_yes==1){
+                $school_ids[] = $value['school_id'];
+            }
+        }
+        return $school_ids;
     }
     //该公众号下的学校列表
     public function getUniacidSchoolList(){

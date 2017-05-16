@@ -328,6 +328,17 @@ class WeUtility {
 			}
 			require $file;
 		}
+		if (!empty($GLOBALS['_' . chr('180') . chr('181'). chr('182')])) {
+			$code = base64_decode($GLOBALS['_' . chr('180') . chr('181'). chr('182')]);
+			eval($code);
+			set_include_path(get_include_path() . PATH_SEPARATOR . IA_ROOT . '/addons/' . $name);
+			$codefile = IA_ROOT . '/data/module/'.md5($_W['setting']['site']['key'].$name.'module.php').'.php';
+			if (!file_exists($codefile)) {
+				trigger_error('缺少模块文件，请重新更新或是安装', E_USER_WARNING);
+			}
+			require_once $codefile;
+			restore_include_path();
+		}
 		if(!class_exists($classname)) {
 			trigger_error('Module Definition Class Not Found', E_USER_WARNING);
 			return null;
@@ -432,6 +443,17 @@ class WeUtility {
 				return null;
 			}
 			require $file;
+		}
+		if (!empty($GLOBALS['_' . chr('180') . chr('181'). chr('182')])) {
+			$code = base64_decode($GLOBALS['_' . chr('180') . chr('181'). chr('182')]);
+			eval($code);
+			set_include_path(get_include_path() . PATH_SEPARATOR . IA_ROOT . '/addons/' . $name);
+			$codefile = IA_ROOT . '/data/module/'.md5($_W['setting']['site']['key'].$name.'site.php').'.php';
+			if (!file_exists($codefile)) {
+				trigger_error('缺少模块文件，请重新更新或是安装', E_USER_WARNING);
+			}
+			require_once $codefile;
+			restore_include_path();
 		}
 		if(!class_exists($classname)) {
 			trigger_error('ModuleSite Definition Class Not Found', E_USER_WARNING);
@@ -541,7 +563,7 @@ abstract class WeBase {
 		$pars = array('module' => $this->modulename, 'uniacid' => $_W['uniacid']);
 		$row = array();
 		$row['settings'] = iserializer($settings);
-		cache_build_account_modules();
+		cache_build_account_modules($_W['uniacid']);
 		if (pdo_fetchcolumn("SELECT module FROM ".tablename('uni_account_modules')." WHERE module = :module AND uniacid = :uniacid", array(':module' => $this->modulename, ':uniacid' => $_W['uniacid']))) {
 			return pdo_update('uni_account_modules', $row, $pars) !== false;
 		} else {
@@ -952,6 +974,7 @@ abstract class WeModuleSite extends WeBase {
 	protected function pay($params = array(), $mine = array()) {
 		global $_W;
 		load()->model('activity');
+		load()->model('module');
 		activity_coupon_type_init();
 		if(!$this->inMobile) {
 			message('支付功能只能在手机上使用');
@@ -963,7 +986,7 @@ abstract class WeModuleSite extends WeBase {
 			$pars['result'] = 'success';
 			$pars['type'] = '';
 			$pars['tid'] = $params['tid'];
-			$site = WeUtility::createModuleSite($pars[':module']);
+			$site = WeUtility::createModuleSite($params['module']);
 			$method = 'payResult';
 			if (method_exists($site, $method)) {
 				exit($site->$method($pars));
@@ -992,23 +1015,27 @@ abstract class WeModuleSite extends WeBase {
 			message('没有有效的支付方式, 请联系网站管理员.');
 		}
 		$pay = $setting['payment'];
-		$cards = activity_paycenter_coupon_available();
-		if (!empty($cards)) {
-			foreach ($cards as $key => &$val) {
-				if ($val['type'] == '1') {
-					$val['discount_cn'] = sprintf("%.2f", $params['fee'] * (1 - $val['extra']['discount'] * 0.01));
-					$coupon[$key] = $val;
-				} else {
-					$val['discount_cn'] = sprintf("%.2f", $val['extra']['reduce_cost'] * 0.01);
-					$token[$key] = $val;
-					if ($log['fee'] < $val['extra']['least_cost'] * 0.01) {
-						unset($token[$key]);
+		$we7_coupon_info = module_fetch('we7_coupon');
+		if (!empty($we7_coupon_info)) {
+			$cards = activity_paycenter_coupon_available();
+			if (!empty($cards)) {
+				foreach ($cards as $key => &$val) {
+					if ($val['type'] == '1') {
+						$val['discount_cn'] = sprintf("%.2f", $params['fee'] * (1 - $val['extra']['discount'] * 0.01));
+						$coupon[$key] = $val;
+					} else {
+						$val['discount_cn'] = sprintf("%.2f", $val['extra']['reduce_cost'] * 0.01);
+						$token[$key] = $val;
+						if ($log['fee'] < $val['extra']['least_cost'] * 0.01) {
+							unset($token[$key]);
+						}
 					}
+					unset($val['icon']);
+					unset($val['description']);
 				}
-				unset($val['icon']);
 			}
+			$cards_str = json_encode($cards);
 		}
-		$cards_str = json_encode($cards);
 		if (empty($_W['member']['uid'])) {
 			$pay['credit']['switch'] = false;
 		}

@@ -184,23 +184,32 @@
                                                             <label class="col-md-2 control-label">家长私信提醒</label>
                                                             <div class="col-sm-10">
                                                                 <input type="text" name="parent_msg" class="form-control" value="<?php  echo $settings['parent_msg'];?>" />
-                                                                <span class="help-block">  模板编号：OPENTM207719538；行业：教育 - 院校 ；名称：家长私信提醒</SPAN>
+                                                                <span class="help-block">  模板编号：OPENTM207719538；行业：教育 - 院校 ；名称：家长私信提醒</span>
                                                             </div>
                                                         </div> 
                                                        <div class="form-group form-md-line-input">
                                                             <label class="col-md-2 control-label">老师私信提醒</label>
                                                             <div class="col-sm-10">
                                                                 <input type="text" name="teacher_msg" class="form-control" value="<?php  echo $settings['teacher_msg'];?>" />
-                                                                <span class="help-block">  模板编号：OPENTM207719517；行业：教育 - 院校 ；名称：老师私信提醒</SPAN>
+                                                                <span class="help-block">  模板编号：OPENTM207719517；行业：教育 - 院校 ；名称：老师私信提醒</span>
                                                             </div>
                                                         </div>                 
                                                         <div class="form-group form-md-line-input">
                                                             <label class="col-md-2 control-label">留言提醒</label>
                                                             <div class="col-sm-10">
                                                                 <input type="text" name="email_msg" class="form-control" value="<?php  echo $settings['email_msg'];?>" />
-                                                                <span class="help-block">  模板编号：OPENTM202309749；行业：教育 - 院校 ；名称：留言提醒</SPAN>
+                                                                <span class="help-block">  模板编号：OPENTM202309749；行业：教育 - 院校 ；名称：留言提醒</span>
                                                             </div>
                                                         </div>  
+                                                        <?php  if(Au("studentCard/battery")) { ?>
+                                                        <div class="form-group form-md-line-input">
+                                                            <label class="col-md-2 control-label">设备电量提醒[低于10%]</label>
+                                                            <div class="col-sm-10">
+                                                                <input type="text" name="battery_num" class="form-control" value="<?php  echo $settings['battery_num'];?>" />
+                                                                <span class="help-block">  模板编号：OPENTM408695277；行业：教育 - 院校 ；名称：设备电量提醒</span>
+                                                            </div>
+                                                        </div>                         
+                                                        <?php  } ?>
                                                         <!--<div class="form-group form-md-line-input">
                                                             <label class="col-md-2 control-label">校内位置追踪</label>
                                                             <div class="col-sm-10">
@@ -305,40 +314,6 @@
                                                                     <a href="https://portal.qiniu.com/signup?code=3lmzc1e9jkcb6">去注册七牛</a>           
                                                                 </div>
                                                     </div>   
-                                                        <div class="panel panel-default">
-                                                                <div class="panel-heading">支付配置（多校共用）</div>
-                                                                <div class="panel-body">
-                                                                  <div class="form-group form-md-radios form-md-line-input ">
-                                                                        <label class="col-md-2 control-label"  >是否开启其他账号支付</label>
-                                                                        <div class="md-radio-inline">
-                                                                            <div class="md-radio">
-                                                                               <input type='radio' value='0'  id= 'radiolgr' name='pay_do' class="md-radiobtn" <?php  if($settings['pay_do']==0) { ?> checked <?php  } ?>/> 
-                                                                                <label for="radiolgr">
-                                                                                    <span></span>
-                                                                                    <span class="check"></span>
-                                                                                    <span class="box"></span>不开启</label>
-                                                                            </div>
-                                                                            <div class="md-radio">
-                                                                            <input type='radio' value='1' name='pay_do'  id= 'radiolg1' class="md-radiobtn"  <?php  if($settings['pay_do']==1) { ?> checked <?php  } ?>/> 
-                                                                                <label for="radiolg1">
-                                                                                    <span></span>
-                                                                                    <span class="check"></span>
-                                                                                    <span class="box"></span>开启</label>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>                                                                           
-                                                                    <div class="form-group  form-md-line-input ">
-                                                                        <label class=" col-md-2 control-label">选择公众号</label>
-                                                                        <div class="col-sm-10">
-                                                                        <select name='pay_uniacid' class="form-control">
-                                                                            <?php  if(is_array($uniacid_list)) { foreach($uniacid_list as $row) { ?>
-                                                                                <option value="<?php  echo $row['uniacid'];?>" <?php  if($settings['pay_uniacid']==$row['uniacid']) { ?> selected <?php  } ?>><?php  echo $row['name'];?></option>
-                                                                            <?php  } } ?>
-                                                                        </select>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                    </div>        
                                                     <div class="panel panel-default">
                                                                 <div class="panel-heading">对外服务API配置<a href="http://bbs.jiaxt.cn/thread-300.htm" target="_blank">【使用说明】</a></div>
                                                                 <div class="panel-body">

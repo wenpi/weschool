@@ -110,6 +110,17 @@
                                                 </div>
                                             </div>
 
+                                            <div  class=" xiaoye_home form-group form-md-line-input" style="<?php  if($result['mu_str']!='xiaoye') { ?>display:none;<?php  } ?>">
+                                                <label class="col-md-2 control-label" for="form_control_1">小烨模板教师端底部</label>
+                                                <div class="col-md-10">
+                                                    <select name="xiaoye_tea_bottom" class="form-control">
+                                                        <option value="0" <?php  if(S("system",'getSetContent',array('xiaoye_tea_bottom',$school_id)) ==0 ) { ?> selected <?php  } ?>>固定</option>
+                                                        <option value="1" <?php  if(S("system",'getSetContent',array('xiaoye_tea_bottom',$school_id)) ==1 ) { ?> selected <?php  } ?>>自定义</option>
+                                                    </select>
+                                                    <div class="form-control-focus"> </div>
+                                                </div>
+                                            </div>
+                                            
                                             <script>
                                                 function usefun(){
                                                     va = $("#mu_str").val();
@@ -152,7 +163,7 @@
                                         </div>
                                         
                                          <div class="form-group form-md-radios form-md-line-input  ">
-                                            <label class="col-md-2 control-label"  >班级圈</label>
+                                            <label class="col-md-2 control-label">家长发布班级圈</label>
                                               <div class="col-md-10">
                                                  <input type="checkbox"  value='1'  <?php  if($result['line_status']==1) { ?> checked <?php  } ?> class="make-switch" name="line_status" data-on-text="不审核" data-off-text="需审核">
                                              </div>
@@ -161,16 +172,17 @@
                                         <div class="form-group form-md-radios form-md-line-input  ">
                                             <label class="col-md-2 control-label"  >班级圈视频</label>
                                             <div class="col-md-10">
-                                                 <input type="checkbox"  value='0'  <?php  if(S("system",'getSetContent',array('line_video_status',$school_id)) ==0 ) { ?> checked <?php  } ?>  class="make-switch" name="line_video_status" data-on-text="开启" data-off-text="关闭">
+                                                 <input type="checkbox"  value='1'  <?php  if(S("system",'getSetContent',array('line_video_status',$school_id)) == 1 ) { ?> checked <?php  } ?>  class="make-switch" name="line_video_status" data-on-text="开启" data-off-text="关闭">
                                              </div>
                                         </div>
                                         
-                                         <div class="form-group form-md-radios form-md-line-input  ">
+                                         <!--<div class="form-group form-md-radios form-md-line-input  ">
                                             <label class="col-md-2 control-label"  >班级公告</label>
                                             <div class="col-md-10">
                                                  <input type="checkbox"  value='1'  <?php  if($result['class_notice_status']==1) { ?> checked <?php  } ?>  class="make-switch" name="class_notice_status" data-on-text="不审核" data-off-text="需审核">
                                              </div>
-                                        </div>
+                                        </div>-->
+
                                         <div class="form-group form-md-line-input">
                                                     <label class="control-label col-md-2">多班级</label>
                                                     <div class="col-md-10">
@@ -190,7 +202,14 @@
                                                  <input type="checkbox"  value='1'  <?php  if(S("system",'getSetContent',array('parentsToparents',$school_id)) ==1 ) { ?> checked <?php  } ?>  class="make-switch" name="parentsToparents" data-on-text="开启" data-off-text="关闭">
                                              </div>
                                         </div>   
-
+                                        
+                                        <div class="form-group form-md-radios form-md-line-input  ">
+                                            <label class="col-md-2 control-label">提醒教师第二天上课课程</label>
+                                            <div class="col-md-10">
+                                                 <input type="checkbox"  value='1'  <?php  if(S("system",'getSetContent',array('remindTeacher',$school_id)) ==1 ) { ?> checked <?php  } ?>  class="make-switch" name="remindTeacher" data-on-text="开启" data-off-text="关闭" >
+                                             </div>
+                                        </div>   
+                                        
                                         <div class="form-group  form-md-line-input  ">
                                                 <label class= "col-md-2 control-label">班级公告分类</label>
                                                 <div class="col-md-10">
@@ -226,27 +245,44 @@
                                             </div>
                                              <div class="form-group form-md-line-input  ">
                                                 <label class="col-md-2 control-label" for="parents">学生可绑定家长数[1-3人]</label>
-                                                <div class="col-md-10">
-                                                    <input type="number" class="form-control" id="parents" placeholder="学生可绑定家长数" value='<?php  echo $result['parents'];?>' name='parents' placeholder="3">
+                                                <div class="col-md-4">
+                                                    <select name="parents"  class="form-control">
+                                                        <option value="1" <?php  if($result['parents'] ==1 ) { ?>selected<?php  } ?>>1</option>
+                                                        <option value="2" <?php  if($result['parents'] ==2 ) { ?>selected<?php  } ?>>2</option>
+                                                        <option value="3" <?php  if($result['parents'] ==3 ) { ?>selected<?php  } ?>>3</option>
+                                                    </select>
                                                     <div class="form-control-focus"> </div>
                                                 </div>
                                             </div>                                           
                                             <div class="form-group form-md-line-input  ">
-                                                <label class="col-md-2 control-label" for="on_school">在校天数</label>
-                                                <div class="col-md-10">
-                                                    <input type="number" class="form-control" id="on_school" placeholder="一周在校天数" value='<?php  echo $result['on_school'];?>' name='on_school' placeholder="5">
-                                                    <div class="form-control-focus"> </div>
-                                                    <span class="help-block">一周的在校天数</span>
+                                                <label class="col-md-2 control-label" for="on_school">在校天数【一周的在校天数】</label>
+                                                <div class="col-md-4">
+                                                    <select name="on_school"  class="form-control">
+                                                        <option value="1" <?php  if($result['on_school'] ==1 ) { ?>selected<?php  } ?>>1</option>
+                                                        <option value="2" <?php  if($result['on_school'] ==2 ) { ?>selected<?php  } ?>>2</option>
+                                                        <option value="3" <?php  if($result['on_school'] ==3 ) { ?>selected<?php  } ?>>3</option>
+                                                        <option value="4" <?php  if($result['on_school'] ==4 ) { ?>selected<?php  } ?>>4</option>
+                                                        <option value="5" <?php  if($result['on_school'] ==5 ) { ?>selected<?php  } ?>>5</option>
+                                                        <option value="6" <?php  if($result['on_school'] ==6 ) { ?>selected<?php  } ?>>6</option>
+                                                        <option value="7" <?php  if($result['on_school'] ==7 ) { ?>selected<?php  } ?>>7</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                                <div class="form-group form-md-line-input  ">
                                                 <label class="col-md-2 control-label" for="begin_dayon_school">周几课程开始</label>
-                                                <div class="col-md-10">
-                                                    <input type="number" class="form-control" id="begin_day" placeholder="周几开始上学" value='<?php  echo $result['begin_day'];?>' name='begin_day' placeholder="1">
-                                                    <div class="form-control-focus"> </div>
-                                                    <span class="help-block">一周的周几开始上课</span>
+                                                <div class="col-md-4">
+                                                    <select name="begin_day"  class="form-control">
+                                                        <option value="1" <?php  if($result['begin_day'] ==1 ) { ?>selected<?php  } ?>>1</option>
+                                                        <option value="2" <?php  if($result['begin_day'] ==2 ) { ?>selected<?php  } ?>>2</option>
+                                                        <option value="3" <?php  if($result['begin_day'] ==3 ) { ?>selected<?php  } ?>>3</option>
+                                                        <option value="4" <?php  if($result['begin_day'] ==4 ) { ?>selected<?php  } ?>>4</option>
+                                                        <option value="5" <?php  if($result['begin_day'] ==5 ) { ?>selected<?php  } ?>>5</option>
+                                                        <option value="6" <?php  if($result['begin_day'] ==6 ) { ?>selected<?php  } ?>>6</option>
+                                                        <option value="7" <?php  if($result['begin_day'] ==7 ) { ?>selected<?php  } ?>>7</option>
+                                                    </select>
                                                 </div>
                                             </div>       
+
                                        <div class="form-group form-md-line-input ">
                                            <label class="col-md-2 control-label">课时配置</label>
                                             <div class="col-md-10 ">
@@ -395,6 +431,13 @@
                                             </div>                                                          
                                         </div>  
 
+                                        <div class="form-group form-md-line-input">
+                                                <label class="col-md-2 control-label">访问统计</label>
+                                                <div class="col-md-10">
+                                                    <input type="text" class="form-control"  placeholder="访问统计代码" value="<?php  echo S("system",'getSetContent',array('ask_url',$school_id));?>" name='ask_url'  >
+                                                    <div class="form-control-focus"> </div>
+                                                </div>
+                                            </div>
 
                                         <div class="form-actions">
                                             <div class="row">

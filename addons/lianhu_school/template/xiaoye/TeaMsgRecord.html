@@ -1,0 +1,59 @@
+{template '../xiaoye/newTeaHead'}
+<body>
+	<div class="main">
+		<div class="bl">消息记录</div>
+		<ul class="nrgg" id="line_ajax">
+            {template '../xiaoye/TeaMsgRecord_content'}
+		</ul>
+	<div class="yck" id='end_text'></div>
+    {php $center_class = 'cde'}
+    {template '../xiaoye/newTeaFooter'}
+    {template 'jsweixin'}
+    </div>
+</body>
+<script>
+    var pager=2;
+    function getHomeWorkList(){
+    if(pager>0){
+        $.ajax({
+        url:"{php echo $this->createMobileUrl('TeaMsgRecord',array('ac'=>'ajax'))}",
+        type:'post',
+        async:false,
+        data:{page:pager},
+        success:function(html){
+            if(html && html !='done'){
+                $("#line_ajax").append(html);
+                pager++;
+            }else{
+                $("#end_text").html("已经全部查看完了");
+                pager = 0;
+            }
+        }
+        });
+    }
+    }
+    $(function(){
+        $(window).scroll(function(){
+            if ($(document).height() - $(this).scrollTop() - $(this).height() < 100){
+                getHomeWorkList();
+            }
+        });
+    });
+    function deleteThis(id,type){
+            $.ajax({
+                url:'{php echo $this->createMobileUrl("ajax")}',
+                type:'post',
+                dataType:'json',
+                data:{id:id,type:type,ac:'tea_delete'},
+                success:function(obj){
+                    if(obj.errcode==0){
+                        alert("删除成功！");
+                        $("#"+type+'_'+id).remove();   
+                    }
+                }
+            });
+        }
+
+</script>
+
+</html>

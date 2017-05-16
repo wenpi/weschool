@@ -63,7 +63,6 @@
 		for ($i=0; $i <50 ; $i++) { 
 			$loop[$i]=1;
 		}
-
         
 		if($ac=='new'){
 			if(in_array($_GPC['cid'],$quanxian_class_id_arr)){
@@ -90,6 +89,9 @@
                 $content['teacher_am']  = $_GPC['teacher_am'];
                 $content['teacher_pm']  = $_GPC['teacher_pm'];
                 $content['teacher_ye']  = $_GPC['teacher_ye'];
+				$content['aroom_id']   	= $_GPC['aroom_id'];
+				$content['proom_id']   	= $_GPC['proom_id'];
+				$content['yroom_id']   	= $_GPC['yroom_id'];
 				$url     	   		    = $_GPC['url'];
 				D("newSyllabus")->decodeContent($this->school_info,$class_result['class_id'],$url,$content);
 				$this->myMessage("编辑成功",$this->createWebUrl('syllabus',array('ac'=>'new','cid'=>$_GPC['cid'] )),'成功');
@@ -113,7 +115,15 @@
             $result['begin_time']=$result['content']['begin_time'];
             $result['end_time']=$result['content']['end_time'];
         }
-
-	include $this->template('../admin/web_syllabus');
-	exit();
+		//教室
+		$build_re 	= D("teaBuilding")->getList(array(":status"=>1));
+		$build_list = $build_re['list'];
+		foreach ($build_list as $key => $value) {
+			$where[":status"] = 1;
+			$where[":tea_building_id"] = $value['building_id'];
+			$re = D("teaRoom")->getList($where);
+			$build_list[$key]['sec'] = $re['list'];
+		}
+		include $this->template('../admin/web_syllabus');
+		exit();
         

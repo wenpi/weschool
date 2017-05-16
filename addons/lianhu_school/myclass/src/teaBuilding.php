@@ -15,5 +15,6 @@ class teaBuilding extends common{
         $re = $this->edit(array("building_id"=>$building_id));
         return $re['building_name'];
     }
+    
 
 }

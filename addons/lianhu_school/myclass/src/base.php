@@ -290,8 +290,10 @@ class base{
         if($this->student_id){
             $class_student = D('student');
             $student_info  = $class_student->getStudentInfo($this->student_id);
+            $school_id   = $student_info['school_id'];
         }elseif($this->teacher_id){
             $teacher_info  = D("teacher")->edit(array("teacher_id"=>$this->teacher_id));
+            $school_id   = $teacher_info['school_id'];
         }
         //解析短信内容
         if($this->web_config['msg']== $mu_id ){
@@ -299,14 +301,13 @@ class base{
         }else{
             $school_msg = false;
         }
-        $content = $this->findOutTplContent($mu_data,$school_msg);
-        $school_id   = $student_info['school_id'];
+        $content     = $this->findOutTplContent($mu_data,$school_msg);
         if($school_id){
             D('school')->school_id  = $school_id;
             $school_name            = D('school')->getSchoolInfo("school_name");
         }
         if($teacher_info && $teacher_info['sms_send']==1 && $teacher_info['teacher_telphone']){
-            $re        = $this->sendSmsMsg($teacher_info['teacher_realname'],"【".$school_name."】".$content );
+            $re        = $this->sendSmsMsg($teacher_info['teacher_telphone'],"【".$school_name."】".$content );
         }
         if($openid == 'sms' && $student_info){
             $re        = $this->sendSmsMsg($student_info['parent_phone'],"【".$school_name."】".$content );

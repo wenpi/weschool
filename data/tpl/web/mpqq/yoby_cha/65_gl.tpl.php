@@ -1,0 +1,148 @@
+<?php defined('IN_IA') or exit('Access Denied');?><?php (!empty($this) && $this instanceof WeModuleSite || 1) ? (include $this->template('common/header', TEMPLATE_INCLUDEPATH)) : (include template('common/header', TEMPLATE_INCLUDEPATH));?>
+
+<div class='container' style='padding:0 5px 10px;margin:0;width:100%'>
+
+<ul class="nav nav-tabs">
+  <li <?php  if($op == 'post') { ?>class="active"<?php  } ?>><a href="<?php  echo $this->createWebUrl('gl', array('op' => 'post','cid'=>$cid));?>">添加数据</a></li>
+  <li <?php  if($op == 'display') { ?>class="active"<?php  } ?>><a href="<?php  echo $this->createWebUrl('gl',array('op'=>'display','cid'=>$cid));?>">管理数据</a></li>
+ 
+</ul>
+<?php  if($op =='display') { ?>
+		<div class="panel-heading">筛选</div>
+		<div class="panel-body">
+			<form action="./index.php" method="get" class="form-horizontal" role="form">
+                <input type="hidden" name="c" value="site" />
+                <input type="hidden" name="a" value="entry" />
+<input type="hidden" name="cid" value="<?php  echo $cid;?>" />
+			<input type="hidden" value="yoby_cha" name="m">
+			<input type="hidden" value="gl" name="do">
+			<input type="hidden" value="display" name="op">
+			<div class="form-group">
+				<label class="col-xs-12 col-sm-2 col-md-2 col-lg-1 control-label">关键字</label>
+				<div class="col-sm-8">
+						<input type="text" placeholder="<?php 
+foreach($info as $k1){
+  if($k1['isok']==1){
+echo $k1['title']." ";
+}
+}
+?>" value="<?php  echo $_GPC['keyword'];?>" id="" name="keyword" class="form-control">
+				</div>				
+			</div>
+			<div class="form-group">
+				<div class="pull-right col-xs-12 col-sm-6 col-lg-1">
+			
+					<button class="btn btn-block btn-primary"><i class="fa fa-search"></i></button>
+				</div>
+				
+				<div class="pull-right col-xs-12 col-sm-6 col-lg-1">
+				<a class="btn btn-primary" onclick="return confirm('此操作不可恢复，确认吗？'); return false;"  href="<?php  echo $this->createWebUrl('q',array('cid'=>$cid));?>">清空数据</a>
+				
+				</div>
+			</div>
+			</form>
+		</div>
+	</div>
+<div style="padding:15px;">
+<form id="form2" class="form-horizontal" method="post">
+
+		<table class="table table-hover">
+			<thead class="navbar-inner">
+				<tr>
+				<th style="width:80px;">全选</th>
+								
+					<?php 
+foreach($info as $k){
+echo '<th >'.$k['title'].'</th>';
+}
+?>
+					<th style="min-width:60px;width:100px;">操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php  if(is_array($list)) { foreach($list as $item) { ?>
+				<td><input type="checkbox" value="<?php  echo $item['id'];?>" name="delete[]"></td>
+					<?php 
+foreach(json_decode($item['bl'],1) as $v3){
+echo '<td>'.$v3.'</td>';
+}
+?>
+					<td>
+
+					<a href="<?php  echo $this->createWebUrl('gl', array('op' => 'post', 'id' => $item['id'],'cid' => $item['cid']))?>" title="编辑" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-edit"></span></a>
+				 
+					<a onclick="return confirm('此操作不可恢复，确认吗？'); return false;" href="<?php  echo $this->createWebUrl('gl', array('id' => $item['id'],'op'=>'del','cid' => $item['cid']))?>" title="删除" class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-remove" ></span></a>
+					</td>				
+				</tr>
+				
+				<?php  } } ?>
+				<tr >
+				<td><input type="checkbox"  onclick="var ck = this.checked;$(':checkbox').each(function(){this.checked = ck});" name=''>    <input class="btn btn-primary btn-sm" type="submit" value="删除" name="submit" ></td><td></td><td></td><td></td>
+				</tr>
+			</tbody>
+		</table>
+		<input type="hidden" value="gl" name="do">
+		<input type="hidden" value="del" name="op">
+		<input type="hidden" name="token" value="<?php  echo $_W['token'];?>" />
+		
+		
+		</form>
+		<?php  echo $pager;?>
+
+	<script>
+
+		
+					$('#form2').submit(function(){
+if($(":checkbox[name='delete[]']:checked").size() > 0){
+return confirm('删除后不可恢复，您确定删除吗？');
+}
+return false;
+}); 
+
+
+		</script>	
+	</div>
+	<?php  } else if($op == 'post') { ?>
+
+
+<div class="main">
+	<form action="" method="post" class="form-horizontal form">
+	<div class="panel panel-default">
+	
+		
+		<div class="panel-body">
+			
+	
+<?php 
+$bl = json_decode($item['bl'],1);
+foreach($info as $k=>$v){
+
+echo '		<div class="form-group">
+				<label  class="col-sm-2 control-label">'.$v['title'].'</label>
+				<div class="col-sm-8">
+					<input type="text" name="title['.$k.']" class="form-control" value="'.$bl[$k].'" />
+				</div>
+			</div>';
+
+
+}
+
+?>
+			<div class="form-group">
+				<label class="col-xs-12 col-sm-2 col-md-2 col-lg-1 control-label"></label>
+				<div class="col-sm-4">
+				<input type="hidden" name="id" value="<?php  echo $item['id'];?>">
+				<input type="hidden" name="token" value="<?php  echo $_W['token'];?>" />
+					<input name="submit" type="submit" value="提交" class="btn btn-primary span3 btn-sm" />
+				</div>
+			</div>
+			
+			</div>
+			</div>
+	</form>
+</div>
+
+<?php  } ?>		
+</div>
+
+<?php (!empty($this) && $this instanceof WeModuleSite || 1) ? (include $this->template('common/footer', TEMPLATE_INCLUDEPATH)) : (include template('common/footer', TEMPLATE_INCLUDEPATH));?>

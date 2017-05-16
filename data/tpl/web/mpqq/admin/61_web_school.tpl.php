@@ -202,7 +202,14 @@
                                                  <input type="checkbox"  value='1'  <?php  if(S("system",'getSetContent',array('parentsToparents',$school_id)) ==1 ) { ?> checked <?php  } ?>  class="make-switch" name="parentsToparents" data-on-text="开启" data-off-text="关闭">
                                              </div>
                                         </div>   
-
+                                        
+                                        <div class="form-group form-md-radios form-md-line-input  ">
+                                            <label class="col-md-2 control-label">提醒教师第二天上课课程</label>
+                                            <div class="col-md-10">
+                                                 <input type="checkbox"  value='1'  <?php  if(S("system",'getSetContent',array('remindTeacher',$school_id)) ==1 ) { ?> checked <?php  } ?>  class="make-switch" name="remindTeacher" data-on-text="开启" data-off-text="关闭" >
+                                             </div>
+                                        </div>   
+                                        
                                         <div class="form-group  form-md-line-input  ">
                                                 <label class= "col-md-2 control-label">班级公告分类</label>
                                                 <div class="col-md-10">

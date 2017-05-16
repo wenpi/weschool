@@ -26,5 +26,13 @@ class teaRoom extends common{
         }
         return $list;
     }
-
+    public function getTeaNum($room_id){
+        $this->field_str = "tea_building_id,room_num";
+        $result = $this->edit(array("room_id"=>$room_id));
+        if($result){
+            D("teaBuilding")->field_str = 'building_name';
+            $bu_re = D("teaBuilding")->edit(array("building_id"=>$result["tea_building_id"]));
+            return $bu_re['building_name'].'-'.$result['room_num'];
+        }
+    }
 }
