@@ -58,6 +58,7 @@ CREATE TABLE `ims_yoby_cha_table` (
 
 CREATE TABLE `ims_yoby_cha_project` (
   `projectid` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `weid` int(10) DEFAULT NULL,
   `title` varchar(64) NOT NULL DEFAULT '',
   `desc` varchar(255) NOT NULL DEFAULT '',
   `timecreate` int(10) NOT NULL DEFAULT 0,
