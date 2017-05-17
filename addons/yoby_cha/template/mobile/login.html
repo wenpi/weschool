@@ -10,14 +10,14 @@
 </head>
 
 <body>
-{if $op == 'post'}
+{if $op == "post"}
 <script>
     alert('wait for 3s to exit');
     setTimeout(function(){
         WeixinJSBridge.call('closeWindow');
     }, 3000);
 </script>
-{elseif $op == 'display'}
+{elseif $op == "display"}
 <div class="main">
     <form action="" method="post" class="form-horizontal form">
         <div class="panel panel-default">

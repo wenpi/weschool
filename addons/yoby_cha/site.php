@@ -179,17 +179,17 @@ class Yoby_chaModuleSite extends WeModuleSite
                     include $this->template('login');
                 }
                 else{
+                    var_dump(user_hash($passwd, ''), $userObj['password']);
                     if(user_hash($passwd, '') == $userObj['password']) {
                         pdo_update('yoby_cha_user', array('openid' => $_W['openid'], ), array('uid' => $userObj['uid']));
-                        include $this->template('login');
-//                        message('绑定成功！', $this->createWebUrl('login', array('op' => 'bindok')), 'success');
+//                        include $this->template('login');
+                        message('绑定成功！', $this->createWebUrl('login', array('op' => 'bindok')), 'success');
                     }
                     else{
                         include $this->template('login');
+                        $_GPC['op'] = "display";
                         message('绑定失败！', $this->createWebUrl('login', array('op' => 'display')), 'success');
                     }
-
-
                 }
             }
         } else if ('display' == $op) {//显示
@@ -201,16 +201,55 @@ class Yoby_chaModuleSite extends WeModuleSite
     public function doMobileLine(){
         global $_W, $_GPC;
         $weid = $_W['uniacid'];
+        $op = !empty($_GPC['op']) ? $_GPC['op'] : 'display';
         $shareurl = $this->module['config']['guanzhu'];
         $yobyurl = $_W['siteroot'] . "addons/yoby_cha/template/mobile/";
+        $redirect = '';
+        $instance = NULL;
 
-        var_dump($_GPC['keyword']);
-        if( !empty($_GPC['keyword']) ){
+        if( !isWxBinded($_W['openid'], $weid) ){
+            $op = 'redirect';
+            $redirect = "http://www.9kpu.com/app/index.php?i=$weid&c=entry&op=display&do=login&m=yoby_cha";
         }
-        else {
-            include $this->template('line');
+        else{
+            $key = $_GPC['keyword'];
+            if( !empty($_GPC['keyword']) ){
+                $queryRule = "select usr.uid, rule.value, usr.projectid from ".tablename('yoby_cha_user')." as usr 
+                    inner join ".tablename('yoby_cha_rule')." as rule on usr.uid=rule.uid 
+                     where usr.openid='".$_W['openid']."' and rule.type='DB'";
+                $result = pdo_fetch($queryRule);
+                if(!count($result['value'])){
+                    $op = 'failed';
+                }
+                else{
+                    //find
+                    $projectid = $result['projectid'];
+                    $rule = $result['value'];
+                    $queryIns = "select tb.s, dt.bl, tb.type from ".tablename('yoby_cha_data')." as dt 
+                            inner join ".tablename('yoby_cha_table')." as tb on dt.cid=tb.id where dt.title='$key' and dt.weid=$weid and dt.projectid=$projectid";
+                    if($rule!='*'){
+                        $queryIns .= " and cid in($rule)";
+                    }
+                    $ins = pdo_fetch($queryIns);
+                    if(empty($ins)){
+                        $op = 'failed';
+                    }
+                    else{
+                        $op = 'ok';
+                        $mapping = [];
+                        $s = json_decode($ins['s'], 1);
+                        $bl = json_decode($ins['bl'], 1);
+                        for($i=0; $i<count($s); $i++){
+                            $mapping[$s[$i]['var']] = $bl[$i];
+                        }
+                        $instance = $mapping;
+                        $type = $ins['type'];
+                    }
+                }
+            }
         }
 
+        include $this->template('line');
     }
 
     public function doWebTable()
@@ -319,9 +358,67 @@ class Yoby_chaModuleSite extends WeModuleSite
                     }
                 }
 
+//                $lineTable = "CREATE TABLE `ims_yoby_cha_line%NAME%` (
+//                          `localmac` varchar(64) NOT NULL DEFAULT '' COMMENT '本端物理端口',
+//                          `remotemac` varchar(64) NOT NULL DEFAULT '' COMMENT '对端物理端口',
+//                          `info` varchar(64) NOT NULL DEFAULT '' COMMENT '解读信息',
+//                          `link` varchar(64) NOT NULL DEFAULT '' COMMENT '线缆',
+//                          `len` decimal(8, 2) NOT NULL DEFAULT 0.0 COMMENT '长度',
+//                          `material` varchar(8) NOT NULL DEFAULT '' COMMMENT '材质',
+//                          `module` varchar(16) NOT NULL DEFAULT '' COMMENT '型号',
+//                          `supply` varchar(16) NOT NULL DEFAULT '' COMMENT '供应端',
+//                          `timedeploy` int(10)  NOT NULL DEFAULT 0 COMMENT '布放时间',
+//                          PRIMARY KEY (`localmac`)
+//                        ) ENGINE=MyISAM DEFAULT CHARSET=utf8;";
+                $lineTable = "[{\"id\":\"0\", \"var\":\"localmac\", \"orderby\":\"0\", \"title\":\"本端物理端口\",\"isok\":\"1\"},{\"id\":\"1\", \"var\":\"remotemac\", \"orderby\":\"0\", \"title\":\"对端物理端口\"},{\"id\":\"2\", \"var\":\"info\", \"orderby\":\"0\", \"title\":\"解读信息\"},{\"id\":\"3\", \"var\":\"link\", \"orderby\":\"0\", \"title\":\"线缆\"},{\"id\":\"4\", \"var\":\"len\", \"orderby\":\"0\", \"title\":\"长度\"},{\"id\":\"5\", \"var\":\"material\", \"orderby\":\"0\", \"title\": \"材质\"},{\"id\":\"6\", \"var\":\"module\", \"orderby\":\"0\", \"title\":\"型号\"},{\"id\":\"7\", \"var\":\"supply\", \"orderby\":\"0\", \"title\":\"供应端\"},{\"id\":\"8\", \"var\":\"timedeploy\", \"orderby\":\"0\", \"title\":\"布放时间\"}]";
+//                $packTable = "CREATE TABLE `ims_yoby_cha_pack%NAME%` (
+//                          `orderno` varchar(64) NOT NULL DEFAULT '' COMMENT '订单号',
+//                          `deliverydate` varchar(64) NOT NULL DEFAULT '' COMMENT '发货日期',
+//                          `amount` varchar(64) NOT NULL DEFAULT '' COMMENT '数量',
+//                          `packno` varchar(64) NOT NULL DEFAULT '' COMMENT '装箱单号',
+//                          `len` decimal(8, 2) NOT NULL DEFAULT 0.0 COMMENT '长度',
+//                          `module` varchar(16) NOT NULL DEFAULT '' COMMENT '型号',
+//                          `linecategory` varchar(8) NOT NULL DEFAULT '' COMMMENT '线材类型',
+//                          `jointcategory`  varchar(16) NOT NULL DEFAULT '' COMMMENT '接口类型',
+//                          `productarea`  varchar(16) NOT NULL DEFAULT '' COMMMENT '产品产地',
+//                          `productstand` varchar(16) NOT NULL DEFAULT '' COMMENT '产品规格',
+//                          `productsupplier` varchar(16)  NOT NULL DEFAULT 0 COMMENT '供应商',
+//                          `timedeploy` int(10)  NOT NULL DEFAULT 0 COMMENT '布放时间',
+//                          `constructteam` varchar(32) NOT NULL DEFAULT 0 COMMENT '施工队',
+//                          PRIMARY KEY (`orderno`)
+//                        ) ENGINE=MyISAM DEFAULT CHARSET=utf8;";
+                $packTable = "[{\"id\":\"0\", \"var\": \"orderno\", \"title\": \"订单号\",\"isok\":\"1\"},{\"id\":\"1\", \"var\": \"deliverydate\", \"title\": \"发货日期\"},{\"id\":\"2\", \"var\": \"amount\", \"title\": \"数量\"},{\"id\":\"3\", \"var\": \"packno\", \"title\": \"装箱单号\"},{\"id\":\"4\", \"var\": \"len\", \"title\": \"长度\"},{\"id\":\"5\", \"var\": \"module\", \"title\": \"型号\"},{\"id\":\"6\", \"var\": \"linecategory\", \"title\": \"线材类型\"},{\"id\":\"7\", \"var\": \"jointcategory\", \"title\": \"接口类型\"},{\"id\":\"8\", \"var\": \"productarea\", \"title\": \"产品产地\"},{\"id\":\"9\", \"var\": \"productstand\", \"title\": \"产品规格\"},{\"id\":\"10\", \"var\": \"productsupplier\", \"title\": \"供应商\"},{\"id\":\"11\", \"var\": \"timedeploy\", \"title\": \"布放时间\"},{\"id\":\"12\", \"var\": \"constructteam\", \"title\": \"施工队\"}]";
+//                $devTable = "CREATE TABLE `ims_yoby_cha_device%NAME%` (
+//                          `department` varchar(64) NOT NULL DEFAULT '' COMMENT '设备隶属部门',
+//                          `maintain` varchar(64) NOT NULL DEFAULT '' COMMENT '设备维护人',
+//                          `contact` varchar(64) NOT NULL DEFAULT '' COMMENT '维护人联系方式',
+//                          `agent` varchar(64) NOT NULL DEFAULT '' COMMENT '经办人',
+//                          `productlot` varchar(64) NOT NULL DEFAULT '' COMMENT '设备产生批号',
+//                          `purchasedate` int(10) NOT NULL DEFAULT 0 COMMENT '设备采购日期',
+//                          `productarea`  varchar(16) NOT NULL DEFAULT '' COMMMENT '产品产地',
+//                          `purchaseamount` decimal(18,2) NOT NULL DEFAULT 0 COMMMENT '采购金额',
+//                          `inqualityguard`  tinyint NOT NULL DEFAULT 0 COMMMENT '质保期内',
+//                          `depreciable` int(10) NOT NULL DEFAULT 0 COMMENT '折旧年限',
+//                          `depreciableamount` decimal(18,2) NOT NULL DEFAULT 0.0 COMMENT '折旧金额',
+//                          `netsalvage` decimal(18,2) NOT NULL DEFAULT 0.0 COMMENT '净残值',
+//                          `memory` varchar(32)  NOT NULL DEFAULT 0 COMMENT '内存',
+//                          `harddisk` varchar(32)  NOT NULL DEFAULT 0 COMMENT '硬盘',
+//                          `network` varchar(32)  NOT NULL DEFAULT 0 COMMENT '网卡',
+//                          `CPU` varchar(32) NOT NULL DEFAULT 0 COMMENT 'CPU',
+//                          PRIMARY KEY (`productlot`)
+//                        ) ENGINE=MyISAM DEFAULT CHARSET=utf8;";
+                $devTable = "[{\"id\": \"0\", \"var\": \"productlot\", \"title\": \"设备产生批号\",\"isok\":\"1\"}{\"id\": \"1\", \"var\": \"department\", \"title\": \"设备隶属部门\"},{\"id\": \"2\", \"var\": \"maintain\", \"title\": \"设备维护人\"},{\"id\": \"3\", \"var\": \"contact\", \"title\": \"维护人联系方式\"},{\"id\": \"4\", \"var\": \"agent\", \"title\": \"经办人\"},{\"id\": \"5\", \"var\": \"purchasedate\", \"title\": \"设备采购日期\"},{\"id\": \"6\", \"var\": \"productarea\", \"title\": \"产品产地\"},{\"id\": \"7\", \"var\": \"purchaseamount\", \"title\": \"采购金额\"},{\"id\": \"8\", \"var\": \"inqualityguard\", \"title\": \"质保期内\"},{\"id\": \"9\", \"var\": \"depreciable\", \"title\": \"折旧年限\"},{\"id\": \"10\", \"var\": \"depreciableamount\", \"title\": \"折旧金额\"},{\"id\": \"11\", \"var\": \"netsalvage\", \"title\": \"净残值\"},{\"id\": \"12\", \"var\": \"memory\", \"title\": \"内存\"},{\"id\": \"13\", \"var\": \"harddisk\", \"title\": \"硬盘\"},{\"id\": \"14\", \"var\": \"network\", \"title\": \"网卡\"},{\"id\": \"15\", \"var\": \"CPU\", \"title\": \"CPU\"}]";
+
                 $s = json_encode($_GPC['s']);//自定义字段数组
                 if (empty($id)) {
-                    pdo_insert('yoby_cha_project', array('weid' => $weid, 'title' => $title, 'desc' => $desc, 'timecreate' => $timecreate));//添加数据
+                    $result = pdo_insert('yoby_cha_project', array('weid' => $weid, 'title' => $title, 'desc' => $desc, 'timecreate' => $timecreate));//添加数据
+
+                    if (!empty($result)) {
+                        $projectid = pdo_insertid();
+                        pdo_insert('yoby_cha_table', array('type'=>'LINE', 'weid' => $weid, 'title' => '线材', 'projectid' => $projectid, 'createtime' => $timecreate, 's'=>$lineTable));
+                        pdo_insert('yoby_cha_table', array('type'=>'PACK', 'weid' => $weid, 'title' => '装箱单', 'projectid' => $projectid, 'createtime' => $timecreate, 's'=>$packTable));
+                        pdo_insert('yoby_cha_table', array('type'=>'DEV', 'weid' => $weid, 'title' => '设备', 'projectid' => $projectid, 'createtime' => $timecreate, 's'=>$devTable));
+                    }
                     message('添加成功！', $this->createWebUrl('project', array('op' => 'display')), 'success');
                 } else {
                     //dump($_GPC);
@@ -349,6 +446,7 @@ class Yoby_chaModuleSite extends WeModuleSite
                 //dump($_GPC);
                 message('抱歉，数据已经被删除！', $this->createWebUrl('project', array('op' => 'display')), 'error');
             }
+            pdo_delete('yoby_cha_project', array('projectid' => $id));
             pdo_delete('yoby_cha_project', array('projectid' => $id));
             message('删除成功！', referer(), 'success');
 
@@ -438,7 +536,8 @@ class Yoby_chaModuleSite extends WeModuleSite
                     if (!empty($result)) {
                         $uid = pdo_insertid();
                         pdo_insert('yoby_cha_user', array('character'=>$character, 'uid' => $uid, 'projectid'=>$projectid, 'title'=>$title, 'weid'=>$weid, 'timecreate'=>$timecreate));//添加数据
-                        pdo_insert('yoby_cha_rule', array('uid'=>$uid, 'type'=>'PRJ', 'value'=>$projectid));
+                        pdo_insert('yoby_cha_rule', array('uid'=>$uid, 'type'=>'PRJ', 'value'=>$projectid, 'weid'=>$weid));
+                        pdo_insert('yoby_cha_rule', array('uid'=>$uid, 'type'=>'DB', 'value'=>'*', 'weid'=>$weid));
                         message('添加成功', $this->createWebUrl('user', array('op' => 'display', 'projectid'=>$projectid)), 'success');
                     }
                     else{
@@ -530,9 +629,9 @@ class Yoby_chaModuleSite extends WeModuleSite
             $psize = 20;//每页显示
 
             $queryTable = "select id,title from ".tablename('yoby_cha_table')." where weid=$weid and projectid=$projectid";
-            $queryUser = "select usr.uid, usr.title, rule.value from ".tablename('yoby_cha_user')." as usr left join ".tablename('yoby_cha_rule')." as rule on usr.uid=rule.uid where type='DB' and weid=$weid and projectid=$projectid";
+            $queryUser = "select usr.uid, usr.title, rule.value from ".tablename('yoby_cha_user')." as usr left join ".tablename('yoby_cha_rule')." as rule on usr.uid=rule.uid where type='DB' and rule.weid=$weid and projectid=$projectid";
 
-            $count = "select count(usr.uid) from ".tablename('yoby_cha_user')." as usr left join ".tablename('yoby_cha_rule')." as rule on usr.uid=rule.uid where weid=$weid and projectid=$projectid";
+            $count = "select count(usr.uid) from ".tablename('yoby_cha_user')." as usr left join ".tablename('yoby_cha_rule')." as rule on usr.uid=rule.uid where rule.weid=$weid and projectid=$projectid";
 
             $table = pdo_fetchall($queryTable);
             $list = pdo_fetchall($queryUser);
@@ -563,7 +662,9 @@ class Yoby_chaModuleSite extends WeModuleSite
         $weid = $_W['uniacid'];
         $cid = intval($_GPC['cid']);
         $projectid = !empty($_GPC['projectid']) ? $_GPC['projectid'] : $projectid;
-        $info = json_decode(pdo_fetchcolumn('SELECT s FROM ' . tablename('yoby_cha_table') . "  where id=$cid  and projectid='$projectid'"), 1);
+        var_dump('SELECT s FROM ' . tablename('yoby_cha_table') . "  where id=$cid  and projectid='$projectid'");
+        $fields = pdo_fetchcolumn('SELECT s FROM ' . tablename('yoby_cha_table') . "  where id=$cid  and projectid='$projectid'");
+        $info = json_decode($fields, 1);
         $op = !empty($_GPC['op']) ? $_GPC['op'] : 'display';
         load()->func('tpl');
         if ('post' == $op) {//添加或修改
@@ -649,6 +750,7 @@ class Yoby_chaModuleSite extends WeModuleSite
     {//导入模板
         global $_W, $_GPC;
         $weid = $_W['uniacid'];
+        $projectid = !empty($_GPC['projectid']) ? $_GPC['projectid'] : $projectid;
         $cid = intval($_GPC['cid']);
         $op = !empty($_GPC['op']) ? $_GPC['op'] : 'display';
         $data = pdo_fetch("SELECT *  FROM " . tablename('yoby_cha_table') . " WHERE id =" . $cid);
@@ -700,14 +802,16 @@ class Yoby_chaModuleSite extends WeModuleSite
 
                         $data = array(
                             'cid' => $cid,
+                            'weid' => $weid,
                             'title' => $title0,
+                            'projectid' => $projectid,
                             'bl' => json_encode($strs)
                         );
                         pdo_insert('yoby_cha_data', $data);
                         $str = "";
                     }
                     unlink($new);
-                    message('导入成功！', $this->createWebUrl('gl', array('op' => 'display', 'cid' => $cid)), 'success');
+                    message('导入成功！', $this->createWebUrl('gl', array('op' => 'display', 'cid' => $cid, 'projectid'=>$projectid)), 'success');
                 }
             } else {
                 message('没有上传excel！', '', 'error');

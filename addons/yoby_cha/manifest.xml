@@ -30,10 +30,11 @@
 	CREATE TABLE `ims_yoby_cha_data` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `cid` int(10) DEFAULT NULL,
+  `weid` int(10) DEFAULT NULL,
   `title` varchar(100) DEFAULT NULL,
   `projectid` int(10) unsigned NOT NULL DEFAULT 0,
   `bl` text,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`, `weid`, `projectid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 CREATE TABLE `ims_yoby_cha_reply` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -50,6 +51,7 @@ CREATE TABLE `ims_yoby_cha_table` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '被导入表',
   `weid` int(10) DEFAULT NULL,
   `title` varchar(200) DEFAULT NULL,
+  `type` varchar(8) DEFAULT NULL '',
   `projectid` int(10) unsigned NOT NULL DEFAULT 0,
   `desc` varchar(1000) DEFAULT NULL,
   `createtime` int(10) DEFAULT NULL,
@@ -83,6 +85,15 @@ CREATE TABLE `ims_yoby_cha_user` (
   `openid` varchar(32) NOT NULL DEFAULT '',
   `timecreate` int(10) DEFAULT 0,
   PRIMARY KEY (`uid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+CREATE TABLE `ims_yoby_cha_check` (
+  `uid` int(10) unsigned NOT NULL,
+  `checkid` varchar(64) NOT NULL DEFAULT '',
+  `type` varchar(8) NOT NULL DEFAULT '',
+  `weid` int(10) DEFAULT NULL,
+  `timecreate` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`uid`,`checkid`,`weid`, `type`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 	]]></install>
