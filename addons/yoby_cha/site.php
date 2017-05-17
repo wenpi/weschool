@@ -354,12 +354,12 @@ class Yoby_chaModuleSite extends WeModuleSite
 
         } else if ('display' == $op) {//显示
             global $isRoot;
-            $isRoot = pdo_fetchcolumn('SELECT COUNT(*) FROM ' . tablename('yoby_cha_rule'));
+            $isRoot = pdo_fetchcolumn('SELECT COUNT(*) FROM ' . tablename('yoby_cha_rule')." where weid=$weid");
             if(!$isRoot){
-                pdo_insert('yoby_cha_rule',  array('uid'=>$_W['uid'], 'type'=>'PRJ', 'value'=>"*"));
+                pdo_insert('yoby_cha_rule',  array('uid'=>$_W['uid'], 'weid'=>$weid, 'type'=>'PRJ', 'value'=>"*"));
             }
 
-            $sql = "select `value` from ".tablename('yoby_cha_rule')." where uid=".$_W["uid"]." and type='PRJ'";
+            $sql = "select `value` from ".tablename('yoby_cha_rule')." where weid=$weid and uid=".$_W["uid"]." and type='PRJ'";
             $ruleList = pdo_fetchall($sql);
 
             $projectRules = [];
@@ -514,8 +514,6 @@ class Yoby_chaModuleSite extends WeModuleSite
                 array_push($rules[$key], $ary[1]);
             }
 
-            
-
             for($i=0; $i<count($uids); $i++){
                 $uid = $uids[$i];
                 $rule = '';
@@ -523,7 +521,7 @@ class Yoby_chaModuleSite extends WeModuleSite
                     $rule = implode(",", $rules[$uid]);
                 }
 
-                pdo_update('yoby_cha_rule', array('value' => $rule, ), array('uid' => $uid, 'type'=>'DB'));
+                pdo_update('yoby_cha_rule', array('value' => $rule, ), array('uid' => $uid, 'type'=>'DB', 'weid'=>$weid));
             }
             message('更新成功！', $this->createWebUrl('rule', array('op' => 'display', 'projectid'=>$projectid)), 'success');
         }

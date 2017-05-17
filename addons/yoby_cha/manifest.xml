@@ -68,9 +68,10 @@ CREATE TABLE `ims_yoby_cha_project` (
 
 CREATE TABLE `ims_yoby_cha_rule` (
   `uid` int(10) unsigned NOT NULL,
+  `weid` int(10) DEFAULT NULL,
   `type` varchar(8) NOT NULL DEFAULT '',
   `value` text,
-  PRIMARY KEY (`uid`)
+  PRIMARY KEY (`uid`,`weid`,`type`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 CREATE TABLE `ims_yoby_cha_user` (
