@@ -23,7 +23,6 @@
     </platform>
     <bindings>
         <menu>
-            <entry title="查询数据" do="index" state="" direct="false"/>
             <entry title="项目管理" do="project" state="" direct="false"/>
         </menu>
     </bindings>
@@ -32,6 +31,7 @@
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `cid` int(10) DEFAULT NULL,
   `title` varchar(100) DEFAULT NULL,
+  `projectid` int(10) unsigned NOT NULL DEFAULT 0,
   `bl` text,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
@@ -50,6 +50,7 @@ CREATE TABLE `ims_yoby_cha_table` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '被导入表',
   `weid` int(10) DEFAULT NULL,
   `title` varchar(200) DEFAULT NULL,
+  `projectid` int(10) unsigned NOT NULL DEFAULT 0,
   `desc` varchar(1000) DEFAULT NULL,
   `createtime` int(10) DEFAULT NULL,
   `s` text COMMENT '存储所有自定义字段',
@@ -65,18 +66,21 @@ CREATE TABLE `ims_yoby_cha_project` (
   PRIMARY KEY (`projectid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-CREATE TABLE `ims_yoby_cha_user` (
-  `uid` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `passwd` varchar(64) NOT NULL DEFAULT '',
-  `title` varchar(64) NOT NULL DEFAULT '',
-  `character` varchar(16) NOT NULL DEFAULT 'USER',
+CREATE TABLE `ims_yoby_cha_rule` (
+  `uid` int(10) unsigned NOT NULL,
+  `type` varchar(8) NOT NULL DEFAULT '',
+  `value` text,
   PRIMARY KEY (`uid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-CREATE TABLE `ims_yoby_cha_rule` (
-  `uid` int(10) NOT NULL DEFAULT 0,
-  `type` varchar(8) NOT NULL DEFAULT '',
-  `value` text NOT NULL,
+CREATE TABLE `ims_yoby_cha_user` (
+  `uid` int(10) unsigned NOT NULL,
+  `projectid` int(10) unsigned NOT NULL,
+  `title` varchar(32) NOT NULL DEFAULT '',
+  `weid` int(10) DEFAULT NULL,
+  `character` varchar(32) NOT NULL DEFAULT '',
+  `openid` varchar(32) NOT NULL DEFAULT '',
+  `timecreate` int(10) DEFAULT 0,
   PRIMARY KEY (`uid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -85,6 +89,9 @@ CREATE TABLE `ims_yoby_cha_rule` (
 	DROP TABLE IF EXISTS `ims_yoby_cha_data`;
 	DROP TABLE IF EXISTS `ims_yoby_cha_reply`;
 	DROP TABLE IF EXISTS `ims_yoby_cha_table`;
+	DROP TABLE IF EXISTS `ims_yoby_cha_project`;
+	DROP TABLE IF EXISTS `ims_yoby_cha_rule`;
+	DROP TABLE IF EXISTS `ims_yoby_cha_user`;
 	]]></uninstall>
     <upgrade><![CDATA[upgrade.php]]></upgrade>
 </manifest>

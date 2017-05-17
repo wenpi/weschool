@@ -3,8 +3,8 @@
 <div class='container' style='padding:0 5px 10px;margin:0;width:100%'>
 
 <ul class="nav nav-tabs">
-  <li {if $op == 'post'}class="active"{/if}><a href="{php echo $this->createWebUrl('gl', array('op' => 'post','cid'=>$cid));}">添加数据</a></li>
-  <li {if $op == 'display'}class="active"{/if}><a href="{php echo $this->createWebUrl('gl',array('op'=>'display','cid'=>$cid));}">管理数据</a></li>
+  <li {if $op == 'post'}class="active"{/if}><a href="{php echo $this->createWebUrl('gl', array('op' => 'post','cid'=>$cid, 'projectid'=>$projectid));}">添加数据</a></li>
+  <li {if $op == 'display'}class="active"{/if}><a href="{php echo $this->createWebUrl('gl',array('op'=>'display','cid'=>$cid, 'projectid'=>$projectid));}">管理数据</a></li>
  
 </ul>
 {if $op =='display'}
@@ -36,7 +36,7 @@ echo $k1['title']." ";
 				</div>
 				
 				<div class="pull-right col-xs-12 col-sm-6 col-lg-1">
-				<a class="btn btn-primary" onclick="return confirm('此操作不可恢复，确认吗？'); return false;"  href="{php echo $this->createWebUrl('q',array('cid'=>$cid));}">清空数据</a>
+				<a class="btn btn-primary" onclick="return confirm('此操作不可恢复，确认吗？'); return false;"  href="{php echo $this->createWebUrl('q',array('cid'=>$cid, 'projectid'=>$projectid));}">清空数据</a>
 				
 				</div>
 			</div>
@@ -69,9 +69,9 @@ echo '<td>'.$v3.'</td>';
 ?>
 					<td>
 
-					<a href="{php echo $this->createWebUrl('gl', array('op' => 'post', 'id' => $item['id'],'cid' => $item['cid']))}" title="编辑" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-edit"></span></a>
+					<a href="{php echo $this->createWebUrl('gl', array('op' => 'post', 'id' => $item['id'],'cid' => $item['cid'], 'projectid'=>$projectid))}" title="编辑" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-edit"></span></a>
 				 
-					<a onclick="return confirm('此操作不可恢复，确认吗？'); return false;" href="{php echo $this->createWebUrl('gl', array('id' => $item['id'],'op'=>'del','cid' => $item['cid']))}" title="删除" class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-remove" ></span></a>
+					<a onclick="return confirm('此操作不可恢复，确认吗？'); return false;" href="{php echo $this->createWebUrl('gl', array('id' => $item['id'],'op'=>'del','cid' => $item['cid'], 'projectid'=>$projectid))}" title="删除" class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-remove" ></span></a>
 					</td>				
 				</tr>
 				

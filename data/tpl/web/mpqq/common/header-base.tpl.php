@@ -25,9 +25,9 @@
 	<link href="./resource/css/font-awesome.min.css" rel="stylesheet">
 	<link href="./resource/css/common.css" rel="stylesheet">
 	<script>var require = { urlArgs: 'v=<?php  echo date('YmdH');?>' };</script>
-	<script src="./resource/js/lib/jquery-1.11.1.min.js"></script>
-	<script src="./resource/js/app/util.js"></script>
-	<script src="./resource/js/require.js"></script>
+    <script src="./resource/js/lib/jquery-1.11.1.min.js"></script>
+    <script src="./resource/js/require.js"></script>
+    <script src="./resource/js/app/util.js"></script>
 	<script src="./resource/js/app/config.js"></script>
 
 	

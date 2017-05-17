@@ -97,6 +97,14 @@ function pager($tcount, $pindex, $psize = 15, $url = '', $context = array('befor
     return $html;
 }
 
+function isWxBinded($openid, $weid)
+{
+    $sql = "select usr.uid from ims_users as usr inner join ims_yoby_cha_user as yusr on usr.uid=yusr.uid
+                    where yusr.openid ='$openid' and yusr.weid=$weid";
+    $uid = pdo_fetchcolumn($sql);
+    return !empty($uid);
+}
+
 class Yoby_chaModuleSite extends WeModuleSite
 {
 
@@ -150,22 +158,77 @@ class Yoby_chaModuleSite extends WeModuleSite
 
     }
 
-    public function doWebIndex()
+    public function doMobileLogin(){
+        global $_W, $_GPC;
+        $weid = $_W['uniacid'];
+        $op = !empty($_GPC['op']) ? $_GPC['op'] : 'display';
+        $shareurl = $this->module['config']['guanzhu'];
+        $yobyurl = $_W['siteroot'] . "addons/yoby_cha/template/mobile/";
+
+        if ('post' == $op) {//添加或修改
+            $user = $_GPC['user'];
+            $passwd = $_GPC['passwd'];
+
+            if (checksubmit('submit')) {
+                $sql = "select usr.uid, usr.password from ims_users as usr inner join ims_yoby_cha_user as yusr on usr.uid=yusr.uid
+                    where usr.username='$user' and yusr.weid=$weid";
+                $userObj = pdo_fetch($sql);
+
+                if( empty($userObj) ){
+                    message('用户名密码错误！', '', 'error');
+                    include $this->template('login');
+                }
+                else{
+                    if(user_hash($passwd, '') == $userObj['password']) {
+                        pdo_update('yoby_cha_user', array('openid' => $_W['openid'], ), array('uid' => $userObj['uid']));
+                        include $this->template('login');
+//                        message('绑定成功！', $this->createWebUrl('login', array('op' => 'bindok')), 'success');
+                    }
+                    else{
+                        include $this->template('login');
+                        message('绑定失败！', $this->createWebUrl('login', array('op' => 'display')), 'success');
+                    }
+
+
+                }
+            }
+        } else if ('display' == $op) {//显示
+            $item = [];
+            include $this->template('login');
+        }
+    }
+
+    public function doMobileLine(){
+        global $_W, $_GPC;
+        $weid = $_W['uniacid'];
+        $shareurl = $this->module['config']['guanzhu'];
+        $yobyurl = $_W['siteroot'] . "addons/yoby_cha/template/mobile/";
+
+        var_dump($_GPC['keyword']);
+        if( !empty($_GPC['keyword']) ){
+        }
+        else {
+            include $this->template('line');
+        }
+
+    }
+
+    public function doWebTable()
     {//管理字段
         global $_W, $_GPC;
         $weid = $_W['uniacid'];
         $op = !empty($_GPC['op']) ? $_GPC['op'] : 'display';
+        $projectid = !empty($_GPC['projectid']) ? $_GPC['projectid'] : $projectid;
         load()->func('tpl');
         if ('post' == $op) {//添加或修改
             $id = intval($_GPC['id']);
             if (!empty($id)) {
-                $item = pdo_fetch("SELECT * FROM " . tablename('yoby_cha_table') . " where id=$id");
-                empty($item) ? message('亲,数据不存在！', '', 'error') : "";
+                $item = pdo_fetch("SELECT * FROM " . tablename('yoby_cha_table') . " where id=$id and projectid='$projectid'");
+                empty($item) ? message('数据不存在！', '', 'error') : "";
             }
 
-
             if (checksubmit('submit')) {
-                empty ($_GPC['title']) ? message('亲,名称不能为空') : $title = $_GPC['title'];
+                empty ($_GPC['title']) ? message('名称不能为空') : $title = $_GPC['title'];
                 $desc = $_GPC['desc'];
                 $createtime = time();
                 if (!empty($_GPC['s'])) {
@@ -182,12 +245,12 @@ class Yoby_chaModuleSite extends WeModuleSite
 
                 $s = json_encode($_GPC['s']);//自定义字段数组
                 if (empty($id)) {
-                    pdo_insert('yoby_cha_table', array('weid' => $weid, 'title' => $title, 'desc' => $desc, 'createtime' => $createtime, 's' => $s));//添加数据
-                    message('添加成功！', $this->createWebUrl('index', array('op' => 'display')), 'success');
+                    pdo_insert('yoby_cha_table', array('projectid'=>$projectid, 'weid' => $weid, 'title' => $title, 'desc' => $desc, 'createtime' => $createtime, 's' => $s));//添加数据
+                    message('添加成功！', $this->createWebUrl('table', array('op' => 'display', 'projectid'=>$projectid, )), 'success');
                 } else {
                     //dump($_GPC);
                     pdo_update('yoby_cha_table', array('title' => $title, 'desc' => $desc, 'createtime' => $createtime, 's' => $s), array('id' => $id));
-                    message('更新成功！', $this->createWebUrl('index', array('op' => 'display')), 'success');
+                    message('更新成功！', $this->createWebUrl('table', array('op' => 'display', 'projectid'=>$projectid, )), 'success');
                 }
 
 
@@ -205,20 +268,20 @@ class Yoby_chaModuleSite extends WeModuleSite
                 message('删除成功！', referer(), 'success');
             }
             $id = intval($_GPC['id']);
-            $row = pdo_fetch("SELECT id FROM " . tablename('yoby_cha_table') . " WHERE id = :id", array(':id' => $id));
+            $row = pdo_fetch("SELECT id FROM " . tablename('yoby_cha_table') . " WHERE id = :id and projectid='$projectid'", array(':id' => $id));
             if (empty($row)) {
                 //dump($_GPC);
-                message('抱歉，数据已经被删除！', $this->createWebUrl('index', array('op' => 'display')), 'error');
+                message('抱歉，数据已经被删除！', $this->createWebUrl('table', array('op' => 'display')), 'error');
             }
-            pdo_delete('yoby_cha_table', array('id' => $id));
+            pdo_delete('yoby_cha_table', array('id' => $id, 'projectid'=>$projectid));
             message('删除成功！', referer(), 'success');
 
         } else if ('display' == $op) {//显示
             $pindex = max(1, intval($_GPC['page']));
             $psize = 20;//每页显示
 
-            $list = pdo_fetchall("SELECT *  FROM " . tablename('yoby_cha_table') . " where weid=$weid  ORDER BY id DESC LIMIT " . ($pindex - 1) * $psize . ',' . $psize);//分页
-            $total = pdo_fetchcolumn('SELECT COUNT(*) FROM ' . tablename('yoby_cha_table') . "  where weid=$weid");
+            $list = pdo_fetchall("SELECT *  FROM " . tablename('yoby_cha_table') . " where weid=$weid and projectid='$projectid'  ORDER BY id DESC LIMIT " . ($pindex - 1) * $psize . ',' . $psize);//分页
+            $total = pdo_fetchcolumn('SELECT COUNT(*) FROM ' . tablename('yoby_cha_table') . "  where weid=$weid and projectid='$projectid'");
             $pager = pagination($total, $pindex, $psize);
             include $this->template('table');
         }
@@ -231,38 +294,39 @@ class Yoby_chaModuleSite extends WeModuleSite
         $weid = $_W['uniacid'];
         $op = !empty($_GPC['op']) ? $_GPC['op'] : 'display';
         load()->func('tpl');
+
         if ('post' == $op) {//添加或修改
             $id = intval($_GPC['id']);
             if (!empty($id)) {
-                $item = pdo_fetch("SELECT * FROM " . tablename('yoby_cha_project') . " where id=$id");
-                empty($item) ? message('数据不存在！', '', 'error') : "";
+                $item = pdo_fetch("SELECT * FROM " . tablename('yoby_cha_project') . " where projectid=$id");
+                empty($item) ? message('亲,数据不存在！', '', 'error') : "";
             }
 
 
             if (checksubmit('submit')) {
-                empty ($_GPC['title']) ? message('名称不能为空') : $title = $_GPC['title'];
+                empty ($_GPC['title']) ? message('亲,名称不能为空') : $title = $_GPC['title'];
                 $desc = $_GPC['desc'];
-                $createtime = time();
+                $timecreate = time();
                 if (!empty($_GPC['s'])) {
                     $s = $_GPC['s'];
                     foreach ($s as $k) {
                         if (empty($k['title'])) {
-                            message('自定义字段名不能为空');
+                            message('亲,自定义字段名不能为空');
                         }
                         if (empty($k['var'])) {
-                            message('自定义变量名不能为空');
+                            message('亲,自定义变量名不能为空');
                         }
                     }
                 }
 
                 $s = json_encode($_GPC['s']);//自定义字段数组
                 if (empty($id)) {
-                    pdo_insert('yoby_cha_project', array('weid' => $weid, 'title' => $title, 'desc' => $desc, 'timecreate' => $timecreate, 's' => $s));//添加数据
-                    message('添加成功！', $this->createWebUrl('index', array('op' => 'display')), 'success');
+                    pdo_insert('yoby_cha_project', array('weid' => $weid, 'title' => $title, 'desc' => $desc, 'timecreate' => $timecreate));//添加数据
+                    message('添加成功！', $this->createWebUrl('project', array('op' => 'display')), 'success');
                 } else {
                     //dump($_GPC);
-                    pdo_update('yoby_cha_project', array('title' => $title, 'desc' => $desc, 'timecreate' => $timecreate, 's' => $s), array('id' => $id));
-                    message('更新成功！', $this->createWebUrl('index', array('op' => 'display')), 'success');
+                    pdo_update('yoby_cha_table', array('title' => $title, 'desc' => $desc, 'timecreate' => $timecreate), array('projectid' => $id));
+                    message('更新成功！', $this->createWebUrl('project', array('op' => 'display')), 'success');
                 }
 
 
@@ -280,24 +344,219 @@ class Yoby_chaModuleSite extends WeModuleSite
                 message('删除成功！', referer(), 'success');
             }
             $id = intval($_GPC['id']);
-            $row = pdo_fetch("SELECT projectid FROM " . tablename('yoby_cha_project') . " WHERE projectid = :id", array(':projectid' => $id));
+            $row = pdo_fetch("SELECT projectid FROM " . tablename('yoby_cha_project') . " WHERE projectid = :id", array(':id' => $id));
             if (empty($row)) {
                 //dump($_GPC);
-                message('数据已经被删除！', $this->createWebUrl('project', array('op' => 'display')), 'error');
+                message('抱歉，数据已经被删除！', $this->createWebUrl('project', array('op' => 'display')), 'error');
             }
             pdo_delete('yoby_cha_project', array('projectid' => $id));
+            message('删除成功！', referer(), 'success');
+
+        } else if ('display' == $op) {//显示
+            global $isRoot;
+            $isRoot = pdo_fetchcolumn('SELECT COUNT(*) FROM ' . tablename('yoby_cha_rule'));
+            if(!$isRoot){
+                pdo_insert('yoby_cha_rule',  array('uid'=>$_W['uid'], 'type'=>'PRJ', 'value'=>"*"));
+            }
+
+            $sql = "select `value` from ".tablename('yoby_cha_rule')." where uid=".$_W["uid"]." and type='PRJ'";
+            $ruleList = pdo_fetchall($sql);
+
+            $projectRules = [];
+            $isRoot = FALSE;
+            for($i=0; $i<count($ruleList); $i++){
+                $v = $ruleList[$i];
+                if($v['value'] == '*'){
+                    $projectRules = '*';
+                    $isRoot = TRUE;
+                    break;
+                }
+                else{
+                    $isRoot = FALSE;
+                    array_push($projectRules, $v['value']);
+                }
+            }
+
+            $pindex = max(1, intval($_GPC['page']));
+            $psize = 20;//每页显示
+
+            if($isRoot == FALSE and !count($projectRules) ){
+                $list = [];
+                $total = 0;
+                $pager = pagination($total, $pindex, $psize);
+                include $this->template('project');
+            }
+            else {
+                $query = '';
+                $count = '';
+                if ($projectRules == '*') {
+                    $query = "SELECT *  FROM " . tablename('yoby_cha_project') . " where weid=$weid  ORDER BY projectid DESC LIMIT " . ($pindex - 1) * $psize . ',' . $psize;
+                    $count = 'SELECT COUNT(*) FROM ' . tablename('yoby_cha_project') . "  where weid=$weid";
+                } else {
+                    $query = "SELECT *  FROM " . tablename('yoby_cha_project') . " where weid=$weid and projectid in(" . implode("','", $projectRules) . ")  ORDER BY projectid DESC LIMIT " . ($pindex - 1) * $psize . ',' . $psize;
+                    $count = 'SELECT COUNT(*) FROM ' . tablename('yoby_cha_project') . "  where weid=$weid and projectid in(" . implode("','", $projectRules) . ")";
+                }
+
+                $list = pdo_fetchall($query);//分页
+                $total = pdo_fetchcolumn($count);
+                $pager = pagination($total, $pindex, $psize);
+                include $this->template('project');
+            }
+        }
+    }
+
+    public function doWebUser()
+    {//管理字段
+        global $_W, $_GPC;
+        global $projectid;
+        $weid = $_W['uniacid'];
+        $op = !empty($_GPC['op']) ? $_GPC['op'] : 'display';
+        $projectid = !empty($_GPC['projectid']) ? $_GPC['projectid'] : $projectid;
+        load()->func('tpl');
+
+        if ('post' == $op) {//添加或修改
+            $id = intval($_GPC['id']);
+            if (!empty($id)) {
+                $sql = "select usr.uid, usr.username as `user`, yusr.title, yusr.timecreate from ims_users as usr inner join ims_yoby_cha_user as yusr on usr.uid=yusr.uid 
+                    where usr.uid=$id";
+                $item = pdo_fetch($sql);
+                empty($item) ? message('亲,数据不存在！', '', 'error') : "";
+            }
+
+            if (checksubmit('submit')) {
+                empty ($_GPC['user']) ? message('亲,用户名不能为空') : $user = $_GPC['user'];
+                $title = $_GPC['title'];
+                $user = $_GPC['user'];
+                $character = $_GPC['character'];
+                $passwd = user_hash($_GPC['passwd'],'');
+                $timecreate = time();
+
+                $isUser = ($character == 'USER');
+
+                if (empty($id)) {
+                    $result = pdo_insert('users', array('groupid'=>3, 'status'=>2, 'password' => $passwd, 'username' => $user));//添加数据
+                    if (!empty($result)) {
+                        $uid = pdo_insertid();
+                        pdo_insert('yoby_cha_user', array('character'=>$character, 'uid' => $uid, 'projectid'=>$projectid, 'title'=>$title, 'weid'=>$weid, 'timecreate'=>$timecreate));//添加数据
+                        pdo_insert('yoby_cha_rule', array('uid'=>$uid, 'type'=>'PRJ', 'value'=>$projectid));
+                        message('添加成功', $this->createWebUrl('user', array('op' => 'display', 'projectid'=>$projectid)), 'success');
+                    }
+                    else{
+                        message('添加失败！', $this->createWebUrl('user', array('op' => 'display', 'projectid'=>$projectid)), 'failed');
+                    }
+                } else {
+                    //dump($_GPC);
+                    pdo_update('users', array('password' => $passwd, 'username' => $user, ), array('uid' => $id));
+                    pdo_update('yoby_cha_user', array('title' => $title, ), array('uid' => $id));
+                    message('更新成功！', $this->createWebUrl('user', array('op' => 'display', 'projectid'=>$projectid)), 'success');
+                }
+
+
+            } else {
+                include $this->template('user');
+            }
+        } else if ('del' == $op) {//删除
+
+
+            if (isset($_GPC['delete'])) {
+                $ids = implode(",", $_GPC['delete']);
+                $sqls = "delete from  " . tablename('yoby_cha_user') . "  where uid in(" . $ids . ")";
+                pdo_query($sqls);
+                $sqls = "delete from  " . tablename('user') . "  where id in(" . $ids . ")";
+                pdo_query($sqls);
+                message('删除成功！', referer(), 'success');
+            }
+            $id = intval($_GPC['id']);
+            $row = pdo_fetch("SELECT uid FROM " . tablename('yoby_cha_user') . " WHERE uid = :id", array(':id' => $id));
+            if (empty($row)) {
+                //dump($_GPC);
+                message('抱歉，数据已经被删除！', $this->createWebUrl('user', array('op' => 'display', 'projectid'=>$projectid)), 'error');
+            }
+            pdo_delete('yoby_cha_user', array('uid' => $id));
+            pdo_delete('users', array('uid' => $id));
             message('删除成功！', referer(), 'success');
 
         } else if ('display' == $op) {//显示
             $pindex = max(1, intval($_GPC['page']));
             $psize = 20;//每页显示
 
-            $list = pdo_fetchall("SELECT *  FROM " . tablename('yoby_cha_project') . " where weid=$weid  ORDER BY projectid DESC LIMIT " . ($pindex - 1) * $psize . ',' . $psize);//分页
-            $total = pdo_fetchcolumn('SELECT COUNT(*) FROM ' . tablename('yoby_cha_project') . "  where weid=$weid");
-            $pager = pagination($total, $pindex, $psize);
-            include $this->template('project');
-        }
+            $sql = "select usr.uid, usr.username as `user`, yusr.title, yusr.timecreate from ims_users as usr inner join ims_yoby_cha_user as yusr on usr.uid=yusr.uid
+              where yusr.weid=$weid and projectid=$projectid ORDER BY uid DESC LIMIT " . ($pindex - 1) * $psize . ',' . $psize;
+            $count = "SELECT COUNT(uid) FROM " . tablename('yoby_cha_user')." where weid=$weid and projectid=$projectid";
 
+            $list = pdo_fetchall($sql);
+            $total = pdo_fetchcolumn($count);
+            $pager = pagination($total, $pindex, $psize);
+            include $this->template('user');
+        }
+    }
+
+    public function doWebRule()
+    {//管理字段
+        global $_W, $_GPC;
+        global $projectid;
+        $weid = $_W['uniacid'];
+        $op = !empty($_GPC['op']) ? $_GPC['op'] : 'display';
+        $projectid = !empty($_GPC['projectid']) ? $_GPC['projectid'] : $projectid;
+        load()->func('tpl');
+
+        if ('post' == $op) {//添加或修改
+            $uids = $_GPC['uid'];
+            $rules = [];
+
+            foreach ($_GPC['rule'] as &$v) {
+                $ary = explode(".", $v);
+                $key = $ary[0];
+                if(empty($rules[$key])){
+                    $rules[$key] = [];
+                }
+
+                array_push($rules[$key], $ary[1]);
+            }
+
+            
+
+            for($i=0; $i<count($uids); $i++){
+                $uid = $uids[$i];
+                $rule = '';
+                if(count($rules[$uid])) {
+                    $rule = implode(",", $rules[$uid]);
+                }
+
+                pdo_update('yoby_cha_rule', array('value' => $rule, ), array('uid' => $uid, 'type'=>'DB'));
+            }
+            message('更新成功！', $this->createWebUrl('rule', array('op' => 'display', 'projectid'=>$projectid)), 'success');
+        }
+        else if ('display' == $op) {//显示
+            $pindex = max(1, intval($_GPC['page']));
+            $psize = 20;//每页显示
+
+            $queryTable = "select id,title from ".tablename('yoby_cha_table')." where weid=$weid and projectid=$projectid";
+            $queryUser = "select usr.uid, usr.title, rule.value from ".tablename('yoby_cha_user')." as usr left join ".tablename('yoby_cha_rule')." as rule on usr.uid=rule.uid where type='DB' and weid=$weid and projectid=$projectid";
+
+            $count = "select count(usr.uid) from ".tablename('yoby_cha_user')." as usr left join ".tablename('yoby_cha_rule')." as rule on usr.uid=rule.uid where weid=$weid and projectid=$projectid";
+
+            $table = pdo_fetchall($queryTable);
+            $list = pdo_fetchall($queryUser);
+            $total = pdo_fetchcolumn($count);
+
+            for($i=0;$i<count($list); $i++){
+                $v = &$list[$i];
+                if($v['value'] == '*'){
+                    $v['rule'] = '*';
+                }
+                else{
+                    $ary = explode(",", $v['value']);
+                    $v['rule'] = [];
+                    foreach ($ary as &$arr) {
+                        $v['rule'][$arr] = TRUE;
+                    }
+                }
+            }
+
+            $pager = pagination($total, $pindex, $psize);
+            include $this->template('rule');
+        }
     }
 
     public function doWebGl()
@@ -305,14 +564,15 @@ class Yoby_chaModuleSite extends WeModuleSite
         global $_W, $_GPC;
         $weid = $_W['uniacid'];
         $cid = intval($_GPC['cid']);
-        $info = json_decode(pdo_fetchcolumn('SELECT s FROM ' . tablename('yoby_cha_table') . "  where id=$cid "), 1);
+        $projectid = !empty($_GPC['projectid']) ? $_GPC['projectid'] : $projectid;
+        $info = json_decode(pdo_fetchcolumn('SELECT s FROM ' . tablename('yoby_cha_table') . "  where id=$cid  and projectid='$projectid'"), 1);
         $op = !empty($_GPC['op']) ? $_GPC['op'] : 'display';
         load()->func('tpl');
         if ('post' == $op) {//添加或修改
             $id = intval($_GPC['id']);
 
             if (!empty($id)) {
-                $item = pdo_fetch("SELECT * FROM " . tablename('yoby_cha_data') . " where id=$id");
+                $item = pdo_fetch("SELECT * FROM " . tablename('yoby_cha_data') . " where id=$id and projectid='$projectid'");
                 empty($item) ? message('亲,数据不存在！', '', 'error') : "";
             }
 
@@ -329,12 +589,12 @@ class Yoby_chaModuleSite extends WeModuleSite
                 $createtime = time();
 
                 if (empty($id)) {
-                    pdo_insert('yoby_cha_data', array('cid' => $cid, 'title' => $title0, 'bl' => json_encode($title)));//添加数据
-                    message('添加成功！', $this->createWebUrl('gl', array('op' => 'display', 'cid' => $cid)), 'success');
+                    pdo_insert('yoby_cha_data', array('projectid'=>$projectid, 'cid' => $cid, 'title' => $title0, 'bl' => json_encode($title)));//添加数据
+                    message('添加成功！', $this->createWebUrl('gl', array('op' => 'display', 'cid' => $cid, 'projectid'=>$projectid)), 'success');
                 } else {
                     //
-                    pdo_update('yoby_cha_data', array('cid' => $cid, 'title' => $title0, 'bl' => json_encode($title)), array('id' => $id));
-                    message('更新成功！', $this->createWebUrl('gl', array('op' => 'display', 'cid' => $cid)), 'success');
+                    pdo_update('yoby_cha_data', array('projectid'=>$projectid, 'cid' => $cid, 'title' => $title0, 'bl' => json_encode($title)), array('id' => $id));
+                    message('更新成功！', $this->createWebUrl('gl', array('op' => 'display', 'cid' => $cid, 'projectid'=>$projectid)), 'success');
                 }
 
 
@@ -355,7 +615,7 @@ class Yoby_chaModuleSite extends WeModuleSite
             $row = pdo_fetch("SELECT id FROM " . tablename('yoby_cha_data') . " WHERE id = :id", array(':id' => $id));
             if (empty($row)) {
                 //dump($_GPC);
-                message('抱歉，数据已经被删除！', $this->createWebUrl('gl', array('op' => 'display', 'cid' => $cid)), 'error');
+                message('抱歉，数据已经被删除！', $this->createWebUrl('gl', array('op' => 'display', 'cid' => $cid, 'projectid'=>$projectid)), 'error');
             }
             pdo_delete('yoby_cha_data', array('id' => $id));
             message('删除成功！', referer(), 'success');
@@ -370,8 +630,8 @@ class Yoby_chaModuleSite extends WeModuleSite
             $pindex = max(1, intval($_GPC['page']));
             $psize = 20;//每页显示
 
-            $list = pdo_fetchall("SELECT *  FROM " . tablename('yoby_cha_data') . " where cid=$cid $condition ORDER BY id DESC LIMIT " . ($pindex - 1) * $psize . ',' . $psize);//分页
-            $total = pdo_fetchcolumn('SELECT COUNT(*) FROM ' . tablename('yoby_cha_data') . "  where cid=$cid $condition");
+            $list = pdo_fetchall("SELECT *  FROM " . tablename('yoby_cha_data') . " where cid=$cid $condition and projectid='$projectid' ORDER BY id DESC LIMIT " . ($pindex - 1) * $psize . ',' . $psize);//分页
+            $total = pdo_fetchcolumn('SELECT COUNT(*) FROM ' . tablename('yoby_cha_data') . "  where cid=$cid $condition and projectid='$projectid'");
             $pager = pagination($total, $pindex, $psize);
             include $this->template('gl');
         }
