@@ -1,57 +1,59 @@
 <!doctype html>
-<html>
+<html lang="en">
+
 <head>
-<meta charset="utf-8">
-<title>{$row['hd_title']}</title>
- <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
- <base href="{$yobyurl}">
-  <link rel="stylesheet" href="weui/weuix.min.css"/>
- <script src="weui/zepto.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <base href="{$yobyurl}">
+    <title>{$row['hd_title']}</title>
+    <!--<link rel="stylesheet" href="weui/weuix.min.css" />-->
+    <link rel="stylesheet" href="weui/dist/style/weui.min.css">
+    <!--<script src="weui/zepto.js"></script>-->
 </head>
 
 <body>
-{if $op == "post"}
-<script>
-    alert('wait for 3s to exit');
-    setTimeout(function(){
-        WeixinJSBridge.call('closeWindow');
-    }, 3000);
-</script>
-{elseif $op == "display"}
-<div class="main">
-    <form action="" method="post" class="form-horizontal form">
-        <div class="panel panel-default">
-
-
-            <div class="panel-body">
-
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">用户名<span style="color:red;font-size:18px">*</span></label>
-                    <div class="col-sm-8">
-                        <input type="text" name="user" class="form-control" value="{$item['user']}"/>
+    {if $op == "post"}
+    <script>
+        alert('wait for 3s to exit');
+        setTimeout(function () {
+            WeixinJSBridge.call('closeWindow');
+        }, 3000);
+    </script>
+    {elseif $op == "display"}
+    <form method="post" action="">
+        <div class="weui-msg">
+            <div class="weui-msg__text-area">
+                <h2 class="weui-msg__title">智慧机房</h2>
+            </div>
+            <div class="weui-msg__icon-area">
+                <img src="./images/logo_100.png" alt="智慧机房">
+            </div>
+            <div class="weui-msg__text-area">
+                <div class="weui-cells">
+                    <div class="weui-cell">
+                        <div class="weui-cell__hd"><label class="weui-label">帐号</label></div>
+                        <div class="weui-cell__bd">
+                            <input class="weui-input" placeholder="请输入帐号" type="text" name="user" value="{$item['user']}" maxlength="100" required />
+                        </div>
+                    </div>
+                    <div class="weui-cell">
+                        <div class="weui-cell__hd"><label class="weui-label">密码</label></div>
+                        <div class="weui-cell__bd">
+                            <input class="weui-input" placeholder="请输入密码" type="password" name="passwd" value="{$item['passwd']}" maxlength="100" required />
+                        </div>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">密码<span style="color:red;font-size:18px">*</span></label>
-                    <div class="col-sm-8">
-                        <input type="password" name="passwd" class="form-control" value="{$item['passwd']}"/>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="col-xs-12 col-sm-2 col-md-2 col-lg-1 control-label"></label>
-                    <div class="col-sm-4">
-                        <input type="hidden" name="token" value="{$_W['token']}" />
-                        <input type="hidden" value="post" name="op">
-                        <input name="submit" type="submit" value="提交" class="btn btn-primary span3 btn-sm" />
-                    </div>
-                </div>
-
+            </div>
+            <div class="weui-msg__opr-area">
+                <p class="weui-btn-area">
+                    <input type="hidden" name="token" value="{$_W['token']}" />
+                    <input type="hidden" value="post" name="op" />
+                    <button type="submit" class="weui-btn weui-btn_primary">登录</button>
+                </p>
             </div>
         </div>
     </form>
-</div>
-{/if}
+    {/if}
 </body>
 
 </html>
