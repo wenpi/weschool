@@ -212,38 +212,51 @@ class Yoby_chaModuleSite extends WeModuleSite
             $redirect = "http://www.9kpu.com/app/index.php?i=$weid&c=entry&op=display&do=login&m=yoby_cha";
         }
         else{
-            $key = $_GPC['keyword'];
-            if( !empty($_GPC['keyword']) ){
-                $queryRule = "select usr.uid, rule.value, usr.projectid from ".tablename('yoby_cha_user')." as usr 
-                    inner join ".tablename('yoby_cha_rule')." as rule on usr.uid=rule.uid 
-                     where usr.openid='".$_W['openid']."' and rule.type='DB'";
-                $result = pdo_fetch($queryRule);
-                if(!count($result['value'])){
-                    $op = 'failed';
-                }
-                else{
-                    //find
-                    $projectid = $result['projectid'];
-                    $rule = $result['value'];
-                    $queryIns = "select tb.s, dt.bl, tb.type from ".tablename('yoby_cha_data')." as dt 
-                            inner join ".tablename('yoby_cha_table')." as tb on dt.cid=tb.id where dt.title='$key' and dt.weid=$weid and dt.projectid=$projectid";
-                    if($rule!='*'){
-                        $queryIns .= " and cid in($rule)";
-                    }
-                    $ins = pdo_fetch($queryIns);
-                    if(empty($ins)){
+
+            if($op == 'check_once'){
+                $timecreate = time();
+                pdo_insert('yoby_cha_check', array('uid'=>$_GPC['uid'], 'weid' => $weid, 'checkid' => $_GPC['id'], 'type' => $_GPC['type'], 'timecreate' => $timecreate));//添加数据
+            }
+            else {
+                $key = $_GPC['keyword'];
+                if (!empty($_GPC['keyword'])) {
+                    $queryRule = "select usr.uid, rule.value, usr.projectid from " . tablename('yoby_cha_user') . " as usr 
+                    inner join " . tablename('yoby_cha_rule') . " as rule on usr.uid=rule.uid 
+                     where usr.openid='" . $_W['openid'] . "' and rule.type='DB'";
+                    $result = pdo_fetch($queryRule);
+                    if (!count($result['value'])) {
                         $op = 'failed';
-                    }
-                    else{
-                        $op = 'ok';
-                        $mapping = [];
-                        $s = json_decode($ins['s'], 1);
-                        $bl = json_decode($ins['bl'], 1);
-                        for($i=0; $i<count($s); $i++){
-                            $mapping[$s[$i]['var']] = $bl[$i];
+                    } else {
+                        //find
+                        $projectid = $result['projectid'];
+                        $rule = $result['value'];
+                        $queryIns = "select tb.s, dt.bl, tb.type from " . tablename('yoby_cha_data') . " as dt 
+                            inner join " . tablename('yoby_cha_table') . " as tb on dt.cid=tb.id where dt.title='$key' and dt.weid=$weid and dt.projectid=$projectid";
+                        if ($rule != '*') {
+                            $queryIns .= " and cid in($rule)";
                         }
-                        $instance = $mapping;
-                        $type = $ins['type'];
+                        $ins = pdo_fetch($queryIns);
+                        if (empty($ins)) {
+                            $op = 'failed';
+                        } else {
+                            $op = 'ok';
+                            $mapping = [];
+                            $s = json_decode($ins['s'], 1);
+                            $bl = json_decode($ins['bl'], 1);
+                            for ($i = 0; $i < count($s); $i++) {
+                                $mapping[$s[$i]['var']] = $bl[$i];
+                            }
+                            $instance = $mapping;
+                            $type = $ins['type'];
+                            $id = $mapping['productlot'];
+                            if(empty($id)){
+                                $id = $mapping['orderno'];
+                            }
+                            if(empty($id)){
+                                $id = $mapping['localmac'];
+                            }
+                            $uid = $result['uid'];
+                        }
                     }
                 }
             }
