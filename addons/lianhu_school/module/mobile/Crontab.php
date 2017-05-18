@@ -1,4 +1,6 @@
 <?php 
+    ini_set("display_errors",1);
+    error_reporting(E_ALL^E_NOTICE);
     //教师第二条上课提醒
     $now_time = date("His",time());
     if($now_time >"190000" && $now_time< "190025" ){
@@ -23,7 +25,8 @@
         C("cron")->doSendToTeacher($this);
         return false;
     }
-    
+    //end
+
     if($_GET['come_from'] != 'myself'){
         $uniacid_list = C("cron")->mainRecord();
         if($uniacid_list){

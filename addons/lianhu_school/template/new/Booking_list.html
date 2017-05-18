@@ -1,5 +1,6 @@
 {template '../new/head'}
 <script type='text/javascript' src='{MODULE_URL}/style/js/jquery.min.js'></script>
+<script type='text/javascript' src='{MODULE_URL}/style/js/jquery.cookie.js'></script>
 <body ontouchstart >
 <div class="container" id="container">
     <div class="article">
@@ -16,7 +17,7 @@
         {if $info['ask_read']==1} 
             <div class="weui_btn weui_btn_primary" onclick="sureRead(this)" >确认已阅读详情</div>
         {/if}
-        <form  id="info_up"  method="post" action="{php echo $this->createMobileUrl("booking_list");}" {if $info['ask_read']==1} style="display:none" {/if}>
+        <form  onsubmit="return checkThis()" id="info_up"  method="post" action="{php echo $this->createMobileUrl("booking_list");}" {if $info['ask_read']==1} style="display:none" {/if}>
            <input type="hidden" name="id"   value="{$id}">
                 <div class="weui_cells_title">报名信息</div>
                 <div class="weui_cells weui_cells_form">
@@ -41,60 +42,6 @@
                                 </div>
                             </div>
                     {/if}
-                     {if $info['ask_live']}
-                        <div class="weui_cell weui_cell_select weui_select_after">
-                                <div class="weui_cell_hd">
-                                    <label for="" class="weui_label">是否住校</label>
-                                </div>
-                                <div class="weui_cell_bd weui_cell_primary">
-                                    <select class="weui_select" name="list_live">
-                                        <option value="1">住校</option>
-                                        <option value="2">走读</option>
-                                    </select>
-                                </div>
-                            </div>
-                    {/if}
-                    {if $info['ask_address']}
-                        <div class="weui_cell">
-                            <div class="weui_cell_hd"><label class="weui_label">家庭住址</label></div>
-                            <div class="weui_cell_bd weui_cell_primary">
-                                <input class="weui_input" type="text" name="list_address"   required>
-                            </div>
-                        </div>                  
-                    {/if} 
-                    {if $info['ask_huji']}
-                        <div class="weui_cell">
-                            <div class="weui_cell_hd"><label class="weui_label">户籍</label></div>
-                            <div class="weui_cell_bd weui_cell_primary">
-                                <input class="weui_input" type="text" name="list_huji"   required>
-                            </div>
-                        </div>                  
-                    {/if}
-
-                    {if $info['ask_old_school']}
-                        <div class="weui_cell">
-                            <div class="weui_cell_hd"><label class="weui_label">原学校</label></div>
-                            <div class="weui_cell_bd weui_cell_primary">
-                                <input class="weui_input" type="text" name="list_old_school"   required>
-                            </div>
-                        </div>                  
-                    {/if}
-                    {if $info['ask_birthday']}
-                        <div class="weui_cell">
-                            <div class="weui_cell_hd"><label class="weui_label">出生年月</label></div>
-                            <div class="weui_cell_bd weui_cell_primary">
-                                <input class="birthday" type="date" name="birthday"   required>
-                            </div>
-                        </div>             
-                    {/if}     
-                    {if $info['ask_id']}
-                        <div class="weui_cell">
-                            <div class="weui_cell_hd"><label class="weui_label">学生身份证号码</label></div>
-                            <div class="weui_cell_bd weui_cell_primary">
-                                <input class="weui_input" type="text" name="list_people_id"  placeholder="学生身份证号码"  required>
-                            </div>
-                        </div>                  
-                    {/if} 
                     {if $info['ask_nation']}
                         <div class="weui_cell">
                             <div class="weui_cell_hd"><label class="weui_label">学生民族</label></div>
@@ -103,20 +50,44 @@
                             </div>
                         </div>                  
                     {/if} 
-                     {if $info['ask_parent_id']}
+                    {if $info['ask_birthday']}
                         <div class="weui_cell">
-                            <div class="weui_cell_hd"><label class="weui_label">家长身份证号码</label></div>
+                            <div class="weui_cell_hd"><label class="weui_label">出生年月</label></div>
                             <div class="weui_cell_bd weui_cell_primary">
-                                <input class="weui_input" type="text" name="list_parent_id"  placeholder="家长身份证号码"  required>
+                                <input class="birthday" type="date" name="birthday"   required>
+                            </div>
+                        </div>             
+                    {/if} 
+                    {if $info['ask_id']}
+                        <div class="weui_cell">
+                            <div class="weui_cell_hd"><label class="weui_label">学生身份证号码</label></div>
+                            <div class="weui_cell_bd weui_cell_primary">
+                                <input class="weui_input" type="text" name="list_people_id"  placeholder="学生身份证号码"  required>
                             </div>
                         </div>                  
-                    {/if}                    
+                    {/if} 
                     <div class="weui_cell">
                         <div class="weui_cell_hd"><label class="weui_label">家长姓名</label></div>
                         <div class="weui_cell_bd weui_cell_primary">
                             <input class="weui_input" type="text" name="my_name"  placeholder="请输入您的姓名" >
                         </div>
                     </div>
+                    {if $info['ask_parent_id']}
+                        <div class="weui_cell">
+                            <div class="weui_cell_hd"><label class="weui_label">家长身份证号码</label></div>
+                            <div class="weui_cell_bd weui_cell_primary">
+                                <input class="weui_input" type="text" name="list_parent_id"  placeholder="家长身份证号码"  required>
+                            </div>
+                        </div>                  
+                    {/if}  
+                    {if $info['ask_address']}
+                        <div class="weui_cell">
+                            <div class="weui_cell_hd"><label class="weui_label">家庭住址</label></div>
+                            <div class="weui_cell_bd weui_cell_primary">
+                                <input class="weui_input" type="text" name="list_address"   required>
+                            </div>
+                        </div>                  
+                    {/if} 
                     {if $info['ask_localphone']}
                         <div class="weui_cell">
                             <div class="weui_cell_hd"><label class="weui_label">固定电话</label></div>
@@ -134,6 +105,38 @@
                         </div>                  
                     {/if}
 
+                    {if $info['ask_live']}
+                        <div class="weui_cell weui_cell_select weui_select_after">
+                                <div class="weui_cell_hd">
+                                    <label for="" class="weui_label">是否住校</label>
+                                </div>
+                                <div class="weui_cell_bd weui_cell_primary">
+                                    <select class="weui_select" name="list_live">
+                                        <option value="1">住校</option>
+                                        <option value="2">走读</option>
+                                    </select>
+                                </div>
+                            </div>
+                    {/if}
+                    
+                    {if $info['ask_huji']}
+                        <div class="weui_cell">
+                            <div class="weui_cell_hd"><label class="weui_label">户籍</label></div>
+                            <div class="weui_cell_bd weui_cell_primary">
+                                <input class="weui_input" type="text" name="list_huji"   required>
+                            </div>
+                        </div>                  
+                    {/if}
+
+                    {if $info['ask_old_school']}
+                        <div class="weui_cell">
+                            <div class="weui_cell_hd"><label class="weui_label">原学校</label></div>
+                            <div class="weui_cell_bd weui_cell_primary">
+                                <input class="weui_input" type="text" name="list_old_school"   required>
+                            </div>
+                        </div>                  
+                    {/if}
+
                     {if $info['ask_time']}
                         <div class="weui_cell">
                             <div class="weui_cell_hd"><label class="weui_label">预约时间</label></div>
@@ -146,7 +149,7 @@
                     {php $style_css = 'class="my_cell weui_cell"';}
                     {template '../new/upImages'}
                 </div>
-                <div class="weui_cells_title">报名备注</div>
+                <!--<div class="weui_cells_title">报名备注</div>
                 <div class="weui_cells weui_cells_form">
                         <div class="weui_cell">
                             <div class="weui_cell_bd weui_cell_primary">
@@ -154,22 +157,20 @@
                                 <div class="weui_textarea_counter"></div>
                             </div>
                         </div>
-                 </div>
+                 </div>-->
                  {if $info['ask_vacode']}
                   <div class="weui_cell">
                             <div class="weui_cell_hd" style="width:60px;"><label class="weui_label">验证码</label></div>
                             <div class="weui_cell_bd weui_cell_primary">
-                                <input class="weui_input" type="text" name="input_code"  placeholder="请输入验证码" required>
+                                <input class="weui_input" type="text" name="input_code"  placeholder="请输入验证码" required onblur="checkThis()">
                             </div>
                             <div class="weui_cell_bd weui_cell_primary">
                                 <img src="{php echo $this->createMobileUrl("booking_list",array("ac"=>"image"));}" onclick='imgChange(this)'>
                             </div>
                    </div> 
                  {/if}
-
-
                  <div class="weui_btn_area">
-                    <input type="submit" name="submit" class="weui_btn weui_btn_primary" value="点击提交">
+                    <input type="submit" name="submit" class="weui_btn weui_btn_primary" value="点击提交" >
                 </div>
             </form>
     </div>
@@ -191,5 +192,15 @@
         function sureRead(obj){
             $("#info_up").show();
             $(obj).hide();
+        }
+        function checkThis(){
+            var obj = $("input[name='input_code']");
+            if(obj.length>0){
+                code = $.cookie("form_code");
+                if(code!= obj.val()){
+                    alert("验证码填写错误!");
+                }
+                return false;
+            }
         }
     </script>

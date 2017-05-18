@@ -4,7 +4,9 @@
 		$hav     = $this->mobile_from_find_student(false);
 		$fanid   = getMemberFanid();
     	$uid     = getMemberUid();
-
+		if(!$uid){
+			$uid = 	$this->register_member();
+		}
 		$class_school = D('school');
 		if($module != 'add_student'){
             if($hav){

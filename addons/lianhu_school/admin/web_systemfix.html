@@ -19,7 +19,7 @@
                     {php $page ='学校类型设置';}
                 {/if} 
             {elseif $op=='fix_file'}
-                    {php $page ='文件更新列表';}
+                    {php $page ='文件校验列表';}
             {elseif $op=='update_school_grade_class_student'}
                     {php $page ='打卡数据更新进度';}
             {/if}
@@ -224,7 +224,7 @@
                                                 {if $op =='list'}
                                                 <tr>
                                                     <td>数据库升级【系统级】</td>
-                                                    <td>每日都可点击</td>
+                                                    <td>每日都可点击<a target="_blank" href="http://bbs.jiaxt.cn/thread-326.htm">（17/4/1）查看更新日志</a></td></td>
                                                     <td>
                                                        {if $database_much_num}
                                                             <span class="font-red">最新版本：{$database_new_version}；可更新版本数：{$database_much_num}</span>
@@ -236,21 +236,15 @@
                                                         <a href="{php echo $this->createWebUrl('systemfix',array('op'=>'fix_table'))}"><i class="fa fa-cloud-download"></i>点击升级</a><span class="font-red">&nbsp;&nbsp;每次点击最多更新20条</span>
                                                     </td>
                                                 </tr>
-                                                {if $_GPC['up']=='yes12as'}
                                                 {if $count>100}
                                                 <tr>
-                                                    <td>文件升级【系统级】</td>
-                                                    <td>每日都可点击[需先文件版本初始化] 
-                                                        <a target="_blank" href="http://bbs.jiaxt.cn/thread-326.htm">（17/4/1）查看更新日志</a></td>
+                                                    <td>校验家校通文件【系统级】</td>
                                                     <td>
-                                                        {if $file_up_need}
-                                                            <span class="font-red">需更新文件</span>
-                                                        {else}
-                                                            <span class="font-blue">可能暂无更新</span>
-                                                        {/if}
+                                                    <td>
+                                                       <span class="font-red">校验文件</span>
                                                     </td>
                                                     <td>
-                                                        <a href="{php echo $this->createWebUrl('systemfix',array('op'=>'fix_file' ))}"><i class="fa fa-cloud-download"></i>点击升级</a><span class="font-red">&nbsp;&nbsp;请先数据库升级</span>
+                                                        <a href="{php echo $this->createWebUrl('systemfix',array('op'=>'fix_file' ))}"><i class="fa fa-cloud-download"></i>点击校验文件</a><span class="font-red">&nbsp;&nbsp;请先数据库升级</span>
                                                     </td>
                                                 </tr>		
                                                 {else}
@@ -262,7 +256,6 @@
                                                         <a href="{php echo $this->createWebUrl('systemfix',array('op'=>'init_file' ))}">文件版本初始化【不会影响数据】</a>
                                                     </td>
                                                 </tr>				
-                                                {/if}
                                                 {/if}
                                                    {if USE_MIDDLE ==1}
                                                         <tr>

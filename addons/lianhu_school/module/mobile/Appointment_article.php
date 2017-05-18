@@ -10,9 +10,9 @@ $result       = pdo_fetch("select * from {$table_pe}lianhu_appointment where ({$
 if(empty($result)){
 	$this->myMessage('没有找到此预约','','错误');
 }
-$where_list=" student_id={$student_info['student_id']} and appointment_id={$result['appointment_id']} ";
-$app_course_list=unserialize($result['appointment_mutex']);
-$course_id_str=implode(',',$app_course_list);
+$where_list      = " student_id={$student_info['student_id']} and appointment_id={$result['appointment_id']} ";
+$app_course_list = unserialize($result['appointment_mutex']);
+$course_id_str   = implode(',',$app_course_list);
 if(!$course_id_str){
 	$this->myMessage('没有设置具体的预约活动','','错误');
 }

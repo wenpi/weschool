@@ -1,6 +1,5 @@
 <?php
-ini_set("display_errors",1);
-error_reporting(E_ALL^E_NOTICE);
+
 set_time_limit(0);
 //更新具体文件
 if($ac=='update_file'){

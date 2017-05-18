@@ -46,15 +46,17 @@
 		$gid 		 = $_GPC['gid'] ? $_GPC['gid'] : $grade[0]['grade_id'];
 		$where_grade = " grade_id={$gid}";
 		C("scoreJilv")->grade_id = $gid;
-		$score_jilv_list 		 = C("scoreJilv")->getGradeAll();
-		$score_jilv_list 		 = $score_jilv_list['list'];
-		if(!$score_jilv_list){
-			$this->myMessage("没有设置考试记录",$this->createWebUrl("data_in",array("ac"=>"score_list_jilv")),"错误");
-		}
+		$score_jilv_list_re  	 = C("scoreJilv")->getGradeAll();
+		$score_jilv_list 		 = $score_jilv_list_re['list'];
+		
 		if($_GPC['jilv_id']){
 			$ji_lv_id = $_GPC['jilv_id'];
 		}else{
 			$ji_lv_id = $score_jilv_list[0]['scorejilv_id'];
+		}
+		if(!$ji_lv_id){
+			include $this->template('../admin/web_data_out');
+			exit();
 		}
 		$where_jilv  = " and ji_lv_id=".$ji_lv_id;
 		if($_GPC['class_id']){

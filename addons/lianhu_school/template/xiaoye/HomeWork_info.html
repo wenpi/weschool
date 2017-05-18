@@ -18,7 +18,7 @@
                     </div>                
                 {/if}
                 <div>
-                    <p>{php echo myHtmlspecialchars_decode($re['content'])}</p>
+                    <p>{php echo Htmlspecialchars_decode($re['content'])}</p>
                 </div>
                 <div class="z_dpt3" id="img_list">
                     {php $urls =  $this->decodeLineImgsToArr($re['img']);}

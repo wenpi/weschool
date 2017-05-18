@@ -96,8 +96,8 @@
                                             <label class=" col-md-2 control-label">孩子报名出生起止年</label>
                                             <div class="col-sm-10">
                                                 <br>
-                                                开始年：<input type='text' name="birth_begin_time" value="{$result['birth_begin_time']}"   placeholder="2010" id="mask_date12" class="mask_date">
-                                                结束年：<input type='text' name="birth_end_time"   value="{$result['birth_end_time']}"     placeholder="2018" id="mask_date13" class="mask_date">
+                                                开始年月日：<input type='text' name="birth_begin_time" value="{$result['birth_begin_time']}"   placeholder="2010" id="mask_date12" class="mask_date">
+                                                结束年月日：<input type='text' name="birth_end_time"   value="{$result['birth_end_time']}"     placeholder="2018" id="mask_date13" class="mask_date">
                                             </div>
                                         </div>
 
@@ -113,7 +113,6 @@
                                                 {php echo tpl_ueditor('booking_content',$result['booking_content']);}
                                             </div>
                                         </div>                                        				
-                                        
                                         <div class="form-group form-md-radios form-md-line-input  ">
                                             <label class="col-md-2 control-label"  >是否需要确认已阅读详情</label>
                                             <div class="md-radio-inline">
@@ -450,13 +449,12 @@
                                 $("#mask_date1").inputmask("y-m-d h:s", {
                                     autoUnmask: true
                                 }); //direct mask  mask_date12
-                                $("#mask_date12").inputmask("y", {
+                                $("#mask_date12").inputmask("y-m-d", {
                                     autoUnmask: true
                                 });
-                                 $("#mask_date13").inputmask("y", {
+                                 $("#mask_date13").inputmask("y-m-d", {
                                     autoUnmask: true
                                 });
-
                             }                                    
                             return {
                                 init: function () {

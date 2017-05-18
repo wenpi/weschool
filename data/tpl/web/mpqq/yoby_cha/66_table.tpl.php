@@ -1,0 +1,202 @@
+<?php defined('IN_IA') or exit('Access Denied');?><?php (!empty($this) && $this instanceof WeModuleSite || 1) ? (include $this->template('common/header', TEMPLATE_INCLUDEPATH)) : (include template('common/header', TEMPLATE_INCLUDEPATH));?>
+
+<div class='container' style='padding:0 5px 10px;margin:0;width:100%'>
+
+<ul class="nav nav-tabs">
+  <li <?php  if($op == 'post') { ?>class="active"<?php  } ?>><a href="<?php  echo $this->createWebUrl('table', array('op' => 'post', 'projectid'=>$projectid));?>">添加查询表</a></li>
+  <li <?php  if($op == 'display') { ?>class="active"<?php  } ?>><a href="<?php  echo $this->createWebUrl('table',array('op'=>'display', 'projectid'=>$projectid));?>">管理查询表</a></li>
+
+</ul>
+<?php  if($op =='display') { ?>
+
+<div style="padding:15px;">
+<form id="form2" class="form-horizontal" method="post">
+
+		<table class="table table-hover">
+			<thead class="navbar-inner">
+				<tr>
+				<th style="width:50px;">全选</th>
+					<th style="width:50px;">ID</th>
+					<th style="width:100px;">名称</th>
+					<th style="width:100px;">简介</th>
+                    <th style="width:60px;">时间</th>
+					<th style="min-width:60px;width:100px;">操作</th>
+				</tr>
+			</thead>
+			<tbody>
+            <?php  if(is_array($list)) { foreach($list as $item) { ?>
+            <td><input type="checkbox" value="<?php  echo $item['id'];?>" name="delete[]"></td>
+            <td><?php  echo $item['id'];?></td>
+            <td><?php  echo $item['title'];?></td>
+            <td><?php  echo $item['desc'];?></td>
+            <td><?php  echo date("Y-m-d",$item['createtime'])?></td>
+            <td>
+                <a href="<?php  echo $this->createWebUrl('dao', array('op' => 'display', 'cid' => $item['id'], 'projectid'=>$projectid))?>"
+                   title="导入excel" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-log-out"></span></a>
+                <a href="<?php  echo $this->createWebUrl('chu', array( 'cid' => $item['id']))?>" title="导出excel"
+                   class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-download-alt"></span></a>
+                <a href="<?php  echo $this->createWebUrl('gl', array('op' => 'display', 'cid' => $item['id'], 'projectid'=>$projectid))?>"
+                   title="管理数据" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-list"></span></a>
+
+                <a href="<?php  echo $this->createWebUrl('table', array('op' => 'post', 'id' => $item['id'], 'projectid'=>$projectid))?>" title="编辑"
+                   class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-edit"></span></a>
+
+                <a onclick="return confirm('此操作不可恢复，确认吗？'); return false;"
+                   href="<?php  echo $this->createWebUrl('table', array('id' => $item['id'],'op'=>'del', 'projectid'=>$projectid))?>" title="删除"
+                   class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-remove"></span></a>
+            </td>
+            </tr>
+
+            <?php  } } ?>
+            <tr>
+                <td><input type="checkbox"
+                           onclick="var ck = this.checked;$(':checkbox').each(function(){this.checked = ck});" name=''>
+                    <input class="btn btn-primary btn-sm" type="submit" value="删除" name="submit"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            </tbody>
+		</table>
+		<input type="hidden" value="index" name="do">
+		<input type="hidden" value="del" name="op">
+		<input type="hidden" name="token" value="<?php  echo $_W['token'];?>" />
+
+
+		</form>
+		<?php  echo $pager;?>
+
+	<script>
+
+
+					$('#form2').submit(function(){
+if($(":checkbox[name='delete[]']:checked").size() > 0){
+return confirm('删除后不可恢复，您确定删除吗？');
+}
+return false;
+});
+
+
+		</script>
+	</div>
+	<?php  } else if($op == 'post') { ?>
+
+
+<div class="main">
+	<form action="" method="post" class="form-horizontal form">
+	<div class="panel panel-default">
+
+
+		<div class="panel-body">
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">名称<span style="color:red;font-size:18px">*</span></label>
+                <div class="col-sm-8">
+                    <input type="text" name="title" class="form-control" value="<?php  echo $item['title'];?>"/>
+                    <span class="help-block">要查询的表名称</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">简介</label>
+                <div class="col-sm-8">
+                    <input type="text" name="desc" class="form-control" value="<?php  echo $item['desc'];?>"/>
+                    <span class="help-block">对功能进行简单介绍</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label"></label>
+                <div class="col-sm-8">
+                    <span class="help-block">自定义字段管理,名称最好使用中文,变量名只能是英文开头,可以是大小写和数字,排序越大越靠前<br><span
+                            style="color:red;font-size:18px">必须有一个字段作为查询字段,如果启用扫码或精确查询,查询字段应该只定义一个.</span>如果字段定义为"手机号",那么微信端查询显示会用*号替换中间四位,不想使用这一替换请将字段定义为其他,比如"手机号码"</span>
+                </div>
+            </div>
+            <div class="form-group">
+
+                <table class='table table-condensed'>
+                    <thead>
+                    <tr>
+
+                        <th>名称<span style="color:red;font-size:18px">*</span></th>
+                        <th>变量名<span style="color:red;font-size:18px">*</span></th>
+                        <th class='hidden'>排序</th>
+                        <th>关键字</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody id="zd">
+                    <?php 
+$tb = json_decode($item['s'],1);
+if(!empty($tb)){
+foreach($tb as $kk){
+if($kk['isok']==1){
+$isok = " checked='checked' ";
+}else{
+$isok = " ";
+}
+    echo '<tr>
+                    <td><input type="hidden" value="'.$kk['id'].'" name="s['.$kk['id'].'][id]"><input type="text"
+                                                                                                      maxlength="40"
+                                                                                                      value="'.$kk['title'].'"
+                                                                                                      placeholder="字段名称"
+                                                                                                      class="form-control"
+                                                                                                      name="s['.$kk['id'].'][title]">
+                    </td>
+                    <td><input type="text" value="'.$kk['var'].'" maxlength="40" placeholder="必须是字母开头英文"
+                               class="form-control" name="s['.$kk['id'].'][var]">
+                    <td class="hidden"><input type="text" maxlength="30" value="'.$kk['orderby'].'" class="form-control"
+                                              name="s['.$kk['id'].'][orderby]"></td>
+                    <td><input type="checkbox" '.$isok.' value="'.$kk['isok'].'" name="s['.$kk['id'].'][isok]"
+                        class="checkbox">
+                    </td>
+                    <td><a href="javaScript:void(0);" data-id="'.$kk['id'].'" title="删除"
+                           class="del btn btn-sm btn-danger"><span class="glyphicon glyphicon-remove"></span></a></td>
+                    </tr>';
+                    }
+                    }
+                    ?>
+                    </tbody>
+                </table>
+
+            </div>
+			<div class="form-group">
+				<label class="col-xs-12 col-sm-2 col-md-2 col-lg-1 control-label"></label>
+				<div class="col-sm-4">
+				<input type="hidden" name="id" value="<?php  echo $item['id'];?>">
+				<input type="hidden" name="token" value="<?php  echo $_W['token'];?>" />
+					<input name="submit" type="submit" value="提交" class="btn btn-primary span3 btn-sm" />
+					<a href="javaScript:void(0);" id="add"  title='添加' class="btn btn-sm btn-primary"><span class="glyphicon glyphicon-plus" ></span></a>
+				</div>
+			</div>
+
+			</div>
+			</div>
+	</form>
+</div>
+<script type="text/javascript">
+$(function(){
+$(document).on("click",'a.del',function(){
+
+
+                $(this).parent().parent().remove();
+
+});
+$(document).on("click",'.checkbox',function(){
+
+if($(this)[0].checked) {
+               $(this)[0].value='1';
+            } else {
+               $(this)[0].value='0';
+            }
+});
+$("#add").click(function(){
+var index = $('#zd>tr').length;
+var newRow='<tr><td><input type="hidden" value="'+index+'" name="s['+index+'][id]">'+
+  '<input type="text" maxlength="40" placeholder="字段名称" class="form-control" name="s['+index+'][title]">'+
+  '</td><td><input type="text" maxlength="40" placeholder="必须是字母开头英文" class="form-control" name="s['+index+'][var]"><td class="hidden"><input type="text" maxlength="30" value="0" class="form-control" name="s['+index+'][orderby]"></td><td><input class="checkbox" type="checkbox"  value="0" name="s['+index+'][isok]" ></td><td><a href="javaScript:void(0);" data-id="-1" title="删除" class="del btn btn-sm btn-danger"><span class="glyphicon glyphicon-remove" ></span></a></td></tr>';
+$("#zd").append(newRow);
+});
+});</script>
+<?php  } ?>
+</div>
+
+<?php (!empty($this) && $this instanceof WeModuleSite || 1) ? (include $this->template('common/footer', TEMPLATE_INCLUDEPATH)) : (include template('common/footer', TEMPLATE_INCLUDEPATH));?>

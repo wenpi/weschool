@@ -1,7 +1,6 @@
 <?php 
     // 独立入口
     ini_set("display_errors", 1);
-
     define('IN_MOBILE', true);
     define('IN_ALONE', 'yes');
     define('ROOT_PATH',$_SERVER['DOCUMENT_ROOT'].'/../../');

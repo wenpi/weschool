@@ -1,6 +1,5 @@
 <?php
-ini_set("display_errors",1);
-error_reporting(E_ALL^E_NOTICE);
+
     $class_admin        = D('admin');
     $class_power        = D('power');
     $admin_result       = $class_admin->judeAdminType();

@@ -4,7 +4,7 @@
 	                                <td class='file_name' data-id="{$row['id']}" data-status='1' >{$row['file_name']}</td>
                                      <td>{$row['file_local']}</td>
                                      <td>{$row['version']}</td>
-                                     <td id='status{$row['id']}'>未更新</td>
+                                     <td id='status{$row['id']}'>未校验</td>
                                  </tr>
                          {/loop}
                {/if}
@@ -12,9 +12,9 @@
                 var page=0; 
                 var xid=0;
                 $(function(){
-                    //检测文件更新
+                    //检测文件校验
                     showModel("modal_notice");
-                    $("#modal_notice").find('.modal-body').html("正在获取更新数据中，请稍等，对比数据<code id='data_list'>1-51</code>条中【总文件大约：1400】<br><span class='font-red'>[每次最多获取200个更新文件，可以多次更新检测是否更新完]</span>");
+                    $("#modal_notice").find('.modal-body').html("正在获取远程数据中，请稍等，对比数据<code id='data_list'>1-51</code>条中【总文件大约：1600】<br><span class='font-red'>[每次最多获取200个校验文件，可以多次校验检测是否校验完成]</span>");
                     updateSort(0);
                 });
                 function updateSort(sort){
@@ -55,20 +55,20 @@
                                     html += " <td class='file_name' data-id='"+e.id+"' data-status='1' > "+e.file_name+"</td>";
                                     html += "<td>"+e.file_local+"</td>";
                                     html += "<td>"+e.version+"</td>";
-                                    html += "<td id='status"+e.id+"' >未更新</td>";
+                                    html += "<td id='status"+e.id+"' >待校验</td>";
                                     html += "</tr>";
                                 });
                                 $("#file_list").html(html);
                                 getNextSend();
                             }else{
                                 // showModel("modal_notice");
-                                // $("#modal_notice").find('.modal-body').html("无需更新！");
+                                // $("#modal_notice").find('.modal-body').html("无需校验！");
                             }
                         }
                     });
                 }
                 function updateFile(){
-                        if(confirm("确认将进入更新进程，未更新完请勿关闭此网页")){
+                        if(confirm("确认将进入校验进程，未校验完请勿关闭此网页")){
                             getNextSend();
                         }
                 }
@@ -84,7 +84,7 @@
                     });
                     if(!send){
                             // showModel("modal_notice");
-                            $("#modal_notice").find('.modal-body').html("<span style='color:red'>更新完成，如有文件没更新成功，可以修改权限后再试</div>");
+                            $("#modal_notice").find('.modal-body').html("<span style='color:red'>校验完成，如有文件没校验成功，可以修改权限后再试</div>");
                             return true; 
                         }
                 }
@@ -103,10 +103,10 @@
                 function changeStatus(status,end_time,obj,file_id,msg){
                     obj.attr('data-status',status);
                     if(status==2){
-                        $("#status"+file_id+"").html('<code><i class="fa fa-check"></i>更新成功</code>');     
+                        $("#status"+file_id+"").html('<code><i class="fa fa-check"></i>校验成功</code>');     
                     }
                     if(status==1){
-                        //先跳过，下次再更新
+                        //先跳过，下次再校验
                         obj.attr('data-status',3);
                         $("#status"+file_id+"").html('<i class="fa fa-close"></i>'+msg);     
                     }		
