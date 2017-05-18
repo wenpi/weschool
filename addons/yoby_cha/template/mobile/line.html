@@ -1,28 +1,21 @@
 <!doctype html>
-<html>
+<html lang="en">
+
 <head>
     <meta charset="utf-8">
-    <title>{$row['hd_title']}</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
     <base href="{$yobyurl}">
-    <link rel="stylesheet" href="weui/weuix.min.css"/>
-    <script src="weui/zepto.js"></script>
-    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <title>{$row['hd_title']}</title>
+    <link rel="stylesheet" href="weui/dist/style/weui.min.css" />
+    <!--<script src="weui/zepto.js"></script>-->
 </head>
 
 <body>
-
-<script type="text/javascript" src='http://res.wx.qq.com/open/js/jweixin-1.0.0.js'></script>
-<?php
+    <?php
 $wx = $_W['account']['jssdkconfig'];
 $wx['url'] ='http://'.$_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ;
 ?>
-
-{if $op == "failed"}
-Failed!!
-{elseif $op == "ok"}
-
-    {if ($type == "DEV" || $type == "LINE" ) }
+        {if $op == "failed"} Failed!! {elseif $op == "ok"} {if ($type == "DEV" || $type == "LINE" ) }
         <div class="main">
             <form action="" method="post" class="form-horizontal form">
                 <div class="panel panel-default">
@@ -53,7 +46,7 @@ Failed!!
                 </div>
             </form>
         </div>
-    {else}
+        {else}
         <div class="main">
             <form action="" method="post" class="form-horizontal form">
                 <div class="panel panel-default">
@@ -87,47 +80,67 @@ Failed!!
                 </div>
             </form>
         </div>
-    {/if}
+        {/if} {elseif $op == "redirect"}
+        <script>
+            window.location.href = "<?php echo $redirect; ?>";
+        </script>
+        {else}
+        <div class="weui-msg">
+            <div class="weui-msg__text-area">
+                <h2 class="weui-msg__title">智慧机房</h2>
+            </div>
+            <div class="weui-msg__icon-area">
+                <img src="./images/logo_100.png" alt="智慧机房">
+            </div>
+            <div class="weui-msg__opr-area">
+                <p class="weui-btn-area">
+                    <button type="button" class="weui-btn weui-btn_primary" id="btnScan">扫描二维码</button>
+                    <button type="button" class="weui-btn weui-btn_default" id="btnManual">手动输入</button>
+                </p>
+            </div>
+            <div class="weui-msg__extra-area">
+                <div class="weui-footer">
+                    <!--<p class="weui-footer__links">
+                        <a href="javascript:void(0);" class="weui-footer__link">智慧机房</a>
+                    </p>-->
+                    <p class="weui-footer__text">Copyright © 智慧机房</p>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src='http://res.wx.qq.com/open/js/jweixin-1.2.0.js'></script>
+        <script>
+            var appIdstr = "{$wx['appId']}";
+            var timestampstr = "{$wx['timestamp']}";
+            var nonceStrstr = "{$wx['nonceStr']}";
+            var signaturestr = "{$wx['signature']}";
+            wx.config({
+                // debug: true,
+                appId: appIdstr,
+                timestamp: timestampstr,
+                nonceStr: nonceStrstr,
+                signature: signaturestr,
+                jsApiList: [
+                    'scanQRCode'
+                ]
+            });
+            wx.ready(function () {
+                //扫描二维码
+            });
 
-{elseif $op == "redirect"}
-<script>
-    window.location.href = "<?php echo $redirect; ?>";
-</script>
-{else}
-<input class="btn btn-primary btn-lg" id="btnScan" type="submit" value="扫码" name="submit"></td>
-<script>
-    var appIdstr = "{$wx['appId']}";
-    var timestampstr = "{$wx['timestamp']}";
-    var nonceStrstr = "{$wx['nonceStr']}";
-    var signaturestr = "{$wx['signature']}";
-    wx.config({
-        debug: true,
-        appId: appIdstr,
-        timestamp: timestampstr,
-        nonceStr: nonceStrstr,
-        signature: signaturestr,
-        jsApiList: [
-            'scanQRCode'
-        ]
-    });
-    wx.ready(function () {
-        //扫描二维码
-    });
-
-    document.getElementById("btnScan").onclick = function fun() {
-        wx.scanQRCode({
-            needResult: 1,//0是微信处理,1是结果
-            desc: '我们自己来处理结果',
-            scanType: ["qrCode", "barCode"],
-            success: function (res) {
-                var result = res.resultStr;
-                var urlx = "{$_W['siteroot']}app/index.php?keyword=" + urlencode(result) + "&c=entry&do=line&i={$weid}&m=yoby_cha&id={$id}";
-                window.location.href = urlx;
-            }
-        });
-    };
-</script>
-{/if}
+            document.getElementById("btnScan").onclick = function fun() {
+                wx.scanQRCode({
+                    needResult: 1, //0是微信处理,1是结果
+                    desc: '我们自己来处理结果',
+                    scanType: ["qrCode", "barCode"],
+                    success: function (res) {
+                        var result = res.resultStr;
+                        var urlx = "{$_W['siteroot']}app/index.php?keyword=" + urlencode(result) + "&c=entry&do=line&i={$weid}&m=yoby_cha&id={$id}";
+                        window.location.href = urlx;
+                    }
+                });
+            };
+        </script>
+        {/if}
 </body>
 
 </html>
