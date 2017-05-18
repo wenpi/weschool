@@ -69,7 +69,9 @@
         //检测入学年级
         if($_GPC['birthday']){
             $unix_time = strtotime($_GPC['birthday']);
-            $year      = date("Y",$unix_time);
+            $year      = date("Ymd",$unix_time);
+            $info['birth_end_time']   = str_ireplace('-','',$info['birth_end_time']);
+            $info['birth_begin_time'] = str_ireplace('-','',$info['birth_begin_time']);
             if($year>$info['birth_end_time'] || $year<$info['birth_begin_time']){
                 $this->myMessage("抱歉孩子未出生在可报名的年份内",$this->createMobileUrl("book_list",array('id'=>$_GPC['id'],'school_id'=>$_GPC['school_id'])),'错误');
             }

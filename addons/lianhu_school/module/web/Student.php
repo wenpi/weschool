@@ -66,6 +66,10 @@
 					$where 					.= " and (student.rfid = :rfid or  student.rfid1 = :rfid or student.rfid2 = :rfid)";
                     $params[':rfid'] 		 = $_GPC['card'];
                 }
+				if($_GPC['xuehao']){
+					$where 				.= " and xuehao=:xuehao  ";
+					$params[":xuehao"]   = $_GPC['xuehao'];
+				}
 				if($_GPC['status']){
 					$where 				.= " and student.status=:status";
                     $params[':status']   = $_GPC['status'];
@@ -164,6 +168,8 @@
 					$in['ic_card']  	= $_GPC['ic_card'];
                     $in['sms_status']   = $_GPC['sms_status'];
 					$id 				= $class_student->add($in);
+					//调班记录
+					D("changeClassRecord")->addRecord($id,0,$in['class_id']);
 					if(D('school')->getSchoolParams('much_class')){
 						$class_ctl_student 				= C('student');
 						$class_ctl_student ->student_id = $id;
@@ -248,6 +254,9 @@
 					$in['active_rfid']  = $_GPC['active_rfid'];
 					$in['ic_card']  	= $_GPC['ic_card'];
 					$class_student->edit(array('student_id'=>$id),$in);
+					if($result['class_id'] != $in['class_id']){
+						D("changeClassRecord")->addRecord($id,$result['class_id'],$in['class_id']);
+					}
 					//多班级
 					if(D('school')->getSchoolParams('much_class')){
 						$class_ctl_student = C('student');

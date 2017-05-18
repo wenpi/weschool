@@ -2,7 +2,6 @@
 namespace myclass\ctl;
 
 class cron {
-
     //转发至各个公众号
     public function getUseUniacidList(){
         $list = pdo_fetchall("select uniacid from ".tablename('lianhu_school')." where status=1 group by uniacid ");
@@ -119,7 +118,7 @@ class cron {
                     }else{
                         $address = false;
                     }
-                    $str .= $name."第".$v['day_sort']."节，在".$time_result['begin_time'][$v['day_sort']]."-".$time_result['end_time'][$v['day_sort']]."间，".$address."上".D("course")->courseName($rw['course_id'])."\r\n";
+                    $str .= $name."第".$v['day_sort']."节，在".$time_result['begin_time'][$v['day_sort']]."-".$time_result['end_time'][$v['day_sort']]."间，".$address."上".D("course")->courseName($v['course_id'])."\r\n";
                 }
             }
             D("school") ->school_id    = $teacher_info['school_id'];

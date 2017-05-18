@@ -1,0 +1,32 @@
+<?php defined('IN_IA') or exit('Access Denied');?><?php (!empty($this) && $this instanceof WeModuleSite) ? (include $this->template('../xiaoye/newTeaHead', TEMPLATE_INCLUDEPATH)) : (include template('../xiaoye/newTeaHead', TEMPLATE_INCLUDEPATH));?>
+    <link href="<?php echo MODULE_URL;?>style/css/weui.min.css"     rel="stylesheet" type="text/css" />
+    <link href="<?php echo MODULE_URL;?>style/css/new_style.css"    rel="stylesheet" type="text/css" />
+    <link href="<?php echo MODULE_URL;?>style/css/weui2.css"        rel="stylesheet" type="text/css" />
+    <link href="<?php echo MODULE_URL;?>style/css/weui_example.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo MODULE_URL;?>style/css/line_css.css"     rel="stylesheet" type="text/css" />
+<body style="background-color: #fff">
+      <div class="body"     style="padding-top:0px;padding-bottom:60px;">
+        <div class="w-tabs" data-duration-in="400" data-duration-out="400" data-easing="ease-out-quint">
+          <div class="w-tab-content tabs-content" style="background-color:#fff;">
+               <div class="w-tab-pane  w--tab-active tab-pane" data-w-tab="Tab 1">
+                    <ul class="list list-messages" style="border-top:0px;">
+                        <?php  if(is_array($qrlist)) { foreach($qrlist as $item) { ?>
+                            <li style="border-bottom:1px solid #e7e7e9;" >
+                                <div class="weui_media_box weui_media_text">
+                                    <img style="height: auto; width:80%;" src="<?php  echo $_W['siteroot'].'app/'.$this->createMobileUrl('qrImg',array('value'=>$item['qrcode_value'],'ac'=>'course_scan','use_do'=>'courseScan'))?>" 
+                                         data-src='<?php  echo $_W['siteroot'].'app/'.$this->createMobileUrl('qrImg',array('value'=>$item['qrcode_value'],'ac'=>'course_scan','use_do'=>'courseScan'))?>'>
+                                    <p style="color: #ff0033">第<?php  echo $item['qrcode_num'];?>次</p>
+                                    <a href="<?php  echo $this->createMobileUrl("teaCourseScanCodeHistory",array('id'=>$item['qrcode_id'] ));?>" > 
+                                                <button class="weui_btn weui_btn_mini weui_btn_warn">扫码情况</button>
+                                    </a>
+                                </div> 
+                            </li>                
+                        <?php  } } ?>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+      </div>
+    <?php  $center_class = 'cde'?>
+    <?php (!empty($this) && $this instanceof WeModuleSite) ? (include $this->template('../xiaoye/newTeaFooter', TEMPLATE_INCLUDEPATH)) : (include template('../xiaoye/newTeaFooter', TEMPLATE_INCLUDEPATH));?>

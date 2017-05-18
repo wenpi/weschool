@@ -11,7 +11,16 @@
     $cclass_cardRecord  = C('cardRecord'); 
     $post_type          = $_GPC['post_type'];
     $class_msg->in_class_base =  $this->class_base;
-    
+    //设备心跳
+    if($_GPC['type']=='heart'){
+        $result    = $this->validSign($nonce,$sign,$timestamp);
+        if(!$result && !$_GPC['device_id']){
+            exit('非法访问');
+        }
+        $arr["device_id"] = $_GPC['device_id'];
+        D("deviceHeart")->add($arr);
+        exit();
+    }
     //电量提醒
     if($_GPC['battery']=='yes'){
         $student_id   = $_GPC['student_id'];

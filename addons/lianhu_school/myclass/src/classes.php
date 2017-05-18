@@ -47,6 +47,11 @@ class classes extends common{
         } 
         return $re;
     }
+    public function gradeName($class_id){
+        $result     = $this->edit(array('class_id'=>$class_id));
+        $grade_name = D("grade")->edit(array("grade_id"=>$result['grade_id']));
+        return $grade_name['grade_name'];
+    }
 
     public function className($class_id){
         if(empty($class_id)){

@@ -11,7 +11,7 @@
     );
 	$top_action = array(
 		array('action_name'=>'成绩统计' ,'action'=>'scoreStudent'),
-		array('action_name'=>'新增' ,'action'=>'scoreStudent','arr'=>array('ac'=>'new') ),
+		array('action_name'=>'导入成绩' ,'action'=>'data_in','arr'=>array('ac'=>'score' ,'from'=>'scoreStudent') ),
 	);
 	$page_name = '成绩统计';
 	if($ac=='new'){

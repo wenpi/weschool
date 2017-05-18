@@ -7,6 +7,7 @@ $line_type=array(
 	'重要事务',
 );
 $_W['line_type']=$line_type;
+
 $appointment=array(
 	'课程预约',
 	'兴趣小组',

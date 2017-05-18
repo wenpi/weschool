@@ -225,7 +225,7 @@
                                                     <td>{$item['device_id']}        </td>
                                                     <td>{$item['device_openid']}    </td>
                                                     <td>{$item['device_name']}      </td>
-                                                    <td>{if $item['device_status']==1}可用{else}<b class="font-red">注销</b>{/if}</td>
+                                                    <td>{if $item['device_status']==1}可用{else}<b class="font-red">注销</b>{/if} {if D("deviceHeart")->findByDevice($item['device_id'])} <b class="font-blue">设备在线</span>{else}<b class="font-red">设备离线</span> {/if}</td>
                                                     <td>{php echo $device_types[$item['device_type']]}</td>
                                                     <td>{php echo date("Y-m-d H:i:s",$item['add_time']);}</td>
                                                     {if $room_re}
@@ -235,6 +235,7 @@
                                                             <td>无</td>
                                                         {/if}
                                                     {/if}
+
                                                     <td style="text-align:  left">
                                                             <a href="{php echo $this->createWebUrl('device', array('ac' => 'edit','id'=>$item['device_id'],'aw'=>1))}"  class="btn blue"> <i class="fa fa-edit"></i>编辑</a>
                                                             <a href="{php echo $this->createWebUrl('device', array('ac' => 'delete','id'=>$item['device_id'],'aw'=>1))}"  class="btn red"> <i class="fa fa-trash"></i>删除</a>

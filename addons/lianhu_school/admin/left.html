@@ -10,7 +10,6 @@
   {/if}
   {php $file_re = file_exists(MODULE_ROOT.'/myclass/src/codeShop.php');}
   {if $_GPC['dev_yes']!=1}
-    
             <div class="page-sidebar-wrapper">
                 <div class="page-sidebar navbar-collapse collapse">
                     <ul class="page-sidebar-menu  page-header-fixed " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200" style="padding-top: 20px">
@@ -519,7 +518,14 @@
                                     <a href="{php echo $this->createWebUrl('adminloginCheck') }" class="nav-link">
                                         <span class="title"><i class="fa fa-folder-o"></i> 切换公众号</span>
                                     </a>
-                                </li>   
+                                </li>  
+                                
+                                <li class="nav-item" id='mpMenu' {php checkLeft('mpMenu',$fun_info['low']);}>
+                                    <a href="{php echo $this->createWebUrl('mpMenu') }" class="nav-link">
+                                        <span class="title"><i class="fa fa-reorder"></i> 公众号菜单 </span>
+                                    </a>
+                                </li>  
+
                                 {if $file_re}
                                     {php $re = Au('src/codeShop')->getCode('group')}
                                     {if $re }

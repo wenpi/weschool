@@ -108,6 +108,7 @@ class power{
          array('name'=>'系统设置','key_word'=>'system_set',
             'low_list'=>array(
                 array('name'=>'切换公众号','key_word'=>'change_weixin','fun'=>'adminloginCheck'),
+                array('name'=>'公众号菜单', 'key_word'=>'mpMenu','fun'=>'mpMenu'),
                 array('name'=>'学校管理','key_word'=>'schoolManage','fun'=>'school_new'),
                 array('name'=>'系统设置','key_word'=>'systemParams','fun'=>'systemParams'),
                 array('name'=>'插件商城','key_word'=>'ourShop','fun'=>'ourShop'),
