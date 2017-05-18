@@ -169,33 +169,98 @@ class Yoby_chaModuleSite extends WeModuleSite
             $user = $_GPC['user'];
             $passwd = $_GPC['passwd'];
 
-            if (checksubmit('submit')) {
-                $sql = "select usr.uid, usr.password from ims_users as usr inner join ims_yoby_cha_user as yusr on usr.uid=yusr.uid
-                    where usr.username='$user' and yusr.weid=$weid";
-                $userObj = pdo_fetch($sql);
+            $sql = "select usr.uid, usr.password from ims_users as usr inner join ims_yoby_cha_user as yusr on usr.uid=yusr.uid
+                where usr.username='$user' and yusr.weid=$weid";
+            $userObj = pdo_fetch($sql);
 
-                if( empty($userObj) ){
-                    message('用户名密码错误！', '', 'error');
-                    include $this->template('login');
+            if( empty($userObj) ){
+                message('用户名密码错误！', '', 'error');
+                include $this->template('login');
+            }
+            else{
+                var_dump(user_hash($passwd, ''), $userObj['password']);
+                if(user_hash($passwd, '') == $userObj['password']) {
+                    pdo_update('yoby_cha_user', array('openid' => $_W['openid'], ), array('uid' => $userObj['uid']));
+//                        include $this->template('login');
+                    message('绑定成功！', $this->createWebUrl('login', array('op' => 'post')), 'success');
                 }
                 else{
-                    var_dump(user_hash($passwd, ''), $userObj['password']);
-                    if(user_hash($passwd, '') == $userObj['password']) {
-                        pdo_update('yoby_cha_user', array('openid' => $_W['openid'], ), array('uid' => $userObj['uid']));
-//                        include $this->template('login');
-                        message('绑定成功！', $this->createWebUrl('login', array('op' => 'bindok')), 'success');
-                    }
-                    else{
-                        include $this->template('login');
-                        $_GPC['op'] = "display";
-                        message('绑定失败！', $this->createWebUrl('login', array('op' => 'display')), 'success');
-                    }
+                    include $this->template('login');
+                    $_GPC['op'] = "display";
+                    message('绑定失败！', $this->createWebUrl('login', array('op' => 'display')), 'success');
                 }
             }
         } else if ('display' == $op) {//显示
             $item = [];
             include $this->template('login');
         }
+    }
+
+    public function doMobileSearch(){
+        global $_W, $_GPC;
+        $weid = $_W['uniacid'];
+        $op = !empty($_GPC['op']) ? $_GPC['op'] : 'display';
+        $shareurl = $this->module['config']['guanzhu'];
+        $yobyurl = $_W['siteroot'] . "addons/yoby_cha/template/mobile/";
+        $redirect = '';
+        $instance = NULL;
+
+        if( !isWxBinded($_W['openid'], $weid) ){
+            $op = 'redirect';
+            $redirect = "http://www.9kpu.com/app/index.php?i=$weid&c=entry&op=display&do=login&m=yoby_cha";
+        }
+        else{
+            $key = $_GPC['keyword'];
+            if (!empty($_GPC['keyword'])) {
+                $queryRule = "select usr.uid, rule.value, usr.projectid from " . tablename('yoby_cha_user') . " as usr 
+                inner join " . tablename('yoby_cha_rule') . " as rule on usr.uid=rule.uid 
+                 where usr.openid='" . $_W['openid'] . "' and rule.type='DB'";
+                $result = pdo_fetch($queryRule);
+                if (!count($result['value'])) {
+                    $op = 'failed';
+                } else {
+                    //find
+                    $uid = $result['uid'];
+                    $projectid = $result['projectid'];
+                    $rule = $result['value'];
+                    $queryIns = "select tb.s, dt.bl, tb.type from " . tablename('yoby_cha_data') . " as dt 
+                        inner join " . tablename('yoby_cha_table') . " as tb on dt.cid=tb.id where dt.title like '%$key%' and dt.weid=$weid and dt.projectid=$projectid";
+                    if ($rule != '*') {
+                        $queryIns .= " and cid in($rule)";
+                    }
+                    $result = pdo_fetchall($queryIns);
+                    if (empty($result)) {
+                        $op = 'failed';
+                    } else {
+
+                        $op = 'ok';
+                        $list = [];
+                        for($insIndex=0; $insIndex<count($result); $insIndex++){
+                            $ins = $result[$insIndex];
+
+                            $mapping = [];
+                            $s = json_decode($ins['s'], 1);
+                            $bl = json_decode($ins['bl'], 1);
+                            for ($i = 0; $i < count($s); $i++) {
+                                $mapping[$s[$i]['var']] = $bl[$i];
+                            }
+                            $mapping['type'] = $ins['type'];
+                            $id = $mapping['productlot'];
+                            if(empty($id)){
+                                $id = $mapping['orderno'];
+                            }
+                            if(empty($id)){
+                                $id = $mapping['localmac'];
+                            }
+                            $mapping['id']=$id;
+
+                            array_push($list, $mapping);
+                        }
+                    }
+                }
+            }
+        }
+        include $this->template('search');
     }
 
     public function doMobileLine(){

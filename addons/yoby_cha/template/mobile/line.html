@@ -139,6 +139,9 @@ $wx['url'] ='http://'.$_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ;
                     }
                 });
             };
+            document.getElementById("btnManual").onclick = function fun() {
+                window.location.href = "{$_W['siteroot']}app/index.php?c=entry&do=search&i={$weid}&m=yoby_cha";;
+                };
         </script>
         {/if}
 </body>
