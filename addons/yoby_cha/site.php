@@ -275,6 +275,78 @@ class Yoby_chaModuleSite extends WeModuleSite
         include $this->template('line');
     }
 
+    public function doMobileOrder(){
+        global $_W, $_GPC;
+        $weid = $_W['uniacid'];
+        $op = !empty($_GPC['op']) ? $_GPC['op'] : 'display';
+        $shareurl = $this->module['config']['guanzhu'];
+        $yobyurl = $_W['siteroot'] . "addons/yoby_cha/template/mobile/";
+        $redirect = '';
+        $instance = NULL;
+        $openid = $_W['openid'];
+
+        if( !isWxBinded($_W['openid'], $weid) ){
+            $op = 'redirect';
+            $redirect = "http://www.9kpu.com/app/index.php?i=$weid&c=entry&op=display&do=login&m=yoby_cha";
+        }
+        else{
+
+            if($op == 'display'){
+                $queryUser = "select uid from ".tablename('yoby_cha_user')." where openid='$openid'";
+                $uid = pdo_fetchcolumn($queryUser);
+                if(empty($uid)){
+                    $op = 'redirect';
+                    $redirect = "http://www.9kpu.com/app/index.php?i=$weid&c=entry&op=display&do=login&m=yoby_cha";
+                }
+                else{
+                    $pindex = max(1, intval($_GPC['page']));
+                    $psize = 20;//每页显示
+
+
+
+                    $queryOrder = "select ck.type, timecreate, dt.bl, tb.s from ".tablename('yoby_cha_check')." as ck 
+                            inner join ".tablename('yoby_cha_data')." as dt on dt.title=ck.checkid
+                            INNER JOIN ims_yoby_cha_table as tb on dt.cid=tb.id 
+                            where ck.weid=$weid and uid=$uid ORDER BY timecreate LIMIT " . ($pindex - 1) * $psize . ',' . $psize;
+                    $count = 'SELECT COUNT(*) FROM ' . tablename('yoby_cha_check') . "  where weid=$weid and uid=$uid";
+
+                    $list = pdo_fetchall($queryOrder);//分页
+                    $total = pdo_fetchcolumn($count);
+                    $pager = pagination($total, $pindex, $psize);
+
+
+                    $data = [];
+                    for($i=0;$i<count($list);$i++){
+                        $ins = $list[$i];
+                        
+                        $s = json_decode($ins['s'], 1);
+                        $bl = json_decode($ins['bl'], 1);
+                        for ($i = 0; $i < count($s); $i++) {
+                            $mapping[$s[$i]['var']] = $bl[$i];
+                        }
+                        $instance = $mapping;
+                        $type = $ins['type'];
+                        $id = $mapping['productlot'];
+                        if(empty($id)){
+                            $id = $mapping['orderno'];
+                        }
+                        if(empty($id)){
+                            $id = $mapping['localmac'];
+                        }
+                        $mapping['id'] = $id;
+                        $mapping['type'] = $ins.type;
+                        $mapping['timecreate'] = $ins.timecreate;
+
+                        array_push($data, $mapping);
+                    }
+                    $list = $data;
+
+                    include $this->template('order');
+                }
+            }
+        }
+    }
+
     public function doWebTable()
     {//管理字段
         global $_W, $_GPC;
