@@ -15,33 +15,46 @@
 $wx = $_W['account']['jssdkconfig'];
 $wx['url'] ='http://'.$_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ;
 ?>
-
-    {if $op == "failed"} Failed!! {elseif $op == "ok"}
-        {loop $list $item}
-            <div>{$item['type']}{$item['id']}</div>
-        {/loop}
-    {else}
-    <div class="main">
-        <form action="" method="post" class="form-horizontal form">
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    <div class="weui-cell__bd">
-                        <input class="weui-input" placeholder="请输入查询信息" type="text" name="keyword" value="" maxlength="100" required />
-                    </div>
+        {if $op == "failed"} Failed!! {elseif $op == "ok"} {loop $list $item}
+        <div>{$item['type']}{$item['id']}</div>
+        {/loop} {else}
+        <div class="weui-search-bar" id="searchBar">
+            <form action="" method="POST" class="weui-search-bar__form">
+                <div class="weui-search-bar__box">
+                    <i class="weui-icon-search"></i>
+                    <input class="weui-search-bar__input" id="searchInput" name="keyword" type="text" placeholder="请输入查询信息" maxlength="100" required type="search" />
+                    <a href="javascript:" class="weui-icon-clear" id="searchClear"></a>
                 </div>
-                    <div class="form-group">
-                        <label class="col-xs-12 col-sm-2 col-md-2 col-lg-1 control-label"></label>
-                        <div class="col-sm-4">
-                            <input type="hidden" name="token" value="{$_W['token']}" />
-                            <input type="hidden" value="{$uid}" name="uid" />
-                            <input name="submit" type="submit" value="查询" class="btn btn-primary span3 btn-sm" />
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </form>
-    </div>
-    {/if}
+                <label class="weui-search-bar__label" id="searchText">
+                    <i class="weui-icon-search"></i>
+                    <span>搜索</span>
+                </label>
+                <input type="hidden" name="token" value="{$_W['token']}" />
+                <input type="hidden" value="{$uid}" name="uid" />
+            </form>
+        </div>
+        <script type="text/javascript">
+            (function () {
+                var searchBar = document.querySelector('#searchBar'),
+                    searchInput = document.querySelector('#searchInput'),
+                    searchClear = document.querySelector('#searchClear'),
+                    searchText = document.querySelector('#searchText');
+                searchInput.addEventListener('blur', function () {
+                    if (!this.value.length) {
+                        searchBar.classList.remove('weui-search-bar_focusing');
+                    }
+                });
+                searchText.addEventListener('click', function () {
+                    searchBar.classList.add('weui-search-bar_focusing');
+                    searchInput.focus();
+                });
+                searchClear.addEventListener('click', function () {
+                    searchInput.value = '';
+                    searchInput.focus();
+                });
+            }());
+        </script>
+        {/if}
 </body>
+
 </html>
