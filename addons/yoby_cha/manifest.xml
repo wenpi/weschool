@@ -92,6 +92,7 @@ CREATE TABLE `ims_yoby_cha_check` (
   `checkid` varchar(64) NOT NULL DEFAULT '',
   `type` varchar(8) NOT NULL DEFAULT '',
   `weid` int(10) DEFAULT NULL,
+  `status` varchar(8) NOT NULL DEFAULT ('OK','BLOCKED','EVANES','MODERR','OTHER','DAMAGE','NOEASY','BATTERY'),
   `timecreate` int(10) unsigned NOT NULL,
   PRIMARY KEY (`uid`,`checkid`,`weid`, `type`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;

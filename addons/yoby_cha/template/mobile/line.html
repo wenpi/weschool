@@ -44,6 +44,7 @@ Failed!!
                                 <input type="hidden" value="check_once" name="op" />
                                 <input type="hidden" value="{$uid}" name="uid" />
                                 <input type="hidden" value="{$type}" name="type" />
+                                <input type="hidden" value="" name="status" />
                                 <input name="submit" type="submit" value="检查" class="btn btn-primary span3 btn-sm" />
                             </div>
                         </div>
@@ -53,6 +54,39 @@ Failed!!
             </form>
         </div>
     {else}
+        <div class="main">
+            <form action="" method="post" class="form-horizontal form">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <?php var_dump($type) ?>
+                        </div>
+                        <div class="form-group">
+                            <?php var_dump($id) ?>
+                        </div>
+                        <div class="form-group">
+                            <?php var_dump($packReceive) ?>
+                        </div>
+                        <div class="form-group">
+                            <?php var_dump($instance) ?>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-xs-12 col-sm-2 col-md-2 col-lg-1 control-label"></label>
+                            <div class="col-sm-4">
+                                <input type="hidden" name="token" value="{$_W['token']}" />
+                                <input type="hidden" name="id" value="{$id}" />
+                                <input type="hidden" value="check_receive" name="op" />
+                                <input type="hidden" value="{$uid}" name="uid" />
+                                <input type="hidden" value="{$type}" name="type" />
+                                <input type="hidden" value="" name="status" />
+                                <input name="submit" type="submit" value="确认收货" class="btn btn-primary span3 btn-sm" />
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+        </div>
     {/if}
 
 {elseif $op == "redirect"}

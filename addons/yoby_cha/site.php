@@ -215,7 +215,11 @@ class Yoby_chaModuleSite extends WeModuleSite
 
             if($op == 'check_once'){
                 $timecreate = time();
-                pdo_insert('yoby_cha_check', array('uid'=>$_GPC['uid'], 'weid' => $weid, 'checkid' => $_GPC['id'], 'type' => $_GPC['type'], 'timecreate' => $timecreate));//添加数据
+                pdo_insert('yoby_cha_check', array('status'=>$_GPC['status'], 'uid'=>$_GPC['uid'], 'weid' => $weid, 'checkid' => $_GPC['id'], 'type' => $_GPC['type'], 'timecreate' => $timecreate));//添加数据
+            }
+            else if($op == 'check_receive'){
+                $timecreate = time();
+                pdo_insert('yoby_cha_check', array('status'=>$_GPC['status'], 'uid'=>$_GPC['uid'], 'weid' => $weid, 'checkid' => $_GPC['id'], 'type' => $_GPC['type'], 'timecreate' => $timecreate));//添加数据
             }
             else {
                 $key = $_GPC['keyword'];
@@ -228,6 +232,7 @@ class Yoby_chaModuleSite extends WeModuleSite
                         $op = 'failed';
                     } else {
                         //find
+                        $uid = $result['uid'];
                         $projectid = $result['projectid'];
                         $rule = $result['value'];
                         $queryIns = "select tb.s, dt.bl, tb.type from " . tablename('yoby_cha_data') . " as dt 
@@ -235,10 +240,12 @@ class Yoby_chaModuleSite extends WeModuleSite
                         if ($rule != '*') {
                             $queryIns .= " and cid in($rule)";
                         }
+
                         $ins = pdo_fetch($queryIns);
                         if (empty($ins)) {
                             $op = 'failed';
                         } else {
+
                             $op = 'ok';
                             $mapping = [];
                             $s = json_decode($ins['s'], 1);
@@ -255,7 +262,10 @@ class Yoby_chaModuleSite extends WeModuleSite
                             if(empty($id)){
                                 $id = $mapping['localmac'];
                             }
-                            $uid = $result['uid'];
+
+                            $receiveSQL = "select * from ".tablename('yoby_cha_check')." where weid=$weid and uid=$uid and checkid='$id' and type='$type' ";
+                            var_dump($receiveSQL);
+                            $packReceive = pdo_fetch($receiveSQL);
                         }
                     }
                 }
