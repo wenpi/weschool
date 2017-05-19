@@ -285,19 +285,30 @@
             <input type="hidden" value="{$type}" name="type" />
             <input type="hidden" value="OK" name="status" />
         </form>
+        {if $type == "DEV"}
+        <script>
+            window.preview__dialog__items = {
+                DAMAGE: '已损坏',
+                NOEASY: '不好用',
+                BATTERY: '电池坏',
+                OTHER: '其他'
+            };
+        </script>
+        {elseif $type == "LINE"}
+        <script>
+            window.preview__dialog__items = {
+                BLOCKED: '不通',
+                EVANES: '光衰大',
+                MODERR: '模块坏',
+                OTHER: '其他'
+            };
+        </script>
+        {/if}
         <script>
             $(function () {
                 var cells = $('.preview__dialog .weui-cells_radio'),
                     radios = [];
-                $.each({
-                    BLOCKED: '不通',
-                    EVANES: '光衰大',
-                    MODERR: '模块坏',
-                    OTHER: '其他',
-                    DAMAGE: '已损坏',
-                    NOEASY: '不好用',
-                    BATTERY: '电池坏'
-                }, function (key, val) {
+                $.each(window.preview__dialog__items || {}, function (key, val) {
                     radios.push('<label class="weui-cell weui-check__label" for="preview__dialog__radio__' + key + '">' +
                         '<div class="weui-cell__bd"><p>' + val + '</p></div>' +
                         '<div class="weui-cell__ft">' +
