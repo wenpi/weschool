@@ -285,7 +285,7 @@
             <input type="hidden" value="{$type}" name="type" />
             <input type="hidden" value="OK" name="status" />
         </form>
-        {if $type == "DEV"}
+        <!--level 2-->{if $type == "DEV"}
         <script>
             window.preview__dialog__items = {
                 DAMAGE: '已损坏',
@@ -294,7 +294,7 @@
                 OTHER: '其他'
             };
         </script>
-        {elseif $type == "LINE"}
+        <!--level 2-->{elseif $type == "LINE"}
         <script>
             window.preview__dialog__items = {
                 BLOCKED: '不通',
@@ -303,7 +303,7 @@
                 OTHER: '其他'
             };
         </script>
-        {/if}
+        <!--level 2-->{/if}
         <script>
             $(function () {
                 var cells = $('.preview__dialog .weui-cells_radio'),
@@ -332,6 +332,7 @@
                     $dialogSubmit = $('.preview__dialog .weui-dialog__btn_primary'),
                     $dialogClose = $('.preview__dialog .weui-dialog__btn_default'),
                     close = true;
+
                 $btnSubmit.on('click', function () {
                     $status.val('OK');
                     $form[0].submit();
