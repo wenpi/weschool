@@ -61,7 +61,19 @@
         $wx = $_W['account']['jssdkconfig'];
         $wx['url'] ='http://'.$_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ;
     ?>
-        <!--level 1-->{if $op == "failed"} Failed!!
+        <!--level 1-->{if $op == "failed"}
+        <div class="weui-msg">
+            <div class="weui-msg__icon-area"><i class="weui-icon-warn weui-icon_msg"></i></div>
+            <div class="weui-msg__text-area">
+                <h2 class="weui-msg__title">无对应信息！</h2>
+                <p class="weui-msg__desc">确认此标签已导入系统？</p>
+            </div>
+            <div class="weui-msg__opr-area">
+                <p class="weui-btn-area">
+                    <a href="javascript:history.back();" class="weui-btn weui-btn_primary">继续扫一扫</a>
+                </p>
+            </div>
+        </div>
         <!--level 1-->{elseif $op == "ok"}
         <form action="" method="post" class="content-op-ok">
             <div class="weui-form-preview">
