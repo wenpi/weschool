@@ -7,7 +7,7 @@
     <base href="{$yobyurl}">
     <title>{$row['hd_title']}</title>
     <link rel="stylesheet" href="weui/dist/style/weui.min.css" />
-    <!--<script src="weui/zepto.js"></script>-->
+
 </head>
 
 <body>
@@ -15,11 +15,34 @@
 $wx = $_W['account']['jssdkconfig'];
 $wx['url'] ='http://'.$_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ;
 ?>
-        {if $op == "failed"} Failed!! {elseif $op == "ok"} {loop $list $item}
-        <div>{$item['type']}{$item['id']}</div>
-        {/loop} {else}
+        <!--level 1-->{if $op == "failed"}
+        <div class="weui-msg">
+            <div class="weui-msg__icon-area"><i class="weui-icon-warn weui-icon_msg-primary"></i></div>
+            <div class="weui-msg__text-area">
+                <h2 class="weui-msg__title">未找到结果</h2>
+            </div>
+            <div class="weui-msg__opr-area">
+                <p class="weui-btn-area">
+                    <a href="javascript:history.back();" class="weui-btn weui-btn_primary">继续搜一搜</a>
+                </p>
+            </div>
+        </div>
+        <!--level 1-->{elseif $op == "ok"}
+        <div class="weui-cells" style="margin-top:0;">
+            <!--level 2-->{loop $list $item}
+            <div class="weui-cell">
+                <div class="weui-cell__bd">
+                    <p>{$item['id']}</p>
+                </div>
+                <div class="weui-cell__ft">
+                    {if $item['type'] == "DEV"} 设备 {elseif $item['type'] == "LINE"} 线材 {elseif $item['type'] == "PACK"} 装箱单 {/if}
+                </div>
+            </div>
+            <!--level 2-->{/loop}
+        </div>
+        <!--level 1-->{else}
         <form action="" method="POST">
-            <div class="weui-search-bar" id="searchBar">
+            <div class="weui-search-bar" id="searchBar" style="padding-top:36px;">
                 <div class="weui-search-bar__form">
                     <div class="weui-search-bar__box">
                         <i class="weui-icon-search"></i>
@@ -27,9 +50,9 @@ $wx['url'] ='http://'.$_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ;
                         <a href="javascript:" class="weui-icon-clear" id="searchClear"></a>
                     </div>
                     <label class="weui-search-bar__label" id="searchText">
-                    <i class="weui-icon-search"></i>
-                    <span>搜索</span>
-                </label>
+                        <i class="weui-icon-search"></i>
+                        <span>搜索</span>
+                    </label>
                     <input type="hidden" name="token" value="{$_W['token']}" />
                     <input type="hidden" value="{$uid}" name="uid" />
                 </div>
@@ -37,6 +60,7 @@ $wx['url'] ='http://'.$_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ;
             </div>
         </form>
         <script type="text/javascript">
+            document.body.style.backgroundColor = '#efeff4';
             (function () {
                 var searchBar = document.querySelector('#searchBar'),
                     searchInput = document.querySelector('#searchInput'),
@@ -59,7 +83,7 @@ $wx['url'] ='http://'.$_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ;
                 });
             }());
         </script>
-        {/if}
+        <!--level 1-->{/if}
 </body>
 
 </html>
