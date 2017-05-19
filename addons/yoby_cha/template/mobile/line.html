@@ -60,6 +60,12 @@ $wx['url'] ='http://'.$_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ;
                 display: block;
                 width: 100%;
             }
+
+            #pack_item_more {
+                height: 0;
+                opacity: 0;
+                overflow: hidden;
+            }
         </style>
         <form action="" method="post">
             <div class="weui-form-preview">
@@ -81,41 +87,7 @@ $wx['url'] ='http://'.$_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ;
                         <label class="weui-form-preview__label">装箱单号</label>
                         <span class="weui-form-preview__value">{$instance['packno']}</span>
                     </div>
-                </div>
-                <div class="weui-form-preview__ft">
-                    <input type="hidden" name="token" value="{$_W['token']}" />
-                    <input type="hidden" name="id" value="{$id}" />
-                    <input type="hidden" value="check_receive" name="op" />
-                    <input type="hidden" value="{$uid}" name="uid" />
-                    <input type="hidden" value="{$type}" name="type" />
-                    <input type="hidden" value="OK" name="status" />
-                    <button type="submit" class="weui-form-preview__btn weui-form-preview__btn_primary">确认收货</button>
-                    <button type="button" class="weui-form-preview__btn weui-form-preview__btn_default" id="btn_pack_detail">产品详情</button>
-                </div>
-            </div>
-        </form>
-        <div class="js_dialog" id="dialog_pack_detail" style="display: none;">
-            <div class="weui-mask"></div>
-            <div class="weui-dialog">
-                <div class="weui-dialog__hd" style="padding:0.6em 1.6em;"><strong class="weui-dialog__title">产品详情</strong></div>
-                <div class="weui-form-preview">
-                    <div class="weui-form-preview__bd">
-                        <div class="weui-form-preview__item">
-                            <label class="weui-form-preview__label">订单号</label>
-                            <span class="weui-form-preview__value">{$instance['orderno']}</span>
-                        </div>
-                        <div class="weui-form-preview__item">
-                            <label class="weui-form-preview__label">发货日期</label>
-                            <span class="weui-form-preview__value">{$instance['deliverydate']}</span>
-                        </div>
-                        <div class="weui-form-preview__item">
-                            <label class="weui-form-preview__label">数量</label>
-                            <span class="weui-form-preview__value">{$instance['amount']}</span>
-                        </div>
-                        <div class="weui-form-preview__item">
-                            <label class="weui-form-preview__label">装箱单号</label>
-                            <span class="weui-form-preview__value">{$instance['packno']}</span>
-                        </div>
+                    <div id="pack_item_more">
                         <div class="weui-form-preview__item">
                             <label class="weui-form-preview__label">长度</label>
                             <span class="weui-form-preview__value">{$instance['len']}</span>
@@ -154,26 +126,55 @@ $wx['url'] ='http://'.$_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ;
                         </div>
                     </div>
                 </div>
-                <div class="weui-dialog__ft">
-                    <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary" id="btn_pack_back">返回</a>
+                <div class="weui-form-preview__ft">
+                    <input type="hidden" name="token" value="{$_W['token']}" />
+                    <input type="hidden" name="id" value="{$id}" />
+                    <input type="hidden" value="check_receive" name="op" />
+                    <input type="hidden" value="{$uid}" name="uid" />
+                    <input type="hidden" value="{$type}" name="type" />
+                    <input type="hidden" value="OK" name="status" />
+                    <button type="submit" class="weui-form-preview__btn weui-form-preview__btn_primary">确认收货</button>
+                    <button type="button" class="weui-form-preview__btn weui-form-preview__btn_default" id="btn_pack_more">展开详情</button>
                 </div>
             </div>
-        </div>
+        </form>
         <script src="weui/dist/example/zepto.min.js"></script>
         <script>
             $(function () {
-                var btnDetail = $('#btn_pack_detail'),
-                    btnBack = $('#btn_pack_back'),
-                    dialog = $('#dialog_pack_detail'),
-                    mask = $('#dialog_pack_detail>.weui-mask');
-                btnDetail.on('click', function () {
-                    dialog.fadeIn(200);
-                });
-                btnBack.on('click', function () {
-                    dialog.fadeOut(200);
-                });
-                mask.on('click', function () {
-                    dialog.fadeOut(200);
+                var btn = $('#btn_pack_more'),
+                    more = $('#pack_item_more'),
+                    close = true;
+                btn.on('click', function () {
+                    if (close) {
+                        close = false;
+                        more.css({
+                            height: 'auto',
+                            visibility: 'hidden',
+                            position: 'absolute',
+                            zIndex: -1
+                        });
+                        var height = more.height();
+                        more.css({
+                            height: 0,
+                            visibility: 'inherit',
+                            position: 'inherit',
+                            zIndex: 0
+                        });
+                        more.animate({
+                            height: height,
+                            opacity: 1
+                        }, 200, 'ease-in-out', function () {
+                            btn.html('收起详情');
+                        });
+                    } else {
+                        close = true;
+                        more.animate({
+                            height: 0,
+                            opacity: 0
+                        }, 200, 'ease-in-out', function () {
+                            btn.html('展开详情');
+                        });
+                    }
                 });
             });
         </script>
@@ -191,8 +192,8 @@ $wx['url'] ='http://'.$_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ;
             </div>
             <div class="weui-msg__opr-area">
                 <p class="weui-btn-area">
-                    <button type="button" class="weui-btn weui-btn_primary" id="btnScan">扫描二维码</button>
-                    <button type="button" class="weui-btn weui-btn_default" id="btnManual">手动输入</button>
+                    <button type="button" class="weui-btn weui-btn_primary" id="btnScan">扫一扫</button>
+                    <button type="button" class="weui-btn weui-btn_default" id="btnManual">搜一搜</button>
                 </p>
             </div>
             <div class="weui-msg__extra-area">
