@@ -90,10 +90,93 @@ $wx['url'] ='http://'.$_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ;
                     <input type="hidden" value="{$type}" name="type" />
                     <input type="hidden" value="OK" name="status" />
                     <button type="submit" class="weui-form-preview__btn weui-form-preview__btn_primary">确认收货</button>
-                    <button type="button" class="weui-form-preview__btn weui-form-preview__btn_default">产品详情</button>
+                    <button type="button" class="weui-form-preview__btn weui-form-preview__btn_default" id="btn_pack_detail">产品详情</button>
                 </div>
             </div>
         </form>
+        <div class="js_dialog" id="dialog_pack_detail" style="display: none;">
+            <div class="weui-mask"></div>
+            <div class="weui-dialog">
+                <div class="weui-dialog__hd" style="padding:0.6em 1.6em;"><strong class="weui-dialog__title">产品详情</strong></div>
+                <div class="weui-form-preview">
+                    <div class="weui-form-preview__bd">
+                        <div class="weui-form-preview__item">
+                            <label class="weui-form-preview__label">订单号</label>
+                            <span class="weui-form-preview__value">{$instance['orderno']}</span>
+                        </div>
+                        <div class="weui-form-preview__item">
+                            <label class="weui-form-preview__label">发货日期</label>
+                            <span class="weui-form-preview__value">{$instance['deliverydate']}</span>
+                        </div>
+                        <div class="weui-form-preview__item">
+                            <label class="weui-form-preview__label">数量</label>
+                            <span class="weui-form-preview__value">{$instance['amount']}</span>
+                        </div>
+                        <div class="weui-form-preview__item">
+                            <label class="weui-form-preview__label">装箱单号</label>
+                            <span class="weui-form-preview__value">{$instance['packno']}</span>
+                        </div>
+                        <div class="weui-form-preview__item">
+                            <label class="weui-form-preview__label">长度</label>
+                            <span class="weui-form-preview__value">{$instance['len']}</span>
+                        </div>
+                        <div class="weui-form-preview__item">
+                            <label class="weui-form-preview__label">型号</label>
+                            <span class="weui-form-preview__value">{$instance['module']}</span>
+                        </div>
+                        <div class="weui-form-preview__item">
+                            <label class="weui-form-preview__label">线材类型</label>
+                            <span class="weui-form-preview__value">{$instance['linecategory']}</span>
+                        </div>
+                        <div class="weui-form-preview__item">
+                            <label class="weui-form-preview__label">接口类型</label>
+                            <span class="weui-form-preview__value">{$instance['jointcategory']}</span>
+                        </div>
+                        <div class="weui-form-preview__item">
+                            <label class="weui-form-preview__label">产品产地</label>
+                            <span class="weui-form-preview__value">{$instance['productarea']}</span>
+                        </div>
+                        <div class="weui-form-preview__item">
+                            <label class="weui-form-preview__label">产品规格</label>
+                            <span class="weui-form-preview__value">{$instance['productstand']}</span>
+                        </div>
+                        <div class="weui-form-preview__item">
+                            <label class="weui-form-preview__label">供应商</label>
+                            <span class="weui-form-preview__value">{$instance['productsupplier']}</span>
+                        </div>
+                        <div class="weui-form-preview__item">
+                            <label class="weui-form-preview__label">布放时间</label>
+                            <span class="weui-form-preview__value">{$instance['timedeploy']}</span>
+                        </div>
+                        <div class="weui-form-preview__item">
+                            <label class="weui-form-preview__label">施工队</label>
+                            <span class="weui-form-preview__value">{$instance['constructteam']}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="weui-dialog__ft">
+                    <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary" id="btn_pack_back">返回</a>
+                </div>
+            </div>
+        </div>
+        <script src="weui/dist/example/zepto.min.js"></script>
+        <script>
+            $(function () {
+                var btnDetail = $('#btn_pack_detail'),
+                    btnBack = $('#btn_pack_back'),
+                    dialog = $('#dialog_pack_detail'),
+                    mask = $('#dialog_pack_detail>.weui-mask');
+                btnDetail.on('click', function () {
+                    dialog.fadeIn(200);
+                });
+                btnBack.on('click', function () {
+                    dialog.fadeOut(200);
+                });
+                mask.on('click', function () {
+                    dialog.fadeOut(200);
+                });
+            });
+        </script>
         {/if} {elseif $op == "redirect"}
         <script>
             window.location.href = "<?php echo $redirect; ?>";
