@@ -47,39 +47,53 @@ $wx['url'] ='http://'.$_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ;
             </form>
         </div>
         {else}
-        <div class="main">
-            <form action="" method="post" class="form-horizontal form">
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <div class="form-group">
-                            <?php var_dump($type) ?>
-                        </div>
-                        <div class="form-group">
-                            <?php var_dump($id) ?>
-                        </div>
-                        <div class="form-group">
-                            <?php var_dump($packReceive) ?>
-                        </div>
-                        <div class="form-group">
-                            <?php var_dump($instance) ?>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-xs-12 col-sm-2 col-md-2 col-lg-1 control-label"></label>
-                            <div class="col-sm-4">
-                                <input type="hidden" name="token" value="{$_W['token']}" />
-                                <input type="hidden" name="id" value="{$id}" />
-                                <input type="hidden" value="check_receive" name="op" />
-                                <input type="hidden" value="{$uid}" name="uid" />
-                                <input type="hidden" value="{$type}" name="type" />
-                                <input type="hidden" value="" name="status" />
-                                <input name="submit" type="submit" value="确认收货" class="btn btn-primary span3 btn-sm" />
-                            </div>
-                        </div>
+        <style>
+            .weui-form-preview__hd {
+                padding: 0;
+            }
 
+            .weui-form-preview__hd:after {
+                border-bottom: 0;
+            }
+
+            .weui-form-preview__hd img {
+                display: block;
+                width: 100%;
+            }
+        </style>
+        <form action="" method="post">
+            <div class="weui-form-preview">
+                <div class="weui-form-preview__hd"><img src="./images/img_3.png" /></div>
+                <div class="weui-form-preview__bd">
+                    <div class="weui-form-preview__item">
+                        <label class="weui-form-preview__label">订单号</label>
+                        <span class="weui-form-preview__value">{$instance['orderno']}</span>
+                    </div>
+                    <div class="weui-form-preview__item">
+                        <label class="weui-form-preview__label">发货日期</label>
+                        <span class="weui-form-preview__value">{$instance['deliverydate']}</span>
+                    </div>
+                    <div class="weui-form-preview__item">
+                        <label class="weui-form-preview__label">数量</label>
+                        <span class="weui-form-preview__value">{$instance['amount']}</span>
+                    </div>
+                    <div class="weui-form-preview__item">
+                        <label class="weui-form-preview__label">装箱单号</label>
+                        <span class="weui-form-preview__value">{$instance['packno']}</span>
                     </div>
                 </div>
-            </form>
-        </div>
+                <div class="weui-form-preview__ft">
+                    <input type="hidden" name="token" value="{$_W['token']}" />
+                    <input type="hidden" name="id" value="{$id}" />
+                    <input type="hidden" value="check_receive" name="op" />
+                    <input type="hidden" value="{$uid}" name="uid" />
+                    <input type="hidden" value="{$type}" name="type" />
+                    <input type="hidden" value="OK" name="status" />
+                    <button type="submit" class="weui-form-preview__btn weui-form-preview__btn_primary">确认收货</button>
+                    <button type="button" class="weui-form-preview__btn weui-form-preview__btn_default">产品详情</button>
+                </div>
+            </div>
+        </form>
         {/if} {elseif $op == "redirect"}
         <script>
             window.location.href = "<?php echo $redirect; ?>";
