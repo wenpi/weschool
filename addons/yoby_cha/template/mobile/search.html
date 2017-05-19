@@ -18,21 +18,24 @@ $wx['url'] ='http://'.$_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ;
         {if $op == "failed"} Failed!! {elseif $op == "ok"} {loop $list $item}
         <div>{$item['type']}{$item['id']}</div>
         {/loop} {else}
-        <div class="weui-search-bar" id="searchBar">
-            <form action="" method="POST" class="weui-search-bar__form">
-                <div class="weui-search-bar__box">
-                    <i class="weui-icon-search"></i>
-                    <input class="weui-search-bar__input" id="searchInput" name="keyword" type="text" placeholder="请输入查询信息" maxlength="100" required type="search" />
-                    <a href="javascript:" class="weui-icon-clear" id="searchClear"></a>
-                </div>
-                <label class="weui-search-bar__label" id="searchText">
+        <form action="" method="POST">
+            <div class="weui-search-bar" id="searchBar">
+                <div class="weui-search-bar__form">
+                    <div class="weui-search-bar__box">
+                        <i class="weui-icon-search"></i>
+                        <input class="weui-search-bar__input" id="searchInput" name="keyword" type="text" placeholder="请输入查询信息" maxlength="100" required type="search" />
+                        <a href="javascript:" class="weui-icon-clear" id="searchClear"></a>
+                    </div>
+                    <label class="weui-search-bar__label" id="searchText">
                     <i class="weui-icon-search"></i>
                     <span>搜索</span>
                 </label>
-                <input type="hidden" name="token" value="{$_W['token']}" />
-                <input type="hidden" value="{$uid}" name="uid" />
-            </form>
-        </div>
+                    <input type="hidden" name="token" value="{$_W['token']}" />
+                    <input type="hidden" value="{$uid}" name="uid" />
+                </div>
+                <button type="submit" style="color:#FFF;" class="weui-btn weui-btn_mini weui-btn_primary weui-search-bar__cancel-btn">搜索</button>
+            </div>
+        </form>
         <script type="text/javascript">
             (function () {
                 var searchBar = document.querySelector('#searchBar'),
@@ -44,8 +47,10 @@ $wx['url'] ='http://'.$_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ;
                         searchBar.classList.remove('weui-search-bar_focusing');
                     }
                 });
-                searchText.addEventListener('click', function () {
+                searchInput.addEventListener('focus', function () {
                     searchBar.classList.add('weui-search-bar_focusing');
+                });
+                searchText.addEventListener('click', function () {
                     searchInput.focus();
                 });
                 searchClear.addEventListener('click', function () {
