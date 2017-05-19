@@ -7,6 +7,21 @@
     <base href="{$yobyurl}">
     <title>{$row['hd_title']}</title>
     <link rel="stylesheet" href="weui/dist/style/weui.min.css" />
+    <style>
+        body {
+            background-color: #efeff4;
+        }
+
+        .weui-form-preview {
+            margin-top: 1.6em;
+            margin-bottom: 1.6em;
+        }
+
+        .weui-form-preview__hd {
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+    </style>
 </head>
 
 <body>
@@ -15,18 +30,34 @@
 $wx = $_W['account']['jssdkconfig'];
 $wx['url'] ='http://'.$_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ;
 ?>
-        <div class="weui-cells" style="margin-top:0;">
-            {loop $list $item}
-            <div class="weui-cell">
-                <div class="weui-cell__bd">
-                    <p>{$item['id']}</p>
-                </div>
-                <div class="weui-cell__ft">
-                    {$item['type']}
+        {loop $list $item}
+        <div class="weui-form-preview">
+            <div class="weui-form-preview__hd">
+                <div class="weui-form-preview__item">
+                    <label class="weui-form-preview__label">订单号</label>
+                    <em class="weui-form-preview__value">{$item['orderno']}</em>
                 </div>
             </div>
-            {/loop}
+            <div class="weui-form-preview__bd">
+                <div class="weui-form-preview__item">
+                    <label class="weui-form-preview__label">装箱单号</label>
+                    <span class="weui-form-preview__value">{$item['packno']}</span>
+                </div>
+                <div class="weui-form-preview__item">
+                    <label class="weui-form-preview__label">数量</label>
+                    <span class="weui-form-preview__value">{$item['amount']}</span>
+                </div>
+                <div class="weui-form-preview__item">
+                    <label class="weui-form-preview__label">发货日期</label>
+                    <span class="weui-form-preview__value">{$item['deliverydate']}</span>
+                </div>
+                <div class="weui-form-preview__item">
+                    <label class="weui-form-preview__label">收货日期</label>
+                    <span class="weui-form-preview__value">{$item['timedeploy']}</span>
+                </div>
+            </div>
         </div>
+        {/loop}
 
 </body>
 
