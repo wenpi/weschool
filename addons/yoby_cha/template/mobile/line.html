@@ -23,10 +23,35 @@
             width: 100%;
         }
 
-        .content-op-ok #pack_item_more {
+        .content-op-ok .weui-form-preview__btn_warn {
+            color: #E64340;
+        }
+
+        .content-op-ok .preview__more {
             height: 0;
             opacity: 0;
             overflow: hidden;
+        }
+
+        .content-op-ok .preview__dialog {
+            display: none;
+        }
+
+        .content-op-ok .preview__dialog .weui-dialog__hd {
+            padding: 0.6em 1.6em;
+        }
+
+        .content-op-ok .preview__dialog .weui-dialog__bd {
+            padding-left: 0.6em;
+            padding-right: 0.6em;
+        }
+
+        .content-op-ok .preview__dialog .weui-dialog__bd .weui-cells {
+            margin-top: 0;
+        }
+
+        .content-op-ok .preview__dialog .weui-cell__bd {
+            text-align: left;
         }
     </style>
 </head>
@@ -59,7 +84,7 @@
                         <label class="weui-form-preview__label">经办人</label>
                         <span class="weui-form-preview__value">{$instance['agent']}</span>
                     </div>
-                    <div id="ok_item_more">
+                    <div class="preview__more">
                         <div class="weui-form-preview__item">
                             <label class="weui-form-preview__label">设备产生批号</label>
                             <span class="weui-form-preview__value">{$instance['productlot']}</span>
@@ -112,8 +137,9 @@
                 </div>
                 <div class="weui-form-preview__ft">
                     <input type="hidden" value="check_once" name="op" />
-                    <button type="submit" class="weui-form-preview__btn weui-form-preview__btn_primary">巡检正常</button>
-                    <button type="button" class="weui-form-preview__btn weui-form-preview__btn_default" id="ok_btn_more">展开详情</button>
+                    <button type="button" class="weui-form-preview__btn weui-form-preview__btn_warn preview__btn__report">故障记录</button>
+                    <button type="button" class="weui-form-preview__btn weui-form-preview__btn_primary preview__btn__submit">巡检正常</button>
+                    <button type="button" class="weui-form-preview__btn weui-form-preview__btn_default preview__btn__more">展开详情</button>
                 </div>
                 <!--level 2-->{elseif $type == "LINE"}
                 <div class="weui-form-preview__hd"><img src="./images/img_2.png" /></div>
@@ -134,7 +160,7 @@
                         <label class="weui-form-preview__label">线缆</label>
                         <span class="weui-form-preview__value">{$instance['link']}</span>
                     </div>
-                    <div id="ok_item_more">
+                    <div class="preview__more">
                         <div class="weui-form-preview__item">
                             <label class="weui-form-preview__label">长度</label>
                             <span class="weui-form-preview__value">{$instance['len']}</span>
@@ -159,8 +185,9 @@
                 </div>
                 <div class="weui-form-preview__ft">
                     <input type="hidden" value="check_once" name="op" />
-                    <button type="submit" class="weui-form-preview__btn weui-form-preview__btn_primary">巡检正常</button>
-                    <button type="button" class="weui-form-preview__btn weui-form-preview__btn_default" id="ok_btn_more">展开详情</button>
+                    <button type="button" class="weui-form-preview__btn weui-form-preview__btn_warn preview__btn__report">故障记录</button>
+                    <button type="button" class="weui-form-preview__btn weui-form-preview__btn_primary preview__btn__submit">巡检正常</button>
+                    <button type="button" class="weui-form-preview__btn weui-form-preview__btn_default preview__btn__more">展开详情</button>
                 </div>
                 <!--level 2-->{elseif $type == "PACK"}
                 <div class="weui-form-preview__hd"><img src="./images/img_3.png" /></div>
@@ -181,7 +208,7 @@
                         <label class="weui-form-preview__label">装箱单号</label>
                         <span class="weui-form-preview__value">{$instance['packno']}</span>
                     </div>
-                    <div id="ok_item_more">
+                    <div class="preview__more">
                         <div class="weui-form-preview__item">
                             <label class="weui-form-preview__label">长度</label>
                             <span class="weui-form-preview__value">{$instance['len']}</span>
@@ -222,10 +249,23 @@
                 </div>
                 <div class="weui-form-preview__ft">
                     <input type="hidden" value="check_receive" name="op" />
-                    <button type="submit" class="weui-form-preview__btn weui-form-preview__btn_primary">确认收货</button>
-                    <button type="button" class="weui-form-preview__btn weui-form-preview__btn_default" id="ok_btn_more">展开详情</button>
+                    <button type="button" class="weui-form-preview__btn weui-form-preview__btn_primary preview__btn__submit">确认收货</button>
+                    <button type="button" class="weui-form-preview__btn weui-form-preview__btn_default preview__btn__more">展开详情</button>
                 </div>
                 <!--level 2-->{/if}
+            </div>
+            <div class="js_dialog preview__dialog">
+                <div class="weui-mask"></div>
+                <div class="weui-dialog">
+                    <div class="weui-dialog__hd"><strong class="weui-dialog__title">故障记录</strong></div>
+                    <div class="weui-dialog__bd">
+                        <div class="weui-cells weui-cells_radio"></div>
+                    </div>
+                    <div class="weui-dialog__ft">
+                        <a href="javascript:void(0);" class="weui-dialog__btn weui-dialog__btn_primary">提交</a>
+                        <a href="javascript:void(0);" class="weui-dialog__btn weui-dialog__btn_default">关闭</a>
+                    </div>
+                </div>
             </div>
             <input type="hidden" name="token" value="{$_W['token']}" />
             <input type="hidden" name="id" value="{$id}" />
@@ -235,38 +275,94 @@
         </form>
         <script>
             $(function () {
-                var btn = $('#ok_btn_more'),
-                    more = $('#ok_item_more'),
+                var cells = $('.preview__dialog .weui-cells_radio'),
+                    radios = [];
+                $.each({
+                    BLOCKED: '不通',
+                    EVANES: '光衰大',
+                    MODERR: '模块坏',
+                    OTHER: '其他',
+                    DAMAGE: '已损坏',
+                    NOEASY: '不好用',
+                    BATTERY: '电池坏'
+                }, function (key, val) {
+                    radios.push('<label class="weui-cell weui-check__label" for="preview__dialog__radio__' + key + '">' +
+                        '<div class="weui-cell__bd"><p>' + val + '</p></div>' +
+                        '<div class="weui-cell__ft">' +
+                        '<input class="weui-check" type="radio" name="preview__dialog__radio" id="preview__dialog__radio__' + key + '" value="' + key + '" />' +
+                        '<span class="weui-icon-checked"></span>' +
+                        '</div>' +
+                        '</label>');
+                });
+                cells.html(radios.join(''));
+                $('label[for=preview__dialog__radio__BLOCKED]').trigger('click');
+            });
+            $(function () {
+                var $form = $('.content-op-ok'),
+                    $status = $('.content-op-ok input[name="status"]'),
+                    $btnSubmit = $('.preview__btn__submit'),
+                    $btnMore = $('.preview__btn__more'),
+                    $btnReport = $('.preview__btn__report'),
+                    $more = $('.preview__more'),
+                    $dialog = $('.preview__dialog'),
+                    $dialogMask = $('.preview__dialog>.weui-mask'),
+                    $dialogSubmit = $('.preview__dialog .weui-dialog__btn_primary'),
+                    $dialogClose = $('.preview__dialog .weui-dialog__btn_default'),
                     close = true;
-                btn.on('click', function () {
+                $btnSubmit.on('click', function () {
+                    $status.val('OK');
+                    $form[0].submit();
+                });
+
+                $btnReport.on('click', function () {
+                    $dialog.fadeIn(200);
+                });
+
+                $btnSubmit.on('click', function () {
+                    $status.val('OK');
+                    $form[0].submit();
+                });
+                $dialogSubmit.on('click', function () {
+                    $status.val($('input[name=preview__dialog__radio]:checked').val());
+                    $form[0].submit();
+                });
+
+                $dialogMask.on('click', function () {
+                    $dialog.fadeOut(200);
+                });
+                $dialogClose.on('click', function () {
+                    $dialog.fadeOut(200);
+                });
+
+                $btnMore.on('click', function () {
                     if (close) {
                         close = false;
-                        more.css({
+                        $more.css({
                             height: 'auto',
                             visibility: 'hidden',
                             position: 'absolute',
                             zIndex: -1
                         });
-                        var height = more.height();
-                        more.css({
+                        var height = $more.height();
+                        $more.css({
                             height: 0,
                             visibility: 'inherit',
                             position: 'inherit',
                             zIndex: 0
                         });
-                        more.animate({
+                        $more.animate({
                             height: height,
                             opacity: 1
                         }, 200, 'ease-in-out', function () {
-                            btn.html('收起详情');
+                            $btnMore.html('收起详情');
                         });
                     } else {
                         close = true;
-                        more.animate({
+                        $more.animate({
                             height: 0,
                             opacity: 0
                         }, 200, 'ease-in-out', function () {
-                            btn.html('展开详情');
+                            $btnMore.html('展开详情');
                         });
                     }
                 });
