@@ -1,26 +1,33 @@
 <!doctype html>
-<html>
+<html lang="en">
+
 <head>
     <meta charset="utf-8">
-    <title>{$row['hd_title']}</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
     <base href="{$yobyurl}">
-    <link rel="stylesheet" href="weui/weuix.min.css"/>
-    <script src="weui/zepto.js"></script>
-    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <title>{$row['hd_title']}</title>
+    <link rel="stylesheet" href="weui/dist/style/weui.min.css" />
 </head>
 
 <body>
 
-<script type="text/javascript" src='http://res.wx.qq.com/open/js/jweixin-1.0.0.js'></script>
-<?php
+    <?php
 $wx = $_W['account']['jssdkconfig'];
 $wx['url'] ='http://'.$_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ;
 ?>
-
-{loop $list $item}
-<div>{$item['type']}{$item['id']}</div>
-{/loop}
+        <div class="weui-cells" style="margin-top:0;">
+            {loop $list $item}
+            <div class="weui-cell">
+                <div class="weui-cell__bd">
+                    <p>{$item['id']}</p>
+                </div>
+                <div class="weui-cell__ft">
+                    {$item['type']}
+                </div>
+            </div>
+            {/loop}
+        </div>
 
 </body>
+
 </html>
