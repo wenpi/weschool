@@ -7,68 +7,162 @@
     <base href="{$yobyurl}">
     <title>{$row['hd_title']}</title>
     <link rel="stylesheet" href="weui/dist/style/weui.min.css" />
-    <!--<script src="weui/zepto.js"></script>-->
+    <script src="weui/dist/example/zepto.min.js"></script>
+    <script src='http://res.wx.qq.com/open/js/jweixin-1.2.0.js'></script>
+    <style>
+        .content-op-ok .weui-form-preview__hd {
+            padding: 0;
+        }
+
+        .content-op-ok .weui-form-preview__hd:after {
+            border-bottom: 0;
+        }
+
+        .content-op-ok .weui-form-preview__hd img {
+            display: block;
+            width: 100%;
+        }
+
+        .content-op-ok #pack_item_more {
+            height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+    </style>
 </head>
 
 <body>
     <?php
-$wx = $_W['account']['jssdkconfig'];
-$wx['url'] ='http://'.$_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ;
-?>
-        {if $op == "failed"} Failed!! {elseif $op == "ok"} {if ($type == "DEV" || $type == "LINE" ) }
-        <div class="main">
-            <form action="" method="post" class="form-horizontal form">
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <div class="form-group">
-                            <?php var_dump($type) ?>
+        $wx = $_W['account']['jssdkconfig'];
+        $wx['url'] ='http://'.$_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ;
+    ?>
+        <!--level 1-->{if $op == "failed"} Failed!!
+        <!--level 1-->{elseif $op == "ok"}
+        <form action="" method="post" class="content-op-ok">
+            <div class="weui-form-preview">
+                <!--level 2-->{if $type == "DEV"}
+                <div class="weui-form-preview__hd"><img src="./images/img_1.png" /></div>
+                <div class="weui-form-preview__bd">
+                    <div class="weui-form-preview__item">
+                        <label class="weui-form-preview__label">设备隶属部门</label>
+                        <span class="weui-form-preview__value">{$instance['department']}</span>
+                    </div>
+                    <div class="weui-form-preview__item">
+                        <label class="weui-form-preview__label">设备维护人</label>
+                        <span class="weui-form-preview__value">{$instance['maintain']}</span>
+                    </div>
+                    <div class="weui-form-preview__item">
+                        <label class="weui-form-preview__label">维护人联系方式</label>
+                        <span class="weui-form-preview__value">{$instance['contact']}</span>
+                    </div>
+                    <div class="weui-form-preview__item">
+                        <label class="weui-form-preview__label">经办人</label>
+                        <span class="weui-form-preview__value">{$instance['agent']}</span>
+                    </div>
+                    <div id="ok_item_more">
+                        <div class="weui-form-preview__item">
+                            <label class="weui-form-preview__label">设备产生批号</label>
+                            <span class="weui-form-preview__value">{$instance['productlot']}</span>
                         </div>
-                        <div class="form-group">
-                            <?php var_dump($id) ?>
+                        <div class="weui-form-preview__item">
+                            <label class="weui-form-preview__label">设备采购日期</label>
+                            <span class="weui-form-preview__value">{$instance['purchasedate']}</span>
                         </div>
-                        <div class="form-group">
-                            <?php var_dump($instance) ?>
+                        <div class="weui-form-preview__item">
+                            <label class="weui-form-preview__label">产品产地</label>
+                            <span class="weui-form-preview__value">{$instance['productarea']}</span>
                         </div>
-                        <div class="form-group">
-                            <label class="col-xs-12 col-sm-2 col-md-2 col-lg-1 control-label"></label>
-                            <div class="col-sm-4">
-                                <input type="hidden" name="token" value="{$_W['token']}" />
-                                <input type="hidden" name="id" value="{$id}" />
-                                <input type="hidden" value="check_once" name="op" />
-                                <input type="hidden" value="{$uid}" name="uid" />
-                                <input type="hidden" value="{$type}" name="type" />
-                                <input type="hidden" value="" name="status" />
-                                <input name="submit" type="submit" value="检查" class="btn btn-primary span3 btn-sm" />
-                            </div>
+                        <div class="weui-form-preview__item">
+                            <label class="weui-form-preview__label">采购金额</label>
+                            <span class="weui-form-preview__value">{$instance['purchaseamount']}</span>
                         </div>
-
+                        <div class="weui-form-preview__item">
+                            <label class="weui-form-preview__label">质保期内</label>
+                            <span class="weui-form-preview__value">{$instance['inqualityguard']}</span>
+                        </div>
+                        <div class="weui-form-preview__item">
+                            <label class="weui-form-preview__label">折旧年限</label>
+                            <span class="weui-form-preview__value">{$instance['depreciable']}</span>
+                        </div>
+                        <div class="weui-form-preview__item">
+                            <label class="weui-form-preview__label">折旧金额</label>
+                            <span class="weui-form-preview__value">{$instance['depreciableamount']}</span>
+                        </div>
+                        <div class="weui-form-preview__item">
+                            <label class="weui-form-preview__label">净残值</label>
+                            <span class="weui-form-preview__value">{$instance['netsalvage']}</span>
+                        </div>
+                        <div class="weui-form-preview__item">
+                            <label class="weui-form-preview__label">内存</label>
+                            <span class="weui-form-preview__value">{$instance['memory']}</span>
+                        </div>
+                        <div class="weui-form-preview__item">
+                            <label class="weui-form-preview__label">硬盘</label>
+                            <span class="weui-form-preview__value">{$instance['harddisk']}</span>
+                        </div>
+                        <div class="weui-form-preview__item">
+                            <label class="weui-form-preview__label">网卡</label>
+                            <span class="weui-form-preview__value">{$instance['network']}</span>
+                        </div>
+                        <div class="weui-form-preview__item">
+                            <label class="weui-form-preview__label">CPU</label>
+                            <span class="weui-form-preview__value">{$instance['CPU']}</span>
+                        </div>
                     </div>
                 </div>
-            </form>
-        </div>
-        {else}
-        <style>
-            .weui-form-preview__hd {
-                padding: 0;
-            }
-
-            .weui-form-preview__hd:after {
-                border-bottom: 0;
-            }
-
-            .weui-form-preview__hd img {
-                display: block;
-                width: 100%;
-            }
-
-            #pack_item_more {
-                height: 0;
-                opacity: 0;
-                overflow: hidden;
-            }
-        </style>
-        <form action="" method="post">
-            <div class="weui-form-preview">
+                <div class="weui-form-preview__ft">
+                    <input type="hidden" value="check_once" name="op" />
+                    <button type="submit" class="weui-form-preview__btn weui-form-preview__btn_primary">巡检正常</button>
+                    <button type="button" class="weui-form-preview__btn weui-form-preview__btn_default" id="ok_btn_more">展开详情</button>
+                </div>
+                <!--level 2-->{elseif $type == "LINE"}
+                <div class="weui-form-preview__hd"><img src="./images/img_2.png" /></div>
+                <div class="weui-form-preview__bd">
+                    <div class="weui-form-preview__item">
+                        <label class="weui-form-preview__label">本端物理端口</label>
+                        <span class="weui-form-preview__value">{$instance['localmac']}</span>
+                    </div>
+                    <div class="weui-form-preview__item">
+                        <label class="weui-form-preview__label">对端物理端口</label>
+                        <span class="weui-form-preview__value">{$instance['remotemac']}</span>
+                    </div>
+                    <div class="weui-form-preview__item">
+                        <label class="weui-form-preview__label">解读信息</label>
+                        <span class="weui-form-preview__value">{$instance['info']}</span>
+                    </div>
+                    <div class="weui-form-preview__item">
+                        <label class="weui-form-preview__label">线缆</label>
+                        <span class="weui-form-preview__value">{$instance['link']}</span>
+                    </div>
+                    <div id="ok_item_more">
+                        <div class="weui-form-preview__item">
+                            <label class="weui-form-preview__label">长度</label>
+                            <span class="weui-form-preview__value">{$instance['len']}</span>
+                        </div>
+                        <div class="weui-form-preview__item">
+                            <label class="weui-form-preview__label">材质</label>
+                            <span class="weui-form-preview__value">{$instance['material']}</span>
+                        </div>
+                        <div class="weui-form-preview__item">
+                            <label class="weui-form-preview__label">型号</label>
+                            <span class="weui-form-preview__value">{$instance['module']}</span>
+                        </div>
+                        <div class="weui-form-preview__item">
+                            <label class="weui-form-preview__label">供应端</label>
+                            <span class="weui-form-preview__value">{$instance['supply']}</span>
+                        </div>
+                        <div class="weui-form-preview__item">
+                            <label class="weui-form-preview__label">布放时间</label>
+                            <span class="weui-form-preview__value">{$instance['timedeploy']}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="weui-form-preview__ft">
+                    <input type="hidden" value="check_once" name="op" />
+                    <button type="submit" class="weui-form-preview__btn weui-form-preview__btn_primary">巡检正常</button>
+                    <button type="button" class="weui-form-preview__btn weui-form-preview__btn_default" id="ok_btn_more">展开详情</button>
+                </div>
+                <!--level 2-->{elseif $type == "PACK"}
                 <div class="weui-form-preview__hd"><img src="./images/img_3.png" /></div>
                 <div class="weui-form-preview__bd">
                     <div class="weui-form-preview__item">
@@ -87,7 +181,7 @@ $wx['url'] ='http://'.$_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ;
                         <label class="weui-form-preview__label">装箱单号</label>
                         <span class="weui-form-preview__value">{$instance['packno']}</span>
                     </div>
-                    <div id="pack_item_more">
+                    <div id="ok_item_more">
                         <div class="weui-form-preview__item">
                             <label class="weui-form-preview__label">长度</label>
                             <span class="weui-form-preview__value">{$instance['len']}</span>
@@ -127,22 +221,22 @@ $wx['url'] ='http://'.$_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ;
                     </div>
                 </div>
                 <div class="weui-form-preview__ft">
-                    <input type="hidden" name="token" value="{$_W['token']}" />
-                    <input type="hidden" name="id" value="{$id}" />
                     <input type="hidden" value="check_receive" name="op" />
-                    <input type="hidden" value="{$uid}" name="uid" />
-                    <input type="hidden" value="{$type}" name="type" />
-                    <input type="hidden" value="OK" name="status" />
                     <button type="submit" class="weui-form-preview__btn weui-form-preview__btn_primary">确认收货</button>
-                    <button type="button" class="weui-form-preview__btn weui-form-preview__btn_default" id="btn_pack_more">展开详情</button>
+                    <button type="button" class="weui-form-preview__btn weui-form-preview__btn_default" id="ok_btn_more">展开详情</button>
                 </div>
+                <!--level 2-->{/if}
             </div>
+            <input type="hidden" name="token" value="{$_W['token']}" />
+            <input type="hidden" name="id" value="{$id}" />
+            <input type="hidden" value="{$uid}" name="uid" />
+            <input type="hidden" value="{$type}" name="type" />
+            <input type="hidden" value="OK" name="status" />
         </form>
-        <script src="weui/dist/example/zepto.min.js"></script>
         <script>
             $(function () {
-                var btn = $('#btn_pack_more'),
-                    more = $('#pack_item_more'),
+                var btn = $('#ok_btn_more'),
+                    more = $('#ok_item_more'),
                     close = true;
                 btn.on('click', function () {
                     if (close) {
@@ -178,11 +272,11 @@ $wx['url'] ='http://'.$_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ;
                 });
             });
         </script>
-        {/if} {elseif $op == "redirect"}
+        <!--level 1-->{elseif $op == "redirect"}
         <script>
             window.location.href = "<?php echo $redirect; ?>";
         </script>
-        {else}
+        <!--level 1-->{else}
         <div class="weui-msg">
             <div class="weui-msg__text-area">
                 <h2 class="weui-msg__title">智慧机房</h2>
@@ -205,43 +299,44 @@ $wx['url'] ='http://'.$_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ;
                 </div>
             </div>
         </div>
-        <script src='http://res.wx.qq.com/open/js/jweixin-1.2.0.js'></script>
         <script>
-            var appIdstr = "{$wx['appId']}";
-            var timestampstr = "{$wx['timestamp']}";
-            var nonceStrstr = "{$wx['nonceStr']}";
-            var signaturestr = "{$wx['signature']}";
-            wx.config({
-                debug: false,
-                appId: appIdstr,
-                timestamp: timestampstr,
-                nonceStr: nonceStrstr,
-                signature: signaturestr,
-                jsApiList: [
-                    'scanQRCode'
-                ]
-            });
-            wx.ready(function () {
-                //扫描二维码
-            });
-
-            document.getElementById("btnScan").onclick = function fun() {
-                wx.scanQRCode({
-                    needResult: 1, //0是微信处理,1是结果
-                    desc: '我们自己来处理结果',
-                    scanType: ["qrCode", "barCode"],
-                    success: function (res) {
-                        var result = encodeURI(res.resultStr);
-                        var urlx = "{$_W['siteroot']}app/index.php?keyword=" + result + "&c=entry&do=line&i={$weid}&m=yoby_cha&id={$id}";
-                        window.location.href = urlx;
-                    }
+            $(function () {
+                var appIdstr = "{$wx['appId']}";
+                var timestampstr = "{$wx['timestamp']}";
+                var nonceStrstr = "{$wx['nonceStr']}";
+                var signaturestr = "{$wx['signature']}";
+                wx.config({
+                    debug: false,
+                    appId: appIdstr,
+                    timestamp: timestampstr,
+                    nonceStr: nonceStrstr,
+                    signature: signaturestr,
+                    jsApiList: [
+                        'scanQRCode'
+                    ]
                 });
-            };
-            document.getElementById("btnManual").onclick = function fun() {
-                window.location.href = "{$_W['siteroot']}app/index.php?c=entry&do=search&i={$weid}&m=yoby_cha";;
-            };
+                wx.ready(function () {
+                    //扫描二维码
+                });
+
+                document.getElementById("btnScan").onclick = function fun() {
+                    wx.scanQRCode({
+                        needResult: 1, //0是微信处理,1是结果
+                        desc: '我们自己来处理结果',
+                        scanType: ["qrCode", "barCode"],
+                        success: function (res) {
+                            var result = encodeURI(res.resultStr);
+                            var urlx = "{$_W['siteroot']}app/index.php?keyword=" + result + "&c=entry&do=line&i={$weid}&m=yoby_cha&id={$id}";
+                            window.location.href = urlx;
+                        }
+                    });
+                };
+                document.getElementById("btnManual").onclick = function fun() {
+                    window.location.href = "{$_W['siteroot']}app/index.php?c=entry&do=search&i={$weid}&m=yoby_cha";;
+                };
+            });
         </script>
-        {/if}
+        <!--level 1-->{/if}
 </body>
 
 </html>
