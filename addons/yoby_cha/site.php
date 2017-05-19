@@ -178,22 +178,22 @@ class Yoby_chaModuleSite extends WeModuleSite
                 include $this->template('login');
             }
             else{
-                var_dump(user_hash($passwd, ''), $userObj['password']);
                 if(user_hash($passwd, '') == $userObj['password']) {
                     pdo_update('yoby_cha_user', array('openid' => $_W['openid'], ), array('uid' => $userObj['uid']));
-//                        include $this->template('login');
-                    message('绑定成功！', $this->createWebUrl('login', array('op' => 'post')), 'success');
+                    $op = "ok";
+//                    message('绑定成功！', $this->createWebUrl('login', array('op' => 'post')), 'success');
                 }
                 else{
                     include $this->template('login');
                     $_GPC['op'] = "display";
-                    message('绑定失败！', $this->createWebUrl('login', array('op' => 'display')), 'success');
+                    $op = 'failed';
                 }
             }
         } else if ('display' == $op) {//显示
             $item = [];
-            include $this->template('login');
         }
+
+        include $this->template('login');
     }
 
     public function doMobileSearch(){

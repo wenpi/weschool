@@ -12,14 +12,14 @@
 </head>
 
 <body>
-    {if $op == "post"}
+    {if $op == "ok"}
     <script>
         alert('wait for 3s to exit');
         setTimeout(function () {
             WeixinJSBridge.call('closeWindow');
         }, 3000);
     </script>
-    {elseif $op == "display"}
+    {else}
     <form method="post" action="">
         <div class="weui-msg">
             <div class="weui-msg__text-area">
