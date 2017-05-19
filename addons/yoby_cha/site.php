@@ -329,7 +329,6 @@ class Yoby_chaModuleSite extends WeModuleSite
                             }
 
                             $receiveSQL = "select * from ".tablename('yoby_cha_check')." where weid=$weid and uid=$uid and checkid='$id' and type='$type' ";
-                            var_dump($receiveSQL);
                             $packReceive = pdo_fetch($receiveSQL);
                         }
                     }
@@ -352,7 +351,7 @@ class Yoby_chaModuleSite extends WeModuleSite
 
         if( !isWxBinded($_W['openid'], $weid) ){
             $op = 'redirect';
-            $redirect = "http://www.9kpu.com/app/index.php?i=$weid&c=entry&op=display&do=login&m=yoby_cha";
+            $redirect = $_W['siteroot'] . "/app/index.php?i=$weid&c=entry&op=display&do=login&m=yoby_cha";
         }
         else{
 
@@ -361,7 +360,7 @@ class Yoby_chaModuleSite extends WeModuleSite
                 $uid = pdo_fetchcolumn($queryUser);
                 if(empty($uid)){
                     $op = 'redirect';
-                    $redirect = "http://www.9kpu.com/app/index.php?i=$weid&c=entry&op=display&do=login&m=yoby_cha";
+                    $redirect = $_W['siteroot'] . "/app/index.php?i=$weid&c=entry&op=display&do=login&m=yoby_cha";
                 }
                 else{
                     $pindex = max(1, intval($_GPC['page']));
@@ -379,10 +378,9 @@ class Yoby_chaModuleSite extends WeModuleSite
                     $total = pdo_fetchcolumn($count);
                     $pager = pagination($total, $pindex, $psize);
 
-
                     $data = [];
-                    for($i=0;$i<count($list);$i++){
-                        $ins = $list[$i];
+                    for($iList=0;$iList<count($list);$iList++){
+                        $ins = $list[$iList];
                         
                         $s = json_decode($ins['s'], 1);
                         $bl = json_decode($ins['bl'], 1);
