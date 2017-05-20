@@ -7,9 +7,18 @@
     <base href="{$yobyurl}">
     <title>{$row['hd_title']}</title>
     <link rel="stylesheet" href="weui/dist/style/weui.min.css" />
+    <script src="weui/dist/example/zepto.min.js"></script>
     <style>
         body {
             background-color: #efeff4;
+        }
+
+        .weui-tab__panel>div {
+            display: none;
+        }
+
+        .weui-tab__panel>div.panel-show {
+            display: block;
         }
 
         .weui-form-preview {
@@ -30,35 +39,77 @@
 $wx = $_W['account']['jssdkconfig'];
 $wx['url'] ='http://'.$_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ;
 ?>
-        {loop $list $item}
-        <div class="weui-form-preview">
-            <div class="weui-form-preview__hd">
-                <div class="weui-form-preview__item">
-                    <label class="weui-form-preview__label">订单号</label>
-                    <em class="weui-form-preview__value">{$item['orderno']}</em>
+        <div class="weui-tab">
+            <div class="weui-navbar">
+                <div class="weui-navbar__item weui-bar__item_on">
+                    装箱单
+                </div>
+                <div class="weui-navbar__item">
+                    操作日志
                 </div>
             </div>
-            <div class="weui-form-preview__bd">
-                <div class="weui-form-preview__item">
-                    <label class="weui-form-preview__label">装箱单号</label>
-                    <span class="weui-form-preview__value">{$item['packno']}</span>
+            <div class="weui-tab__panel">
+                <div>
+                    {loop $listPackOrder $item}
+                    <div class="weui-form-preview">
+                        <div class="weui-form-preview__hd">
+                            <div class="weui-form-preview__item">
+                                <label class="weui-form-preview__label">订单号</label>
+                                <em class="weui-form-preview__value">{$item['orderno']}</em>
+                            </div>
+                        </div>
+                        <div class="weui-form-preview__bd">
+                            <div class="weui-form-preview__item">
+                                <label class="weui-form-preview__label">装箱单号</label>
+                                <span class="weui-form-preview__value">{$item['packno']}</span>
+                            </div>
+                            <div class="weui-form-preview__item">
+                                <label class="weui-form-preview__label">发货日期</label>
+                                <span class="weui-form-preview__value">{$item['deliverydate']}</span>
+                            </div>
+                            <div class="weui-form-preview__item">
+                                <label class="weui-form-preview__label">收货日期</label>
+                                <span class="weui-form-preview__value">{$item['timecreate']}</span>
+                            </div>
+                        </div>
+                    </div>
+                    {/loop}
                 </div>
-                <div class="weui-form-preview__item">
-                    <label class="weui-form-preview__label">数量</label>
-                    <span class="weui-form-preview__value">{$item['amount']}</span>
-                </div>
-                <div class="weui-form-preview__item">
-                    <label class="weui-form-preview__label">发货日期</label>
-                    <span class="weui-form-preview__value">{$item['deliverydate']}</span>
-                </div>
-                <div class="weui-form-preview__item">
-                    <label class="weui-form-preview__label">收货日期</label>
-                    <span class="weui-form-preview__value">{$item['timedeploy']}</span>
+                <div>
+                    {loop $listDevLineOrder $item}
+                    <div class="weui-form-preview">
+                        <div class="weui-form-preview__bd">
+                            <div class="weui-form-preview__item">
+                                <label class="weui-form-preview__label">单号</label>
+                                <span class="weui-form-preview__value">{$item['id']}</span>
+                            </div>
+                            <div class="weui-form-preview__item">
+                                <label class="weui-form-preview__label">状态</label>
+                                <span class="weui-form-preview__value">
+                                    {if $item['status'] == "OK"}
+                                    正常
+                                    {else}
+                                    故障
+                                    {/if}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    {/loop}
                 </div>
             </div>
         </div>
-        {/loop}
-
+        <script>
+            $(function () {
+                $('.weui-navbar__item').on('click', function () {
+                    var index = $(this).index();
+                    $('.weui-bar__item_on').removeClass('weui-bar__item_on');
+                    $(this).addClass('weui-bar__item_on');
+                    $('.weui-tab__panel>div').removeClass('panel-show');
+                    $('.weui-tab__panel>div').eq(index).addClass('panel-show');
+                });
+            });
+        </script>
 </body>
 
 </html>
