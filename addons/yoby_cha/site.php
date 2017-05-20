@@ -105,6 +105,33 @@ function isWxBinded($openid, $weid)
     return !empty($uid);
 }
 
+function ObjectableOrder($list)
+{
+    $data = [];
+    for($iList=0;$iList<count($list);$iList++){
+        $ins = $list[$iList];
+
+        $s = json_decode($ins['s'], 1);
+        $bl = json_decode($ins['bl'], 1);
+        for ($i = 0; $i < count($s); $i++) {
+            $mapping[$s[$i]['var']] = $bl[$i];
+        }
+        $id = $mapping['productlot'];
+        if(empty($id)){
+            $id = $mapping['orderno'];
+        }
+        if(empty($id)){
+            $id = $mapping['localmac'];
+        }
+        $mapping['id'] = $id;
+        $mapping['type'] = $ins['type'];
+        $mapping['timecreate'] = $ins.timecreate;
+
+        array_push($data, $mapping);
+    }
+    return $data;
+}
+
 class Yoby_chaModuleSite extends WeModuleSite
 {
 
@@ -211,6 +238,7 @@ class Yoby_chaModuleSite extends WeModuleSite
         }
         else{
             $key = $_GPC['keyword'];
+            $type = $_GPC['type'];
             if (!empty($_GPC['keyword'])) {
                 $queryRule = "select usr.uid, rule.value, usr.projectid from " . tablename('yoby_cha_user') . " as usr 
                 inner join " . tablename('yoby_cha_rule') . " as rule on usr.uid=rule.uid 
@@ -224,10 +252,15 @@ class Yoby_chaModuleSite extends WeModuleSite
                     $projectid = $result['projectid'];
                     $rule = $result['value'];
                     $queryIns = "select tb.s, dt.bl, tb.type from " . tablename('yoby_cha_data') . " as dt 
-                        inner join " . tablename('yoby_cha_table') . " as tb on dt.cid=tb.id where dt.title like '%$key%' and dt.weid=$weid and dt.projectid=$projectid";
+                         inner join " . tablename('yoby_cha_table') . " as tb on dt.cid=tb.id 
+                         where dt.title like '%$key%' and dt.weid=$weid and dt.projectid=$projectid";
                     if ($rule != '*') {
                         $queryIns .= " and cid in($rule)";
                     }
+                    if(!empty($type)){
+                        $queryIns .= " and tb.type='{$type}'";
+                    }
+
                     $result = pdo_fetchall($queryIns);
                     if (empty($result)) {
                         $op = 'failed';
@@ -281,10 +314,12 @@ class Yoby_chaModuleSite extends WeModuleSite
             if($op == 'check_once'){
                 $timecreate = time();
                 pdo_insert('yoby_cha_check', array('status'=>$_GPC['status'], 'uid'=>$_GPC['uid'], 'weid' => $weid, 'checkid' => $_GPC['id'], 'type' => $_GPC['type'], 'timecreate' => $timecreate));//添加数据
+                $op = 'ok';
             }
             else if($op == 'check_receive'){
                 $timecreate = time();
                 pdo_insert('yoby_cha_check', array('status'=>$_GPC['status'], 'uid'=>$_GPC['uid'], 'weid' => $weid, 'checkid' => $_GPC['id'], 'type' => $_GPC['type'], 'timecreate' => $timecreate));//添加数据
+                $op = 'ok';
             }
             else {
                 $key = $_GPC['keyword'];
@@ -292,6 +327,7 @@ class Yoby_chaModuleSite extends WeModuleSite
                     $queryRule = "select usr.uid, rule.value, usr.projectid from " . tablename('yoby_cha_user') . " as usr 
                     inner join " . tablename('yoby_cha_rule') . " as rule on usr.uid=rule.uid 
                      where usr.openid='" . $_W['openid'] . "' and rule.type='DB'";
+
                     $result = pdo_fetch($queryRule);
                     if (!count($result['value'])) {
                         $op = 'failed';
@@ -300,7 +336,7 @@ class Yoby_chaModuleSite extends WeModuleSite
                         $uid = $result['uid'];
                         $projectid = $result['projectid'];
                         $rule = $result['value'];
-                        $queryIns = "select tb.s, dt.bl, tb.type from " . tablename('yoby_cha_data') . " as dt 
+                        $queryIns = "select dt.id, tb.s, dt.bl, tb.type from " . tablename('yoby_cha_data') . " as dt 
                             inner join " . tablename('yoby_cha_table') . " as tb on dt.cid=tb.id where dt.title='$key' and dt.weid=$weid and dt.projectid=$projectid";
                         if ($rule != '*') {
                             $queryIns .= " and cid in($rule)";
@@ -320,13 +356,14 @@ class Yoby_chaModuleSite extends WeModuleSite
                             }
                             $instance = $mapping;
                             $type = $ins['type'];
-                            $id = $mapping['productlot'];
-                            if(empty($id)){
-                                $id = $mapping['orderno'];
-                            }
-                            if(empty($id)){
-                                $id = $mapping['localmac'];
-                            }
+                            $id = $ins['id'];
+//                            ['productlot'];
+//                            if(empty($id)){
+//                                $id = $mapping['orderno'];
+//                            }
+//                            if(empty($id)){
+//                                $id = $mapping['localmac'];
+//                            }
 
                             $receiveSQL = "select * from ".tablename('yoby_cha_check')." where weid=$weid and uid=$uid and checkid='$id' and type='$type' ";
                             $packReceive = pdo_fetch($receiveSQL);
@@ -366,43 +403,24 @@ class Yoby_chaModuleSite extends WeModuleSite
                     $pindex = max(1, intval($_GPC['page']));
                     $psize = 20;//每页显示
 
-
-
-                    $queryOrder = "select ck.type, timecreate, dt.bl, tb.s from ".tablename('yoby_cha_check')." as ck 
-                            inner join ".tablename('yoby_cha_data')." as dt on dt.title=ck.checkid
+                    $queryPackOrder = "select ck.type, timecreate, dt.bl, tb.s from ".tablename('yoby_cha_check')." as ck 
+                            inner join ".tablename('yoby_cha_data')." as dt on dt.id=ck.checkid
                             INNER JOIN ims_yoby_cha_table as tb on dt.cid=tb.id 
-                            where ck.weid=$weid and uid=$uid ORDER BY timecreate LIMIT " . ($pindex - 1) * $psize . ',' . $psize;
+                            where ck.weid=$weid and uid=$uid and ck.type='PACK' ORDER BY timecreate LIMIT " . ($pindex - 1) * $psize . ',' . $psize;
+                    $queryDevLineOrder = "select ck.type, timecreate, dt.bl, tb.s from ".tablename('yoby_cha_check')." as ck 
+                            inner join ".tablename('yoby_cha_data')." as dt on dt.id=ck.checkid
+                            INNER JOIN ims_yoby_cha_table as tb on dt.cid=tb.id 
+                            where ck.weid=$weid and uid=$uid and ck.type IN('LINE','DEV') ORDER BY timecreate LIMIT " . ($pindex - 1) * $psize . ',' . $psize;
                     $count = 'SELECT COUNT(*) FROM ' . tablename('yoby_cha_check') . "  where weid=$weid and uid=$uid";
 
-                    $list = pdo_fetchall($queryOrder);//分页
+                    $resultPackOrder = pdo_fetchall($queryPackOrder);//分页
+                    $resultDevLineOrder = pdo_fetchall($queryDevLineOrder);//分页
                     $total = pdo_fetchcolumn($count);
                     $pager = pagination($total, $pindex, $psize);
 
                     $data = [];
-                    for($iList=0;$iList<count($list);$iList++){
-                        $ins = $list[$iList];
-                        
-                        $s = json_decode($ins['s'], 1);
-                        $bl = json_decode($ins['bl'], 1);
-                        for ($i = 0; $i < count($s); $i++) {
-                            $mapping[$s[$i]['var']] = $bl[$i];
-                        }
-                        $instance = $mapping;
-                        $type = $ins['type'];
-                        $id = $mapping['productlot'];
-                        if(empty($id)){
-                            $id = $mapping['orderno'];
-                        }
-                        if(empty($id)){
-                            $id = $mapping['localmac'];
-                        }
-                        $mapping['id'] = $id;
-                        $mapping['type'] = $ins.type;
-                        $mapping['timecreate'] = $ins.timecreate;
-
-                        array_push($data, $mapping);
-                    }
-                    $list = $data;
+                    $listPackOrder = ObjectableOrder($resultPackOrder);
+                    $listDevLineOrder = ObjectableOrder($resultDevLineOrder);
 
                     include $this->template('order');
                 }
