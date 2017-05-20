@@ -78,6 +78,18 @@
                 </p>
             </div>
         </div>
+        <!--level 1-->{elseif $op == "done"}
+        <div class="weui-msg">
+            <div class="weui-msg__icon-area"><i class="weui-icon-success weui-icon_msg"></i></div>
+            <div class="weui-msg__text-area">
+                <h2 class="weui-msg__title">操作成功</h2>
+            </div>
+            <div class="weui-msg__opr-area">
+                <p class="weui-btn-area">
+                    <a href="javascript:location.replace('/app/index.php?i={$weid}&c=entry&op=display&do=line&m=yoby_cha')" class="weui-btn weui-btn_primary">返回</a>
+                </p>
+            </div>
+        </div>
         <!--level 1-->{elseif $op == "ok"}
         <form action="" method="post" class="content-op-ok">
             <div class="weui-form-preview">
